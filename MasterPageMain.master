@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Easio Dashboard</title>
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -71,18 +72,19 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="Default.aspx"><img class="main-logo" src="img/easio-logo.png" alt="" /></a>
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+                <a href="Default.aspx">
+                    <span class="h3" style="color:darkred;"> <br />EASIO CMS </span><%--<img class="main-logo" src="img/easio-logo.png" alt="" />--%></a>
+                <%--<strong><img src="img/logo/logosn.png" alt="" /></strong>--%>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li class="active">
-                            <a class="has-arrow" href="Default.aspx">
+                            <a <%--class="has-arrow"--%> href="Default.aspx">
 								   <i class="fa big-icon fa-home icon-wrap"></i>
-								   <span class="mini-click-non">Ecommerce</span>
+								   <span class="mini-click-non">Dashboard</span>
 								</a>
-                            <ul class="submenu-angle" aria-expanded="true">
+                            <%--<ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="Dashboard v.1" href="Default.aspx"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.1</span></a></li>
                                 <li><a title="Dashboard v.2" href="index-1.html"><i class="fa fa-circle-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.2</span></a></li>
                                 <li><a title="Dashboard v.3" href="index-2.html"><i class="fa fa-cube sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.3</span></a></li>
@@ -93,7 +95,7 @@
                                 <li><a title="Product Payment" href="product-payment.html"><i class="fa fa-location-arrow sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Payment</span></a></li>
                                 <li><a title="Analytics" href="analytics.html"><i class="fa fa-line-chart sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Analytics</span></a></li>
                                 <li><a title="Widgets" href="widgets.html"><i class="fa fa-magnet sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Widgets</span></a></li>
-                            </ul>
+                            </ul>--%>
                         </li>
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-envelope icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
@@ -208,7 +210,7 @@
 												</button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                    <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n">
                                             <ul class="nav navbar-nav mai-top-nav">
                                                 <li class="nav-item"><a href="#" class="nav-link">Home</a>
@@ -222,9 +224,18 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                
+                                                <li class="nav-item">
+                                                    <span style="color:white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <span style="color:white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
+                                                </li>
+
                                                 <li class="nav-item dropdown">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-envelope-o adminpro-chat-pro" aria-hidden="true"></i><span class="indicator-ms"></span></a>
                                                     <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
@@ -338,16 +349,16 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															<i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
-															<span class="admin-name">Advanda Cro</span>
+															<span class="admin-name">Admin Name</span>
 															<i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                        <li><a href="register.html"><span class="fa fa-home author-log-ic"></span>Register</a>
-                                                        </li>
+                                                        <%--<li><a href="register.html"><span class="fa fa-home author-log-ic"></span>Register</a>
+                                                        </li>--%>
                                                         <li><a href="#"><span class="fa fa-user author-log-ic"></span>My Profile</a>
                                                         </li>
-                                                        <li><a href="lock.html"><span class="fa fa-diamond author-log-ic"></span> Lock</a>
-                                                        </li>
+                                                        <%--<li><a href="lock.html"><span class="fa fa-diamond author-log-ic"></span> Lock</a>
+                                                        </li>--%>
                                                         <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Settings</a>
                                                         </li>
                                                         <li><a href="login.html"><span class="fa fa-lock author-log-ic"></span>Log Out</a>
@@ -891,11 +902,11 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="breadcome-list">
-                                <div class="row">
+                                <%--<div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcome-heading">
                                             <form role="search" class="">
-                                                <input type="text" placeholder="Search..."  class="form-control">
+                                                <input type="text" placeholder="Search..." class="form-control">
                                                 <a href=""><i class="fa fa-search"></i></a>
                                             </form>
                                         </div>
@@ -908,7 +919,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
                     </div>
