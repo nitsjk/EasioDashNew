@@ -666,8 +666,8 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul class="collapse dropdown-header-top">
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="Default.aspx">Dashboard <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <%--<ul class="collapse dropdown-header-top">
                                                     <li><a href="#">Dashboard v.1</a></li>
                                                     <li><a href="#">Dashboard v.2</a></li>
                                                     <li><a href="#">Dashboard v.3</a></li>
@@ -678,9 +678,9 @@
                                                     <li><a href="#">Product Payment</a></li>
                                                     <li><a href="#">Analytics</a></li>
                                                     <li><a href="#">Widgets</a></li>
-                                                </ul>
+                                                </ul>--%>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#demo" href="#">Mailbox <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <li><a data-toggle="collapse" data-target="#demo" href="StudentDashboard.aspx">Students <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                                 <ul id="demo" class="collapse dropdown-header-top">
                                                     <li><a href="#">Inbox</a>
                                                     </li>
@@ -690,8 +690,8 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#others" href="#">Miscellaneous <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="others" class="collapse dropdown-header-top">
+                                            <li><a data-toggle="collapse" data-target="#others" href="Class.aspx">Class <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <%--<ul id="others" class="collapse dropdown-header-top">
                                                     <li><a href="#">File Manager</a></li>
                                                     <li><a href="#">Contacts Client</a></li>
                                                     <li><a href="#">Project</a></li>
@@ -700,10 +700,10 @@
                                                     <li><a href="#">Blog Details</a></li>
                                                     <li><a href="#">404 Page</a></li>
                                                     <li><a href="#">500 Page</a></li>
-                                                </ul>
+                                                </ul>--%>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Interface <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
+                                            <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="Subjects.aspx">Subjects<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <%--<ul id="Miscellaneousmob" class="collapse dropdown-header-top">
                                                     <li><a href="#">Google Map</a>
                                                     </li>
                                                     <li><a href="#">Data Maps</a>
@@ -720,36 +720,21 @@
                                                     </li>
                                                     <li><a href="#">Images Cropper</a>
                                                     </li>
-                                                </ul>
+                                                </ul>--%>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Chartsmob" href="#">Charts <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Chartsmob" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Bar Charts</a>
-                                                    </li>
-                                                    <li><a href="#">Line Charts</a>
-                                                    </li>
-                                                    <li><a href="#">Area Charts</a>
-                                                    </li>
-                                                    <li><a href="#">Rounded Charts</a>
-                                                    </li>
-                                                    <li><a href="#">C3 Charts</a>
-                                                    </li>
-                                                    <li><a href="#">Sparkline Charts</a>
-                                                    </li>
-                                                    <li><a href="#">Peity Charts</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a data-toggle="collapse" data-target="#Tablesmob" href="#">Tables <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Tablesmob" class="collapse dropdown-header-top">
+                                            
+
+                                            <li><a data-toggle="collapse" data-target="#Tablesmob" href="Result.aspx">Results <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <%--<ul id="Tablesmob" class="collapse dropdown-header-top">
                                                     <li><a href="#">Static Table</a>
                                                     </li>
                                                     <li><a href="#">Data Table</a>
                                                     </li>
-                                                </ul>
+                                                </ul>--%>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#formsmob" href="#">Forms <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="formsmob" class="collapse dropdown-header-top">
+
+                                            <li><a data-toggle="collapse" data-target="#formsmob" href="att">Attendence <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <%--<ul id="formsmob" class="collapse dropdown-header-top">
                                                     <li><a href="#">Basic Form Elements</a>
                                                     </li>
                                                     <li><a href="#">Advanced Form Elements</a>
@@ -762,10 +747,11 @@
                                                     </li>
                                                     <li><a href="#">Dual List Box</a>
                                                     </li>
-                                                </ul>
+                                                </ul>--%>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Appviewsmob" href="#">App views <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Appviewsmob" class="collapse dropdown-header-top">
+
+                                            <li><a data-toggle="collapse" data-target="#Appviewsmob" href="Transport.aspx">Transport <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                               <%-- <ul id="Appviewsmob" class="collapse dropdown-header-top">
                                                     <li><a href="#">Basic Form Elements</a>
                                                     </li>
                                                     <li><a href="#">Advanced Form Elements</a>
@@ -778,10 +764,11 @@
                                                     </li>
                                                     <li><a href="#">Dual List Box</a>
                                                     </li>
-                                                </ul>
+                                                </ul>--%>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Pagemob" class="collapse dropdown-header-top">
+
+                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Fee.aspx">Fee <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                               <%-- <ul id="Pagemob" class="collapse dropdown-header-top">
                                                     <li><a href="#">Login</a>
                                                     </li>
                                                     <li><a href="#">Register</a>
@@ -790,8 +777,37 @@
                                                     </li>
                                                     <li><a href="#">Password Recovery</a>
                                                     </li>
-                                                </ul>
+                                                </ul>--%>
                                             </li>
+
+                                            
+                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Employee.aspx">Employee <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                </li>
+
+                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Payroll.aspx">Pay Roll <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                </li>
+
+                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Library.aspx">Library <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                </li>
+
+                                               <li><a data-toggle="collapse" data-target="#Pagemob" href="Teacher-Log.aspx">Teacher Log <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                </li>
+
+                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="AdminLog.aspx">Admin <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                </li>
+
+                                             <li><a data-toggle="collapse" data-target="#Pagemob" href="Health.aspx">Health<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                </li>
+
+                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Pro.aspx">PRO <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                </li>
+
+
+
+
+
+
+
                                         </ul>
                                     </nav>
                                 </div>

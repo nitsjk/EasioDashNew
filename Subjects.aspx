@@ -23,8 +23,8 @@
                               <li>
                                 <a href="Subjects.aspx" aria-expanded="false"><i class="fa fa-book"></i>&nbsp;&nbsp; Subjects</a>
                                 
-                                  <li class="" > 
-                                      <a> Add Subject</a>                                     
+                                  <li style="padding-left:30px;" > 
+                                      <a> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> Add Subject</a>                                     
                             </li>
 
 
