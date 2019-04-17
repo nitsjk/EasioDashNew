@@ -14,15 +14,13 @@
                             </li>
 
                             <li>
-                                <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-money"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
+                                <a  href="#" aria-expanded="false"><i class="fa fa-money"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="Bar Charts" href="#"><i class="fa fa-line-chart sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Bar Charts</span></a></li>
-                                    <li><a title="Line Charts" href="#"><i class="fa fa-area-chart sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Line Charts</span></a></li>
-                                    <li><a title="Area Charts" href="#"><i class="fa fa-pie-chart sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Area Charts</span></a></li>
-                                    <li><a title="Rounded Charts" href="#"><i class="fa fa-signal sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Rounded Charts</span></a></li>
-                                    <li><a title="C3 Charts" href="#"><i class="fa fa-barcode sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">C3 Charts</span></a></li>
-                                    <li><a title="Sparkline Charts" href="#"><i class="fa fa-sort-amount-desc sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Sparkline Charts</span></a></li>
-                                    <li><a title="Peity Charts" href="#"><i class="fa fa-object-ungroup sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Peity Charts</span></a></li>
+                                    <li><a title="Bar Charts" href="#"><i class="fa fa-line-chart sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Fee Details</span></a></li>
+                                    <li><a title="Line Charts" href="#"><i class="fa fa-area-chart sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Fee Paid</span></a></li>
+                                    <li><a title="Area Charts" href="#"><i class="fa fa-pie-chart sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Fee Pending</span></a></li>
+                                    <li><a title="Rounded Charts" href="#"><i class="fa fa-signal sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Late Fee</span></a></li>
+                                
                                 </ul>
                             </li>
 

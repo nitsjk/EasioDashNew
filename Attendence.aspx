@@ -13,14 +13,14 @@
                             </li>
 
                             <li>
-                                <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-book"></i><span class="mini-click-non">&nbsp;&nbsp; Attendence</span></a>
+                                <a  href="#" aria-expanded="false"><i class="fa fa-book"></i><span class="mini-click-non">&nbsp;&nbsp; Attendence</span></a>
+
                                 <ul class="submenu-angle" aria-expanded="false">
                                     <li><a title="Notifications" href="#"><i class="fa fa-external-link-square sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Notifications</span></a></li>
-                                    <li><a title="Alerts" href="#"><i class="fa fa-crop sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Alerts</span></a></li>
-                                    <li><a title="Modals" href="#"><i class="fa fa-building sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Modals</span></a></li>
-                                    <li><a title="Buttons" href="#"><i class="fa fa-adjust sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Buttons</span></a></li>
+                                   
+                                    <li><a title="Buttons" href="#"><i class="fa fa-adjust sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">View Attedence</span></a></li>
                                     <li><a title="Tabs" href="#"><i class="fa fa-eye sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Tabs</span></a></li>
-                                    <li><a title="Accordion" href="#"><i class="fa fa-life-ring sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Accordion</span></a></li>
+                                    <li><a title="Accordion" href="#"><i class="fa fa-life-ring sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">View Leaves</span></a></li>
                                 </ul>
                             </li>
 

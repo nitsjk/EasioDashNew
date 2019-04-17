@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Lock.aspx.cs" Inherits="Lock" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="AdminLog.aspx.cs" Inherits="Lock" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
 

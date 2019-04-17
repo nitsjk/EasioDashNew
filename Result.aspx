@@ -13,15 +13,15 @@
                                 </a>                               
                             </li>
 
-
-
-                              <li>
-                                <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-file-text-o"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
-                                <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="Peity Charts" href="#"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Static Table</span></a></li>
-                                    <li><a title="Data Table" href="#"><i class="fa fa-th sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Data Table</span></a></li>
-                                </ul>
+                            <li>
+                                <a href="Result.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Result</a>
+                               
                             </li>
+
+                              
+                                
+                                   <li> <a>View Result</a> </li>
+                                   <li> <a>Delete Result</a> </li>
 
 
                                            </ul>
