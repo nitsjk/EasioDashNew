@@ -49,8 +49,8 @@
 
        <asp:DropDownList ID="dllGender" runat="server">
            <asp:ListItem Value="-1">--Select Gender--</asp:ListItem>
-           <asp:ListItem Value="1">Male</asp:ListItem>
-           <asp:ListItem Value="2">Female</asp:ListItem>
+           <asp:ListItem Value="Male">Male</asp:ListItem>
+           <asp:ListItem Value="Female">Female</asp:ListItem>
        </asp:DropDownList>
 
        <br />  <br />

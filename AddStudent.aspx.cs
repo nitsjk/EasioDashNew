@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Nits.Common;
 using Nits.Model;
-using Nits.Bll; 
+using Nits.BLL; 
 
 
 public partial class AddStudent : System.Web.UI.Page
@@ -31,7 +31,7 @@ public partial class AddStudent : System.Web.UI.Page
             sm.StudentName = txtName.Text;
             //sm.Gender = txtGender.Text;
 
-            sm.Gender = dllGender.SelectedItem.Text;
+            sm.Gender = dllGender.SelectedValue;
             string s = sb.StudentDetail(sm);
             lblSucess.Text = s;        }
         catch (Exception ex)
