@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Nits.Common;
 using Nits.Model;
-using Nits.Bll; 
+using Nits.BLL; 
 
 
 public partial class AddStudent : System.Web.UI.Page
@@ -36,7 +36,7 @@ public partial class AddStudent : System.Web.UI.Page
             lblSucess.Text = s;        }
         catch (Exception ex)
         {
-            lblDanger.Text = ex.ToString();
+/*           vv*/ lblDanger.Text = ex.ToString();
         }
 
         
