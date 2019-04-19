@@ -18,9 +18,22 @@ public partial class ViewClass : System.Web.UI.Page
 
     public void getAllClasses()
     {
-      List<ClassModel> ds = dal.getAllClasses();
-        grdView.DataSource = ds;
-        grdView.DataBind();
+        try
+        {
+            List<ClassModel> ds = dal.getAllClasses();
+            if (ds.Count > 0)
+            {
+                grdView.DataSource = ds;
+                grdView.DataBind();
+            }
+        }
+
+        catch (Exception ex)
+
+        {
+            Response.Write(ex);
+        }
+        Response.Write("Failed");
 
     }
 }

@@ -6,6 +6,10 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
 
-    <asp:GridView ID="grdView" runat="server"></asp:GridView>
+    <asp:GridView ID="grdView" runat="server">
+        <Columns>
+            <asp:BoundField HeaderText="Class" DataField="ClassName" />
+        </Columns>
+    </asp:GridView>
 </asp:Content>
 

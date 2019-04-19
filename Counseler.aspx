@@ -2,6 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
 
+    <div class="sidebar-header">
+                    <a href="#">         
+                            
+                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
+
+                        </a>           
+                                 
+
+                </div>
+
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">

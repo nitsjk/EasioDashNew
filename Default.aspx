@@ -1,6 +1,17 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="conentsidemenu" runat="server" ContentPlaceHolderID="contentSide">
+
+    <div class="sidebar-header">
+                    <a href="#">         
+                            
+                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
+
+                        </a>           
+                                 
+
+                </div>
+
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
 
                     <nav class="sidebar-nav left-sidebar-menu-pro">

@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Transport.aspx.cs" Inherits="Transport" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
+
+    <div class="sidebar-header">
+                    <a href="#">         
+                            
+                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
+
+                        </a>           
+                                 
+
+                </div>
+
     <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">

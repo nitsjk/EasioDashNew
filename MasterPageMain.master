@@ -65,12 +65,7 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <style>
-        .logo1 {
-            height:110px;
-            width:130px;
-        }
-    </style>
+    
 </head>
 
 <body style="margin-top:0px">
@@ -80,20 +75,7 @@
     <form runat="server">
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
-                <div class="sidebar-header">
-                    <a href="#">
-                            
-                        <%--<div id="divProfilePic" style="background-image:url(easio-logo2.png);height:80px;background-size:cover">
-                                
-                                         
-                             </div> --%>                          
-                            
-                        <div><img  class="logo1" src="img/easio-logo2.png"/></div>
-
-                        </a>           
-                                 
-
-                </div>
+                
 
                 
                 <asp:ContentPlaceHolder ID="contentSide" runat="server"></asp:ContentPlaceHolder>

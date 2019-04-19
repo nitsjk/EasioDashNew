@@ -18,7 +18,7 @@
                                 <a href="StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              
                             </li>
                                 
-                            <li class="a-inner" > <a href="AddStudent.aspx"s><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Add Student </span></a> </li>
+                            <li class="a-inner" > <a href="../Student/addstudent.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Add Student </span></a> </li>
                         
                             <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Student Report</span></a> </li>
                             
