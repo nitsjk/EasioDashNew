@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Library.aspx.cs" Inherits="Library" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-
+    <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
       <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
@@ -11,14 +11,17 @@
                                     <span class="mini-click-non">Dashboard</span>
                                 </a>                               
                             </li>
-                        <li><a title="Landing Page" href="Library.aspx" aria-expanded="false"><i class="fa fa-sticky-note" aria-hidden="true"></i><span class="mini-click-non">&nbsp;&nbsp; Library</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Login" href="#"><i class="fa fa-hand-rock-o sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro"> Total Books</span></a></li>
-                                <li><a title="Register" href="#"><i class="fa fa-plane sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Books Issued</span></a></li>
-                                <li><a title="Lock" href="#"><i class="fa fa-file sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Fine On Books</span></a></li>
+                       <li class="b-inner">
+                                <a href="Library.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Library</a>                              
+                            </li>                          
+                        
+                            <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Add</span></a> </li>
+                            
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right text-right i-class"></i>
+                                       <span class="inner-span"> Delete</span> </a> </li>
+
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > View </span></a> </li>
                                
-                            </ul>
-                        </li>
 
                             </ul>
                         </nav>

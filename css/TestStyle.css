@@ -1,0 +1,38 @@
+﻿body {
+}
+
+
+       .i-class {
+           font-size:12px;
+       }
+
+    .a-inner{
+        padding-left:30px;
+        font-size:8pt;
+        color:springgreen;
+        height:30px;
+        vertical-align:middle;
+    
+    }
+    .b-inner{
+        padding-left:0px;
+        font-size:16pt;
+        color:springgreen;
+        height:30px;   
+    }
+
+    .a-inner a:hover {
+    color: #f8f9fa;
+    text-decoration: none;
+    background: #e12503;
+    height:30px;
+    line-height:3px;
+    margin-bottom:10px;
+    vertical-align:middle;
+}
+       .inner-span {
+           font-size:10pt;
+       }
+
+   
+ 

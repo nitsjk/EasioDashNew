@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Health.aspx.cs" Inherits="Health" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-
+    <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
@@ -13,9 +13,17 @@
                                 
                             </li>
                             <li>
-                                <a class="has-arrow" href="StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>>&nbsp;&nbsp; Students</a>
-                               
+                                <a class="has-arrow" href="Health.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Health</a>                              
                             </li>
+                                                     
+                        
+                            <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Add </span></a> </li>
+                            
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right text-right i-class"></i>
+                                       <span class="inner-span"> Delete </span> </a> </li>
+
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span"> View  </span></a> </li>
+                               
                         </ul>
                     </nav>
                 </div>

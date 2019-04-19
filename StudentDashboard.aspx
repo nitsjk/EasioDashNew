@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="StudentDashboard.aspx.cs" Inherits="StudentDashboard" %>
 
+
 <asp:Content ID="content1" runat="server" ContentPlaceHolderID="contentSide">
+    <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
@@ -12,22 +14,29 @@
                                 
                             </li>
 
-                            <li>
-                                <a href="StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>
-                               
+                            <li class="b-inner">
+                                <a href="StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              
                             </li>
+                                
                             
                         
-                            <li style="padding-left:30px;"> <a><i class="fa fa-caret-square-o-right" style="font-size:14px"></i> Student Report</a> </li>
+                            <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Student Report</span></a> </li>
                             
-                                   <li style="padding-left:30px"> <a><i class="fa fa-caret-square-o-right text-right"></i> Student</a> </li>
-                                   <li style="padding-left:30px"> <a><i class="fa fa-caret-square-o-right"></i> Add Student</a> </li>
-                                   <li style="padding-left:30px"> <a><i class="fa fa-caret-square-o-right"></i> Student Report</a> </li>
-                                
-                        </ul>
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right text-right i-class"></i>
+                                       <span class="inner-span"> Student</span> </a> </li>
+
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Student Add Student </span></a> </li>
+                                   <li class="a-inner" > <a ><i class="fa fa-caret-square-o-right i-class"></i> <span class="inner-span" > Student Report</span></a> </li>
+                            </ul>                              
+                        
                     </nav>
                 </div>
 </asp:Content>
+
+
+
+
+
 <asp:Content ID="contenthead" runat="server" ContentPlaceHolderID="contentbody">
     <div class="header-advance-area">
                 <div class="header-top-area">
@@ -588,6 +597,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <!-- Mobile Menu start -->
                 <div class="mobile-menu-area">
                     <div class="container">
@@ -597,55 +608,180 @@
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
                                             <li><a data-toggle="collapse" data-target="#Charts" href="Default.aspx">Dashboard <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                
+                                                <%--<ul class="collapse dropdown-header-top">
+                                                    <li><a href="#">Dashboard v.1</a></li>
+                                                    <li><a href="#">Dashboard v.2</a></li>
+                                                    <li><a href="#">Dashboard v.3</a></li>
+                                                    <li><a href="#">Product List</a></li>
+                                                    <li><a href="#">Product Edit</a></li>
+                                                    <li><a href="#">Product Detail</a></li>
+                                                    <li><a href="#">Product Cart</a></li>
+                                                    <li><a href="#">Product Payment</a></li>
+                                                    <li><a href="#">Analytics</a></li>
+                                                    <li><a href="#">Widgets</a></li>
+                                                </ul>--%>
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#demo" href="StudentDashboard.aspx">Students <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                
+                                                <ul id="demo" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Student</a>
+                                                    </li>
+                                                    <li><a href="#">View Student</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Student</a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#others" href="Class.aspx">Class <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                               
+                                                <ul id="others" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Class</a></li>
+                                                    <li><a href="#">View Class</a></li>
+                                                    <li><a href="#">Delete Class</a></li>
+                                                </ul>
                                             </li>
+
+
                                             <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="Subjects.aspx">Subjects<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                
-                                           
+                                                <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Subject</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Subject</a>
+                                                    </li>
+                                                    <li><a href="#">View Subject</a>
+                                                    </li>
+                                                  </ul>
+                                            </li>
+                                            
 
                                             <li><a data-toggle="collapse" data-target="#Tablesmob" href="Result.aspx">Results <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                               
+                                                <ul id="Tablesmob" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Result</a>
+                                                    </li>
+                                                    <li><a href="#">View Result</a>
+                                                    </li>
+                                                </ul>
                                             </li>
 
-                                            <li><a data-toggle="collapse" data-target="#formsmob" href="att">Attendence <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                
+                                            <li><a data-toggle="collapse" data-target="#formsmob" href="Attendence.aspx">Attendence <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <ul id="formsmob" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Attedence</a>
+                                                    </li>
+                                                    <li><a href="#">View Attedence</a>
+                                                    </li>
+ 
+                                                </ul>
                                             </li>
 
                                             <li><a data-toggle="collapse" data-target="#Appviewsmob" href="Transport.aspx">Transport <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <ul id="Appviewsmob" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Transport</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Transport</a>
+                                                    </li>
+                                                    <li><a href="#">Total Transport</a>
+                                                    </li>
+                                                </ul>
                                              
-                                            </li>
+                                        </li>
 
                                             <li><a data-toggle="collapse" data-target="#Pagemob" href="Fee.aspx">Fee <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                              
+                                                <ul id="Pagemob" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Fee</a>
+                                                    </li>
+                                                    <li><a href="#">View Fee</a>
+                                                    </li>
+                                                    <li><a href="#">Pending Fee</a>
+                                                    </li>
+                                                    <li><a href="#">Late Fee</a>
+                                                    </li>
+                                                </ul>
                                             </li>
 
                                             
                                             <li><a data-toggle="collapse" data-target="#Pagemob" href="Employee.aspx">Employee <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <ul id="Employee" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Employee</a>
+                                                    </li>
+                                                    <li><a href="#">View Employee</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Employee</a>
+                                                    </li>
+                                                </ul>
+
+
                                                 </li>
 
                                             <li><a data-toggle="collapse" data-target="#Pagemob" href="Payroll.aspx">Pay Roll <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+
+
+                                                 <ul id="PayRoll" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Employee</a>
+                                                    </li>
+                                                    <li><a href="#">View Employee</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Employee</a>
+                                                    </li>
+                                                </ul>
+
                                                 </li>
 
                                             <li><a data-toggle="collapse" data-target="#Pagemob" href="Library.aspx">Library <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+
+
+                                                 <ul id="Library" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Book</a>
+                                                    </li>
+                                                    <li><a href="#">View Details</a>
+                                                    </li>
+                                                    <li><a href="#">Book Issued</a>
+                                                    </li>
+                                                </ul>
                                                 </li>
 
                                                <li><a data-toggle="collapse" data-target="#Pagemob" href="Teacher-Log.aspx">Teacher Log <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                    <ul id="TeacherLog" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Employee</a>
+                                                    </li>
+                                                    <li><a href="#">View Employee</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Employee</a>
+                                                    </li>
+                                                </ul>
                                                 </li>
 
                                             <li><a data-toggle="collapse" data-target="#Pagemob" href="AdminLog.aspx">Admin <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+
+                                                 <ul id="Admin" class="collapse dropdown-header-top">
+                                                    <li><a href="#">Add Employee</a>
+                                                    </li>
+                                                    <li><a href="#">View Employee</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Employee</a>
+                                                        <li><a href="#">Add Student</a>
+                                                    </li>
+                                                    <li><a href="#">View Student</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Student</a>
+                                                    </li>
+                                                </ul>
                                                 </li>
 
                                              <li><a data-toggle="collapse" data-target="#Pagemob" href="Health.aspx">Health<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                </li>
+                                                 <ul id="Health" class="collapse dropdown-header-top">
+                                                 <li><a href="#">View Details</a>
+                                                    </li>
+                                                     </ul>
+                                                    
 
                                             <li><a data-toggle="collapse" data-target="#Pagemob" href="Pro.aspx">PRO <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                                <ul id="Pro" class="collapse dropdown-header-top">
+                                                <li><a href="#">Add Employee</a>
+                                                    </li>
+                                                    <li><a href="#">View Employee</a>
+                                                    </li>
+                                                    <li><a href="#">Delete Employee</a>
                                                 </li>
+                                                    </ul>
+
 
 
 
@@ -661,6 +797,9 @@
                     </div>
                 </div>
                 <!-- Mobile Menu end -->
+
+
+
                 <div class="breadcome-area">
                     <div class="container-fluid">
                         <div class="row">
@@ -756,136 +895,7 @@
 
 
 
-                <%--<div class="product-new-list-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/5.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/6.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/7.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/5.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>--%>
+              
                 <div class="product-sales-area mg-tb-30">
                     <div class="container-fluid">
                         <div class="row">

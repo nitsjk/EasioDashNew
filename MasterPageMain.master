@@ -65,6 +65,12 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+        .logo1 {
+            height:110px;
+            width:130px;
+        }
+    </style>
 </head>
 
 <body style="margin-top:0px">
@@ -82,7 +88,7 @@
                                          
                              </div> --%>                          
                             
-                        <div><img src="img/easio-logo2.png" height="60px" width="200px" /></div>
+                        <div><img  class="logo1" src="img/easio-logo2.png"/></div>
 
                         </a>           
                                  
@@ -109,6 +115,11 @@
             </div>
             
             <asp:ContentPlaceHolder  runat="server" id="contentbody"></asp:ContentPlaceHolder>
+
+
+
+
+            <asp:ContentPlaceHolder runat="server" ID="contentDisplay"></asp:ContentPlaceHolder>
             
             <!-- Start Welcome area -->
             </div>

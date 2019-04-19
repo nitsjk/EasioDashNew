@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Pro.aspx.cs" Inherits="TimeTable" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-
+    <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
       <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
@@ -11,8 +11,21 @@
                                     <span class="mini-click-non">Dashboard</span>
                                 </a>                               
                             </li>
-                     <li>
-                                <a href="Subjects.aspx" aria-expanded="false"><i class="fa fa-book"></i>&nbsp;&nbsp; PRO</a>
+                     
+                                  <li class="b-inner">
+                                <a href="Pro.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; PRO</a>                              
+                            </li>                          
+                        
+                            <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Add </span></a> </li>
+                            
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right text-right i-class"></i>
+                                       <span class="inner-span"> Delete </span> </a> </li>
+
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > View </span></a> </li>
+                               
+
+
+
                             </ul>
                         </nav>
           </div>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Settings.aspx.cs" Inherits="Settings" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-
+    <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
   <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
@@ -11,12 +11,17 @@
                                     <span class="mini-click-non">Dashboard</span>
                                 </a>                               
                             </li>
-                            <li><a class="has-arrow" title="Landing Page" href="#" aria-expanded="false"><i class="fa fa-wrench" aria-hidden="true"></i><span class="mini-click-non">&nbsp;&nbsp; Settings</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Login" href="#"><i class="fa fa-hand-rock-o sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Login</span></a></li>
-                                <li><a title="Register" href="#"><i class="fa fa-plane sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Register</span></a></li>
-                                <li><a title="Lock" href="#"><i class="fa fa-file sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Lock</span></a></li>
-                                <li><a title="Password Recovery" href="#"><i class="fa fa-wheelchair sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Password Recovery</span></a></li>
+                            <li class="b-inner">
+                                <a href="Transport.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Transport</a>                              
+                            </li>                          
+                        
+                            <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Add </span></a> </li>
+                            
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right text-right i-class"></i>
+                                       <span class="inner-span"> Delete </span> </a> </li>
+
+                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > View </span></a> </li>
+                               
                             </ul>
                         </li>
 
