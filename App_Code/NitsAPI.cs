@@ -13,13 +13,11 @@ namespace NITS.API
         {
 
             //Hosted web API REST Service base url  
-            // string BaseUrl = "http://localhost/api/";
-            // string BaseUrl = "http://api.easio.in/api/";
-             string BaseUrl = "http://timetable.easio.in/api/";
+           
+             string BaseUrl = "http://fwcore.easio.in/api/";
 
 
-            //  string BaseUrl = "http://cmcore.easio.in/api/";
-            //string BaseUrl = "http://cmapi.easio.in/api/";
+           
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(BaseUrl);
             client.DefaultRequestHeaders.Clear();
