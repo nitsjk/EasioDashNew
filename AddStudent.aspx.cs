@@ -32,11 +32,12 @@ public partial class AddStudent : System.Web.UI.Page
             //sm.Gender = txtGender.Text;
 
             sm.Gender = dllGender.SelectedValue;
-            string s = sb.StudentDetail(sm);
-            lblSucess.Text = s;        }
+            string returnMessage = sb.StudentDetail(sm);
+            lblSucess.Text = returnMessage;
+        }
         catch (Exception ex)
         {
-/*           vv*/ lblDanger.Text = ex.ToString();
+ lblDanger.Text = ex.ToString();
         }
 
         

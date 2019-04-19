@@ -18,7 +18,7 @@ public partial class ViewClass : System.Web.UI.Page
 
     public void getAllClasses()
     {
-      List<ClassModel> ds = dal.getAllClasses();
+       List <ClassModel> ds = dal.getAllClasses();
         grdView.DataSource = ds;
         grdView.DataBind();
 

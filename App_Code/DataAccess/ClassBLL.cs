@@ -23,7 +23,8 @@ namespace Nits.BLL
 
 
             HttpResponseMessage response = hc.GetAsync("Classes").Result;
-            List<ClassModel> ds = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
+          List<ClassModel> ds = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
+
             return ds;
         }
     }
