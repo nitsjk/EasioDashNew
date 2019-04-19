@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 /// <summary>
 /// Data Access Leayer fro student
 /// </summary>
-namespace Nits.Bll
+namespace Nits.BLL
 {
     public class StudentBLL
     {
@@ -28,7 +28,14 @@ namespace Nits.Bll
                 }
                 else
                 {
-                    returnMessage = "Student Added Successfully";
+                    if (Model.Gender=="-1")
+                    {
+                        returnMessage = "gender is required";
+                    }
+                    else
+                    {
+                        returnMessage = "Student Added Successfully";
+                    }
                 }
             }
 
