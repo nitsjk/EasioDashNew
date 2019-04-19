@@ -22,7 +22,7 @@
                             
                                    <li class="a-inner"> <a> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Add Class </span></a> </li>
 
-                                   <li class="a-inner"> <a> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span">View Class</span></a> </li>
+                                   <li class="a-inner"> <a href="ViewClass.aspx"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span">View Class</span></a> </li>
                                    
 
 
