@@ -1,22 +1,4 @@
-/*-----------------------------------------------------------------------------------
 
-    Template Name: Your template name 
-    Template URI: http://bootexperts.com
-    Description: This is html5 template
-    Author: BootExperts
-    Author URI: http://bootexperts.com
-    Version: 1.0
-
------------------------------------------------------------------------------------
-    
-    CSS INDEX
-    ===================
-	
-    1. Theme Default CSS (body, link color, section etc)
-
------------------------------------------------------------------------------------*/
-
-/*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
 html, body {height: 100%; font-family: 'Play', sans-serif;font-weight:400;background:#f5f5f5;}
@@ -2186,8 +2168,8 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
     position: relative;
     display: table;
     border-collapse: separate;
-    top: -264px;
-    left: -255px;
+    /*top: -264px;
+    left: -255px;*/
 }
 .input-group-addon:first-child {
     border-right: 0;

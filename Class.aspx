@@ -1,37 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Class.aspx.cs" Inherits="_Class" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-    <div class="sidebar-header">
-                    <a href="Default.aspx">         
+    <%--<div class="sidebar-header">--%>
+                   <%-- <a href="Default.aspx">         
                             
                         <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
 
                         </a>           
                                  
 
-                </div>
+                </div>--%>
      <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
       <div class="left-custom-menu-adp-wrap comment-scrollbar">
+
+          
+                        <div>
+                           <a href="../Default.aspx">  <img  src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left:25px" /> </a>
+                        </div>
+
+                        
+
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
-                            <%--<li class="active">
-                                <a  href="Default.aspx">
-                                    <i class="fa big-icon fa-home icon-wrap"></i>
-                                    <span class="mini-click-non">Dashboard</span>
-                                </a>
-                                
-                            </li>--%>
-    
-
+                            
                            <li class="b-inner">
-                                <a href="Class.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>                               
+                                <a href="Class.aspx" aria-expanded="false" ><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>                               
                             </li>
 
                             
                             
-                                   <li class="a-inner"> <a href="Class/ManageClasses.aspx"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Classes </span></a> </li>
+                                   <li class="a-inner" style="display:table-row"> <a href="Class/ManageClasses.aspx" class="a-inner-middle" style="display:table-cell;
+   vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Classes </span></a> </li>
 
-                                   <li class="a-inner"> <a href="ViewClass.aspx"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span">View Class</span></a> </li>
+                                          <li class="a-inner" style="display:table-row"> <a href="Class/ManageSections.aspx" class="a-inner-middle" style="display:table-cell;
+   vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Sections </span></a> </li>
+
+                                   
                                    
 
 

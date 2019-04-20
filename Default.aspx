@@ -35,13 +35,7 @@
 
                             <li>
                                 <a  href="Subjects.aspx" aria-expanded="false"><i class="fa fa-book"></i><span class="mini-click-non">&nbsp;&nbsp; Subjects</span></a>
-                                <%--<ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="File Manager" href="#"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">File Manager</span></a></li>
-                                    <li><a title="Blog" href="#"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Blog</span></a></li>
-                                    <li><a title="Blog Details" href="#"><i class="fa fa-tags sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Blog Details</span></a></li>
-                                    <li><a title="404 Page" href="#"><i class="fa fa-tint sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">404 Page</span></a></li>
-                                    <li><a title="500 Page" href="#"><i class="fa fa-tree sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">500 Page</span></a></li>
-                                </ul>--%>
+                                
                             </li>
 
 
@@ -1155,32 +1149,10 @@
 
                                                 </div>
                                             </div>
-                                            <%--                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="actions graph-rp">
-                                                <a href="#" class="btn btn-dark-blue btn-circle active tip-top" data-toggle="tooltip" title="Upload">
-                                                    <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-dark btn-circle active tip-top" data-toggle="tooltip" title="Refresh">
-                                                    <i class="fa fa-reply" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-blue-grey btn-circle active tip-top" data-toggle="tooltip" title="Delete">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>--%>
+                                            
                                         </div>
                                     </div>
-                                    <%--<ul class="list-inline cus-product-sl-rp">
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #24caa1;"></i>Bags</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #888;"></i>Shoes</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #ff7f5a;"></i>Jewelery</h5>
-                                    </li>
-                                </ul>--%>
+                                    
                                     <div id="extra-area-chart"></div>
                                 </div>
                             </div>

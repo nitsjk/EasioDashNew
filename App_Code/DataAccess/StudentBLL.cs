@@ -46,6 +46,7 @@ namespace Nits.BLL
         public string Department(DepartMentModel Model)
         {
             string returnMessage = "true";
+
              if(Model.ClassName=="" && Model.Department == "-1")
             {
                 returnMessage = "false";

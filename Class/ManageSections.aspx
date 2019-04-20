@@ -1,8 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="ManageClasses.aspx.cs" Inherits="Class_ManageClasses"  EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="ManageSections.aspx.cs" Inherits="Class_ManageSections" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-
-    
+<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">    
     
     
     <link href="../css/TestStyle.css" rel="stylesheet" />
@@ -167,9 +165,10 @@
                                    <li class="a-inner" style="display:table-row"> <a href="ManageClasses.aspx" class="a-inner-middle" style="display:table-cell;
    vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Classes </span></a> </li>
 
-                                                               <li class="a-inner" style="display:table-row"> <a href="ManageSections.aspx" class="a-inner-middle" style="display:table-cell;
+                                          <li class="a-inner" style="display:table-row"> <a href="ManageSections.aspx" class="a-inner-middle" style="display:table-cell;
    vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Sections </span></a> </li>
 
+                              
                                    
 
 
@@ -177,11 +176,10 @@
                             </ul>
                      </nav>
       </div>
-
-
 </asp:Content>
 
-
+<%--<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+</asp:Content>--%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
     <div class="header-top-area">
@@ -605,24 +603,24 @@
 
    
                                             <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" style="margin-top:25px">
-                                                <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" style="margin-left:40px"></asp:Label>
+                                                <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" style="margin-left:40px" ></asp:Label>
                                               
                                                 <fieldset>
-                                                    <legend>Add Classes</legend>
+                                                    <legend>Add Sections</legend>
                                                 
                                                 <div class="review-content-section" >
                     
                                                     
-                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">                                                                                                 <asp:DropDownList ID="ddlDepartments" runat="server" class="form-control" Width="330px" OnSelectedIndexChanged="ddlDepartments_SelectedIndexChanged" >
-            <asp:ListItem Value="-1">--Select Department--</asp:ListItem>
-            <asp:ListItem Value="1">Pre-Primary</asp:ListItem>
-            <asp:ListItem Value="2">Primary</asp:ListItem>
-            <asp:ListItem Value="3">Middle</asp:ListItem>
-            <asp:ListItem Value="4">High</asp:ListItem>
-            <asp:ListItem Value="5">Higher</asp:ListItem>           
+                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">                                                                                                 <asp:DropDownList ID="ddlClasses" runat="server" class="form-control" Width="330px"  >
+            <asp:ListItem Value="-1">--Select Class--</asp:ListItem>
+            <asp:ListItem Value="1">Pre-Nursery</asp:ListItem>
+            <asp:ListItem Value="2">Nursery</asp:ListItem>
+            <asp:ListItem Value="3">K.G</asp:ListItem>
+            <asp:ListItem Value="4">1st</asp:ListItem>
+            <asp:ListItem Value="5">2nd</asp:ListItem>           
            </asp:DropDownList>
                                                  &nbsp
-                                                       <asp:Label ID="lblDepartmentStatus" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>
+                                                       <asp:Label ID="lblClass" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>
                                                    
                                                     
         </div>
@@ -633,8 +631,8 @@
 
 
                                                         <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ForeColor="Black" Width=290px  placeholder="Enter Class"></asp:TextBox> &nbsp
-                                                        <asp:Label ID="lblClassStatus" runat="server" ForeColor="Red" Font-Size="Large"  ></asp:Label>
+                                                        <asp:TextBox ID="txtSection" runat="server" CssClass="form-control" ForeColor="Black" Width=290px  placeholder="Enter Section"></asp:TextBox> &nbsp
+                                                        <asp:Label ID="lblSection" runat="server" ForeColor="Red" Font-Size="Large"  ></asp:Label>
                                                     </div>
                                              
 
@@ -646,8 +644,8 @@
 
                                                         <div class="form-group review-pro-edt" style="margin-left:52px">
                                                             
-                                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" />
-                                                            <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
+                                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click"  />
+                                                             <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary"  OnClick="btnReset_Click" />
                                                             
                                                         </div> 
                                                        </fieldset> 
@@ -655,34 +653,7 @@
                                                     </div>
                                
 
-    <%--<div style="margin-left:20px" class="col-md-12">
-
-        <br />
-         
-        
-
-        
-        <br /> <br />
-       
-       
-
-        <asp:GridView ID="grdDisplay" runat="server" AutoGenerateColumns="False" EmptyDataText="No Data Found">
-
-            <Columns>
-
-
-                <asp:TemplateField HeaderText="Department"></asp:TemplateField>
-                <asp:TemplateField HeaderText="Text"></asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-    </div>--%>
-
    
 
 
 </asp:Content>
-
-
-<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
-</asp:Content>
-
