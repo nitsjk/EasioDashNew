@@ -2186,6 +2186,8 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
     position: relative;
     display: table;
     border-collapse: separate;
+    top: -264px;
+    left: -255px;
 }
 .input-group-addon:first-child {
     border-right: 0;

@@ -4,11 +4,7 @@
     
     <div class="sidebar-header">
                     <a href="#">
-                            
-                        <%--<div id="divProfilePic" style="background-image:url(easio-logo2.png);height:80px;background-size:cover">
-                                
-                                         
-                             </div> --%>                          
+                                                   
                             
                         <div><img  src="../img/easio-logo2.png" height="110px" width="130px" /></div>
 
@@ -148,6 +144,7 @@
                                 </a>
                                 
                             </li>
+                            
 
                             <li class="b-inner">
                                 <a href="../StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              

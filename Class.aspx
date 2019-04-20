@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
     <div class="sidebar-header">
-                    <a href="#">         
+                    <a href="Default.aspx">         
                             
                         <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
 
@@ -14,22 +14,22 @@
       <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
-                            <li class="active">
+                            <%--<li class="active">
                                 <a  href="Default.aspx">
                                     <i class="fa big-icon fa-home icon-wrap"></i>
                                     <span class="mini-click-non">Dashboard</span>
                                 </a>
                                 
-                            </li>
+                            </li>--%>
     
 
                            <li class="b-inner">
                                 <a href="Class.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>                               
                             </li>
 
-
                             
-                                   <li class="a-inner"> <a> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Add Class </span></a> </li>
+                            
+                                   <li class="a-inner"> <a href="Class/ManageClasses.aspx"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Classes </span></a> </li>
 
                                    <li class="a-inner"> <a href="ViewClass.aspx"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span">View Class</span></a> </li>
                                    

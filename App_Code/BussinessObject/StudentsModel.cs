@@ -15,4 +15,11 @@ namespace Nits.Model
         public string Gender { get; set; }
 
     }
+
+
+    public class DepartMentModel
+    {
+        public string  ClassName { get; set; }
+        public  String Department { get; set; }
+    }
 }

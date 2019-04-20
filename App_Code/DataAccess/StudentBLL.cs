@@ -28,7 +28,7 @@ namespace Nits.BLL
                 }
                 else
                 {
-                    if (Model.Gender=="-1")
+                    if (Model.Gender == "-1")
                     {
                         returnMessage = "gender is required";
                     }
@@ -39,8 +39,29 @@ namespace Nits.BLL
                 }
             }
 
-            return returnMessage ;
+            return returnMessage;
             ;
+        }
+
+        public string Department(DepartMentModel Model)
+        {
+            string returnMessage = "true";
+             if(Model.ClassName=="" && Model.Department == "-1")
+            {
+                returnMessage = "false";
+            }
+        
+            else if (Model.ClassName=="")
+            
+            {
+                returnMessage = "0";
+            }
+            else if (Model.Department == "-1")
+            {
+                returnMessage = "-1";
+            }
+
+            return returnMessage;
         }
     }
 }

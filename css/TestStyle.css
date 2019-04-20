@@ -10,8 +10,9 @@
         padding-left:30px;
         font-size:8pt;
         color:springgreen;
-        height:30px;
+        height:25px;
         vertical-align:middle;
+        display:table-row;
     
     }
     .b-inner{
@@ -19,19 +20,30 @@
         font-size:16pt;
         color:springgreen;
         height:30px;   
+           display:table-row;
+
+    }
+
+    .a-inner-middle{
+        display:table-cell;
+        vertical-align:middle;
     }
 
     .a-inner a:hover {
     color: #f8f9fa;
     text-decoration: none;
     background: #e12503;
-    height:30px;
+    height:25px;
+    /*display:table-cell;*/
+   /*vertical-align:middle;*/
+   width:100%;    
     line-height:3px;
-    margin-bottom:10px;
-    vertical-align:middle;
+    margin-bottom:10px;   
+    
 }
        .inner-span {
            font-size:10pt;
+           margin-bottom:10px;
        }
 
    
