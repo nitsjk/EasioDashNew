@@ -19,8 +19,10 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             if (!IsPostBack)
             {
                 txtName.Focus();
+                getClasses();
 
             }
+            
         }
         catch (Exception ex)
         {
@@ -29,6 +31,8 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
         }
     }
+
+
 
     public void addClass()
     {
@@ -94,7 +98,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             if (IsPostBack)
             {
                 lblClassStatus.Text = "";
-                lblDepartmentStatus.Text = "";
+                //lblDepartmentStatus.Text = "";
                 
                 ddlDepartments.ClearSelection();
                 txtName.Text = "";
@@ -111,5 +115,24 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
         }
        
+    }
+    public void getClasses()
+    {
+
+        try
+        {
+            ClassModel cm = new ClassModel();
+            cm.Current_Session = "2018-19";
+            List<ClassModel> classList = Cdal.getAllClasses(cm);
+            gvClasses.DataSource = classList;
+            gvClasses.DataBind();
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+
     }
 }

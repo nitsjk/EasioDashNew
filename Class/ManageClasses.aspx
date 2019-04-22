@@ -214,7 +214,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-right:11px !important;">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
@@ -226,8 +226,8 @@
                                                         <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
                                                     </li>
 
-                                                    <li class="nav-item dropdown">
-                                                        <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-envelope-o adminpro-chat-pro" aria-hidden="true"></i><span class="indicator-ms"></span></a>
+                                                    <li class="nav-item dropdown" >
+                                                        <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle" ><i class="fa fa-envelope-o adminpro-chat-pro" aria-hidden="true"></i><span class="indicator-ms"></span></a>
                                                         <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
                                                             <div class="message-single-top">
                                                                 <h1>Message</h1>
@@ -354,7 +354,7 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-tasks"></i></a>
+                                                    <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle" ><i class="fa fa-tasks"></i></a>
 
                                                         <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
                                                             <ul class="nav nav-tabs custon-set-tab">
@@ -625,7 +625,10 @@ alert("No data");
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
-    <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" style="margin-top:25px">
+ 
+
+    <div class="col-md-12">
+     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="margin-top:25px;background-color:blue">
                                                 <asp:Label ID="lblSuccess" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-success" ></asp:Label>
                                                 <asp:Label ID="lblError" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-danger" ></asp:Label>
                                               
@@ -635,7 +638,8 @@ alert("No data");
                                                 <div class="review-content-section" >
                     
                                                     
-                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">                                                                                                 <asp:DropDownList ID="ddlDepartments" runat="server" class="form-control" Width="330px" >
+                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">
+                                                                                                                                    <asp:DropDownList ID="ddlDepartments" runat="server" class="form-control" Width="130%" >
             <asp:ListItem Value="-1">--Select Department--</asp:ListItem>
             <asp:ListItem Value="1">Pre-Primary</asp:ListItem>
             <asp:ListItem Value="2">Primary</asp:ListItem>
@@ -644,7 +648,7 @@ alert("No data");
             <asp:ListItem Value="5">Higher</asp:ListItem>           
            </asp:DropDownList>
                                                  &nbsp
-                                                       <asp:Label ID="lblDepartmentStatus" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>
+                                                       <%--<asp:Label ID="lblDepartmentStatus" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>--%>
                                                    
                                                     
         </div>
@@ -655,7 +659,7 @@ alert("No data");
 
 
                                                         <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ForeColor="Black" Width=290px  placeholder="Enter Class"></asp:TextBox> &nbsp
+                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ForeColor="Black" Width="58%" placeholder="Enter Class"></asp:TextBox> &nbsp
                                                         <asp:Label ID="lblClassStatus" runat="server" ForeColor="Red" Font-Size="Large"  ></asp:Label>
                                                     </div>
                                              
@@ -674,6 +678,53 @@ alert("No data");
                                                         </div> 
                                                        </fieldset> 
                                                     
+
+
+         
+
                                                     </div>
+
+ 
+    
+   
+    
+     <div class="col-lg-4 col-md-4 col-sm-6" style="margin-top:25px">
+
+
+        <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="false" CssClass="table">
+
+            <Columns>
+                <asp:TemplateField HeaderText="S.No">
+                    <ItemTemplate> 
+                        <%# Container.DataItemIndex+1%>
+                    </ItemTemplate>
+                </asp:TemplateField>
+           
+                <asp:TemplateField HeaderText="Class Name">
+                    <ItemTemplate> 
+                        <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Department">
+                    <ItemTemplate> 
+                        <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Delete">
+                    <ItemTemplate> 
+                        <asp:Button ID="btnDelete" CssClass="btn-danger" Text="Delete" runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Add">
+                    <ItemTemplate> 
+                        <asp:Button ID="btnAdd" Text="Edit" CssClass="btn-success" runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+    </div>
+        </div>
+  
+    
 </asp:Content>
 

@@ -99,7 +99,7 @@
 
 
 
-            <asp:ContentPlaceHolder runat="server" ID="contentDisplay"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder runat="server" ID="contentDisplay"> </asp:ContentPlaceHolder>
             
             <!-- Start Welcome area -->
             </div>
