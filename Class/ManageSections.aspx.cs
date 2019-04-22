@@ -26,13 +26,12 @@ public partial class Class_ManageSections : System.Web.UI.Page
         List<ClassModel> classList = Cdal.getAllClasses();
         ddlClasses.DataSource = classList;
         ddlClasses.DataBind();
-        
-
+        ddlClasses.Items.Insert(0, new ListItem("--Select Classes--", "-1"));
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        check();
+        //check();
     }
 
     public void check()

@@ -14,16 +14,19 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     ClassBLL Cdal = new ClassBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        txtName.Focus();
-        
+        if (!IsPostBack)
+        {
+            txtName.Focus();
+
+        }
     }
 
     public void addClass()
     {
         ClassModel cm = new ClassModel();
         cm.ClassName = txtName.Text;
-        //cm.subdepartmentid=Convert.ToInt64(ddlDepartments.SelectedValue);
-        string message=Cdal.AddClass(cm);
+        cm.subdepartmentid = Convert.ToInt64(ddlDepartments.SelectedValue);
+        string message = Cdal.AddClass(cm);
         lblSuccess.Text = message;
 
     }

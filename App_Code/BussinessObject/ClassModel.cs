@@ -11,7 +11,7 @@ namespace Nits.Model
     public class ClassModel
     {
         public long ClassId { get; set; }
-        //public long subdepartmentid { get; set; }
+        public long subdepartmentid { get; set; }
         //public string SessionID { get; set; }
         //public string EduDepartmentName { get; set; }
         //public string Current_Session { get; set; }

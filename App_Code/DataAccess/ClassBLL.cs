@@ -22,16 +22,16 @@ namespace Nits.BLL
             HttpClient hc = NitsAPI.apiConnection1();
 
 
-            HttpResponseMessage response = hc.GetAsync("Classes").Result;
+            HttpResponseMessage response = hc.GetAsync("class").Result;
           List<ClassModel> ds = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
 
             return ds;
         }
-        
+
         public string AddClass(ClassModel model)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.PostAsJsonAsync("Classes", model).Result;
+            var ReturnMessage = http.PostAsJsonAsync("class", model).Result;
 
             if (ReturnMessage.IsSuccessStatusCode)
             {
@@ -41,8 +41,6 @@ namespace Nits.BLL
             {
                 return ReturnMessage.ToString();
             }
-          
-
         }
     }
 
