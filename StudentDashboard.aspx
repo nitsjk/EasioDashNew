@@ -1,18 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="StudentDashboard.aspx.cs" Inherits="StudentDashboard" %>
 
+<%--Side Links--%>
 
 <asp:Content ID="content1" runat="server" ContentPlaceHolderID="contentSide">
     <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
+
+
+
+
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
+
+         <div>
+                           <a href="../Default.aspx">  <img  src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left:25px" /> </a>
+                        </div>
+
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
-                            <li class="active">
-                                <a  href="Default.aspx">
-                                    <i class="fa big-icon fa-home icon-wrap"></i>
-                                    <span class="mini-click-non">Dashboard</span>
-                                </a>
-                                
-                            </li>
+
 
                             <li class="b-inner">
                                 <a href="StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              

@@ -201,7 +201,7 @@
                                         <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
                                             <div class="header-top-menu tabl-d-n">
                                                 <ul class="nav navbar-nav mai-top-nav">
-                                                    <li class="nav-item"><a href="#" class="nav-link">Home</a>
+                                                    <li class="nav-item"><a href="#" class="nav-link">Homey</a>
                                                     </li>
                                                     <li class="nav-item"><a href="#" class="nav-link">About</a>
                                                     </li>

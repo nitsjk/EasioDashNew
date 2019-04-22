@@ -37,7 +37,7 @@ public partial class _Class : System.Web.UI.Page
     {
         if (e.CommandName == "EditItem")
         {
-            MultiView1.ActiveViewIndex = 1;
+           MultiView1.ActiveViewIndex = 1;
 
         }
 

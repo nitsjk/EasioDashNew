@@ -178,9 +178,6 @@
       </div>
 </asp:Content>
 
-<%--<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
-</asp:Content>--%>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
     <div class="header-top-area">
                     <div class="container-fluid">
@@ -602,6 +599,11 @@
     <br /> <br /> 
 
    
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+   
                                             <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" style="margin-top:25px">
                                                 <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" style="margin-left:40px" ></asp:Label>
                                               
@@ -655,5 +657,8 @@
 
    
 
-
 </asp:Content>
+
+
+
+

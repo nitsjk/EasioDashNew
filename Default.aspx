@@ -137,11 +137,11 @@
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                                     <li class="nav-item">
-                                                        <span style="color: white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
+                                                        <span style="color: white" class="h5">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
                                                     </li>
 
                                                     <li class="nav-item">
-                                                        <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
+                                                        <span style="color: white" class="h5">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
                                                     </li>
 
                                                     <li class="nav-item dropdown">
@@ -876,31 +876,31 @@
                     <div class="row admin text-center" style="margin-top:45px">
                         <div class="col-md-12">
                             <div class="row">
+                                
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                        <h4 class="text-left text-uppercase"><b>Student-Roll </b></h4>
+                                    <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
+                                        <h4 style="font-size:14pt" class="text-left text-uppercase"><b>Student-Roll</b></h4>
                                         <div class="row vertical-center-box vertical-center-box-tablet">
-                                            <div class="col-xs-3 mar-bot-15 text-left">
-                                                <img src="img/iconsfordashboard/student-roll-new.png" />
-
+                                            <div class="text-left col-xs-3 mar-bot-15">
+                                                <img src="img/iconsfordashboard/staff-roll.png" />
                                             </div>
                                             <div class="col-xs-9 cus-gh-hd-pro">
                                                 <h2 class="text-right no-margin">
-                                                    <asp:Label ID="lblstudentroll" runat="server" Text="" style="font-size:10pt"></asp:Label></h2>
+                                                    <asp:Label ID="lblstudentroll" runat="server" Text="Label" style="font-size:10pt"></asp:Label></h2>
 
                                             </div>
                                         </div>
                                         <div class="progress progress-mini">
-                                            <div style="width: 78%;" class="progress-bar bg-green"></div>
+                                            <div style="width: 60%;" class="progress-bar bg-blue"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 1px;">
+                                </div>  
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Student-Attendence</b></h4>
+                                        <h4 style="font-size:14pt" class="text-left text-uppercase"><b>Student-Attendence</b></h4>
                                         <div class="row vertical-center-box vertical-center-box-tablet">
                                             <div class="text-left col-xs-3 mar-bot-15">
-                                                <img src="img/iconsfordashboard/student-attendance.png" />
+                                                <img src="img/iconsfordashboard/staff-attendance.png" />
                                             </div>
                                             <div class="col-xs-9 cus-gh-hd-pro">
                                                 <h2 class="text-right no-margin">
@@ -908,13 +908,16 @@
                                             </div>
                                         </div>
                                         <div class="progress progress-mini">
-                                            <div style="width: 38%;" class="progress-bar progress-bar-danger bg-red"></div>
+                                            <div style="width: 60%;" class="progress-bar bg-purple"></div>
                                         </div>
                                     </div>
                                 </div>
+
+
+
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Staff-Roll</b></h4>
+                                        <h4 style="font-size:14pt" class="text-left text-uppercase"><b>Staff-Roll</b></h4>
                                         <div class="row vertical-center-box vertical-center-box-tablet">
                                             <div class="text-left col-xs-3 mar-bot-15">
                                                 <img src="img/iconsfordashboard/staff-roll.png" />
@@ -932,7 +935,7 @@
                                 </div>  
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Staff-Attendence</b></h4>
+                                        <h4 style="font-size:14pt" class="text-left text-uppercase"><b>Staff-Attendence</b></h4>
                                         <div class="row vertical-center-box vertical-center-box-tablet">
                                             <div class="text-left col-xs-3 mar-bot-15">
                                                 <img src="img/iconsfordashboard/staff-attendance.png" />
@@ -956,136 +959,6 @@
 
 
 
-                <%--<div class="product-new-list-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/5.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/6.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/7.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/5.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>--%>
                 <div class="product-sales-area mg-tb-30">
                     <div class="container-fluid">
                         <div class="row">
