@@ -613,13 +613,8 @@
                                                 <div class="review-content-section" >
                     
                                                     
-                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">                                                                                                 <asp:DropDownList ID="ddlClasses" runat="server" class="form-control" Width="330px"  >
-            <asp:ListItem Value="-1">--Select Class--</asp:ListItem>
-            <asp:ListItem Value="1">Pre-Nursery</asp:ListItem>
-            <asp:ListItem Value="2">Nursery</asp:ListItem>
-            <asp:ListItem Value="3">K.G</asp:ListItem>
-            <asp:ListItem Value="4">1st</asp:ListItem>
-            <asp:ListItem Value="5">2nd</asp:ListItem>           
+                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">                                                                                                 <asp:DropDownList ID="ddlClasses" runat="server" class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId"  >
+                     
            </asp:DropDownList>
                                                  &nbsp
                                                        <asp:Label ID="lblClass" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>

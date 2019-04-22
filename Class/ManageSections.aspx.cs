@@ -10,15 +10,31 @@ using Nits.Common;
 
 public partial class Class_ManageSections : System.Web.UI.Page
 {
+    ClassBLL Cdal = new ClassBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-         txtSection.Focus();
+        if (!IsPostBack)
+        {
+
+            txtSection.Focus();
+            getClasses();
+        }
+    }
+
+    public void getClasses()
+    {
+        List<ClassModel> classList = Cdal.getAllClasses();
+        ddlClasses.DataSource = classList;
+        ddlClasses.DataBind();
+        
+
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         check();
     }
+
     public void check()
     {
         lblClass.Text = "";
@@ -75,8 +91,6 @@ public partial class Class_ManageSections : System.Web.UI.Page
             ddlClasses.ClearSelection();
             txtSection.Text = "";
             lblSuccess.Text = "";
-            
-
-        
+           
     }
 }
