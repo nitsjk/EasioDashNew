@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Net;
 using NITS.API;
+using System.Data;
 
 /// <summary>
 /// Summary description for ClassBLL
@@ -17,13 +18,14 @@ namespace Nits.BLL
 {
     public class ClassBLL
     {
-        public List<ClassModel> getAllClasses( ClassModel model)
+        public DataSet getAllClasses( ClassModel model)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
 
             HttpResponseMessage response = hc.GetAsync("class").Result;
-          List<ClassModel> ds = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
+          List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
+           DataSet ds =(DataSet) (CList.Where(x => x.Current_Session == model.Current_Session));
 
             return ds;
         }
