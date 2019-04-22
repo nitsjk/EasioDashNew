@@ -605,55 +605,40 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" runat="Server">
 
-    <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" style="margin-top: 25px">
-        <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" Style="margin-left: 40px"></asp:Label>
+          <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" style="margin-top: 25px">
+          <asp:Label ID="lblSuccess" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-success" ></asp:Label>
+           <asp:Label ID="lblError" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-danger" ></asp:Label>
 
         <fieldset>
             <legend>Add Sections</legend>
 
             <div class="review-content-section">
 
-
                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
                     <asp:DropDownList ID="ddlClasses" runat="server" class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId">
                     </asp:DropDownList>
                     &nbsp
-                                                       <asp:Label ID="lblClass" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>
-
-
+                    <asp:Label ID="lblClass" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>
                 </div>
 
-
-
                 <div class="input-group mg-b-pro-edt">
-
-
                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
                     <asp:TextBox ID="txtSection" runat="server" CssClass="form-control" ForeColor="Black" Width="290px" placeholder="Enter Section"></asp:TextBox>
                     &nbsp
-                                                        <asp:Label ID="lblSection" runat="server" ForeColor="Red" Font-Size="Large"></asp:Label>
+                    <asp:Label ID="lblSection" runat="server" ForeColor="Red" Font-Size="Large"></asp:Label>
                 </div>
-
-
-
 
             </div>
 
             <br />
 
             <div class="form-group review-pro-edt" style="margin-left: 52px">
-
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
-
             </div>
         </fieldset>
 
     </div>
-
-
-
-
 </asp:Content>
 
 

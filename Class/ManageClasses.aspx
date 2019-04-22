@@ -121,6 +121,8 @@
     
      <link href="css/TestStyle.css" rel="stylesheet"  />
 
+    <script src="../js/Validation.js"></script>
+
     <style>
         legend {
         /* display: block; */
@@ -182,7 +184,7 @@
 </asp:Content>
 
 
-
+<%--Header Panel--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
     <div class="header-top-area">
                     <div class="container-fluid">
@@ -604,8 +606,28 @@
     <br /> <br /> 
 
    
-                                            <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" style="margin-top:25px">
-                                                <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" style="margin-left:40px"></asp:Label>
+                                            
+                               
+
+<%--    <script>
+function validateData()
+{
+var x= document.getElementById("txt").value
+if(x=="")
+alert("No data");
+}
+
+</script>--%>
+
+</asp:Content>
+
+
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+    <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" style="margin-top:25px">
+                                                <asp:Label ID="lblSuccess" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-success" ></asp:Label>
+                                                <asp:Label ID="lblError" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-danger" ></asp:Label>
                                               
                                                 <fieldset>
                                                     <legend>Add Classes</legend>
@@ -613,7 +635,7 @@
                                                 <div class="review-content-section" >
                     
                                                     
-                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">                                                                                                 <asp:DropDownList ID="ddlDepartments" runat="server" class="form-control" Width="330px" OnSelectedIndexChanged="ddlDepartments_SelectedIndexChanged" >
+                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">                                                                                                 <asp:DropDownList ID="ddlDepartments" runat="server" class="form-control" Width="330px" >
             <asp:ListItem Value="-1">--Select Department--</asp:ListItem>
             <asp:ListItem Value="1">Pre-Primary</asp:ListItem>
             <asp:ListItem Value="2">Primary</asp:ListItem>
@@ -643,46 +665,15 @@
                                                      </div>
                                                  
                                                 <br />
-
+                                                    
                                                         <div class="form-group review-pro-edt" style="margin-left:52px">
                                                             
-                                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" />
+                                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validateData" />
                                                             <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
                                                             
                                                         </div> 
                                                        </fieldset> 
                                                     
                                                     </div>
-                               
-
-    <%--<div style="margin-left:20px" class="col-md-12">
-
-        <br />
-         
-        
-
-        
-        <br /> <br />
-       
-       
-
-        <asp:GridView ID="grdDisplay" runat="server" AutoGenerateColumns="False" EmptyDataText="No Data Found">
-
-            <Columns>
-
-
-                <asp:TemplateField HeaderText="Department"></asp:TemplateField>
-                <asp:TemplateField HeaderText="Text"></asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-    </div>--%>
-
-   
-
-
-</asp:Content>
-
-
-<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
 </asp:Content>
 

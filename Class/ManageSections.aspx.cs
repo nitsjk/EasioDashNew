@@ -23,7 +23,9 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     public void getClasses()
     {
-        List<ClassModel> classList = Cdal.getAllClasses();
+        ClassModel cm = new ClassModel();
+        cm.Current_Session = "2018-19";
+        List<ClassModel> classList = Cdal.getAllClasses(cm);
         ddlClasses.DataSource = classList;
         ddlClasses.DataBind();
         ddlClasses.Items.Insert(0, new ListItem("--Select Classes--", "-1"));
@@ -73,7 +75,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
         //Response.Write(message);
         else
             lblSuccess.Text = "Record Added Successfully!";
-        txtSection.Text = "";
+            txtSection.Text = "";
 
     }
     protected void btnReset_Click(object sender, EventArgs e)
@@ -83,13 +85,21 @@ public partial class Class_ManageSections : System.Web.UI.Page
     }
     public void reset()
     {
-        
+
+        try
+        {
             lblSection.Text = "";
             lblClass.Text = "";
-            //ddlDepartments.SelectedItem.Text = "--Select Department--";
             ddlClasses.ClearSelection();
             txtSection.Text = "";
             lblSuccess.Text = "";
+
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+           
+        }
            
     }
 }

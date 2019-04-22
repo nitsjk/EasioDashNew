@@ -14,72 +14,73 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     ClassBLL Cdal = new ClassBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        try
         {
-            txtName.Focus();
+            if (!IsPostBack)
+            {
+                txtName.Focus();
 
+            }
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
         }
     }
 
     public void addClass()
     {
-        ClassModel cm = new ClassModel();
-        cm.ClassName = txtName.Text;
-        cm.subdepartmentid = Convert.ToInt64(ddlDepartments.SelectedValue);
-        string message = Cdal.AddClass(cm);
-        lblSuccess.Text = message;
 
+        try
+        {
+            ClassModel cm = new ClassModel();
+            cm.ClassName = txtName.Text;
+            cm.subdepartmentid = Convert.ToInt64(ddlDepartments.SelectedValue);
+            cm.Current_Session = "2018-19";
+            cm.UserName = "NA";
+
+            string message = Cdal.AddClass(cm);
+            if (message.Contains("successfully"))
+            {
+                lblSuccess.Text = message;
+                lblError.Visible = false;
+                lblSuccess.Visible = true;
+                txtName.Text = "";
+                ddlDepartments.SelectedValue = "-1";
+            }
+            else
+            {
+                lblError.Text = message;
+                lblError.Visible = true;
+                lblSuccess.Visible = false;
+            }
+        }
+        catch (Exception ex)
+        {
+
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
+        
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        // check();
-        addClass();
-    }
-
-    public void check()
-    {
-        lblClassStatus.Text = "";
-        lblDepartmentStatus.Text = "";
-        //txtName.Text = "";
-        //ddlDepartments.ClearSelection();
-
-        DepartMentModel dm = new DepartMentModel();
-        StudentBLL sb = new StudentBLL();
-        dm.Department = ddlDepartments.SelectedValue;
-        dm.ClassName = txtName.Text;
-
-        string message = sb.Department(dm);
-
-        if (message == "-1")
+        try
         {
-            lblDepartmentStatus.Text = "  *";
+            addClass();
         }
-        else if (message == "0")
-        { 
-            lblClassStatus.Text = "  *";
-            txtName.Focus();
-
-        }
-
-        else if (message == "false")
+        catch (Exception ex)
         {
-            lblDepartmentStatus.Text = "  *";
-            lblClassStatus.Text = "  *";
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
 
-        }
-
-        else if(message=="true")
-        {
-            lblSuccess.Text = "Record Added Successfully!"; 
-        }
-        //Response.Write(message);
-        else
-        lblSuccess.Text = "Record Added Successfully!";
-        txtName.Text = "";
-
-    }
-
+        }   
+    }  
    
     protected void btnReset_Click(object sender, EventArgs e)
     {
@@ -87,20 +88,28 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     }
     public void reset()
     {
-        if (IsPostBack)
+        try
         {
-            lblClassStatus.Text = "";
-            lblDepartmentStatus.Text = "";
-            //ddlDepartments.SelectedItem.Text = "--Select Department--";
-            ddlDepartments.ClearSelection();
-            txtName.Text = "";
-            lblSuccess.Text = "";
-            
+
+            if (IsPostBack)
+            {
+                lblClassStatus.Text = "";
+                lblDepartmentStatus.Text = "";
+                
+                ddlDepartments.ClearSelection();
+                txtName.Text = "";
+                lblSuccess.Text = "";
+
+            }
+
         }
-    }
+        catch (Exception ex)
+        {
 
-    protected void ddlDepartments_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
+       
     }
 }
