@@ -17,7 +17,7 @@ namespace Nits.BLL
 {
     public class ClassBLL
     {
-        public List<ClassModel> getAllClasses()
+        public List<ClassModel> getAllClasses( ClassModel model)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
