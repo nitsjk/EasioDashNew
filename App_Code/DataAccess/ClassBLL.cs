@@ -34,14 +34,14 @@ namespace Nits.BLL
         {
             HttpClient http = NitsAPI.apiConnection1();
             var ReturnMessage = http.PostAsJsonAsync("class", model).Result;
-
+            
             if (ReturnMessage.IsSuccessStatusCode)
             {
-                return ReturnMessage.ToString();
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
             else
             {
-                return ReturnMessage.ToString();
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
     }
