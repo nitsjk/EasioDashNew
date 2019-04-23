@@ -125,7 +125,7 @@
 
     <script lang="javascript" type="text/javascript">
 
-        function validate(){
+        function validate() {
             var x = document.getElementById("txtName").value
             if (x == "") {
                 alert("No Data");
@@ -156,7 +156,25 @@
         }
     </style>
 
+    <script type = "text/javascript">
+   <!--
+    // Form validation code will come here.
+    function validate() {
 
+        if (document.myForm.ddlDepartments.value == "") {
+            alert("Please provide your name!");
+            document.myForm.Name.focus();
+            return false;
+        }
+        if (document.myForm.txtName.value == "") {
+            alert("Please provide your Email!");
+            document.myForm.EMail.focus();
+            return false;
+        }
+        return (true);
+    }
+   //-->
+</script>
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
 
 
@@ -586,13 +604,12 @@
                                                                             <h2>Offline users</h2>
                                                                             <div class="ts-custom-check">
                                                                                 <div class="onoffswitch">
-                                                                                    <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
-                                                                                    <label class="onoffswitch-label" for="example5">
-                                                                                        <span class="onoffswitch-inner"></span>
-                                                                                        <span class="onoffswitch-switch"></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
+         <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
+         <label class="onoffswitch-label" for="example5">
+             <span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span>
+          </label>
+                </div>
+          </div>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -621,26 +638,33 @@
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" runat="Server">
+    <style>
+        .hdr {
+            color: white !important;
+        }
 
-    
+        .GridHeader {
+            text-align: center !important;
+        }
+
+        .th {
+            text-align: center !important;
+        }
+    </style>
+
     <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
-        <h3> <Span style="color:#9d0e0a">Manage</Span> Classes </h3>
-        <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; margin-top:-6px; width:25%" />
+        <h3><span style="color: #9d0e0a">Manage</span> Classes </h3>
+        <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
     </div>
-    <div  style="margin-top:10px;">
+    <div style="margin-top: 10px;">
         <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
         <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
     </div>
-    <div class="col-md-12" >
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-            <%--//--%>
-            <fieldset>
-                <legend>Add Classes</legend>
-
+    <div class="col-md-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
+            <fieldset style="box-shadow:0px 0px 8px grey; border-radius:20px">
+                <legend style="box-shadow:0px 0px 10px grey; font-size:20px;" >Add Classes</legend>
                 <div class="review-content-section">
-
-
                     <div class="input-group review-pro-edt">
                         <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
                         <asp:DropDownList ID="ddlDepartments" runat="server" class="form-control" Width="80%">
@@ -651,71 +675,31 @@
                             <asp:ListItem Value="4">High</asp:ListItem>
                             <asp:ListItem Value="5">Higher</asp:ListItem>
                         </asp:DropDownList>
-
+                     
                     </div>
-
                     <br />
                     <div class="input-group review-pro-edt">
-
-
                         <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
                         <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ForeColor="Black" Width="80%" placeholder="Enter Class"></asp:TextBox>
-
+                       
                     </div>
-
-
-
-
-
                 </div>
-
                 <br />
-
                 <div class="form-group review-pro-edt center-block text-center">
-                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" Visible="false" OnClick="btnUpdate_Click"
-                        />
-
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validate()"  />
+                    <asp:Button ID="btnUpdate" runat="server" Text="Update"  OnClientClick="validate();" CssClass="btn btn-success" Visible="false" OnClick="btnUpdate_Click" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validate();" />
                     <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
-
                 </div>
             </fieldset>
-
-
-
-
-
         </div>
-
-
-
-        <style>
-            .hdr
-            {
-                color:white !important;
-            }
-            .GridHeader {
-                 text-align:center !important; 
-            }
-
-            .th {
-                text-align:center !important;
-            }
-        </style>
-
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
-           
-
-            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >
-
-               
-
+            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%"  Font-Size="18px" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" style="box-shadow:0px 0px 8px grey;" >
                 <Columns>
                     <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Left" Width="40px"  ForeColor="White"/>
+                        <HeaderStyle HorizontalAlign="Left" Width="40px" ForeColor="White" />
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Class Name" HeaderStyle-CssClass="GridHeader">
@@ -731,17 +715,17 @@
                     <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <div class="form-inline">
-                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId") %>'></asp:LinkButton>
-                               &nbsp | &nbsp
-                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure')" />
+                                <asp:LinkButton runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId") %>'></asp:LinkButton>
+                                &nbsp | &nbsp
+                                <asp:LinkButton CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId") %>' ForeColor="Red" OnClientClick="return confirm('Are You Sure')" />
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-                <FooterStyle BackColor="#990000"  Font-Bold="True" />
-                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <FooterStyle BackColor="#990000" Font-Bold="True" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White" Font-Bold="True" Height="43px" Font-Size="20px" HorizontalAlign="Center" CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" HorizontalAlign="Center" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />
@@ -750,24 +734,5 @@
             </asp:GridView>
         </div>
     </div>
-
-
-
-
-
-    <script>
-
-        function validateData() {
-            var x = document.getElementById("txtName").value;
-            var y = document.getElementById("lblSuccess").value;
-            if (document.getElementById("txtName").value == "") {
-                document.getElementById("lblSuccess").innerHTML = "No Data";
-                return false;   
-            }
-
-
-        }
-    </script>
-
 </asp:Content>
 
