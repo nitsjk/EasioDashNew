@@ -1,51 +1,109 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Class.aspx.cs" Inherits="_Class" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-    <%--<div class="sidebar-header">--%>
-                   <%-- <a href="Default.aspx">         
+
+<asp:Content ID="conentsidemenu" runat="server" ContentPlaceHolderID="contentSide">
+
+    <div class="sidebar-header">
+                    <a href="#">         
                             
                         <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
 
                         </a>           
                                  
 
-                </div>--%>
-     <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
-      <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                </div>
 
-          
-                        <div>
-                           <a href="../Default.aspx">  <img  src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left:25px" /> </a>
-                        </div>
-
-                        
+    <div class="left-custom-menu-adp-wrap comment-scrollbar">
 
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
+                            <li class="active">
+                                <a  href="Default.aspx">
+                                    <i class="fa big-icon fa-home icon-wrap"></i>
+                                    <span class="mini-click-non">Dashboard</span>
+                                </a>
+                                
+                            </li>
                             
-                           <li class="b-inner">
-                                <a href="Class.aspx" aria-expanded="false" ><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>                               
+                            <li>
+                                <a href="StudentDashboard.aspx" ><i class="fa fa-graduation-cap"></i><span class="mini-click-non">&nbsp;&nbsp; Students</span></a>
                             </li>
 
+                            <li>
+                                <a  href="Class.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>
+                                
+                            </li>
+
+                            <li>
+                                <a  href="Subjects.aspx" aria-expanded="false"><i class="fa fa-book"></i><span class="mini-click-non">&nbsp;&nbsp; Subjects</span></a>
+                                
+                            </li>
+
+
+
+                            <li>
+                                <a  href="Result.aspx" aria-expanded="false"><i class="fa fa-file-text-o"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
+                            </li>
+
+                            <li>
+                                <a  href="Attendence.aspx" aria-expanded="false"><i class="fa fa-book"></i><span class="mini-click-non">&nbsp;&nbsp; Attendence</span></a>
+                            </li>
+
+                             <li>
+                                <a  href="Transport.aspx" aria-expanded="false"><i class="fa fa-bus"></i><span class="mini-click-non">&nbsp;&nbsp; Transport</span></a>
+                            </li>
+
+                            <li>
+                                <a  href="Fee.aspx" aria-expanded="false"><i class="fa fa-money"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
+                            </li>
+
+
+                            <li id="removable">
+                                <a  href="Employee.aspx" aria-expanded="false"><i class="fa fa-users"></i><span class="mini-click-non">&nbsp;&nbsp; Employee</span></a>
+                            </li>
+
+
+                            <li><a  title="Landing Page" href="Payroll.aspx" aria-expanded="false"><i class="fa fa-credit-card-alt" aria-hidden="true"></i><span class="mini-click-non">&nbsp;&nbsp; Payroll</span></a>
+                                
+                            </li>
+                            <li><a  title="Landing Page" href="Library.aspx" aria-expanded="false"><i class="fa fa-sticky-note" aria-hidden="true"></i><span class="mini-click-non">&nbsp;&nbsp; Library</span></a>
                             
+                        </li>
+
+
+                            <li><a  title="Landing Page" href="Teacher-Log.aspx" aria-expanded="false"><i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i><span class="mini-click-non">&nbsp;&nbsp; Teacher-Log</span></a>
+                                
+                            </li>
+
+
+                            <li><a title="User" href="AdminLog.aspx"><i class="fa fa-file sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Admin Log</span></a></li>
+
+
+                           <li><a title="Health" href="Health.aspx"><i class="fa fa-wheelchair sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Health</span></a>
+                            </li>
+                        
+
+                        
+
+                        <li><a  title="Landing Page" href="Pro.aspx" aria-expanded="false"><i class="fa fa-calendar" ></i><span class="mini-click-non">&nbsp;&nbsp; PRO</span></a>
+                        </li>
+
+
+                        <li><a   href="Settings.aspx" aria-expanded="false"><i class="fa fa-wrench" ></i><span class="mini-sub-pro">&nbsp;&nbsp; Settings</span></a>
                             
-                                   <li class="a-inner" style="display:table-row"> <a href="Class/ManageClasses.aspx" class="a-inner-middle" style="display:table-cell;
-   vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Classes </span></a> </li>
+                        </li>
 
-                                          <li class="a-inner" style="display:table-row"> <a href="Class/ManageSections.aspx" class="a-inner-middle" style="display:table-cell;
-   vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Sections </span></a> </li>
+                        <li><a   href="Counseler.aspx" aria-expanded="false"><i class="fa fa-folder-open" ></i><span class="mini-click-non">&nbsp;&nbsp; Counseler</span></a>                           
+                        </li>
 
-                                   
-                                   
-
-
-
-                            </ul>
-                     </nav>
-      </div>
+                                          
+                           </ul>
+                    </nav>
+                </div>
 </asp:Content>
 
-<asp:Content ID="contenthead" runat="server" ContentPlaceHolderID="contentbody">
+<asp:Content ID="contentHead" ContentPlaceHolderID="contentbody" runat="server">
+   
     <div class="header-advance-area">
                 <div class="header-top-area">
                     <div class="container-fluid">
@@ -80,11 +138,11 @@
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                                     <li class="nav-item">
-                                                        <span style="color: white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
+                                                        <span style="color: white" class="h5">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
                                                     </li>
 
                                                     <li class="nav-item">
-                                                        <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
+                                                        <span style="color: white" class="h5">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
                                                     </li>
 
                                                     <li class="nav-item dropdown">
@@ -787,6 +845,14 @@
                                                     <li><a href="#">Delete Employee</a>
                                                 </li>
                                                     </ul>
+
+
+
+
+
+
+
+
                                         </ul>
                                     </nav>
                                 </div>
@@ -795,6 +861,7 @@
                     </div>
                 </div>
                 <!-- Mobile Menu end -->
+
                 <div class="breadcome-area">
                     <div class="container-fluid">
                         <div class="row">
@@ -810,31 +877,31 @@
                     <div class="row admin text-center" style="margin-top:45px">
                         <div class="col-md-12">
                             <div class="row">
+                                
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                        <h4 class="text-left text-uppercase"><b>Student-Roll </b></h4>
+                                    <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
+                                        <h4 style="font-size:14pt" class="text-left text-uppercase"><b>Student-Roll</b></h4>
                                         <div class="row vertical-center-box vertical-center-box-tablet">
-                                            <div class="col-xs-3 mar-bot-15 text-left">
-                                                <img src="img/iconsfordashboard/student-roll-new.png" />
-
+                                            <div class="text-left col-xs-3 mar-bot-15">
+                                                <img src="img/iconsfordashboard/staff-roll.png" />
                                             </div>
                                             <div class="col-xs-9 cus-gh-hd-pro">
                                                 <h2 class="text-right no-margin">
-                                                    <asp:Label ID="lblstudentroll" runat="server" Text="" style="font-size:10pt"></asp:Label></h2>
+                                                    <asp:Label ID="lblstudentroll" runat="server" Text="Label" style="font-size:10pt"></asp:Label></h2>
 
                                             </div>
                                         </div>
                                         <div class="progress progress-mini">
-                                            <div style="width: 78%;" class="progress-bar bg-green"></div>
+                                            <div style="width: 60%;" class="progress-bar bg-blue"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 1px;">
+                                </div>  
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Student-Attendence</b></h4>
+                                        <h4 style="font-size:14pt" class="text-left text-uppercase"><b>Student-Attendence</b></h4>
                                         <div class="row vertical-center-box vertical-center-box-tablet">
                                             <div class="text-left col-xs-3 mar-bot-15">
-                                                <img src="img/iconsfordashboard/student-attendance.png" />
+                                                <img src="img/iconsfordashboard/staff-attendance.png" />
                                             </div>
                                             <div class="col-xs-9 cus-gh-hd-pro">
                                                 <h2 class="text-right no-margin">
@@ -842,13 +909,16 @@
                                             </div>
                                         </div>
                                         <div class="progress progress-mini">
-                                            <div style="width: 38%;" class="progress-bar progress-bar-danger bg-red"></div>
+                                            <div style="width: 60%;" class="progress-bar bg-purple"></div>
                                         </div>
                                     </div>
                                 </div>
+
+
+
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Staff-Roll</b></h4>
+                                        <h4 style="font-size:14pt" class="text-left text-uppercase"><b>Staff-Roll</b></h4>
                                         <div class="row vertical-center-box vertical-center-box-tablet">
                                             <div class="text-left col-xs-3 mar-bot-15">
                                                 <img src="img/iconsfordashboard/staff-roll.png" />
@@ -866,7 +936,7 @@
                                 </div>  
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Staff-Attendence</b></h4>
+                                        <h4 style="font-size:14pt" class="text-left text-uppercase"><b>Staff-Attendence</b></h4>
                                         <div class="row vertical-center-box vertical-center-box-tablet">
                                             <div class="text-left col-xs-3 mar-bot-15">
                                                 <img src="img/iconsfordashboard/staff-attendance.png" />
@@ -890,136 +960,6 @@
 
 
 
-                <%--<div class="product-new-list-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/5.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/6.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/7.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/5.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>--%>
                 <div class="product-sales-area mg-tb-30">
                     <div class="container-fluid">
                         <div class="row">
@@ -1083,32 +1023,10 @@
 
                                                 </div>
                                             </div>
-                                            <%--                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="actions graph-rp">
-                                                <a href="#" class="btn btn-dark-blue btn-circle active tip-top" data-toggle="tooltip" title="Upload">
-                                                    <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-dark btn-circle active tip-top" data-toggle="tooltip" title="Refresh">
-                                                    <i class="fa fa-reply" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-blue-grey btn-circle active tip-top" data-toggle="tooltip" title="Delete">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>--%>
+                                            
                                         </div>
                                     </div>
-                                    <%--<ul class="list-inline cus-product-sl-rp">
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #24caa1;"></i>Bags</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #888;"></i>Shoes</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #ff7f5a;"></i>Jewelery</h5>
-                                    </li>
-                                </ul>--%>
+                                    
                                     <div id="extra-area-chart"></div>
                                 </div>
                             </div>
@@ -1230,5 +1148,7 @@
                     </div>
                 </div>
             </div>
-</asp:Content>
 
+
+
+</asp:Content>
