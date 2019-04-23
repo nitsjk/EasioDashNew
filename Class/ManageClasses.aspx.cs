@@ -93,19 +93,10 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     public void reset()
     {
         try
-        {
-
-            if (IsPostBack)
-            {
-                lblClassStatus.Text = "";
-                //lblDepartmentStatus.Text = "";
-                
+        {                
                 ddlDepartments.ClearSelection();
                 txtName.Text = "";
                 lblSuccess.Text = "";
-
-            }
-
         }
         catch (Exception ex)
         {

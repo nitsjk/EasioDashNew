@@ -1,19 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="ManageClasses.aspx.cs" Inherits="Class_ManageClasses"  EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="ManageClasses.aspx.cs" Inherits="Class_ManageClasses" EnableEventValidation="false" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" runat="Server">
 
-    
-    
-    
+
+
+
     <link href="../css/TestStyle.css" rel="stylesheet" />
-    
+
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
     <link href="../css/GoogleFonts.css" rel="stylesheet" />
-    
+
     <!-- Bootstrap CSS
 		=========================
         
@@ -118,626 +118,625 @@
     <!-- main JS
 		============================================ -->
     <script src="../js/main.js"></script>
-    
-     <link href="css/TestStyle.css" rel="stylesheet"  />
+
+    <link href="css/TestStyle.css" rel="stylesheet" />
 
     <script src="../js/Validation.js"></script>
 
     <style>
         legend {
-        /* display: block; */
-        width: auto;
-        padding: 0;
-        margin-bottom: 20px;
-        font-size: 15px;
-        line-height: inherit;
-        color: #000000;
-        border: 0;
-        /* border-bottom: 1px solid #e5e5e5; */
-        margin-left: 33px;
-        font-weight: bold;
-    }
+            /* display: block; */
+            width: auto;
+            padding: 0;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: inherit;
+            color: #000000;
+            border: 0;
+            /* border-bottom: 1px solid #e5e5e5; */
+            margin-left: 33px;
+            font-weight: bold;
+        }
 
         fieldset {
             border: 1px solid #cbcbcb;
             width: 90%;
             margin-top: 10px;
             margin-left: 20px;
-            height:230px;
+            height: 230px;
         }
     </style>
 
 
-      <div class="left-custom-menu-adp-wrap comment-scrollbar">
+    <div class="left-custom-menu-adp-wrap comment-scrollbar">
 
-          
-                        <div>
-                           <a href="../Default.aspx">  <img  src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left:25px" /> </a>
-                        </div>
 
-                        
-
-                    <nav class="sidebar-nav left-sidebar-menu-pro">
-                        <ul class="metismenu" id="menu1">
-                            
-                           <li class="b-inner">
-                                <a href="../Class.aspx" aria-expanded="false" ><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>                               
-                            </li>
-
-                            
-                            
-                                   <li class="a-inner" style="display:table-row"> <a href="ManageClasses.aspx" class="a-inner-middle" style="display:table-cell;
-   vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Classes </span></a> </li>
-
-                                                               <li class="a-inner" style="display:table-row"> <a href="ManageSections.aspx" class="a-inner-middle" style="display:table-cell;
-   vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Sections </span></a> </li>
-
-                                   
+        <div>
+            <a href="../Default.aspx">
+                <img src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left: 25px" />
+            </a>
+        </div>
 
 
 
-                            </ul>
-                     </nav>
-      </div>
+        <nav class="sidebar-nav left-sidebar-menu-pro">
+            <ul class="metismenu" id="menu1">
+
+                <li class="b-inner">
+                    <a href="../Class.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>
+                </li>
+
+
+
+                <li class="a-inner" style="display: table-row"><a href="ManageClasses.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Manage Classes </span></a></li>
+
+                <li class="a-inner" style="display: table-row"><a href="ManageSections.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Manage Sections </span></a></li>
+
+
+
+
+
+            </ul>
+        </nav>
+    </div>
 
 
 </asp:Content>
 
 
 <%--Header Panel--%>
-<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" runat="Server">
     <div class="header-top-area">
-                    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="header-top-wraper">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                
-                                <div class="header-top-wraper">
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                            <div class="menu-switcher-pro">
-                                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                                    <i class="fa fa-bars"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="header-top-menu tabl-d-n">
-                                                <ul class="nav navbar-nav mai-top-nav">
-                                                    <li class="nav-item"><a href="#" class="nav-link">Homey</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="#" class="nav-link">About</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="#" class="nav-link">Services</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="#" class="nav-link">Support</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-right:11px !important;">
-                                            <div class="header-right-info">
-                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                            <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                <div class="menu-switcher-pro">
+                                    <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                                <div class="header-top-menu tabl-d-n">
+                                    <ul class="nav navbar-nav mai-top-nav">
+                                        <li class="nav-item"><a href="#" class="nav-link">Homey</a>
+                                        </li>
+                                        <li class="nav-item"><a href="#" class="nav-link">About</a>
+                                        </li>
+                                        <li class="nav-item"><a href="#" class="nav-link">Services</a>
+                                        </li>
+                                        <li class="nav-item"><a href="#" class="nav-link">Support</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-right: 11px !important;">
+                                <div class="header-right-info">
+                                    <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                    <li class="nav-item">
-                                                        <span style="color: white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
-                                                    </li>
+                                        <li class="nav-item">
+                                            <span style="color: white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
+                                        </li>
 
-                                                    <li class="nav-item">
-                                                        <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
-                                                    </li>
+                                        <li class="nav-item">
+                                            <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
+                                        </li>
 
-                                                    <li class="nav-item dropdown" >
-                                                        <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle" ><i class="fa fa-envelope-o adminpro-chat-pro" aria-hidden="true"></i><span class="indicator-ms"></span></a>
-                                                        <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
-                                                            <div class="message-single-top">
-                                                                <h1>Message</h1>
-                                                            </div>
-                                                            <ul class="message-menu">
+                                        <li class="nav-item dropdown">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-envelope-o adminpro-chat-pro" aria-hidden="true"></i><span class="indicator-ms"></span></a>
+                                            <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
+                                                <div class="message-single-top">
+                                                    <h1>Message</h1>
+                                                </div>
+                                                <ul class="message-menu">
 
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <div class="message-img">
-                                                                            <img src="img/human-6.png" alt="">
-                                                                        </div>
-                                                                        <div class="message-content">
-                                                                            <span class="message-date">16 Sept</span>
-                                                                            <h2>Sulaiman din</h2>
-                                                                            <p>Please done this project as soon possible.</p>
-                                                                        </div>
-                                                                    </a>
-                                                                    <li></li>
-                                                                    <a href="#">
-                                                                        <div class="message-img">
-                                                                            <img src="img/human-4.png" alt="">
-                                                                        </div>
-                                                                        <div class="message-content">
-                                                                            <span class="message-date">16 Sept</span>
-                                                                            <h2>Victor Jara</h2>
-                                                                            <p>Please done this project as soon possible.</p>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <div class="message-img">
-                                                                            <img src="img/human-6.png" alt="">
-                                                                        </div>
-                                                                        <div class="message-content">
-                                                                            <span class="message-date">16 Sept</span>
-                                                                            <h2>Victor Jara</h2>
-                                                                            <p>Please done this project as soon possible.</p>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="message-view">
-                                                                <a href="#">View All Messages</a>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="message-img">
+                                                                <img src="img/human-6.png" alt="">
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
-                                                        <div role="menu" class="notification-author dropdown-menu animated zoomIn">
-                                                            <div class="notification-single-top">
-                                                                <h1>Notifications</h1>
+                                                            <div class="message-content">
+                                                                <span class="message-date">16 Sept</span>
+                                                                <h2>Sulaiman din</h2>
+                                                                <p>Please done this project as soon possible.</p>
                                                             </div>
-                                                            <ul class="notification-menu">
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <div class="notification-icon">
-                                                                            <i class="fa fa-check adminpro-checked-pro admin-check-pro" aria-hidden="true"></i>
-                                                                        </div>
-                                                                        <div class="notification-content">
-                                                                            <span class="notification-date">16 Sept</span>
-                                                                            <h2>Advanda Cro</h2>
-                                                                            <p>Please done this project as soon possible.</p>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <div class="notification-icon">
-                                                                            <i class="fa fa-cloud adminpro-cloud-computing-down" aria-hidden="true"></i>
-                                                                        </div>
-                                                                        <div class="notification-content">
-                                                                            <span class="notification-date">16 Sept</span>
-                                                                            <h2>Sulaiman din</h2>
-                                                                            <p>Please done this project as soon possible.</p>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <div class="notification-icon">
-                                                                            <i class="fa fa-eraser adminpro-shield" aria-hidden="true"></i>
-                                                                        </div>
-                                                                        <div class="notification-content">
-                                                                            <span class="notification-date">16 Sept</span>
-                                                                            <h2>Victor Jara</h2>
-                                                                            <p>Please done this project as soon possible.</p>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <div class="notification-icon">
-                                                                            <i class="fa fa-line-chart adminpro-analytics-arrow" aria-hidden="true"></i>
-                                                                        </div>
-                                                                        <div class="notification-content">
-                                                                            <span class="notification-date">16 Sept</span>
-                                                                            <h2>Victor Jara</h2>
-                                                                            <p>Please done this project as soon possible.</p>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="notification-view">
-                                                                <a href="#">View All Notification</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                            <i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
-                                                            <span class="admin-name">Admin Name</span>
-                                                            <i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
                                                         </a>
-                                                        <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                            <%--<li><a href="#"><span class="fa fa-home author-log-ic"></span>Register</a>
-                                                        </li>--%>
-                                                            <li><a href="#"><span class="fa fa-user author-log-ic"></span>My Profile</a>
-                                                            </li>
-                                                            <%--<li><a href="#"><span class="fa fa-diamond author-log-ic"></span> Lock</a>
-                                                        </li>--%>
-                                                            <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Settings</a>
-                                                            </li>
-                                                            <li><a href="#"><span class="fa fa-lock author-log-ic"></span>Log Out</a>
-                                                            </li>
-                                                        </ul>
+                                                        <li></li>
+                                                        <a href="#">
+                                                            <div class="message-img">
+                                                                <img src="img/human-4.png" alt="">
+                                                            </div>
+                                                            <div class="message-content">
+                                                                <span class="message-date">16 Sept</span>
+                                                                <h2>Victor Jara</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
                                                     </li>
-                                                    <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle" ><i class="fa fa-tasks"></i></a>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="message-img">
+                                                                <img src="img/human-6.png" alt="">
+                                                            </div>
+                                                            <div class="message-content">
+                                                                <span class="message-date">16 Sept</span>
+                                                                <h2>Victor Jara</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="message-view">
+                                                    <a href="#">View All Messages</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
+                                            <div role="menu" class="notification-author dropdown-menu animated zoomIn">
+                                                <div class="notification-single-top">
+                                                    <h1>Notifications</h1>
+                                                </div>
+                                                <ul class="notification-menu">
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="notification-icon">
+                                                                <i class="fa fa-check adminpro-checked-pro admin-check-pro" aria-hidden="true"></i>
+                                                            </div>
+                                                            <div class="notification-content">
+                                                                <span class="notification-date">16 Sept</span>
+                                                                <h2>Advanda Cro</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="notification-icon">
+                                                                <i class="fa fa-cloud adminpro-cloud-computing-down" aria-hidden="true"></i>
+                                                            </div>
+                                                            <div class="notification-content">
+                                                                <span class="notification-date">16 Sept</span>
+                                                                <h2>Sulaiman din</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="notification-icon">
+                                                                <i class="fa fa-eraser adminpro-shield" aria-hidden="true"></i>
+                                                            </div>
+                                                            <div class="notification-content">
+                                                                <span class="notification-date">16 Sept</span>
+                                                                <h2>Victor Jara</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="notification-icon">
+                                                                <i class="fa fa-line-chart adminpro-analytics-arrow" aria-hidden="true"></i>
+                                                            </div>
+                                                            <div class="notification-content">
+                                                                <span class="notification-date">16 Sept</span>
+                                                                <h2>Victor Jara</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="notification-view">
+                                                    <a href="#">View All Notification</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                <i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
+                                                <span class="admin-name">Admin Name</span>
+                                                <i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
+                                            </a>
+                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                <%--<li><a href="#"><span class="fa fa-home author-log-ic"></span>Register</a>
+                                                        </li>--%>
+                                                <li><a href="#"><span class="fa fa-user author-log-ic"></span>My Profile</a>
+                                                </li>
+                                                <%--<li><a href="#"><span class="fa fa-diamond author-log-ic"></span> Lock</a>
+                                                        </li>--%>
+                                                <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Settings</a>
+                                                </li>
+                                                <li><a href="#"><span class="fa fa-lock author-log-ic"></span>Log Out</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-tasks"></i></a>
 
-                                                        <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
-                                                            <ul class="nav nav-tabs custon-set-tab">
-                                                                <%--<li class="active"><a data-toggle="tab" href="#Notes">News</a>
+                                            <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
+                                                <ul class="nav nav-tabs custon-set-tab">
+                                                    <%--<li class="active"><a data-toggle="tab" href="#Notes">News</a>
                                                             </li>--%>
-                                                                <li class="active"><a data-toggle="tab" href="#Projects">Activity</a>
+                                                    <li class="active"><a data-toggle="tab" href="#Projects">Activity</a>
+                                                    </li>
+                                                    <li><a data-toggle="tab" href="#Settings">Settings</a>
+                                                    </li>
+                                                </ul>
+
+                                                <div class="tab-content custom-bdr-nt">
+
+                                                    <div id="Projects" class="tab-pane fade in active">
+                                                        <div class="projects-settings-wrap">
+                                                            <div class="note-heading-indicate">
+                                                                <h2><i class="fa fa-cube"></i>Recent Activity</h2>
+                                                                <p>You have 20 Recent Activity.</p>
+                                                            </div>
+                                                            <div class="project-st-list-area project-st-menu-scrollbar">
+                                                                <ul class="projects-st-menu-list">
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>New User Registered</h2>
+                                                                                    <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">1 hours ago</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>New Order Received</h2>
+                                                                                    <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">2 hours ago</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>New Order Received</h2>
+                                                                                    <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">3 hours ago</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>New Order Received</h2>
+                                                                                    <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">4 hours ago</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>New User Registered</h2>
+                                                                                    <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">5 hours ago</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>New Order</h2>
+                                                                                    <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">6 hours ago</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>New User</h2>
+                                                                                    <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">7 hours ago</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>New Order</h2>
+                                                                                    <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">9 hours ago</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="Settings" class="tab-pane fade">
+                                                        <div class="setting-panel-area">
+                                                            <div class="note-heading-indicate">
+                                                                <h2><i class="fa fa-gears"></i>Settings Panel</h2>
+                                                                <p>You have 20 Settings. 5 not completed.</p>
+                                                            </div>
+                                                            <ul class="setting-panel-list">
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Show notifications</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example">
+                                                                                    <label class="onoffswitch-label" for="example">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </li>
-                                                                <li><a data-toggle="tab" href="#Settings">Settings</a>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Disable Chat</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example3">
+                                                                                    <label class="onoffswitch-label" for="example3">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Enable history</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example4">
+                                                                                    <label class="onoffswitch-label" for="example4">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Show charts</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example7">
+                                                                                    <label class="onoffswitch-label" for="example7">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Update everyday</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example2">
+                                                                                    <label class="onoffswitch-label" for="example2">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Global search</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example6">
+                                                                                    <label class="onoffswitch-label" for="example6">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Offline users</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
+                                                                                    <label class="onoffswitch-label" for="example5">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </li>
                                                             </ul>
 
-                                                            <div class="tab-content custom-bdr-nt">
-                                                          
-                                                                <div id="Projects" class="tab-pane fade in active">
-                                                                    <div class="projects-settings-wrap">
-                                                                        <div class="note-heading-indicate">
-                                                                            <h2><i class="fa fa-cube"></i>Recent Activity</h2>
-                                                                            <p>You have 20 Recent Activity.</p>
-                                                                        </div>
-                                                                        <div class="project-st-list-area project-st-menu-scrollbar">
-                                                                            <ul class="projects-st-menu-list">
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <div class="project-list-flow">
-                                                                                            <div class="projects-st-heading">
-                                                                                                <h2>New User Registered</h2>
-                                                                                                <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
-                                                                                                <span class="project-st-time">1 hours ago</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <div class="project-list-flow">
-                                                                                            <div class="projects-st-heading">
-                                                                                                <h2>New Order Received</h2>
-                                                                                                <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
-                                                                                                <span class="project-st-time">2 hours ago</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <div class="project-list-flow">
-                                                                                            <div class="projects-st-heading">
-                                                                                                <h2>New Order Received</h2>
-                                                                                                <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
-                                                                                                <span class="project-st-time">3 hours ago</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <div class="project-list-flow">
-                                                                                            <div class="projects-st-heading">
-                                                                                                <h2>New Order Received</h2>
-                                                                                                <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
-                                                                                                <span class="project-st-time">4 hours ago</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <div class="project-list-flow">
-                                                                                            <div class="projects-st-heading">
-                                                                                                <h2>New User Registered</h2>
-                                                                                                <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
-                                                                                                <span class="project-st-time">5 hours ago</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <div class="project-list-flow">
-                                                                                            <div class="projects-st-heading">
-                                                                                                <h2>New Order</h2>
-                                                                                                <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
-                                                                                                <span class="project-st-time">6 hours ago</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <div class="project-list-flow">
-                                                                                            <div class="projects-st-heading">
-                                                                                                <h2>New User</h2>
-                                                                                                <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
-                                                                                                <span class="project-st-time">7 hours ago</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#">
-                                                                                        <div class="project-list-flow">
-                                                                                            <div class="projects-st-heading">
-                                                                                                <h2>New Order</h2>
-                                                                                                <p>The point of using Lorem Ipsum is that it has a more or less normal.</p>
-                                                                                                <span class="project-st-time">9 hours ago</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="Settings" class="tab-pane fade">
-                                                                    <div class="setting-panel-area">
-                                                                        <div class="note-heading-indicate">
-                                                                            <h2><i class="fa fa-gears"></i>Settings Panel</h2>
-                                                                            <p>You have 20 Settings. 5 not completed.</p>
-                                                                        </div>
-                                                                        <ul class="setting-panel-list">
-                                                                            <li>
-                                                                                <div class="checkbox-setting-pro">
-                                                                                    <div class="checkbox-title-pro">
-                                                                                        <h2>Show notifications</h2>
-                                                                                        <div class="ts-custom-check">
-                                                                                            <div class="onoffswitch">
-                                                                                                <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example">
-                                                                                                <label class="onoffswitch-label" for="example">
-                                                                                                    <span class="onoffswitch-inner"></span>
-                                                                                                    <span class="onoffswitch-switch"></span>
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="checkbox-setting-pro">
-                                                                                    <div class="checkbox-title-pro">
-                                                                                        <h2>Disable Chat</h2>
-                                                                                        <div class="ts-custom-check">
-                                                                                            <div class="onoffswitch">
-                                                                                                <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example3">
-                                                                                                <label class="onoffswitch-label" for="example3">
-                                                                                                    <span class="onoffswitch-inner"></span>
-                                                                                                    <span class="onoffswitch-switch"></span>
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="checkbox-setting-pro">
-                                                                                    <div class="checkbox-title-pro">
-                                                                                        <h2>Enable history</h2>
-                                                                                        <div class="ts-custom-check">
-                                                                                            <div class="onoffswitch">
-                                                                                                <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example4">
-                                                                                                <label class="onoffswitch-label" for="example4">
-                                                                                                    <span class="onoffswitch-inner"></span>
-                                                                                                    <span class="onoffswitch-switch"></span>
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="checkbox-setting-pro">
-                                                                                    <div class="checkbox-title-pro">
-                                                                                        <h2>Show charts</h2>
-                                                                                        <div class="ts-custom-check">
-                                                                                            <div class="onoffswitch">
-                                                                                                <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example7">
-                                                                                                <label class="onoffswitch-label" for="example7">
-                                                                                                    <span class="onoffswitch-inner"></span>
-                                                                                                    <span class="onoffswitch-switch"></span>
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="checkbox-setting-pro">
-                                                                                    <div class="checkbox-title-pro">
-                                                                                        <h2>Update everyday</h2>
-                                                                                        <div class="ts-custom-check">
-                                                                                            <div class="onoffswitch">
-                                                                                                <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example2">
-                                                                                                <label class="onoffswitch-label" for="example2">
-                                                                                                    <span class="onoffswitch-inner"></span>
-                                                                                                    <span class="onoffswitch-switch"></span>
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="checkbox-setting-pro">
-                                                                                    <div class="checkbox-title-pro">
-                                                                                        <h2>Global search</h2>
-                                                                                        <div class="ts-custom-check">
-                                                                                            <div class="onoffswitch">
-                                                                                                <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example6">
-                                                                                                <label class="onoffswitch-label" for="example6">
-                                                                                                    <span class="onoffswitch-inner"></span>
-                                                                                                    <span class="onoffswitch-switch"></span>
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="checkbox-setting-pro">
-                                                                                    <div class="checkbox-title-pro">
-                                                                                        <h2>Offline users</h2>
-                                                                                        <div class="ts-custom-check">
-                                                                                            <div class="onoffswitch">
-                                                                                                <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
-                                                                                                <label class="onoffswitch-label" for="example5">
-                                                                                                    <span class="onoffswitch-inner"></span>
-                                                                                                    <span class="onoffswitch-switch"></span>
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                        </ul>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
-                                                    </li>
-                                                </ul>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-    <br /> <br /> 
-
-   
-                                            
-                               
-
-<%--    <script>
-function validateData()
-{
-var x= document.getElementById("txt").value
-if(x=="")
-alert("No data");
-}
-
-</script>--%>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
 
 </asp:Content>
 
 
 
 
-<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
- 
+<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" runat="Server">
 
-    <div class="col-md-12">
-     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="margin-top:25px;background-color:blue">
-                                                <asp:Label ID="lblSuccess" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-success" ></asp:Label>
-                                                <asp:Label ID="lblError" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-danger" ></asp:Label>
-                                              
-                                                <fieldset>
-                                                    <legend>Add Classes</legend>
-                                                
-                                                <div class="review-content-section" >
-                    
-                                                    
-                               <div class="input-group mg-b-pro-edt" style="margin-top:-10px">
-                                                                                                                                    <asp:DropDownList ID="ddlDepartments" runat="server" class="form-control" Width="130%" >
-            <asp:ListItem Value="-1">--Select Department--</asp:ListItem>
-            <asp:ListItem Value="1">Pre-Primary</asp:ListItem>
-            <asp:ListItem Value="2">Primary</asp:ListItem>
-            <asp:ListItem Value="3">Middle</asp:ListItem>
-            <asp:ListItem Value="4">High</asp:ListItem>
-            <asp:ListItem Value="5">Higher</asp:ListItem>           
-           </asp:DropDownList>
-                                                 &nbsp
-                                                       <%--<asp:Label ID="lblDepartmentStatus" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>--%>
-                                                   
-                                                    
-        </div>
-                                                      
-                                                   
-                                                           
-                                                    <div class="input-group mg-b-pro-edt" >
-
-
-                                                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ForeColor="Black" Width="58%" placeholder="Enter Class"></asp:TextBox> &nbsp
-                                                        <asp:Label ID="lblClassStatus" runat="server" ForeColor="Red" Font-Size="Large"  ></asp:Label>
-                                                    </div>
-                                             
-
-                                                 
-                                                    
-                                                     </div>
-                                                 
-                                                <br />
-                                                    
-                                                        <div class="form-group review-pro-edt" style="margin-left:52px">
-                                                            
-                                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick=" return validateData" />
-                                                            <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click"  />
-                                                            
-                                                        </div> 
-                                                       </fieldset> 
-                                                    
-
-
-         
-
-                                                    </div>
-
- 
     
-   
-    
-     <div class="col-lg-4 col-md-4 col-sm-6" style="margin-top:25px;margin-left:60px">
-
-
-        <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="false" CssClass="table">
-
-            <Columns>
-                <asp:TemplateField HeaderText="S.No">
-                    <ItemTemplate> 
-                        <%# Container.DataItemIndex+1%>
-                    </ItemTemplate>
-                </asp:TemplateField>
-           
-                <asp:TemplateField HeaderText="Class Name">
-                    <ItemTemplate> 
-                        <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                 <asp:TemplateField HeaderText="Department">
-                    <ItemTemplate> 
-                        <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                 <asp:TemplateField HeaderText="Delete">
-                    <ItemTemplate> 
-                        <asp:Button ID="btnDelete" CssClass="btn-danger" Text="Delete" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Add">
-                    <ItemTemplate> 
-                        <asp:Button ID="btnAdd" Text="Edit" CssClass="btn-success" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+    <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
+        <h2> <Span style="color:#9d0e0a">Manage</Span> Classes </h2>
+        <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; width:25%" />
     </div>
+    <div  style="margin-top:10px;">
+        <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+        <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
+    </div>
+    <div class="col-md-12" >
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+
+            <fieldset>
+                <legend>Add Classes</legend>
+
+                <div class="review-content-section">
+
+
+                    <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:DropDownList ID="ddlDepartments" runat="server" class="form-control" Width="80%">
+                            <asp:ListItem Value="-1">--Select Department--</asp:ListItem>
+                            <asp:ListItem Value="1">Pre-Primary</asp:ListItem>
+                            <asp:ListItem Value="2">Primary</asp:ListItem>
+                            <asp:ListItem Value="3">Middle</asp:ListItem>
+                            <asp:ListItem Value="4">High</asp:ListItem>
+                            <asp:ListItem Value="5">Higher</asp:ListItem>
+                        </asp:DropDownList>
+
+                    </div>
+
+                    <br />
+                    <div class="input-group review-pro-edt">
+
+
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ForeColor="Black" Width="80%" placeholder="Enter Class"></asp:TextBox>
+
+                    </div>
+
+
+
+
+
+                </div>
+
+                <br />
+
+                <div class="form-group review-pro-edt center-block text-center">
+
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick=" return validateData" />
+                    <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
+
+                </div>
+            </fieldset>
+
+
+
+
+
         </div>
-  <script>
 
-    function validateData()
-    {
-        var x = document.getElementById("txtName").value;
-        var y= document.getElementById("lblSuccess").value;
-        if (document.getElementById("txtName").value == "") {
-            document.getElementById("lblSuccess").innerHTML = "No Data";
-            return false;
+
+
+
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-lg-push-1 col-md-push-1" style="margin-top: 25px;">
+
+
+            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-hover table-responsive" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+
+                <Columns>
+                    <asp:TemplateField HeaderText="S.No">
+                        <ItemTemplate>
+                            <%# Container.DataItemIndex+1%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Class Name">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Department">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <div class="form-inline">
+                                <asp:LinkButton Text="Edit" runat="server" />
+                                |
+                                <asp:LinkButton Text="Delete" runat="server" />
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+                <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+                <RowStyle BackColor="White" ForeColor="#330099" />
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+                <SortedAscendingCellStyle BackColor="#FEFCEB" />
+                <SortedAscendingHeaderStyle BackColor="#AF0101" />
+                <SortedDescendingCellStyle BackColor="#F6F0C0" />
+                <SortedDescendingHeaderStyle BackColor="#7E0000" />
+            </asp:GridView>
+        </div>
+    </div>
+    <script>
+
+        function validateData() {
+            var x = document.getElementById("txtName").value;
+            var y = document.getElementById("lblSuccess").value;
+            if (document.getElementById("txtName").value == "") {
+                document.getElementById("lblSuccess").innerHTML = "No Data";
+                return false;
+            }
+
+
         }
-                       
+    </script>
 
-    }
-</script>
-    
 </asp:Content>
 
