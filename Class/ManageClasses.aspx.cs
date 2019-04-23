@@ -32,8 +32,6 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         }
     }
 
-
-
     public void addClass()
     {
 
@@ -127,20 +125,54 @@ public partial class Class_ManageClasses : System.Web.UI.Page
 
     }
 
-    protected void lbtnEdit_Command(object sender, CommandEventArgs e)
+  
+    public void deleteClass(int id)
     {
+        try
+        {
+            ClassModel cm = new ClassModel();
+            cm.ClassId = id;
+            string message = Cdal.DeleteClass(cm);
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = message;        
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+
+        }
+           
 
     }
 
-    protected void lbtnDelete_Command(object sender, CommandEventArgs e)
+    //public void updateClass(int id)
+    //{
+    //    btnSubmit.Visible = false;
+    //    btnUpdate.Visible = true;
+    //    string message
+    //}
+    public void EditClass(long id)
     {
-        deleteClass(Convert.ToInt32(e.CommandArgument));
+        ClassModel model = new ClassModel();
+        model.ClassId = id;
+       ClassModel cmodel= Cdal.EditClass(model);
+        ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
+        txtName.Text = cmodel.ClassName;
     }
-    public void deleteClass(int i)
-    {
-        ClassModel cm = new ClassModel();
-        cm.ClassId = i;
-        
 
+
+    protected void gvClasses_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "EditCommand")
+        {
+            EditClass(Convert.ToInt64(e.CommandArgument));
+
+        }else if (e.CommandName == "DeleteCommand")
+        {
+           deleteClass(Convert.ToInt32(e.CommandArgument)); 
+        }
     }
 }

@@ -672,6 +672,7 @@
                 <br />
 
                 <div class="form-group review-pro-edt center-block text-center">
+                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" Visible="false"/>
 
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validate()"  />
                     <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
@@ -697,7 +698,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
            
 
-            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-responsive" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" GridLines="None">
+            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-responsive" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None">
 
                
 
@@ -722,9 +723,9 @@
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
                             <div class="form-inline">
-                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId ") %>' OnCommand="lbtnEdit_Command"></asp:LinkButton>
+                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId ") %>'></asp:LinkButton>
                                 |
-                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" OnCommand="lbtnDelete_Command" CommandArgument='<%# Eval("ClassId ") %>'  ForeColor="Red"/>
+                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId ") %>'  ForeColor="Red"/>
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
