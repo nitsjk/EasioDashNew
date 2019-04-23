@@ -18,7 +18,7 @@ namespace Nits.BLL
 {
     public class ClassBLL
     {
-        public List<ClassModel> getAllClasses( ClassModel model)
+        public List<ClassModel> getAllClasses(ClassModel model)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
@@ -35,6 +35,21 @@ namespace Nits.BLL
             HttpClient http = NitsAPI.apiConnection1();
             var ReturnMessage = http.PostAsJsonAsync("class", model).Result;
             
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+        }
+        public string DeleteClass(ClassModel model)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            var ReturnMessage = http.DeleteAsync("Class/"+model.ClassId.ToString()).Result;
+
+
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
