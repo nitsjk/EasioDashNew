@@ -672,8 +672,8 @@ alert("No data");
                                                     
                                                         <div class="form-group review-pro-edt" style="margin-left:52px">
                                                             
-                                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validateData" />
-                                                            <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
+                                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick=" return validateData" />
+                                                            <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click"  />
                                                             
                                                         </div> 
                                                        </fieldset> 
@@ -688,7 +688,7 @@ alert("No data");
     
    
     
-     <div class="col-lg-4 col-md-4 col-sm-6" style="margin-top:25px">
+     <div class="col-lg-4 col-md-4 col-sm-6" style="margin-top:25px;margin-left:60px">
 
 
         <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="false" CssClass="table">
@@ -724,7 +724,20 @@ alert("No data");
         </asp:GridView>
     </div>
         </div>
-  
+  <script>
+
+    function validateData()
+    {
+        var x = document.getElementById("txtName").value;
+        var y= document.getElementById("lblSuccess").value;
+        if (document.getElementById("txtName").value == "") {
+            document.getElementById("lblSuccess").innerHTML = "No Data";
+            return false;
+        }
+                       
+
+    }
+</script>
     
 </asp:Content>
 
