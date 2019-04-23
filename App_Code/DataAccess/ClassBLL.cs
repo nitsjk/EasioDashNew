@@ -70,8 +70,14 @@ namespace Nits.BLL
         public string UpdateClass(ClassModel model)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.PostAsJsonAsync("class", model).Result;
-
+            HttpResponseMessage response = http.GetAsync("class").Result;
+            List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
+            ClassModel cmodel = CList.FirstOrDefault(x => x.ClassId == model.ClassId);
+            cmodel.ClassName = model.ClassName;
+            cmodel.subdepartmentid = model.subdepartmentid;
+            cmodel.UpdatedBy = model.UpdatedBy;
+            cmodel.UpdatedOn = model.UpdatedOn;
+            var ReturnMessage = http.PutAsJsonAsync("class", cmodel).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
