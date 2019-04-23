@@ -148,12 +148,6 @@ public partial class Class_ManageClasses : System.Web.UI.Page
 
     }
 
-    //public void updateClass(int id)
-    //{
-    //    btnSubmit.Visible = false;
-    //    btnUpdate.Visible = true;
-    //    string message
-    //}
     public void EditClass(long id)
     {
         ClassModel model = new ClassModel();
@@ -177,4 +171,51 @@ public partial class Class_ManageClasses : System.Web.UI.Page
            deleteClass(Convert.ToInt32(e.CommandArgument)); 
         }
     }
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            
+
+        }
+        catch (Exception ex)
+        {
+
+            throw;
+            
+        }
+    }
+
+    //public void updateClass()
+    //{
+    //    try
+    //    {
+    //        ClassModel cm = new ClassModel();
+    //        cm.ClassName = txtName.Text;
+    //        cm.subdepartmentid = Convert.ToInt64(ddlDepartments.SelectedValue);
+    //       // string message=Cdal
+    //        if (message.Contains("successfully"))
+    //        {
+    //            lblSuccess.Text = message;
+    //            lblError.Visible = false;
+    //            lblSuccess.Visible = true;
+    //            txtName.Text = "";
+    //            ddlDepartments.SelectedValue = "-1";
+    //        }
+    //        else
+    //        {
+    //            lblError.Text = message;
+    //            lblError.Visible = true;
+    //            lblSuccess.Visible = false;
+    //        }
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        lblError.Visible = true;
+    //        lblSuccess.Visible = false;
+    //        lblError.Text = ex.ToString();
+    //    }
+
+    //}
 }

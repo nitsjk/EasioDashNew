@@ -23,7 +23,7 @@ padding-bottom:0px!important;
 }
 .table>.no-margin>.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
 
-color:black!important;
+/*color:black!important;*/
 }
 
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {

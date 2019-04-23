@@ -624,7 +624,7 @@
 
     
     <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
-        <h2> <Span style="color:#9d0e0a">Manage</Span> Classes </h2>
+        <h3> <Span style="color:#9d0e0a">Manage</Span> Classes </h3>
         <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; width:25%" />
     </div>
     <div  style="margin-top:10px;">
@@ -672,7 +672,8 @@
                 <br />
 
                 <div class="form-group review-pro-edt center-block text-center">
-                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" Visible="false"/>
+                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" Visible="false" OnClick="btnUpdate_Click"
+                        />
 
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validate()"  />
                     <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
@@ -693,12 +694,15 @@
             {
                 color:white !important;
             }
+            .GridHeader {
+                 text-align:center !important; 
+            }
         </style>
 
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
            
 
-            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-responsive" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None">
+            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None" HeaderStyle-CssClass="GridHeader">
 
                
 
@@ -707,7 +711,7 @@
                         <ItemTemplate>
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Left" Width="40px" />
+                        <HeaderStyle HorizontalAlign="Left" Width="40px"  ForeColor="White"/>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Class Name">
@@ -724,14 +728,14 @@
                         <ItemTemplate>
                             <div class="form-inline">
                                 <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId ") %>'></asp:LinkButton>
-                                |
+                               &nbsp | &nbsp
                                 <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId ") %>'  ForeColor="Red"/>
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-                <FooterStyle BackColor="#990000" ForeColor="White" Font-Bold="True" />
-                <HeaderStyle BackColor="#ba1806"  Font-Bold="True"   Height="30px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <FooterStyle BackColor="#990000"  Font-Bold="True" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="30px"  HorizontalAlign="Center" VerticalAlign="Bottom"  CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -742,6 +746,11 @@
             </asp:GridView>
         </div>
     </div>
+
+
+
+
+
     <script>
 
         function validateData() {
