@@ -15,7 +15,7 @@ namespace NITS.API
             //Hosted web API REST Service base url  
             //testing fwcore.easio.in/api/  
 
-            string BaseUrl = "http://coreapi.easio.in/api/livesession";
+            string BaseUrl = "http://coreapi.easio.in/api/";
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(BaseUrl);

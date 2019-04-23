@@ -44,10 +44,10 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
-        public string DeleteClass(ClassModel model)
+        public string DeleteClass(long ClassId)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.DeleteAsync("Class/"+model.ClassId.ToString()).Result;
+            var ReturnMessage = http.DeleteAsync("Class/"+ClassId.ToString()).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
@@ -57,15 +57,29 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
-        public ClassModel EditClass(ClassModel model)
+        public ClassModel EditClass(long ClassId)
         {
             HttpClient hc = NitsAPI.apiConnection1();
             
             HttpResponseMessage response = hc.GetAsync("class").Result;
             List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
-            ClassModel cmodel = CList.FirstOrDefault(x => x.ClassId == model.ClassId);
+            ClassModel cmodel = CList.FirstOrDefault(x => x.ClassId ==ClassId);
 
             return cmodel;
+        }
+        public string UpdateClass(ClassModel model)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            var ReturnMessage = http.PostAsJsonAsync("class", model).Result;
+
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
         }
     }
    
