@@ -675,7 +675,7 @@
                     <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" Visible="false" OnClick="btnUpdate_Click"
                         />
 
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validate()"  />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="return validateData()" />
                     <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
 
                 </div>
@@ -758,10 +758,15 @@
     <script>
 
         function validateData() {
+            var x = document.getElementById("<%=txtName %>");
+            //if( (document.getElementById("<%=txtName %>"))
+            
+                alert('No Data' + x);
+            
             var x = document.getElementById("txtName").value;
             var y = document.getElementById("lblSuccess").value;
             if (document.getElementById("txtName").value == "") {
-                document.getElementById("lblSuccess").innerHTML = "No Data";
+                alert('No Data');
                 return false;   
             }
 

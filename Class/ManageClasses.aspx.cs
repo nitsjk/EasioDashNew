@@ -202,6 +202,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
             lblError.Text = ex.ToString();
         }
+       
 
     }
     protected void btnUpdate_Click(object sender, EventArgs e)

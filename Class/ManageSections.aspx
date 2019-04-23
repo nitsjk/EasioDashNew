@@ -168,11 +168,6 @@
 
                 <li class="a-inner" style="display: table-row"><a href="ManageSections.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Manage Sections </span></a></li>
 
-
-
-
-
-
             </ul>
         </nav>
     </div>
@@ -604,11 +599,17 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" runat="Server">
+    <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
+        <h3> <Span style="color:#9d0e0a">Manage</Span> Sections </h3>
+        <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; margin-top:-6px; width:25%" />
+    </div>
+    <div  style="margin-top:10px;">
+         <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+        <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
+    </div>
 
-          <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" style="margin-top: 25px">
-          <asp:Label ID="lblSuccess" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-success" ></asp:Label>
-           <asp:Label ID="lblError" Visible="false" runat="server"  style="margin-left:40px" CssClass="col-md-12 center-block text-center alert-danger" ></asp:Label>
-
+    <div class="col-md-12" >
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <fieldset>
             <legend>Add Sections</legend>
 
@@ -637,6 +638,29 @@
                 <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
             </div>
         </fieldset>
+            </div>
+
+
+
+        <style>
+            .hdr
+            {
+                color:white !important;
+            }
+            .GridHeader {
+                 text-align:center !important; 
+            }
+
+            .th {
+                text-align:center !important;
+            }
+        </style>
+
+       
+        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
+           
+
+            
 
     </div>
 </asp:Content>
