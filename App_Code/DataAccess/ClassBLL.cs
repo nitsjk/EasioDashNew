@@ -60,11 +60,10 @@ namespace Nits.BLL
         public ClassModel EditClass(ClassModel model)
         {
             HttpClient hc = NitsAPI.apiConnection1();
-
-
+            
             HttpResponseMessage response = hc.GetAsync("class").Result;
             List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
-            ClassModel cmodel = (ClassModel) (CList.Where(x => x.ClassId == model.ClassId));
+            ClassModel cmodel = CList.FirstOrDefault(x => x.ClassId == model.ClassId);
 
             return cmodel;
         }

@@ -161,6 +161,8 @@ public partial class Class_ManageClasses : System.Web.UI.Page
        ClassModel cmodel= Cdal.EditClass(model);
         ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
         txtName.Text = cmodel.ClassName;
+        btnSubmit.Visible = false;
+        btnUpdate.Visible = true;
     }
 
 
