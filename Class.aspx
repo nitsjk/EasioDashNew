@@ -1,15 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Class.aspx.cs" Inherits="_Class" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-    <%--<div class="sidebar-header">--%>
-                   <%-- <a href="Default.aspx">         
-                            
-                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
-
-                        </a>           
-                                 
-
-                </div>--%>
      <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
       <div class="left-custom-menu-adp-wrap comment-scrollbar">
 
@@ -34,10 +25,6 @@
 
                                           <li class="a-inner" style="display:table-row"> <a href="Class/ManageSections.aspx" class="a-inner-middle" style="display:table-cell;
    vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Sections </span></a> </li>
-
-                                   
-                                   
-
 
 
                             </ul>

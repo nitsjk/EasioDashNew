@@ -131,6 +131,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         try
         {
             string message = Cdal.DeleteClass(id);
+            getClasses();
             lblError.Visible = true;
             lblSuccess.Visible = false;
             lblError.Text = message;        
@@ -142,8 +143,6 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblError.Text = ex.ToString();
 
         }
-           
-
     }
 
     public void EditClass(long id)
@@ -173,7 +172,8 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     {
         try
         {
-            
+            updateClass();
+            getClasses();
 
         }
         catch (Exception ex)
@@ -185,35 +185,37 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         }
     }
 
-    //public void updateClass()
-    //{
-    //    try
-    //    {
-    //        ClassModel cm = new ClassModel();
-    //        cm.ClassName = txtName.Text;
-    //        cm.subdepartmentid = Convert.ToInt64(ddlDepartments.SelectedValue);
-    //       // string message=Cdal
-    //        if (message.Contains("successfully"))
-    //        {
-    //            lblSuccess.Text = message;
-    //            lblError.Visible = false;
-    //            lblSuccess.Visible = true;
-    //            txtName.Text = "";
-    //            ddlDepartments.SelectedValue = "-1";
-    //        }
-    //        else
-    //        {
-    //            lblError.Text = message;
-    //            lblError.Visible = true;
-    //            lblSuccess.Visible = false;
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        lblError.Visible = true;
-    //        lblSuccess.Visible = false;
-    //        lblError.Text = ex.ToString();
-    //    }
+    public void updateClass()
+    {
+        try
+        {
+            ClassModel cm = new ClassModel();
+            cm.ClassName = txtName.Text;
+            cm.subdepartmentid = Convert.ToInt64(ddlDepartments.SelectedValue);
+            cm.UpdatedBy = "NA";
+            cm.UpdatedOn = DateTime.Now;
+            string message = Cdal.UpdateClass(cm);
+            if (message.Contains("successfully"))
+            {
+                lblSuccess.Text = message;
+                lblError.Visible = false;
+                lblSuccess.Visible = true;
+                txtName.Text = "";
+                ddlDepartments.SelectedValue = "-1";
+            }
+            else
+            {
+                lblError.Text = message;
+                lblError.Visible = true;
+                lblSuccess.Visible = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+        }
 
-    //}
+    }
 }

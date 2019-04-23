@@ -733,7 +733,7 @@
                             <div class="form-inline">
                                 <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId") %>'></asp:LinkButton>
                                &nbsp | &nbsp
-                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId") %>'  ForeColor="Red"/>
+                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure')" />
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
