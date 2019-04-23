@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
-<%--Side Panel--%>
 <asp:Content ID="conentsidemenu" runat="server" ContentPlaceHolderID="contentSide">
 
     <div class="sidebar-header">

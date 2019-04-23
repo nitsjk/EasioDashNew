@@ -85,7 +85,7 @@ public partial class _Class : System.Web.UI.Page
 
     public void asv()
     {
-        lblstudentroll.Text = "200: </br> 150(M),50(F)";
+        lblstudentroll.Text = "200: 150(M),50(F)";
 
 
 
