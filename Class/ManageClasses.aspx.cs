@@ -126,7 +126,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     }
 
   
-    public void deleteClass(int id)
+    public void deleteClass(long id)
     {
         try
         {
@@ -168,7 +168,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
 
         }else if (e.CommandName == "DeleteCommand")
         {
-           deleteClass(Convert.ToInt32(e.CommandArgument)); 
+           deleteClass(Convert.ToInt64(e.CommandArgument)); 
         }
     }
 
@@ -183,6 +183,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         {
 
             throw;
+            
             
         }
     }

@@ -625,7 +625,7 @@
     
     <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
         <h3> <Span style="color:#9d0e0a">Manage</Span> Classes </h3>
-        <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; width:25%" />
+        <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; margin-top:-6px; width:25%" />
     </div>
     <div  style="margin-top:10px;">
         <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
@@ -697,47 +697,51 @@
             .GridHeader {
                  text-align:center !important; 
             }
+
+            .th {
+                text-align:center !important;
+            }
         </style>
 
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
            
 
-            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None" HeaderStyle-CssClass="GridHeader">
+            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >
 
                
 
                 <Columns>
-                    <asp:TemplateField HeaderText="S.No">
+                    <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
                         <HeaderStyle HorizontalAlign="Left" Width="40px"  ForeColor="White"/>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Class Name">
+                    <asp:TemplateField HeaderText="Class Name" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Department">
+                    <asp:TemplateField HeaderText="Department" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Action">
+                    <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <div class="form-inline">
-                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId ") %>'></asp:LinkButton>
+                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId") %>'></asp:LinkButton>
                                &nbsp | &nbsp
-                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId ") %>'  ForeColor="Red"/>
+                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId") %>'  ForeColor="Red"/>
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
-                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="30px"  HorizontalAlign="Center" VerticalAlign="Bottom"  CssClass="hdr" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />
