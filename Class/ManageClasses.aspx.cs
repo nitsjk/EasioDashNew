@@ -22,7 +22,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
                 getClasses();
 
             }
-            
+
         }
         catch (Exception ex)
         {
@@ -66,7 +66,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblError.Visible = true;
             lblSuccess.Visible = false;
         }
-        
+
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
@@ -81,9 +81,9 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblError.Visible = true;
             lblSuccess.Visible = false;
 
-        }   
-    }  
-   
+        }
+    }
+
     protected void btnReset_Click(object sender, EventArgs e)
     {
         reset();
@@ -91,10 +91,10 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     public void reset()
     {
         try
-        {                
-                ddlDepartments.ClearSelection();
-                txtName.Text = "";
-                lblSuccess.Text = "";
+        {
+            ddlDepartments.ClearSelection();
+            txtName.Text = "";
+            lblSuccess.Text = "";
         }
         catch (Exception ex)
         {
@@ -103,7 +103,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblError.Visible = true;
             lblSuccess.Visible = false;
         }
-       
+
     }
     public void getClasses()
     {
@@ -125,7 +125,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
 
     }
 
-  
+
     public void deleteClass(long id)
     {
         try
@@ -134,7 +134,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             getClasses();
             lblError.Visible = true;
             lblSuccess.Visible = false;
-            lblError.Text = message;        
+            lblError.Text = message;
         }
         catch (Exception ex)
         {
@@ -147,8 +147,9 @@ public partial class Class_ManageClasses : System.Web.UI.Page
 
     public void EditClass(long id)
     {
-        
-       ClassModel cmodel= Cdal.EditClass(id);
+
+        ClassModel cmodel = Cdal.EditClass(id);
+        ViewState["ClassID"] = id;
         ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
         txtName.Text = cmodel.ClassName;
         btnSubmit.Visible = false;
@@ -162,34 +163,19 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         {
             EditClass(Convert.ToInt64(e.CommandArgument));
 
-        }else if (e.CommandName == "DeleteCommand")
+        }
+        else if (e.CommandName == "DeleteCommand")
         {
-           deleteClass(Convert.ToInt64(e.CommandArgument)); 
+            deleteClass(Convert.ToInt64(e.CommandArgument));
         }
     }
-
-    protected void btnUpdate_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            updateClass();
-            getClasses();
-
-        }
-        catch (Exception ex)
-        {
-
-            throw;
-            
-            
-        }
-    }
-
     public void updateClass()
     {
         try
         {
+            long CID = Convert.ToInt64(ViewState["ClassID"]);
             ClassModel cm = new ClassModel();
+            cm.ClassId = CID;
             cm.ClassName = txtName.Text;
             cm.subdepartmentid = Convert.ToInt64(ddlDepartments.SelectedValue);
             cm.UpdatedBy = "NA";
@@ -218,4 +204,21 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         }
 
     }
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            updateClass();
+            getClasses();
+
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+        }
+    }
+
+
 }
