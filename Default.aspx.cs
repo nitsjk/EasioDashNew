@@ -86,7 +86,7 @@ public partial class _Default : System.Web.UI.Page
 
     public void asv()
     {
-        lblstudentroll.Text = "200: </br> 150(M),50(F)";
+        lblstudentroll.Text = "200: 150(M),50(F)";
         stndlbl.Text = "5,000: 3000(M),2000(F)";
         lblstaffroll.Text = "7000: 5000(M),2000(F)";
         lblstaffatt.Text = "10000: 4000(M),6000(F)";
