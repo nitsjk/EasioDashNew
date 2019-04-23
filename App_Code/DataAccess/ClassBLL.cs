@@ -69,6 +69,5 @@ namespace Nits.BLL
             return cmodel;
         }
     }
-
    
 }

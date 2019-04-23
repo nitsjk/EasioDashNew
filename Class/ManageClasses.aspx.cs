@@ -126,4 +126,21 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         }
 
     }
+
+    protected void lbtnEdit_Command(object sender, CommandEventArgs e)
+    {
+
+    }
+
+    protected void lbtnDelete_Command(object sender, CommandEventArgs e)
+    {
+        deleteClass(Convert.ToInt32(e.CommandArgument));
+    }
+    public void deleteClass(int i)
+    {
+        ClassModel cm = new ClassModel();
+        cm.ClassId = i;
+        
+
+    }
 }
