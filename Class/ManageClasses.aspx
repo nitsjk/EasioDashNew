@@ -648,7 +648,7 @@ alert("No data");
             <asp:ListItem Value="5">Higher</asp:ListItem>           
            </asp:DropDownList>
                                                  &nbsp
-                                                       <%--<asp:Label ID="lblDepartmentStatus" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>--%>
+                                                       
                                                    
                                                     
         </div>
@@ -659,7 +659,7 @@ alert("No data");
 
 
                                                         <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ForeColor="Black" Width="58%" placeholder="Enter Class"></asp:TextBox> &nbsp
+                                                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ForeColor="Black" Width="90%" placeholder="Enter Class"></asp:TextBox> &nbsp
                                                         <asp:Label ID="lblClassStatus" runat="server" ForeColor="Red" Font-Size="Large"  ></asp:Label>
                                                     </div>
                                              
@@ -688,7 +688,7 @@ alert("No data");
     
    
     
-     <div class="col-lg-4 col-md-4 col-sm-6" style="margin-top:25px;margin-left:60px">
+     <div class="col-lg-4 col-md-4 col-sm-6" style="margin-top:25px">
 
 
         <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="false" CssClass="table">
@@ -730,11 +730,11 @@ alert("No data");
     {
         var x = document.getElementById("txtName").value;
         var y= document.getElementById("lblSuccess").value;
-        if (document.getElementById("txtName").value == "") {
+        if (document.getElementById("txtName").value == "")
+
             document.getElementById("lblSuccess").innerHTML = "No Data";
-            return false;
-        }
-                       
+            
+            
 
     }
 </script>
