@@ -2,9 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" runat="Server">
 
-
-
-
+    <link href="../css/StyleSheet.css" rel="stylesheet" />
+    <link href="../css/AdminLTE.css" rel="stylesheet" />
+    <link href="../css/AdminLTE.min.css" rel="stylesheet" />
     <link href="../css/TestStyle.css" rel="stylesheet" />
 
     <!-- favicon
@@ -123,6 +123,15 @@
 
     <script src="../js/Validation.js"></script>
 
+    <script lang="javascript" type="text/javascript">
+
+        function validate(){
+            var x = document.getElementById("txtName").value
+            if (x == "") {
+                alert("No Data");
+            }
+        }
+    </script>
     <style>
         legend {
             /* display: block; */
@@ -664,7 +673,7 @@
 
                 <div class="form-group review-pro-edt center-block text-center">
 
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick=" return validateData" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validate()"  />
                     <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
 
                 </div>
@@ -678,18 +687,26 @@
 
 
 
+        <style>
+            .hdr
+            {
+                color:white !important;
+            }
+        </style>
 
+        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
+           
 
-        <div class="col-lg-4 col-md-4 col-sm-6 col-lg-push-1 col-md-push-1" style="margin-top: 25px;">
+            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-responsive" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" GridLines="None">
 
-
-            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-hover table-responsive" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+               
 
                 <Columns>
                     <asp:TemplateField HeaderText="S.No">
                         <ItemTemplate>
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
+                        <HeaderStyle HorizontalAlign="Left" Width="40px" />
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Class Name">
@@ -702,25 +719,25 @@
                             <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField>
+                    <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
                             <div class="form-inline">
-                                <asp:LinkButton Text="Edit" runat="server" />
+                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId ") %>' OnCommand="lbtnEdit_Command"></asp:LinkButton>
                                 |
-                                <asp:LinkButton Text="Delete" runat="server" />
+                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" OnCommand="lbtnDelete_Command" CommandArgument='<%# Eval("ClassId ") %>'  ForeColor="Red"/>
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-                <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                <RowStyle BackColor="White" ForeColor="#330099" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-                <SortedAscendingCellStyle BackColor="#FEFCEB" />
-                <SortedAscendingHeaderStyle BackColor="#AF0101" />
-                <SortedDescendingCellStyle BackColor="#F6F0C0" />
-                <SortedDescendingHeaderStyle BackColor="#7E0000" />
+                <FooterStyle BackColor="#990000" ForeColor="White" Font-Bold="True" />
+                <HeaderStyle BackColor="#ba1806"  Font-Bold="True"   Height="30px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
         </div>
     </div>
@@ -731,7 +748,7 @@
             var y = document.getElementById("lblSuccess").value;
             if (document.getElementById("txtName").value == "") {
                 document.getElementById("lblSuccess").innerHTML = "No Data";
-                return false;
+                return false;   
             }
 
 
