@@ -48,8 +48,6 @@ namespace Nits.BLL
         {
             HttpClient http = NitsAPI.apiConnection1();
             var ReturnMessage = http.DeleteAsync("Class/"+model.ClassId.ToString()).Result;
-
-
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
@@ -58,6 +56,17 @@ namespace Nits.BLL
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
+        }
+        public ClassModel EditClass(ClassModel model)
+        {
+            HttpClient hc = NitsAPI.apiConnection1();
+
+
+            HttpResponseMessage response = hc.GetAsync("class").Result;
+            List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
+            ClassModel cmodel = (ClassModel) (CList.Where(x => x.ClassId == model.ClassId));
+
+            return cmodel;
         }
     }
 
