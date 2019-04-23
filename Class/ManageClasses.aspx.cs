@@ -130,9 +130,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     {
         try
         {
-            ClassModel cm = new ClassModel();
-            cm.ClassId = id;
-            string message = Cdal.DeleteClass(cm);
+            string message = Cdal.DeleteClass(id);
             lblError.Visible = true;
             lblSuccess.Visible = false;
             lblError.Text = message;        
@@ -150,9 +148,8 @@ public partial class Class_ManageClasses : System.Web.UI.Page
 
     public void EditClass(long id)
     {
-        ClassModel model = new ClassModel();
-        model.ClassId = id;
-       ClassModel cmodel= Cdal.EditClass(model);
+        
+       ClassModel cmodel= Cdal.EditClass(id);
         ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
         txtName.Text = cmodel.ClassName;
         btnSubmit.Visible = false;
