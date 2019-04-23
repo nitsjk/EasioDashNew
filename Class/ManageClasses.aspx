@@ -686,15 +686,10 @@
                 </div>
                 <br />
                 <div class="form-group review-pro-edt center-block text-center">
-<<<<<<< HEAD
+
                     <asp:Button ID="btnUpdate" runat="server" Text="Update"  OnClientClick="validate();" CssClass="btn btn-success" Visible="false" OnClick="btnUpdate_Click" />
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="validate();" />
-=======
-                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" Visible="false" OnClick="btnUpdate_Click"
-                        />
 
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" OnClientClick="return validateData()" />
->>>>>>> ca44ca4d245d64e12a8ba7f179b5c1bac4346648
                     <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
                 </div>
             </fieldset>

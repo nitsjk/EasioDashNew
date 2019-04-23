@@ -26,7 +26,7 @@ namespace Nits.BLL
             HttpResponseMessage response = hc.GetAsync("class").Result;
           List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
             CList = ( CList.Where(x => x.Current_Session == model.Current_Session).ToList());
-
+            
             return CList;
         }
 

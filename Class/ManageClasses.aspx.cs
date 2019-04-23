@@ -181,11 +181,6 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
             lblError.Text = ex.ToString();
         }
-<<<<<<< HEAD
-=======
-       
-
->>>>>>> ca44ca4d245d64e12a8ba7f179b5c1bac4346648
     }
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
