@@ -67,6 +67,20 @@ namespace Nits.BLL
 
             return cmodel;
         }
+        public string UpdateClass(ClassModel model)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            var ReturnMessage = http.PostAsJsonAsync("class", model).Result;
+
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+        }
     }
    
 }
