@@ -625,7 +625,7 @@
     <div class="col-md-12" >
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-
+            <%--//--%>
             <fieldset>
                 <legend>Add Classes</legend>
 
