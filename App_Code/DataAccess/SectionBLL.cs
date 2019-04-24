@@ -61,7 +61,7 @@ namespace Nits.BLL
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
-            HttpResponseMessage response = hc.GetAsync("Section/"+ SectionID).Result;
+            HttpResponseMessage response = hc.GetAsync("SectionEdit/"+SectionID).Result;
             Section SecModel = response.Content.ReadAsAsync<Section>().Result;
 
             return SecModel;
