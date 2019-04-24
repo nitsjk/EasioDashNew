@@ -21,7 +21,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 if (!IsPostBack)
                 {
                     txtSection.Focus();
-                    getSections();
+                    
                     getClasses();
 
                 }
@@ -198,6 +198,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     protected void ddlClasses_SelectedIndexChanged(object sender, EventArgs e)
     {
+        getSections();
 
     }
 }
