@@ -12,7 +12,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
 {
     ClassBLL Cdal = new ClassBLL();
     SectionBLL Sdal = new SectionBLL();
-
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -46,8 +46,15 @@ public partial class Class_ManageSections : System.Web.UI.Page
     {
         try
         {
-            check();
-            addsection();
+            //  check();
+            if (ddlClasses.SelectedIndex > 0)
+            {
+                addsection();
+            }
+            else
+            {
+                lblClass.Text = "Select Class";
+            }
         }
         catch (Exception ex)
         {
@@ -65,6 +72,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
             Section sec = new Section();
             sec.Classid = Convert.ToInt64(ddlClasses.SelectedValue);
             sec.SectionName = txtSection.Text;
+            sec.Current_Session = "2018-19";
 
             string message = Sdal.AddSection(sec);
 
@@ -73,8 +81,9 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 lblSuccess.Text = message;
                 lblError.Visible = false;
                 lblSuccess.Visible = true;
+                lblClass.Text = "";
                 txtSection.Text = "";
-                ddlClasses.SelectedValue = "-1";
+                getSections();
             }
             else
             {
@@ -82,7 +91,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 lblError.Visible = true;
                 lblSuccess.Visible = false;
             }
-            addsection();
+            //addsection();
         }
         catch (Exception ex)
         {
@@ -163,6 +172,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
             ddlClasses.ClearSelection();
             txtSection.Text = "";
             lblSuccess.Text = "";
+            btnUpdate.Visible = false;
+            btnSubmit.Visible = true;
 
         }
         catch (Exception ex)
@@ -173,6 +184,11 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
         }
 
+    }
+
+    protected void ddlClasses_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        getSections();
     }
 
     //Function To Populate Grid
@@ -197,11 +213,6 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     }
 
-    protected void ddlClasses_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        getSections();
-    }
-
     protected void gvSections_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "EditCommand")
@@ -215,10 +226,12 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     }
 
+    //function For edit
     public void editSection(long secId)
     {
 
         Section sec= Sdal.EditSectin(secId);
+        ViewState["sectionID"] = secId;
         ddlClasses.SelectedValue = sec.Classid.ToString();
         txtSection.Text = sec.ClassName;
         btnSubmit.Visible = false;
@@ -226,6 +239,42 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     }
 
+    //Function for updating Section
+    public void updateSection()
+    {
+        try
+        {
+            Section sec = new Section();
+            sec.SectionName = txtSection.Text;
+            sec.Classid = Convert.ToInt64(ViewState["sectionId"]);
+            string message = Sdal.UpdateSection(sec);
+
+            if (message.Contains("successfully"))
+            {
+                lblSuccess.Text = message;
+                lblError.Visible = false;
+                lblSuccess.Visible = true;
+                txtSection.Text = "";
+                ddlClasses.SelectedValue = "-1";
+            }
+            else
+            {
+                lblError.Text = message;
+                lblError.Visible = true;
+                lblSuccess.Visible = false;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+        }
+
+    }
+
+    //Function for deleting Section
     public void deleteSection(long secId)
     {
         try
@@ -244,6 +293,23 @@ public partial class Class_ManageSections : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
 
+    }
+
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            updateSection();
+            btnUpdate.Visible = false;
+            btnSubmit.Visible = true;
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+        }
     }
 
 }
