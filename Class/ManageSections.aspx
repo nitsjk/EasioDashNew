@@ -616,7 +616,7 @@
             <div class="review-content-section">
 
                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
-                    <asp:DropDownList ID="ddlClasses" runat="server" class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId">
+                    <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlClasses_SelectedIndexChanged"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId">
                     </asp:DropDownList>
                     &nbsp
                     <asp:Label ID="lblClass" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>

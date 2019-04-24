@@ -18,14 +18,13 @@ namespace Nits.BLL
 {
     public class SectionBLL
     {
-        public List<ClassModel> getAllClasses(Section model)
+        public List<ClassModel> GetSections(long Classid)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
 
-            HttpResponseMessage response = hc.GetAsync("Sections/"+model.Classid.ToString()).Result;
+            HttpResponseMessage response = hc.GetAsync("Sections/"+Classid.ToString()).Result;
             List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
-            CList = (CList.Where(x => x.Current_Session == model.Current_Session).ToList());
 
             return CList;
         }

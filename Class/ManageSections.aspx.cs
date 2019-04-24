@@ -11,6 +11,7 @@ using Nits.Common;
 public partial class Class_ManageSections : System.Web.UI.Page
 {
     ClassBLL Cdal = new ClassBLL();
+    SectionBLL Sdal = new SectionBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -56,39 +57,39 @@ public partial class Class_ManageSections : System.Web.UI.Page
         check();
     }
 
-    public void addSection()
-    {
-        try
-        {
-            ClassModel cm = new ClassModel();
-            cm.ClassName =  txtSection.Text;
-            cm.subdepartmentid = Convert.ToInt64(ddlClasses.SelectedValue);
-            cm.Current_Session = "2018-19";
-            cm.UserName = "NA";
-            string message = Cdal.AddClass(cm);
-            if (message.Contains("successfully"))
-            {
-                lblSuccess.Text = message;
-                lblError.Visible = false;
-                lblSuccess.Visible = true;
-                txtSection.Text = "";
-                ddlClasses.SelectedValue = "-1";
-            }
-            else
-            {
-                lblError.Text = message;
-                lblError.Visible = true;
-                lblSuccess.Visible = false;
-            }
-        }
-        catch (Exception ex)
-        {
+    //public void addSection()
+    //{
+    //    try
+    //    {
+    //        Section sec = new Section();
+    //        sec.SectionName =  txtSection.Text;
+    //        sec.ClassName = (ddlClasses.SelectedValue).ToString(); ;
+    //        sec.Current_Session = "2018-19";
+        
+            
+    //        if (message.Contains("successfully"))
+    //        {
+    //            lblSuccess.Text = message;
+    //            lblError.Visible = false;
+    //            lblSuccess.Visible = true;
+    //            txtSection.Text = "";
+    //            ddlClasses.SelectedValue = "-1";
+    //        }
+    //        else
+    //        {
+    //            lblError.Text = message;
+    //            lblError.Visible = true;
+    //            lblSuccess.Visible = false;
+    //        }
+    //    }
+    //    catch (Exception ex)
+    //    {
 
-            lblError.Text = ex.ToString();
-            lblError.Visible = true;
-            lblSuccess.Visible = false;
-        }
-    }
+    //        lblError.Text = ex.ToString();
+    //        lblError.Visible = true;
+    //        lblSuccess.Visible = false;
+    //    }
+    //}
 
     public void check()
     {
@@ -170,29 +171,33 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     }
 
-    //public void getSections()
-    //{
+    public void getSections()
+    {
 
-    //    try
-    //    {
-    //        ClassModel cm = new ClassModel();
-    //        cm.Current_Session = "2018-19";
-    //        List<ClassModel> classList = Cdal.getAllClasses(cm);
-    //        gvSections.DataSource = classList;
-    //        gvSections.DataBind();
+        try
+        {
+            long Classid = Convert.ToInt64(ddlClasses.SelectedValue);
+            List<Section> classList = Sdal.GetSections(Classid);
+            gvSections.DataSource = classList;
+            gvSections.DataBind();
 
-    //    }
-    //    catch (Exception ex)
-    //    {
+        }
+        catch (Exception ex)
+        {
 
-    //        lblError.Text = ex.ToString();
-    //        lblError.Visible = true;
-    //        lblSuccess.Visible = false;
-    //    }
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
 
-    //}
+    }
 
     protected void gvSections_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
+    }
+
+    protected void ddlClasses_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
