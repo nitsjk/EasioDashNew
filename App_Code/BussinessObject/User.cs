@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 namespace Nits.Model
 {
-    public class Users:Login
+    public class User:Login
     {
         public long UserID { get; set; }
         public string userFullName { get; set; }

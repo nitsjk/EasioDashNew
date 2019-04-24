@@ -28,7 +28,7 @@ namespace Nits.BLL
         public string AddSection(Section model)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.PostAsJsonAsync("Section/" + model.Classid, model).Result;
+            var ReturnMessage = http.PostAsJsonAsync("Section",model).Result;
 
             if (ReturnMessage.IsSuccessStatusCode)
             {

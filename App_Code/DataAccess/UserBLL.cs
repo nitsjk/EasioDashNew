@@ -8,9 +8,9 @@ using System.Web;
 /// </summary>
 namespace Nits.BLL
 {
-    public class UsersBLL
+    public class UserBLL
     {
-        public UsersBLL()
+        public UserBLL()
         {
             //
             // TODO: Add constructor logic here
