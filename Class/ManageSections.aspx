@@ -643,8 +643,7 @@
 
 
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
-           
-            
+                      
             <asp:GridView runat="server" ID="gvSections" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvSections_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >
 
                
@@ -674,6 +673,8 @@
                     </asp:TemplateField>
 
                 </Columns>
+
+
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
                 <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
