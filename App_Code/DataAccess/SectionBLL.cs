@@ -12,11 +12,11 @@ using NITS.API;
 using System.Data;
 
 /// <summary>
-/// Summary description for ClassBLL
+/// Summary description for SectionBLL
 /// </summary>
 namespace Nits.BLL
 {
-    public class ClassBLL
+    public class SectionBLL
     {
         public List<ClassModel> getAllClasses(ClassModel model)
         {
@@ -24,16 +24,16 @@ namespace Nits.BLL
 
 
             HttpResponseMessage response = hc.GetAsync("class").Result;
-          List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
-            CList = ( CList.Where(x => x.Current_Session == model.Current_Session).ToList());
-            
+            List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
+            CList = (CList.Where(x => x.Current_Session == model.Current_Session).ToList());
+
             return CList;
         }
         public string AddClass(ClassModel model)
         {
             HttpClient http = NitsAPI.apiConnection1();
             var ReturnMessage = http.PostAsJsonAsync("class", model).Result;
-            
+
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
@@ -46,7 +46,7 @@ namespace Nits.BLL
         public string DeleteClass(long ClassId)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.DeleteAsync("Class/"+ClassId.ToString()).Result;
+            var ReturnMessage = http.DeleteAsync("Class/" + ClassId.ToString()).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
@@ -59,10 +59,10 @@ namespace Nits.BLL
         public ClassModel EditClass(long ClassId)
         {
             HttpClient hc = NitsAPI.apiConnection1();
-            
+
             HttpResponseMessage response = hc.GetAsync("class").Result;
             List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
-            ClassModel cmodel = CList.FirstOrDefault(x => x.ClassId ==ClassId);
+            ClassModel cmodel = CList.FirstOrDefault(x => x.ClassId == ClassId);
 
             return cmodel;
         }
