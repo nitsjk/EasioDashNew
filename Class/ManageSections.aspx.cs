@@ -12,25 +12,17 @@ public partial class Class_ManageSections : System.Web.UI.Page
 {
     ClassBLL Cdal = new ClassBLL();
     SectionBLL Sdal = new SectionBLL();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         try
         {
-            try
-            {
                 if (!IsPostBack)
                 {
                     txtSection.Focus();
                     getClasses();
-                }
-            }
-            catch (Exception ex)
-            {
-                lblError.Text = ex.ToString();
-                lblError.Visible = true;
-                lblSuccess.Visible = false;
-            }
-            ////
+                }        
+
         }
         catch (Exception ex)
         {
@@ -40,6 +32,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
         }
     }
 
+    //Function To Populate DropDown
     public void getClasses()
     {
         string str = "2018-19";
@@ -51,49 +44,60 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        check();
+        try
+        {
+            check();
+            addsection();
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
     }
 
-    //public void addSection()
-    //{
-    //    try
-    //    {
-    //        Section sec = new Section();
-    //        sec.SectionName =  txtSection.Text;
-    //        sec.ClassName = (ddlClasses.SelectedValue).ToString(); ;
-    //        sec.Current_Session = "2018-19";
-        
-            
-    //        if (message.Contains("successfully"))
-    //        {
-    //            lblSuccess.Text = message;
-    //            lblError.Visible = false;
-    //            lblSuccess.Visible = true;
-    //            txtSection.Text = "";
-    //            ddlClasses.SelectedValue = "-1";
-    //        }
-    //        else
-    //        {
-    //            lblError.Text = message;
-    //            lblError.Visible = true;
-    //            lblSuccess.Visible = false;
-    //        }
-    //    }
-    //    catch (Exception ex)
-    //    {
+    // Function To Add Section 
+    public void addsection()
+    {
+        try
+        {
+            Section sec = new Section();
+            sec.Classid = Convert.ToInt64(ddlClasses.SelectedValue);
+            sec.SectionName = txtSection.Text;
 
-    //        lblError.Text = ex.ToString();
-    //        lblError.Visible = true;
-    //        lblSuccess.Visible = false;
-    //    }
-    //}
+            string message = Sdal.AddSection(sec);
 
+            if (message.Contains("successfully"))
+            {
+                lblSuccess.Text = message;
+                lblError.Visible = false;
+                lblSuccess.Visible = true;
+                txtSection.Text = "";
+                ddlClasses.SelectedValue = "-1";
+            }
+            else
+            {
+                lblError.Text = message;
+                lblError.Visible = true;
+                lblSuccess.Visible = false;
+            }
+            addsection();
+        }
+        catch (Exception ex)
+        {
+
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
+    }
+
+    // Function To Validate Controls
     public void check()
     {
         lblClass.Text = "";
         lblSection.Text = "";
-        //txtName.Text = "";
-        //ddlDepartments.ClearSelection();
 
         DepartMentModel dm = new DepartMentModel();
         StudentBLL sb = new StudentBLL();
@@ -129,7 +133,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
             lblSuccess.Text = "Record Added Successfully!";
         txtSection.Text = "";
 
-    } //Validation
+    } 
+
     protected void btnReset_Click(object sender, EventArgs e)
     {
         try
@@ -146,6 +151,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
         }
 
     }
+
+    //Function To Reset Controls
     public void reset()
     {
 
@@ -168,6 +175,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     }
 
+    //Function To Populate Grid
     public void getSections()
     {
 
@@ -189,13 +197,52 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     }
 
-    protected void gvSections_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-
-    }
-
     protected void ddlClasses_SelectedIndexChanged(object sender, EventArgs e)
     {
         getSections();
     }
+
+    protected void gvSections_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "EditCommand")
+        {
+            editSection(Convert.ToInt64(e.CommandArgument));
+        }
+        else if (e.CommandName == "DeleteCommand")
+        {
+            deleteSection(Convert.ToInt64(e.CommandArgument));
+        }
+
+    }
+
+    public void editSection(long secId)
+    {
+        //ClassModel cmodel = Cdal.EditClass(id);
+        //ViewState["ClassID"] = id;
+        //ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
+        //txtName.Text = cmodel.ClassName;
+        //btnSubmit.Visible = false;
+        //btnUpdate.Visible = true;
+    }
+
+    public void deleteSection(long secId)
+    {
+        try
+        {
+            string message = Sdal.DeleteSection(secId);
+            getSections();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = message;
+
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+        }
+
+    }
+
 }

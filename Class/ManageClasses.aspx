@@ -641,6 +641,7 @@
     <style>
         .hdr {
             color: white !important;
+            padding-left:5px
         }
 
         .GridHeader {
@@ -696,18 +697,13 @@
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
             <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%"  Font-Size="18px" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" style="box-shadow:0px 0px 8px grey;" >
                 <Columns>
-                    <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
+                    <asp:TemplateField HeaderText="S.No"  HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
                         <HeaderStyle HorizontalAlign="Left" Width="40px" ForeColor="White" />
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Class Name" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Department" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
