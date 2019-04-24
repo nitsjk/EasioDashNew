@@ -634,11 +634,72 @@
             <br />
 
             <div class="form-group review-pro-edt" style="margin-left: 52px">
+
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
             </div>
         </fieldset>
             </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
+           
+
+            <%--<asp:GridView runat="server" ID="gvSections" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvSections_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >
+
+               
+
+                <Columns>
+                    <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <%# Container.DataItemIndex+1%>
+                        </ItemTemplate>
+                        <HeaderStyle HorizontalAlign="Left" Width="40px"  ForeColor="White"/>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Class Name" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Department" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Section" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <div class="form-inline">
+                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId") %>'></asp:LinkButton>
+                               &nbsp | &nbsp
+                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure You Want To Delete')" />
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                </Columns>
+                <FooterStyle BackColor="#990000"  Font-Bold="True" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
+            </asp:GridView>--%>
+        </div>
+
+
+
 
 
 
@@ -657,12 +718,7 @@
         </style>
 
        
-        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
-           
-
-            
-
-    </div>
+        
 </asp:Content>
 
 

@@ -13,11 +13,31 @@ public partial class Class_ManageSections : System.Web.UI.Page
     ClassBLL Cdal = new ClassBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        try
         {
+            try
+            {
+                if (!IsPostBack)
+                {
+                    txtSection.Focus();
+                    //getSections();
+                    getClasses();
 
-            txtSection.Focus();
-            getClasses();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.ToString();
+                lblError.Visible = true;
+                lblSuccess.Visible = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
         }
     }
 
@@ -33,7 +53,42 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        //check();
+        check();
+    }
+
+    public void addSection()
+    {
+        try
+        {
+            ClassModel cm = new ClassModel();
+            cm.ClassName =  txtSection.Text;
+            cm.subdepartmentid = Convert.ToInt64(ddlClasses.SelectedValue);
+            cm.Current_Session = "2018-19";
+            cm.UserName = "NA";
+
+            string message = Cdal.AddClass(cm);
+            if (message.Contains("successfully"))
+            {
+                lblSuccess.Text = message;
+                lblError.Visible = false;
+                lblSuccess.Visible = true;
+                txtSection.Text = "";
+                ddlClasses.SelectedValue = "-1";
+            }
+            else
+            {
+                lblError.Text = message;
+                lblError.Visible = true;
+                lblSuccess.Visible = false;
+            }
+        }
+        catch (Exception ex)
+        {
+
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
     }
 
     public void check()
@@ -45,7 +100,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
         DepartMentModel dm = new DepartMentModel();
         StudentBLL sb = new StudentBLL();
-        dm.Department =  ddlClasses.SelectedValue;
+        dm.Department = ddlClasses.SelectedValue;
         dm.ClassName = txtSection.Text;
 
         string message = sb.Department(dm);
@@ -72,15 +127,26 @@ public partial class Class_ManageSections : System.Web.UI.Page
         {
             lblSuccess.Text = "Record Added Successfully!";
         }
-        //Response.Write(message);
+        
         else
             lblSuccess.Text = "Record Added Successfully!";
-            txtSection.Text = "";
+        txtSection.Text = "";
 
-    }
+    } //Validation
     protected void btnReset_Click(object sender, EventArgs e)
     {
-        reset();
+        try
+        {
+            reset();
+
+        }
+        catch (Exception ex)
+        {
+
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
 
     }
     public void reset()
@@ -98,8 +164,37 @@ public partial class Class_ManageSections : System.Web.UI.Page
         catch (Exception ex)
         {
             lblError.Text = ex.ToString();
-           
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+
         }
-           
+
+    }
+
+    //public void getSections()
+    //{
+
+    //    try
+    //    {
+    //        ClassModel cm = new ClassModel();
+    //        cm.Current_Session = "2018-19";
+    //        List<ClassModel> classList = Cdal.getAllClasses(cm);
+    //        gvSections.DataSource = classList;
+    //        gvSections.DataBind();
+
+    //    }
+    //    catch (Exception ex)
+    //    {
+
+    //        lblError.Text = ex.ToString();
+    //        lblError.Visible = true;
+    //        lblSuccess.Visible = false;
+    //    }
+
+    //}
+
+    protected void gvSections_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
     }
 }
