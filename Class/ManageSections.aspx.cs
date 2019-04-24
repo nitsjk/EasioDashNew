@@ -30,6 +30,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 lblError.Visible = true;
                 lblSuccess.Visible = false;
             }
+            ////
         }
         catch (Exception ex)
         {
