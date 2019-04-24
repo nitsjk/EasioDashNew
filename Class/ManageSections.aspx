@@ -663,15 +663,15 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Department" HeaderStyle-CssClass="GridHeader">
+                    <%--<asp:TemplateField HeaderText="Department" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
                         </ItemTemplate>
-                    </asp:TemplateField>
+                    </asp:TemplateField>--%>
 
                     <asp:TemplateField HeaderText="Section" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
+                            <asp:Label Text='<%# Eval("SectionName") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -697,7 +697,7 @@
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
         </div>
-
+        </div>
 
 
 

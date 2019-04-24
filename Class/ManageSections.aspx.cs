@@ -21,7 +21,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 if (!IsPostBack)
                 {
                     txtSection.Focus();
-                    //getSections();
+                    getSections();
                     getClasses();
 
                 }
