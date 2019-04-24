@@ -18,15 +18,14 @@ namespace Nits.BLL
 {
     public class ClassBLL
     {
-        public List<ClassModel> getAllClasses(ClassModel model)
+        public List<ClassModel> getAllClasses(string Current_Session)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
 
-            HttpResponseMessage response = hc.GetAsync("class").Result;
+            HttpResponseMessage response = hc.GetAsync("class/"+Current_Session).Result;
           List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
-            CList = ( CList.Where(x => x.Current_Session == model.Current_Session).ToList());
-            
+           
             return CList;
         }
         public string AddClass(ClassModel model)
