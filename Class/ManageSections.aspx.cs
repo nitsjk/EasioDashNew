@@ -21,11 +21,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 if (!IsPostBack)
                 {
                     txtSection.Focus();
-                    getSections();
                     getClasses();
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -110,7 +107,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
         }
         else if (message == "0")
         {
-            lblSection.Text = "  *";
+            lblSection.Text = "*";
             txtSection.Focus();
 
         }
@@ -198,6 +195,6 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     protected void ddlClasses_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        getSections();
     }
 }

@@ -21,7 +21,7 @@ namespace Nits.BLL
         public List<Section> GetSections(long Classid)
         {
             HttpClient hc = NitsAPI.apiConnection1();
-            HttpResponseMessage response = hc.GetAsync("Sections/"+Classid.ToString()).Result;
+            HttpResponseMessage response = hc.GetAsync("Sections/"+Classid).Result;
             List<Section> SList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
 
             return SList;

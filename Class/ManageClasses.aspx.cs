@@ -99,8 +99,8 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         try
         {
             ClassModel cm = new ClassModel();
-            cm.Current_Session = "2018-19";
-            List<ClassModel> classList = Cdal.getAllClasses(cm);
+            string Current_Session = "2018-19";
+            List<ClassModel> classList = Cdal.getAllClasses(Current_Session);
             gvClasses.DataSource = classList;
             gvClasses.DataBind();
         }
