@@ -21,8 +21,6 @@ namespace Nits.BLL
         public List<Section> GetSections(long Classid)
         {
             HttpClient hc = NitsAPI.apiConnection1();
-
-
             HttpResponseMessage response = hc.GetAsync("Sections/"+Classid.ToString()).Result;
             List<Section> CList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
 
@@ -31,7 +29,7 @@ namespace Nits.BLL
         public string AddSection(Section model)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.PostAsJsonAsync("Section", model).Result;
+            var ReturnMessage = http.PostAsJsonAsync("Section/"+model.Classid, model).Result;
 
             if (ReturnMessage.IsSuccessStatusCode)
             {
@@ -55,7 +53,7 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
-        public Section EditClass(Section model)
+        public Section EditSectin(Section model)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
