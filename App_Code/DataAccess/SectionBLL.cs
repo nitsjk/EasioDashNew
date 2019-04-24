@@ -52,6 +52,11 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// edit section 
+        /// <returns></returns>
         public Section EditSectin(long Classid)
         {
             HttpClient hc = NitsAPI.apiConnection1();
