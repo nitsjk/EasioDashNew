@@ -619,14 +619,16 @@
                     <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlClasses_SelectedIndexChanged"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId">
                     </asp:DropDownList>
                     &nbsp
-                    <asp:Label ID="lblClass" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>
+                    <asp:RequiredFieldValidator
+                    <%--<asp:Label ID="lblClass" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>--%>
                 </div>
 
                 <div class="input-group mg-b-pro-edt">
                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
                     <asp:TextBox ID="txtSection" runat="server" CssClass="form-control" ForeColor="Black" Width="290px" placeholder="Enter Section"></asp:TextBox>
                     &nbsp
-                    <asp:Label ID="lblSection" runat="server" ForeColor="Red" Font-Size="Large"></asp:Label>
+                    <asp:RequiredFieldValidator ErrorMessage="*" Font-Size="Larger" ControlToValidate="txtSection" runat="server" ForeColor="Red" />
+                    <%--<asp:Label ID="lblSection" runat="server" ForeColor="Red" Font-Size="Large"></asp:Label>--%>
                 </div>
 
             </div>

@@ -53,7 +53,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
             }
             else
             {
-                lblClass.Text = "Select Class";
+                //lblClass.Text = "Select Class";
             }
         }
         catch (Exception ex)
@@ -81,7 +81,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 lblSuccess.Text = message;
                 lblError.Visible = false;
                 lblSuccess.Visible = true;
-                lblClass.Text = "";
+                //lblClass.Text = "";
                 txtSection.Text = "";
                 getSections();
             }
@@ -103,46 +103,46 @@ public partial class Class_ManageSections : System.Web.UI.Page
     }
 
     // Function To Validate Controls
-    public void check()
-    {
-        lblClass.Text = "";
-        lblSection.Text = "";
+    //public void check()
+    //{
+    //    lblClass.Text = "";
+    //    lblSection.Text = "";
 
-        DepartMentModel dm = new DepartMentModel();
-        StudentBLL sb = new StudentBLL();
-        dm.Department = ddlClasses.SelectedValue;
-        dm.ClassName = txtSection.Text;
+    //    DepartMentModel dm = new DepartMentModel();
+    //    StudentBLL sb = new StudentBLL();
+    //    dm.Department = ddlClasses.SelectedValue;
+    //    dm.ClassName = txtSection.Text;
 
-        string message = sb.Department(dm);
+    //    string message = sb.Department(dm);
 
-        if (message == "-1")
-        {
-            lblClass.Text = "  *";
-        }
-        else if (message == "0")
-        {
-            lblSection.Text = "*";
-            txtSection.Focus();
+    //    if (message == "-1")
+    //    {
+    //        lblClass.Text = "  *";
+    //    }
+    //    else if (message == "0")
+    //    {
+    //        lblSection.Text = "*";
+    //        txtSection.Focus();
 
-        }
+    //    }
 
-        else if (message == "false")
-        {
-            lblClass.Text = "  *";
-            lblSection.Text = "  *";
+    //    else if (message == "false")
+    //    {
+    //        lblClass.Text = "  *";
+    //        lblSection.Text = "  *";
 
-        }
+    //    }
 
-        else if (message == "true")
-        {
-            lblSuccess.Text = "Record Added Successfully!";
-        }
+    //    else if (message == "true")
+    //    {
+    //        lblSuccess.Text = "Record Added Successfully!";
+    //    }
         
-        else
-            lblSuccess.Text = "Record Added Successfully!";
-        txtSection.Text = "";
+    //    else
+    //        lblSuccess.Text = "Record Added Successfully!";
+    //    txtSection.Text = "";
 
-    } 
+    //} 
 
     protected void btnReset_Click(object sender, EventArgs e)
     {
@@ -167,8 +167,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
         try
         {
-            lblSection.Text = "";
-            lblClass.Text = "";
+            //lblSection.Text = "";
+            //lblClass.Text = "";
             ddlClasses.ClearSelection();
             txtSection.Text = "";
             lblSuccess.Text = "";
