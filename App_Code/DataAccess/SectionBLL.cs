@@ -12,27 +12,27 @@ using NITS.API;
 using System.Data;
 
 /// <summary>
-/// Summary description for SectionBLL
+/// Data Access Leayer from sections 
 /// </summary>
 namespace Nits.BLL
 {
     public class SectionBLL
     {
-        public List<ClassModel> getAllClasses(ClassModel model)
+        public List<ClassModel> getAllClasses(Section model)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
 
-            HttpResponseMessage response = hc.GetAsync("class").Result;
+            HttpResponseMessage response = hc.GetAsync("Sections/"+model.Classid.ToString()).Result;
             List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
             CList = (CList.Where(x => x.Current_Session == model.Current_Session).ToList());
 
             return CList;
         }
-        public string AddClass(ClassModel model)
+        public string AddClass(Section model)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.PostAsJsonAsync("class", model).Result;
+            var ReturnMessage = http.PostAsJsonAsync("Section", model).Result;
 
             if (ReturnMessage.IsSuccessStatusCode)
             {
@@ -43,10 +43,10 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
-        public string DeleteClass(long ClassId)
+        public string DeleteClass(long SectionID)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.DeleteAsync("Class/" + ClassId.ToString()).Result;
+            var ReturnMessage = http.DeleteAsync("Section/" + SectionID.ToString()).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
@@ -56,27 +56,25 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
-        public ClassModel EditClass(long ClassId)
+        public Section EditClass(Section model)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
-            HttpResponseMessage response = hc.GetAsync("class").Result;
-            List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
-            ClassModel cmodel = CList.FirstOrDefault(x => x.ClassId == ClassId);
+            HttpResponseMessage response = hc.GetAsync("Section/"+model.Classid.ToString()).Result;
+            List<Section> SList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
+            Section Smodel = SList.FirstOrDefault(x => x.SectionID == model.SectionID);
 
-            return cmodel;
+            return Smodel;
         }
-        public string UpdateClass(ClassModel model)
+        public string UpdateClass(Section model)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            HttpResponseMessage response = http.GetAsync("class").Result;
-            List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
-            ClassModel cmodel = CList.FirstOrDefault(x => x.ClassId == model.ClassId);
-            cmodel.ClassName = model.ClassName;
-            cmodel.subdepartmentid = model.subdepartmentid;
-            cmodel.UpdatedBy = model.UpdatedBy;
-            cmodel.UpdatedOn = model.UpdatedOn;
-            var ReturnMessage = http.PutAsJsonAsync("class", cmodel).Result;
+            HttpResponseMessage response = http.GetAsync("Section/"+model.Classid.ToString()).Result;
+            List<Section> SList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
+            Section Smodel = SList.FirstOrDefault(x => x.SectionID == model.SectionID);
+            Smodel.ClassName = model.ClassName;
+            Smodel.SectionName = model.SectionName;
+            var ReturnMessage = http.PutAsJsonAsync("Section", Smodel).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
