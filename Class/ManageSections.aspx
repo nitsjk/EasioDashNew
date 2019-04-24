@@ -644,7 +644,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
            
-
+            
             <asp:GridView runat="server" ID="gvSections" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvSections_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >
 
                
@@ -656,18 +656,6 @@
                         </ItemTemplate>
                         <HeaderStyle HorizontalAlign="Left" Width="40px"  ForeColor="White"/>
                     </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Class Name" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                    <%--<asp:TemplateField HeaderText="Department" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# Eval("EduDepartmentName") %>' runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
 
                     <asp:TemplateField HeaderText="Section" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
