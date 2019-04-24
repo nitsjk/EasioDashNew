@@ -619,16 +619,16 @@
                     <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlClasses_SelectedIndexChanged"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId">
                     </asp:DropDownList>
                     &nbsp
-                    <asp:RequiredFieldValidator
-                    <%--<asp:Label ID="lblClass" runat="server" ForeColor="Red" Font-Size="Large"> </asp:Label>--%>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlClasses" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
                 </div>
 
                 <div class="input-group mg-b-pro-edt">
                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
                     <asp:TextBox ID="txtSection" runat="server" CssClass="form-control" ForeColor="Black" Width="290px" placeholder="Enter Section"></asp:TextBox>
                     &nbsp
-                    <asp:RequiredFieldValidator ErrorMessage="*" Font-Size="Larger" ControlToValidate="txtSection" runat="server" ForeColor="Red" />
-                    <%--<asp:Label ID="lblSection" runat="server" ForeColor="Red" Font-Size="Large"></asp:Label>--%>
+                    <asp:RequiredFieldValidator ErrorMessage="*" Font-Size="Larger" ControlToValidate="txtSection" runat="server" ValidationGroup="val" ForeColor="Red"></asp:RequiredFieldValidator>
+                    
                 </div>
 
             </div>
@@ -636,8 +636,8 @@
             <br />
 
             <div class="form-group review-pro-edt" style="margin-left: 52px">
-                <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" OnClick="btnUpdate_Click" Visible="false" />
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" />
+                <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" OnClick="btnUpdate_Click" ValidationGroup="val" Visible="false" />
+                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" OnClick="btnSubmit_Click" ValidationGroup="val" />
                 <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
             </div>
         </fieldset>

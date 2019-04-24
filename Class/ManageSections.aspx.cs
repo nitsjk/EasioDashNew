@@ -102,48 +102,6 @@ public partial class Class_ManageSections : System.Web.UI.Page
         }
     }
 
-    // Function To Validate Controls
-    //public void check()
-    //{
-    //    lblClass.Text = "";
-    //    lblSection.Text = "";
-
-    //    DepartMentModel dm = new DepartMentModel();
-    //    StudentBLL sb = new StudentBLL();
-    //    dm.Department = ddlClasses.SelectedValue;
-    //    dm.ClassName = txtSection.Text;
-
-    //    string message = sb.Department(dm);
-
-    //    if (message == "-1")
-    //    {
-    //        lblClass.Text = "  *";
-    //    }
-    //    else if (message == "0")
-    //    {
-    //        lblSection.Text = "*";
-    //        txtSection.Focus();
-
-    //    }
-
-    //    else if (message == "false")
-    //    {
-    //        lblClass.Text = "  *";
-    //        lblSection.Text = "  *";
-
-    //    }
-
-    //    else if (message == "true")
-    //    {
-    //        lblSuccess.Text = "Record Added Successfully!";
-    //    }
-        
-    //    else
-    //        lblSuccess.Text = "Record Added Successfully!";
-    //    txtSection.Text = "";
-
-    //} 
-
     protected void btnReset_Click(object sender, EventArgs e)
     {
         try
@@ -231,12 +189,28 @@ public partial class Class_ManageSections : System.Web.UI.Page
     {
 
         Section sec= Sdal.EditSectin(secId);
-        ViewState["sectionID"] = secId;
+        Session["sectionID"] = secId;
         ddlClasses.SelectedValue = sec.Classid.ToString();
-        txtSection.Text = sec.ClassName;
+        txtSection.Text = sec.SectionName;
         btnSubmit.Visible = false;
         btnUpdate.Visible = true;
 
+    }
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            updateSection();
+            btnUpdate.Visible = false;
+            btnSubmit.Visible = true;
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+        }
     }
 
     //Function for updating Section
@@ -246,7 +220,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
         {
             Section sec = new Section();
             sec.SectionName = txtSection.Text;
-            sec.Classid = Convert.ToInt64(ViewState["sectionId"]);
+            sec.SectionID = Convert.ToInt64(Session["sectionId"]);
             string message = Sdal.UpdateSection(sec);
 
             if (message.Contains("successfully"))
@@ -274,6 +248,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     }
 
+
     //Function for deleting Section
     public void deleteSection(long secId)
     {
@@ -294,22 +269,4 @@ public partial class Class_ManageSections : System.Web.UI.Page
         }
 
     }
-
-
-    protected void btnUpdate_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            updateSection();
-            btnUpdate.Visible = false;
-            btnSubmit.Visible = true;
-        }
-        catch (Exception ex)
-        {
-            lblError.Visible = true;
-            lblSuccess.Visible = false;
-            lblError.Text = ex.ToString();
-        }
-    }
-
 }
