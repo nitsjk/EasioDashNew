@@ -32,6 +32,7 @@ public partial class login_login : System.Web.UI.MasterPage
             model.UserPassword = txtUserPassword.Text;
             Login Detail=Ldal.login(model);
 
+
         }
         catch (Exception ex)
         {
@@ -43,7 +44,7 @@ public partial class login_login : System.Web.UI.MasterPage
     {
         try
         {
-
+            LoginUser();
         }
         catch (Exception ex)
         {
