@@ -18,17 +18,17 @@ namespace Nits.BLL
 {
     public class SectionBLL
     {
-        public List<ClassModel> GetSections(long Classid)
+        public List<Section> GetSections(long Classid)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
 
             HttpResponseMessage response = hc.GetAsync("Sections/"+Classid.ToString()).Result;
-            List<ClassModel> CList = response.Content.ReadAsAsync<IEnumerable<ClassModel>>().Result.ToList();
+            List<Section> CList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
 
             return CList;
         }
-        public string AddClass(Section model)
+        public string AddSection(Section model)
         {
             HttpClient http = NitsAPI.apiConnection1();
             var ReturnMessage = http.PostAsJsonAsync("Section", model).Result;
@@ -42,7 +42,7 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
-        public string DeleteClass(long SectionID)
+        public string DeleteSection(long SectionID)
         {
             HttpClient http = NitsAPI.apiConnection1();
             var ReturnMessage = http.DeleteAsync("Section/" + SectionID.ToString()).Result;
