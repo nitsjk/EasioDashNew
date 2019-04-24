@@ -28,7 +28,7 @@ namespace Nits.BLL
         public string AddSection(Section model)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.PostAsJsonAsync("Section",model).Result;
+            var ReturnMessage = http.PostAsJsonAsync("Section", model).Result;
 
             if (ReturnMessage.IsSuccessStatusCode)
             {
@@ -55,13 +55,13 @@ namespace Nits.BLL
         /// <summary>
         /// 
         /// </summary>
-        /// edit section 
+        /// edit section  angain changed
         /// <returns></returns>
-        public Section EditSectin(long Classid)
+        public Section EditSectin(long SectionID)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
-            HttpResponseMessage response = hc.GetAsync("Section/"+Classid).Result;
+            HttpResponseMessage response = hc.GetAsync("Section/"+ SectionID).Result;
             Section SecModel = response.Content.ReadAsAsync<Section>().Result;
 
             return SecModel;

@@ -27,6 +27,41 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
         }
     }
+
+    //Function To Populate Grid
+    public void getClasses()
+    {
+        try
+        {
+            ClassModel cm = new ClassModel();
+            string Current_Session = "2018-19";
+            List<ClassModel> classList = Cdal.getAllClasses(Current_Session);
+            gvClasses.DataSource = classList;
+            gvClasses.DataBind();
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+        }
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            addClass();
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
+    }
+
+    //Function To Add A Class
     public void addClass()
     {
         try
@@ -60,11 +95,13 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
         }
     }
-    protected void btnSubmit_Click(object sender, EventArgs e)
+
+
+    protected void btnReset_Click(object sender, EventArgs e)
     {
         try
         {
-            addClass();
+            reset();
         }
         catch (Exception ex)
         {
@@ -73,10 +110,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
         }
     }
-    protected void btnReset_Click(object sender, EventArgs e)
-    {
-        reset();
-    }
+    //Function To Reset Controls
     public void reset()
     {
         try
@@ -94,23 +128,20 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
         }
     }
-    public void getClasses()
+
+    protected void gvClasses_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        try
+        if (e.CommandName == "EditCommand")
         {
-            ClassModel cm = new ClassModel();
-            string Current_Session = "2018-19";
-            List<ClassModel> classList = Cdal.getAllClasses(Current_Session);
-            gvClasses.DataSource = classList;
-            gvClasses.DataBind();
+            EditClass(Convert.ToInt64(e.CommandArgument));
         }
-        catch (Exception ex)
+        else if (e.CommandName == "DeleteCommand")
         {
-            lblError.Visible = true;
-            lblSuccess.Visible = false;
-            lblError.Text = ex.ToString();
+            deleteClass(Convert.ToInt64(e.CommandArgument));
         }
     }
+ 
+    //Function To Delete a Class
     public void deleteClass(long id)
     {
         try
@@ -128,24 +159,24 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
+    //Function To Edit Class
     public void EditClass(long id)
     {
-        ClassModel cmodel = Cdal.EditClass(id);
-        ViewState["ClassID"] = id;
-        ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
-        txtName.Text = cmodel.ClassName;
-        btnSubmit.Visible = false;
-        btnUpdate.Visible = true;
-    }
-    protected void gvClasses_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-        if (e.CommandName == "EditCommand")
+        try
         {
-            EditClass(Convert.ToInt64(e.CommandArgument));
+            ClassModel cmodel = Cdal.EditClass(id);
+            ViewState["ClassID"] = id;
+            ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
+            txtName.Text = cmodel.ClassName;
+            btnSubmit.Visible = false;
+            btnUpdate.Visible = true;
+
         }
-        else if (e.CommandName == "DeleteCommand")
+        catch (Exception ex)
         {
-            deleteClass(Convert.ToInt64(e.CommandArgument));
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
         }
     }
     public void updateClass()
@@ -182,6 +213,8 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
+
+    //Function To Update A Class
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         try
@@ -198,4 +231,6 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
+
+
 }
