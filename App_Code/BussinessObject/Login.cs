@@ -10,11 +10,7 @@ namespace Nits.Model
 {
     public class Login
     {
-        public Login()
-        {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
+        public string UserName { get; set; }
+        public string UserPassword { get; set; }
     }
 }
