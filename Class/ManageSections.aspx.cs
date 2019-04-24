@@ -65,7 +65,6 @@ public partial class Class_ManageSections : System.Web.UI.Page
             cm.subdepartmentid = Convert.ToInt64(ddlClasses.SelectedValue);
             cm.Current_Session = "2018-19";
             cm.UserName = "NA";
-
             string message = Cdal.AddClass(cm);
             if (message.Contains("successfully"))
             {
