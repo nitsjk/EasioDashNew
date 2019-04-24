@@ -22,9 +22,9 @@ namespace Nits.BLL
         {
             HttpClient hc = NitsAPI.apiConnection1();
             HttpResponseMessage response = hc.GetAsync("Sections/"+Classid.ToString()).Result;
-            List<Section> CList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
+            List<Section> SList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
 
-            return CList;
+            return SList;
         }
         public string AddSection(Section model)
         {
