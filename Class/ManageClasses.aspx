@@ -735,11 +735,7 @@
             </asp:GridView>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-
-
-
+    <a href="ManageSections.aspx.cs">ManageSections.aspx.cs</a>
 
 
     <script>
