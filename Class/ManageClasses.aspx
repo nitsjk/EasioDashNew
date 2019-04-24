@@ -663,8 +663,8 @@
     </div>
     <div class="col-md-12">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
-            <fieldset style="box-shadow:0px 0px 8px grey; border-radius:20px">
-                <legend style="box-shadow:0px 0px 10px grey; font-size:20px;" >Add Classes</legend>
+            <fieldset >
+                <legend style="font-size:20px;"  >Add Classes</legend>
                 <div class="review-content-section">
                     <div class="input-group review-pro-edt">
                         <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
@@ -695,7 +695,9 @@
             </fieldset>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
-            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%"  Font-Size="18px" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" style="box-shadow:0px 0px 8px grey;" >
+
+            <asp:GridView runat="server" ID="gvClasses" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvClasses_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >
+
                 <Columns>
                     <asp:TemplateField HeaderText="S.No"  HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
@@ -719,10 +721,11 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-                <FooterStyle BackColor="#990000" Font-Bold="True" />
-                <HeaderStyle BackColor="#ba1806" ForeColor="White" Font-Bold="True" Height="43px" Font-Size="20px" HorizontalAlign="Center" CssClass="hdr" />
+
+                <FooterStyle BackColor="#990000"  Font-Bold="True" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />
@@ -731,6 +734,12 @@
             </asp:GridView>
         </div>
     </div>
+
+
+
+
+
+
 
 
 
