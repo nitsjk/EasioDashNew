@@ -42,7 +42,7 @@ namespace Nits.BLL
         public string DeleteSection(long SectionID)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.DeleteAsync("Section/" + SectionID).Result;
+            var ReturnMessage = http.DeleteAsync("Section/"+ SectionID.ToString()).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
@@ -61,15 +61,15 @@ namespace Nits.BLL
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
-            HttpResponseMessage response = hc.GetAsync("Section/" + Classid).Result;
+            HttpResponseMessage response = hc.GetAsync("Section/"+Classid).Result;
             Section SecModel = response.Content.ReadAsAsync<Section>().Result;
 
             return SecModel;
         }
-        public string UpdateClass(Section model)
+        public string UpdateSection(Section model)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            HttpResponseMessage response = http.GetAsync("Section/" + model.Classid.ToString()).Result;
+            HttpResponseMessage response = http.GetAsync("Section/"+model.Classid.ToString()).Result;
             List<Section> SList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
             Section Smodel = SList.FirstOrDefault(x => x.SectionID == model.SectionID);
             Smodel.ClassName = model.ClassName;
