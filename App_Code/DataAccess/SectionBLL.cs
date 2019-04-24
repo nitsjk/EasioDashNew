@@ -42,7 +42,7 @@ namespace Nits.BLL
         public string DeleteSection(long SectionID)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.DeleteAsync("Section/" + SectionID.ToString()).Result;
+            var ReturnMessage = http.DeleteAsync("Section/" + SectionID).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
