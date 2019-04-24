@@ -217,12 +217,13 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     public void editSection(long secId)
     {
-        //ClassModel cmodel = Cdal.EditClass(id);
-        //ViewState["ClassID"] = id;
-        //ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
-        //txtName.Text = cmodel.ClassName;
-        //btnSubmit.Visible = false;
-        //btnUpdate.Visible = true;
+
+        Section sec= Sdal.EditSectin(secId);
+        ddlClasses.SelectedValue = sec.Classid.ToString();
+        txtSection.Text = sec.ClassName;
+        btnSubmit.Visible = false;
+        btnUpdate.Visible = true;
+
     }
 
     public void deleteSection(long secId)
