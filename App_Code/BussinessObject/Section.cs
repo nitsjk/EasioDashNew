@@ -15,7 +15,7 @@ namespace Nits.Model
         public string SectionName { get; set; }
         public string ClassName { get; set; }
         public string Current_Session { get; set; }
-        //public string SessionId { get; set; }
-        //public string IsFL { get; set; }
+        public string sessionid { get; set; }
+        public string isfl { get; set; }
     }
 }

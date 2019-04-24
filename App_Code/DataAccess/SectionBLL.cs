@@ -20,11 +20,10 @@ namespace Nits.BLL
     {
         public List<Section> GetSections(long Classid)
         {
-            HttpClient hc = NitsAPI.apiConnection1();
-            HttpResponseMessage response = hc.GetAsync("Sections/"+Classid).Result;
-            List<Section> SList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
-
-            return SList;
+                HttpClient hc = NitsAPI.apiConnection1();
+                HttpResponseMessage response = hc.GetAsync("Section/" + Classid).Result;
+                List<Section> SList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
+                return SList;
         }
         public string AddSection(Section model)
         {
@@ -53,15 +52,14 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
-        public Section EditSectin(Section model)
+        public Section EditSectin(long Classid)
         {
             HttpClient hc = NitsAPI.apiConnection1();
 
-            HttpResponseMessage response = hc.GetAsync("Section/"+model.Classid.ToString()).Result;
-            List<Section> SList = response.Content.ReadAsAsync<IEnumerable<Section>>().Result.ToList();
-            Section Smodel = SList.FirstOrDefault(x => x.SectionID == model.SectionID);
+            HttpResponseMessage response = hc.GetAsync("Section/"+Classid).Result;
+            Section SecModel = response.Content.ReadAsAsync<Section>().Result;
 
-            return Smodel;
+            return SecModel;
         }
         public string UpdateClass(Section model)
         {
