@@ -44,9 +44,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
 
     public void getClasses()
     {
-        ClassModel cm = new ClassModel();
-        cm.Current_Session = "2018-19";
-        List<ClassModel> classList = Cdal.getAllClasses(cm);
+        string str = "2018-19";
+        List<ClassModel> classList = Cdal.getAllClasses(str);
         ddlClasses.DataSource = classList;
         ddlClasses.DataBind();
         ddlClasses.Items.Insert(0, new ListItem("--Select Classes--", "-1"));
