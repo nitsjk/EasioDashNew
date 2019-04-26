@@ -27,15 +27,15 @@
     
     <form runat="server">
         
-<div class="container login-container" style="margin-left:300px">
+<div class="container login-container center-block" >
             <div class="row">
-                <div class="col-md-4 login-form-1" style="background-color:#3AB19B ">
+                <div class="col-md-4 login-form-1 col-md-push-2" style="background-color:#3AB19B ">
                     <div class="col-md-12 center-block text-center">
                         <asp:Label id="lblError" Visible="false" CssClass="alert-danger center-block" runat="server" />
                          <asp:Label id="lblSuccess" Visible="false" CssClass="alert-success center-block" runat="server" />
                     </div>
 
-                      <div style="margin-left:70px"><img  src="../img/easio-logo2.png" height="110px" width="100%" /></div>
+                      <div ><img  src="Images/easio-logo2.png" height="110px" width="100%" /></div>
                     <br />
                     <h3 style="color:#fff;">Welcome</h3>
                     <br />
@@ -54,7 +54,7 @@
                 </div>
                   
                 </div>
-                <div class="col-md-4 login-form-2">
+                <div class="col-md-4 login-form-2 col-md-push-2"">
                     <h3 style="color:#3AB19B;"><b>Login </b></h3>
                     
                         <div class="form-group">
@@ -73,6 +73,10 @@
                         <div class="form-group center-block text-center">
                             <asp:Button Text="SignIn" class="btnSubmit" ValidationGroup="login" ID="btnSignIn" OnClick="btnSignIn_Click" runat="server" />
                         </div>
+                    <br /> <br />   
+                    <div class="col-md-12">
+                        <a href="http://www.nationalitsolutions.com"><img src="Images/nitsbanner.jpg" alt="Company Banner"   class="img-rounded img-responsive"/></a>
+                    </div>
                 </div>
             </div>
         </div>
