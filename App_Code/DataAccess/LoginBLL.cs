@@ -26,4 +26,22 @@ namespace Nits.BLL
             return UModel;
         }
     }
+    public class liveSessionBLL
+    {
+        public string Session()
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage Response = http.GetAsync("livesession").Result;
+            string Current_Session = Response.Content.ReadAsAsync<string>().Result;
+            if (string.IsNullOrEmpty(Current_Session))
+            {
+                return "Cannot Load Session";
+            }
+            else
+            {
+                return Current_Session;
+            }
+            
+        }
+    }
 }
