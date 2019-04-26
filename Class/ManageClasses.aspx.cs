@@ -14,6 +14,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     {
         try
         {
+            lblSession.Text = Session["Current_Session"].ToString();
             if (!IsPostBack)
             {
                 txtName.Focus();

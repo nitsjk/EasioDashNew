@@ -15,6 +15,7 @@ public partial class Subject_OptionalSubjects : System.Web.UI.Page
     {
         try
         {
+            lblSession.Text = Session["Current_Session"].ToString();
             if (!IsPostBack)
             {
                 getClasses();

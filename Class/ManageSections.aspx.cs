@@ -17,7 +17,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
     {
         try
         {
-                if (!IsPostBack)
+            lblSession.Text = Session["Current_Session"].ToString();
+            if (!IsPostBack)
                 {
                     txtSection.Focus();
                     getClasses();

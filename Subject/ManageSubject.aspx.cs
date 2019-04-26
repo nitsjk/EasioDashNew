@@ -15,10 +15,11 @@ public partial class Subject_addSubject : System.Web.UI.Page
     {
         try
         {
+            lblSession.Text = Session["Current_Session"].ToString();
             if (!IsPostBack)
             {
                 getClasses();
-                lblSession.Text = Session["Current_Session"].ToString(); ;
+                lblSession.Text = Session["Current_Session"].ToString(); 
                
             }
 

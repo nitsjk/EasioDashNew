@@ -22,15 +22,10 @@
                                 <a href="StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              
                             </li>
                                 
-                            <li class="a-inner" > <a href="../Student/addstudents.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Add Student </span></a> </li>
-                        
-                            <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Student Report</span></a> </li>
                             
-                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right text-right i-class"></i>
-                                       <span class="inner-span"> Student</span> </a> </li>
-
-                                   
-                                   <li class="a-inner" > <a ><i class="fa fa-caret-square-o-right i-class"></i> <span class="inner-span" > Student Report</span></a> </li>
+                <li class="a-inner" style="display: table-row"><a href="Student/addstudents.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Add Student </span></a></li>
+                        
+                           
                             </ul>                              
                         
                     </nav>

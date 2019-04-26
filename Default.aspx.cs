@@ -21,13 +21,14 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            lblSession.Text = Session["Current_Session"].ToString();
             //string login=Session["Login"].ToString();
             //if (login != "%$#%$fYguyUk" || string.IsNullOrEmpty(login))
             //{
             //    Response.Redirect("~/loiogin");
             //}else
             //{
-                asv();
+            asv();
                 string Jurisdiction = "one,two,three,four,five,six";
                 string IssueDate = "12/10/2015";
                 //FillJurisdictionGrid(Jurisdiction, IssueDate);\

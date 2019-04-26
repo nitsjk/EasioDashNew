@@ -4,18 +4,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
     
-    <div class="sidebar-header">
-                    <a href="#">
-                                                   
-                            
-                        <div><img  src="../img/easio-logo2.png" height="110px" width="130px" /></div>
-
-                        </a>           
-                                 
-
-                </div>
-
-<head>
    <%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -140,33 +128,25 @@
     <script src="../js/main.js"></script>
 
     
-</head>
     
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
+
+         <div>
+                           <a href="../Default.aspx">  <img  src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left:25px" /> </a>
+                        </div>
+
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
-                            <li class="active">
-                                <a  href="../Default.aspx">
-                                    <i class="fa big-icon fa-home icon-wrap"></i>
-                                    <span class="mini-click-non">Dashboard</span>
-                                </a>
-                                
-                            </li>
-                            
+
 
                             <li class="b-inner">
                                 <a href="../StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              
                             </li>
                                 
-                            <li class="a-inner" > <a href="AddStudent.aspx"s><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Add Student </span></a> </li>
-                        
-                            <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Student Report</span></a> </li>
                             
-                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right text-right i-class"></i>
-                                       <span class="inner-span"> Student</span> </a> </li>
-
-                                   
-                                   <li class="a-inner" > <a ><i class="fa fa-caret-square-o-right i-class"></i> <span class="inner-span" > Student Report</span></a> </li>
+                <li class="a-inner" style="display: table-row"><a href="Student/addstudents.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Add Student </span></a></li>
+                        
+                           
                             </ul>                              
                         
                     </nav>
@@ -643,6 +623,7 @@
         width: 90%;
         margin-top: 10px;
         margin-left: 20px;
+        height:200px;
     }
 
     #button {
@@ -717,7 +698,7 @@
         <asp:Label ID="lblempcodedemo" runat="server" Visible="true" Style="font-family:Arial;font-size:17px;font-weight:400;"></asp:Label>
            <asp:Label ID="lblsucess" runat="server" CssClass="alert-success" Style="float:right; font-size:20px;" Visible="true"></asp:Label>
         
-             <div class="panel panel-default" style=" width:1030px; margin-left: 20px;">
+             <div class="panel panel-default">
                 <%--<div class="panel-heading" style="font-size:17px;">Add Student</div>--%>
                <%--  <ul class="nav nav-tabs">
    
@@ -902,9 +883,8 @@
     </div>
           </div>
              </div>
-              
-               
-       <div id="parentdetail" class="tab-pane fade" >
+             
+         <div id="parentdetail" class="tab-pane fade" >
              
         <fieldset>
             <legend>Parent Details</legend>
@@ -973,7 +953,6 @@
            </div>            
     </div>
              </div>
-                  
              
         <div id="contactdetails" class="tab-pane fade">
              

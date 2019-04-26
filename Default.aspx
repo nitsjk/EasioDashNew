@@ -133,11 +133,11 @@
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                                     <li class="nav-item">
-                                                        <span style="color: white" class="h5">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
+                                                        <span style="color: white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
                                                     </li>
 
                                                     <li class="nav-item">
-                                                        <span style="color: white" class="h5">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
+                                                        <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
                                                     </li>
 
                                                     <li class="nav-item dropdown">
