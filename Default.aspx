@@ -264,7 +264,8 @@
                                                         </li>--%>
                                                             <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Settings</a>
                                                             </li>
-                                                            <li><a href="#"><span class="fa fa-lock author-log-ic"></span>Log Out</a>
+                                                            <li>
+                                                                <asp:LinkButton Text="Log Out" ID="btnLogOut" OnClick="btnLogOut_Click" class="fa fa-lock author-log-ic" runat="server" /><%--<a href="#"><span class="fa fa-lock author-log-ic"></span>Log Out</a>--%>
                                                             </li>
                                                         </ul>
                                                     </li>

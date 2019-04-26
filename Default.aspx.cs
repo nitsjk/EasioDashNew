@@ -12,24 +12,32 @@ using System.Net.Http.Headers;
 using Nits.Model;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Security;
 
 public partial class _Default : System.Web.UI.Page
 {
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            asv();
-            string Jurisdiction = "one,two,three,four,five,six";
-            string IssueDate = "12/10/2015";
-            //FillJurisdictionGrid(Jurisdiction, IssueDate);\
+            //string login=Session["Login"].ToString();
+            //if (login != "%$#%$fYguyUk" || string.IsNullOrEmpty(login))
+            //{
+            //    Response.Redirect("~/loiogin");
+            //}else
+            //{
+                asv();
+                string Jurisdiction = "one,two,three,four,five,six";
+                string IssueDate = "12/10/2015";
+                //FillJurisdictionGrid(Jurisdiction, IssueDate);\
 
-            MultiView1.ActiveViewIndex = 0;
+                MultiView1.ActiveViewIndex = 0;
 
-            LoadDataToGrid();
+                LoadDataToGrid();
 
-            profilePic();
+                profilePic();
+            //}
         }
 
     }
@@ -124,5 +132,10 @@ public partial class _Default : System.Web.UI.Page
     {
         grdView.PageIndex = e.NewPageIndex;
         LoadDataToGrid();
+    }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+        FormsAuthentication.SignOut();
+        Response.Redirect("login/Default.aspx");
     }
 }

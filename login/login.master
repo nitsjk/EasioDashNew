@@ -30,9 +30,29 @@
 <div class="container login-container" style="margin-left:300px">
             <div class="row">
                 <div class="col-md-4 login-form-1" style="background-color:#3AB19B ">
+                    <div class="col-md-12 center-block text-center">
+                        <asp:Label id="lblError" Visible="false" CssClass="alert-danger center-block" runat="server" />
+                         <asp:Label id="lblSuccess" Visible="false" CssClass="alert-success center-block" runat="server" />
+                    </div>
+
+                      <div style="margin-left:70px"><img  src="../img/easio-logo2.png" height="110px" width="130px" /></div>
+                    <br />
                     <h3 style="color:#fff;">Welcome</h3>
-                    <br /><br />
-                    <p style="color:white;text-align:center"> Sign </p>
+                    <br />
+
+
+                    <p style="color:white;text-align:center"> Sign In To A Better Life </p>
+                     <div class="sidebar-header">
+                    <a href="#">
+                                                   
+                            
+                        
+
+                        </a>           
+                                 
+
+                </div>
+                  
                 </div>
                 <div class="col-md-4 login-form-2">
                     <h3 style="color:#3AB19B;"><b>Login Form</b></h3>
@@ -46,10 +66,14 @@
                            
                            
                         </div>
-                        <div class="form-group">
-                            <a href="#" class="ForgetPwd" style="text-align:center;">Forget Password?</a>
+
+                        <div class="form-inline">
+                            <asp:CheckBox Text="Remember Me" class="ForgetPwd" runat="server" /> 
+                  
+                            <a href="#" class="ForgetPwd" style="text-align:right; float:right ">Forget Password?</a>
+                        
                         </div>
-                        <div class="form-group">
+                        <div class="form-group center-block text-center">
                             <asp:Button Text="SignIn" class="btnSubmit" ID="btnSignIn" OnClick="btnSignIn_Click" runat="server" />
                         </div>
                         

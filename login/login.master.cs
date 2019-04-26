@@ -11,7 +11,7 @@ using System.Net;
 using NITS.API;
 using System.Data;
 using Nits.BLL;
-
+using System.Web.UI;
 public partial class login_login : System.Web.UI.MasterPage
 {
     LoginBLL Ldal = new LoginBLL();
@@ -30,13 +30,34 @@ public partial class login_login : System.Web.UI.MasterPage
             Login model = new Login();
             model.UserName = txtUserName.Text;
             model.UserPassword = txtUserPassword.Text;
-            Login Detail=Ldal.login(model);
-
-
+            User Detail=Ldal.login(model);
+            liveSessionBLL LSdal = new liveSessionBLL();
+            Session["Current_Session"] = LSdal.Session();
+           
+            //Session["CompanyName"]=Detail.
+            if (string.IsNullOrEmpty(Detail.UserName))
+            {
+                lblError.Visible = true;
+                lblSuccess.Visible = false;
+                lblError.Text = "Invalid username or password !";
+                Session["username"] = null;
+                Session["Login"] = null;
+            }
+            else
+            {
+                Session["Current_Session"] = Detail.current_Session;
+                Session["username"] = Detail.UserName;
+                Session["Login"] = "%$#%$fYguyUk";
+                Response.Redirect("~/Default.aspx?Id="+Detail.UserID);
+                
+                //Session["CompanyName"]=Detail.
+            }
         }
         catch (Exception ex)
         {
-            throw;
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
         }
     }
 
