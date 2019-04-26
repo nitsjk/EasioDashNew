@@ -46,8 +46,9 @@ public partial class login_Default : System.Web.UI.Page
             }
             else
             {
-                Session["Current_Session"] = Detail.current_Session;
+                //Session["Current_Session"] = Detail.current_Session;
                 Session["username"] = Detail.UserName;
+                Session["Current_Session"] = LSdal.Session();
                 Session["Login"] = "%$#%$fYguyUk";
                 Response.Redirect("~/Default.aspx?Id=" + Detail.UserID);
 
@@ -70,7 +71,9 @@ public partial class login_Default : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw;
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
         }
     }
 }
