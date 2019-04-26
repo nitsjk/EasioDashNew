@@ -637,21 +637,20 @@
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#others" href="Class.aspx">Class <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                                 <ul id="others" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Class</a></li>
-                                                    <li><a href="#">View Class</a></li>
-                                                    <li><a href="#">Delete Class</a></li>
+                                                    <li><a href="Class/ManageClasses.aspx">Manage Classes</a></li>
+                                                    <li><a href="Class/ManageSections.aspx">Manage Sections</a></li>
+                                                    
                                                 </ul>
                                             </li>
 
 
                                             <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="Subjects.aspx">Subjects<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                                 <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Subject</a>
+                                                    <li><a href="Subject/ManageSubject.aspx">Manage Subject</a>
                                                     </li>
-                                                    <li><a href="#">Delete Subject</a>
+                                                    <li><a href="Subject/OptionalSubjects.aspx">Optional Subjects</a>
                                                     </li>
-                                                    <li><a href="#">View Subject</a>
-                                                    </li>
+                                                    
                                                   </ul>
                                             </li>
                                             

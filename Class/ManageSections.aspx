@@ -117,31 +117,9 @@
 		============================================ -->
     <script src="../js/main.js"></script>
 
-    <link href="css/TestStyle.css" rel="stylesheet" />
+    <link href="../css/TestStyle.css" rel="stylesheet" />
 
-    <style>
-        legend {
-            /* display: block; */
-            width: auto;
-            padding: 0;
-            margin-bottom: 20px;
-            font-size: 15px;
-            line-height: inherit;
-            color: #000000;
-            border: 0;
-            /* border-bottom: 1px solid #e5e5e5; */
-            margin-left: 33px;
-            font-weight: bold;
-        }
-
-        fieldset {
-            border: 1px solid #cbcbcb;
-            width: 90%;
-            margin-top: 10px;
-            margin-left: 20px;
-            height: 230px;
-        }
-    </style>
+    
 
 
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -693,20 +671,6 @@
 
 
 
-
-        <style>
-            .hdr
-            {
-                color:white !important;
-            }
-            .GridHeader {
-                 text-align:center !important; 
-            }
-
-            .th {
-                text-align:center !important;
-            }
-        </style>
 
        
         

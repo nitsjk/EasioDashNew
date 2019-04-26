@@ -10,7 +10,7 @@
         padding-left:30px;
         font-size:8pt;
         color:springgreen;
-        height:25px;
+        height:30px;
         vertical-align:middle;
         display:table-row;
     
@@ -20,7 +20,7 @@
         font-size:16pt;
         color:springgreen;
         height:30px;   
-           display:table-row;
+        display:table-row;
 
     }
 
@@ -47,4 +47,43 @@
        }
 
    
- 
+   legend {
+            /* display: block; */
+            width: auto;
+            padding: 0;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: inherit;
+            color: #000000;
+            border: 0;
+            /* border-bottom: 1px solid #e5e5e5; */
+            margin-left: 33px;
+            font-weight: bold;
+        }
+
+        fieldset {
+            border: 1px solid #cbcbcb;
+            width: 90%;
+            margin-top: 10px;
+            margin-left: 20px;
+            height: 270px;
+        }
+
+.logo-img {
+    margin-top:5px;
+}
+
+
+        .hdr {
+            color: white !important;
+            padding-left:5px
+        }
+
+        .GridHeader {
+            text-align: center !important;
+        }
+
+        .th {
+            text-align: center !important;
+        }
+    

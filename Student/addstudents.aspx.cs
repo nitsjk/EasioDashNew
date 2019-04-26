@@ -9,6 +9,9 @@ public partial class Student_test : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+       // MultiView1.SetActiveView(View1);
+       // MultiView1.SetActiveView(View2);
+       
+       
     }
 }
