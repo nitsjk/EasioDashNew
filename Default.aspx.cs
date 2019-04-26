@@ -16,28 +16,35 @@ using System.Web.Security;
 
 public partial class _Default : System.Web.UI.Page
 {
-
+   
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            //string login=Session["Login"].ToString();
-            //if (login != "%$#%$fYguyUk" || string.IsNullOrEmpty(login))
-            //{
-            //    Response.Redirect("~/loiogin");
-            //}else
-            //{
-                asv();
-                string Jurisdiction = "one,two,three,four,five,six";
-                string IssueDate = "12/10/2015";
-                //FillJurisdictionGrid(Jurisdiction, IssueDate);\
 
-                MultiView1.ActiveViewIndex = 0;
+            try
+            {
+                if (String.IsNullOrEmpty(Session["login"].ToString()))
+                {
+                    Response.Redirect("~/login");
+                }
+                else
+                {
+                    asv();
+                    string Jurisdiction = "one,two,three,four,five,six";
+                    string IssueDate = "12/10/2015";
+                    //FillJurisdictionGrid(Jurisdiction, IssueDate);\
 
-                LoadDataToGrid();
+                    MultiView1.ActiveViewIndex = 0;
 
-                profilePic();
-            //}
+                    LoadDataToGrid();
+
+                    profilePic();
+                }
+            }catch(Exception ex)
+            {
+                Response.Redirect("~/login");
+            }
         }
 
     }
