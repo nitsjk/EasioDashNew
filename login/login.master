@@ -35,7 +35,7 @@
                          <asp:Label id="lblSuccess" Visible="false" CssClass="alert-success center-block" runat="server" />
                     </div>
 
-                      <div style="margin-left:70px"><img  src="../img/easio-logo2.png" height="110px" width="130px" /></div>
+                      <div style="margin-left:70px"><img  src="../img/easio-logo2.png" height="110px" width="100%" /></div>
                     <br />
                     <h3 style="color:#fff;">Welcome</h3>
                     <br />
@@ -55,29 +55,24 @@
                   
                 </div>
                 <div class="col-md-4 login-form-2">
-                    <h3 style="color:#3AB19B;"><b>Login Form</b></h3>
-                    <form>
+                    <h3 style="color:#3AB19B;"><b>Login </b></h3>
+                    
                         <div class="form-group">
-                            <asp:TextBox runat="server" ID="txtUserName" class="form-control" placeholder="Your Email *" />
-                           
-                        </div>
-                        <div class="form-group">
-                            <asp:TextBox runat="server" ID="txtUserPassword" TextMode="Password" class="form-control" placeholder="Your Password *" />
-                           
-                           
-                        </div>
+                            <asp:TextBox runat="server" ID="txtUserName" class="form-control" placeholder="Your Email *"/>
+                            <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="login" ControlToValidate="txtUserName" SetFocusOnError="true" ForeColor="Red" runat="server" />
 
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox runat="server" ID="txtUserPassword" TextMode="Password" class="form-control" placeholder="Your Password *"/>
+                            <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="login" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtUserPassword" runat="server" />
+                        </div>
                         <div class="form-inline">
-                            <asp:CheckBox Text="Remember Me" class="ForgetPwd" runat="server" /> 
-                  
+                            <asp:CheckBox Text="Remember Me" class="ForgetPwd" runat="server" />
                             <a href="#" class="ForgetPwd" style="text-align:right; float:right ">Forget Password?</a>
-                        
                         </div>
                         <div class="form-group center-block text-center">
-                            <asp:Button Text="SignIn" class="btnSubmit" ID="btnSignIn" OnClick="btnSignIn_Click" runat="server" />
+                            <asp:Button Text="SignIn" class="btnSubmit" ValidationGroup="login" ID="btnSignIn" OnClick="btnSignIn_Click" runat="server" />
                         </div>
-                        
-                    </form>
                 </div>
             </div>
         </div>
