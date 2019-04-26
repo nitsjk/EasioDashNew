@@ -22,15 +22,10 @@
                                 <a href="StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              
                             </li>
                                 
-                            <li class="a-inner" > <a href="../Student/addstudents.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Add Student </span></a> </li>
-                        
-                            <li class="a-inner" > <a><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Student Report</span></a> </li>
                             
-                                   <li class="a-inner" > <a><i class="fa fa-caret-square-o-right text-right i-class"></i>
-                                       <span class="inner-span"> Student</span> </a> </li>
-
-                                   
-                                   <li class="a-inner" > <a ><i class="fa fa-caret-square-o-right i-class"></i> <span class="inner-span" > Student Report</span></a> </li>
+                <li class="a-inner" style="display: table-row"><a href="Student/addstudents.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Add Student </span></a></li>
+                        
+                           
                             </ul>                              
                         
                     </nav>
@@ -637,21 +632,20 @@
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#others" href="Class.aspx">Class <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                                 <ul id="others" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Class</a></li>
-                                                    <li><a href="#">View Class</a></li>
-                                                    <li><a href="#">Delete Class</a></li>
+                                                    <li><a href="Class/ManageClasses.aspx">Manage Classes</a></li>
+                                                    <li><a href="Class/ManageSections.aspx">Manage Sections</a></li>
+                                                    
                                                 </ul>
                                             </li>
 
 
                                             <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="Subjects.aspx">Subjects<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                                 <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Subject</a>
+                                                    <li><a href="Subject/ManageSubject.aspx">Manage Subject</a>
                                                     </li>
-                                                    <li><a href="#">Delete Subject</a>
+                                                    <li><a href="Subject/OptionalSubjects.aspx">Optional Subjects</a>
                                                     </li>
-                                                    <li><a href="#">View Subject</a>
-                                                    </li>
+                                                    
                                                   </ul>
                                             </li>
                                             

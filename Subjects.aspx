@@ -4,38 +4,55 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
 
     <div class="sidebar-header">
-                    <a href="#">         
+                    <a href="Default.aspx">         
                             
-                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
+                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" class="logo-img"/></div>
 
                         </a>           
                                  
 
                 </div>
  
-<link href="css/TestStyle.css" rel="stylesheet" />esheet" />
+    <link href="css/TestStyle.css" rel="stylesheet" />
     
-      <div class="left-custom-menu-adp-wrap comment-scrollbar">
+      <%--<div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu b" id="menu1">
-                            <li class="active">
-                                <a  href="Default.aspx">
-                                    <i class="fa big-icon fa-home icon-wrap"></i>
-                                    <span class="mini-click-non">Dashboard</span>
-                                </a>                               
-                            </li>
-
-                              <li class="b-inner">
+                            
+                            
+                              <li class="b-inner" style="display: table-row">
                                 <a href="Subjects.aspx" aria-expanded="false"><i class="fa fa-book"></i>&nbsp;&nbsp; Subjects</a>
                                 
-                                  <li class="a-inner" > 
-                                      <a> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i><span class="inner-span">  Add Subject</span> </a>                                     
+                                  <li class="a-inner" style="display: table-row" > 
+                                      <a href="Subject/ManageSubject.aspx" class="a-inner-middle"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i><span class="inner-span">  Manage Subject</span> </a>                                     
                             </li>
 
 
                         </ul>
                     </nav>
-      </div>
+      </div>--%>
+
+    
+
+
+        
+
+        <nav class="sidebar-nav left-sidebar-menu-pro">
+            <ul class="metismenu" id="menu1">
+
+                <li class="b-inner">
+                    <a href="Subjects.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Subjects</span></a>
+                </li>
+
+
+
+                <li class="a-inner" style="display: table-row"><a href="Subject/ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Manage Subjects </span></a></li>
+
+                <li class="a-inner" style="display: table-row"><a href="Subject/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Optional Subjects </span></a></li>
+
+            </ul>
+        </nav>
+ 
 
 </asp:Content>
 

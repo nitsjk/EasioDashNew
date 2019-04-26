@@ -20,6 +20,7 @@ public partial class _Class : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            lblSession.Text = Session["Current_Session"].ToString();
             asv();
             string Jurisdiction = "one,two,three,four,five,six";
             string IssueDate = "12/10/2015";

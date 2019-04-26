@@ -17,7 +17,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
     {
         try
         {
-                if (!IsPostBack)
+            lblSession.Text = Session["Current_Session"].ToString();
+            if (!IsPostBack)
                 {
                     txtSection.Focus();
                     getClasses();
@@ -81,8 +82,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 lblSuccess.Text = message;
                 lblError.Visible = false;
                 lblSuccess.Visible = true;
-                //lblClass.Text = "";
                 txtSection.Text = "";
+                txtSection.Focus();
                 getSections();
             }
             else
@@ -91,7 +92,6 @@ public partial class Class_ManageSections : System.Web.UI.Page
                 lblError.Visible = true;
                 lblSuccess.Visible = false;
             }
-            //addsection();
         }
         catch (Exception ex)
         {

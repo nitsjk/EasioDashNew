@@ -14,6 +14,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     {
         try
         {
+            lblSession.Text = Session["Current_Session"].ToString();
             if (!IsPostBack)
             {
                 txtName.Focus();
@@ -79,7 +80,8 @@ public partial class Class_ManageClasses : System.Web.UI.Page
                 lblError.Visible = false;
                 lblSuccess.Visible = true;
                 txtName.Text = "";
-                ddlDepartments.SelectedValue = "-1";
+                txtName.Focus();
+               // ddlDepartments.SelectedValue = "-1";
             }
             else
             {
@@ -95,7 +97,6 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblSuccess.Visible = false;
         }
     }
-
 
     protected void btnReset_Click(object sender, EventArgs e)
     {
@@ -231,6 +232,4 @@ public partial class Class_ManageClasses : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
-
 }
