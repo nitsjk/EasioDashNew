@@ -21,7 +21,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-
+          
             try
             {
                 if (String.IsNullOrEmpty(Session["login"].ToString()))
@@ -40,19 +40,20 @@ public partial class _Default : System.Web.UI.Page
                     LoadDataToGrid();
 
                     profilePic();
+                    lblSession.Text = "Session : " + Session["Current_Session"].ToString();
                 }
             }catch(Exception ex)
             {
                 Response.Redirect("~/login");
             }
-            lblSession.Text = Session["Current_Session"].ToString();
+            lblSession.Text = "Session : " + Session["Current_Session"].ToString();
             //string login=Session["Login"].ToString();
             //if (login != "%$#%$fYguyUk" || string.IsNullOrEmpty(login))
             //{
             //    Response.Redirect("~/loiogin");
             //}else
             //{
-          
+
             //}
         }
 
