@@ -130,6 +130,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
             ddlClasses.ClearSelection();
             txtSection.Text = "";
             lblSuccess.Text = "";
+            lblError.Text = "";
             btnUpdate.Visible = false;
             btnSubmit.Visible = true;
 
@@ -202,8 +203,7 @@ public partial class Class_ManageSections : System.Web.UI.Page
         try
         {
             updateSection();
-            btnUpdate.Visible = false;
-            btnSubmit.Visible = true;
+            
         }
         catch (Exception ex)
         {
@@ -220,7 +220,8 @@ public partial class Class_ManageSections : System.Web.UI.Page
         {
             Section sec = new Section();
             sec.SectionName = txtSection.Text;
-            sec.SectionID = Convert.ToInt64(Session["sectionId"]);
+            //sec.SectionID = Convert.ToInt64(Session["sectionId"]);
+            sec.Classid =Convert.ToInt64(ddlClasses.SelectedValue);
             string message = Sdal.UpdateSection(sec);
 
             if (message.Contains("successfully"))
