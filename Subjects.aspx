@@ -46,9 +46,9 @@
 
 
 
-                <li class="a-inner" style="display: table-row"><a href="Subject/ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Manage Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="Subject/ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Subjects </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="Subject/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Optional Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="Subject/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Optional Subjects </span></a></li>
 
             </ul>
         </nav>

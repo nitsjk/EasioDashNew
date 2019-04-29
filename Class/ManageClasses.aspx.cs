@@ -35,7 +35,7 @@ public partial class Class_ManageClasses : System.Web.UI.Page
         try
         {
             ClassModel cm = new ClassModel();
-            string Current_Session = "2018-19";
+            string Current_Session = Session["Current_Session"].ToString();
             List<ClassModel> classList = Cdal.getAllClasses(Current_Session);
             gvClasses.DataSource = classList;
             gvClasses.DataBind();
@@ -165,6 +165,8 @@ public partial class Class_ManageClasses : System.Web.UI.Page
     {
         try
         {
+            lblError.Text = "";
+            lblSuccess.Text = "";
             ClassModel cmodel = Cdal.EditClass(id);
             ViewState["ClassID"] = id;
             ddlDepartments.SelectedValue = cmodel.subdepartmentid.ToString();
