@@ -1,49 +1,42 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Result.aspx.cs" Inherits="Result" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Result.aspx.cs" Inherits="Subjects" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
 
     <div class="sidebar-header">
-                    <a href="#">         
+                    <a href="Default.aspx">         
                             
-                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" /></div>
+                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" class="logo-img"/></div>
 
                         </a>           
                                  
 
                 </div>
+ 
+    <link href="css/TestStyle.css" rel="stylesheet" />
+  
+        
 
-    <link href="css/TestStyle.css" rel="stylesheet" />esheet" />
-     <div class="left-custom-menu-adp-wrap comment-scrollbar">
-                    <nav class="sidebar-nav left-sidebar-menu-pro">
-                        <ul class="metismenu" id="menu1">
-                            <li class="active">
-                                <a  href="Default.aspx">
-                                    <i class="fa big-icon fa-home icon-wrap"></i>
-                                    <span class="mini-click-non">Dashboard</span>
-                                </a>                               
-                            </li>
+        <nav class="sidebar-nav left-sidebar-menu-pro">
+            <ul class="metismenu" id="menu1">
 
-                            <li class="b-inner">
-                                <a href="Result.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Result</a>
-                               
-                            </li>
+                <li class="b-inner">
+                    <a href="Result.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
+                </li>
 
-                              
-                                
-                                  <li class="a-inner"> <a><i class="fa fa-caret-square-o-right" style="font-size:14px"></i><span class="inner-span"> Add Result</span></a> </li>
-                                   <li class="a-inner"> <a><i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span">Delete Result</span> </a> </li>
+                <li class="a-inner" style="display: table-row"><a href="Subject/ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Subjects </span></a></li>
 
+                <li class="a-inner" style="display: table-row"><a href="Subject/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Optional Subjects </span></a></li>
 
-                                           </ul>
-                    </nav>
-      </div>
-
+            </ul>
+        </nav>
+ 
 
 </asp:Content>
 
-<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="contentbody">
-
-    <div class="header-top-area">
+<asp:Content ID="contenthead" runat="server" ContentPlaceHolderID="contentbody">
+    <div class="header-advance-area">
+                <div class="header-top-area">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -601,12 +594,8 @@
                         </div>
                     </div>
                 </div>
-</asp:Content>
-
-<asp:Content ID="content3" runat="server" ContentPlaceHolderID="contentDisplay">
-
-
-     <div class="mobile-menu-area">
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -787,14 +776,6 @@
                                                     <li><a href="#">Delete Employee</a>
                                                 </li>
                                                     </ul>
-
-
-
-
-
-
-
-
                                         </ul>
                                     </nav>
                                 </div>
@@ -803,9 +784,6 @@
                     </div>
                 </div>
                 <!-- Mobile Menu end -->
-
-
-
                 <div class="breadcome-area">
                     <div class="container-fluid">
                         <div class="row">

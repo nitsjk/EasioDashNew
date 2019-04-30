@@ -13,13 +13,13 @@ using System.Net.Http.Headers;
 using Nits.Model;
 using System.Data;
 using System.Data.SqlClient;
-public partial class Result : System.Web.UI.Page
+public partial class Subjects : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
+            lblSession.Text = Session["Current_Session"].ToString();
             asv();
             string Jurisdiction = "one,two,three,four,five,six";
             string IssueDate = "12/10/2015";

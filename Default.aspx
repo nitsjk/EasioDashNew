@@ -30,15 +30,10 @@
                             </li>
 
                             <li>
-                                <a  href="Subjects.aspx" aria-expanded="false"><i class="fa fa-book"></i><span class="mini-click-non">&nbsp;&nbsp; Subjects</span></a>
+                                <a  href="Result.aspx" aria-expanded="false"><i class="fa fa-book"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
                                 
                             </li>
 
-
-
-                            <li>
-                                <a  href="Result.aspx" aria-expanded="false"><i class="fa fa-file-text-o"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
-                            </li>
 
                             <li>
                                 <a  href="Attendence.aspx" aria-expanded="false"><i class="fa fa-book"></i><span class="mini-click-non">&nbsp;&nbsp; Attendence</span></a>

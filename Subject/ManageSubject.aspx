@@ -134,14 +134,14 @@
             <ul class="metismenu" id="menu1">
 
                 <li class="b-inner">
-                    <a href="../Subjects.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Subjects</span></a>
+                    <a href="../Result.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
                 </li>
 
 
 
-                <li class="a-inner" style="display: table-row"><a href="ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Manage Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Subjects </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span">Optional Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Optional Subjects </span></a></li>
 
             </ul>
         </nav>
@@ -591,7 +591,7 @@
             <div class="review-content-section">
 
                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
-                    <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId">
+                    <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId" OnSelectedIndexChanged="ddlClasses_SelectedIndexChanged">
                     </asp:DropDownList>
                     
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlClasses" runat="server" ValidationGroup="val" InitialValue="-1" />
@@ -611,7 +611,7 @@
             <br />
 
             <div class="form-group review-pro-edt" style="margin-left: 52px">
-                <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success"  ValidationGroup="val" Visible="false" />
+                <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success"  ValidationGroup="val" Visible="false"  OnClick="btnUpdate_Click"/>
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success"  ValidationGroup="val" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click"  />
             </div>
@@ -633,23 +633,18 @@
                         <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Class Name" HeaderStyle-CssClass="GridHeader">
+                    <asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
+                            <asp:Label Text='<%# Eval("subjectName") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <%--<asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# Eval("ClassName") %>' runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
 
                     <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <div class="form-inline">
-                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("ClassId") %>'></asp:LinkButton>
+                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("subjectID") %>'></asp:LinkButton>
                                &nbsp | &nbsp
-                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("ClassId") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure You Want To Delete')" />
+                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("subjectID") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure You Want To Delete')" />
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
