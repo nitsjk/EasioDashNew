@@ -602,13 +602,13 @@
 
                     </div>
 
-                    <div class="input-group mg-b-pro-edt">
+                    <%--<div class="input-group mg-b-pro-edt">
                         <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
                         <asp:TextBox ID="txtType" runat="server" CssClass="form-control" ForeColor="Black" Width="290px" placeholder="Unit/Term"></asp:TextBox>
                         &nbsp
                     <asp:RequiredFieldValidator ErrorMessage="*" Font-Size="Larger" ControlToValidate="txtType" runat="server" ValidationGroup="val" ForeColor="Red"></asp:RequiredFieldValidator>
 
-                    </div>
+                    </div>--%>
 
                     <div class="input-group mg-b-pro-edt">
                         <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
@@ -623,7 +623,7 @@
                 <br />
 
                 <div class="form-group review-pro-edt" style="margin-left: 52px">
-                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" ValidationGroup="val" Visible="false" />
+                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" ValidationGroup="val" Visible="false" OnClick="btnUpdate_Click" />
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success" ValidationGroup="val" OnClick="btnSubmit_Click"  />
                     <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary"  />
                 </div>

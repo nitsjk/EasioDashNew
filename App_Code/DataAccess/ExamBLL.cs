@@ -11,7 +11,7 @@ using System.Net;
 using NITS.API;
 using System.Data;
  
-namespace Nits.BLLl
+namespace Nits.BLL
 {
     //Data Access Class For Subjects
     public class ExamBLL
@@ -96,9 +96,9 @@ namespace Nits.BLLl
         {
             HttpClient http = NitsAPI.apiConnection1();
             HttpResponseMessage response = http.GetAsync("OptionalSubject/" + classID).Result;
-            List<OptionalSubjects> model = response.Content.ReadAsAsync<IEnumerable<OptionalSubjects>>().Result.ToList();
+            List<OptionalSubjects> model = response.Content.ReadAsAsync<List<OptionalSubjects>>().Result.ToList();
             return model;
-
+ 
         }
 
         public string addOptionalSubject(OptionalSubjects model)
@@ -152,11 +152,10 @@ namespace Nits.BLLl
             OptionalSubjects UdpateModel = EList.FirstOrDefault(x => x.optionalSubjectID == Model.optionalSubjectID);
 
             UdpateModel.optionalSubjectName = Model.optionalSubjectName;
-            UdpateModel.classID = Model.classID;
             //UdpateModel.current_Session = eModel.current_Session;
 
 
-            var ReturnMessage = http.PutAsJsonAsync("OptionalSubject", UdpateModel).Result;
+            var ReturnMessage = http.PutAsJsonAsync("OptionalSubject/"+Model.classID, UdpateModel).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
@@ -167,9 +166,72 @@ namespace Nits.BLLl
             }
         }
 
+    }
+
+    //Data Access Class For Results
+    public class ResultBLL
+    { 
+        //For Grid
+    public List<Result> getAllResults(Result reModel)
+    {
+        HttpClient http = NitsAPI.apiConnection1();
+        HttpResponseMessage response = http.GetAsync("maxmarks/" + reModel.classid+ "/"+ reModel.unitid).Result;
+        List<Result> model = response.Content.ReadAsAsync<List<Result>>().Result.ToList();
+        return model;
+    }
+
+        //For DropDown
+        public List<Unit> getUnits()
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("unit").Result;
+            List<Unit> model = response.Content.ReadAsAsync<List<Unit>>().Result.ToList();
+            return model;
+        }
+
+        //For Delete
+        public string deleteMarks(Result reModel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            var ReturnMessage = http.DeleteAsync("maxmarks/"+reModel.classid + "/"+ reModel.unitid+"/"+ reModel.subjectid).Result;
+
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+        }
+
+        //For Update
+        public string updateMarks(Result reModel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            //HttpResponseMessage response = http.GetAsync("maxmarks/" + reModel.classid + "/" + reModel.unitid).Result;
+
+            //List<Result> EList = response.Content.ReadAsAsync<IEnumerable<Result>>().Result.ToList();
+            //Result UdpateModel = EList.FirstOrDefault(x => x.subjectid == reModel.subjectid);
+
+            //UdpateModel.minMarks = reModel.minMarks;
+            //UdpateModel.maxMarks = reModel.maxMarks;
+
+            var ReturnMessage = http.PutAsJsonAsync("maxmarks/" + reModel.classid + "/" + reModel.subjectid, reModel).Result;
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+        }
 
     }
-        
-    }
+
+
+
+}
     
     
