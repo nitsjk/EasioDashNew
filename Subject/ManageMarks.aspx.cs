@@ -13,11 +13,13 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
     ResultBLL Rdal = new ResultBLL();
     ClassBLL Cdal = new ClassBLL();
 
-    protected void Page_Load(object sender, EventArgs e)
+   protected void Page_Load(object sender, EventArgs e)
     {
+        lblSession.Text = Session["Current_Session"].ToString();
         if (!IsPostBack)
         {
             fillDDLclass();
+           
         }
     }
 
@@ -32,7 +34,7 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
 
     public void fillDDLtype()
     {
-        //long classID = Convert.ToInt64(ddlClasses.SelectedValue);
+        
         List<Nits.Model.Unit> UList = Rdal.getUnits();
         ddlType.DataSource = UList;
         ddlType.DataBind();
@@ -40,21 +42,18 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
 
     }
 
-    public void fillGrid()
+    public void fillDDLsubject()
     {
         try
         {
-            Result reModel = new Result();
-            reModel.classid = Convert.ToInt64(ddlClasses.SelectedValue);
-            reModel.unitid = Convert.ToInt64(ddlType.SelectedValue);
-
-            List<Result> reList = Rdal.getAllResults(reModel);
-            if (reList.Count > 0)
+            long Classid = Convert.ToInt64(ddlClasses.SelectedValue);
+            ExamBLL Edal = new ExamBLL();
+            List<Exam> examList = Edal.getAllSubjects(Classid);
+            if (examList.Count > 0)
             {
-                gvMarks.DataSource = reList;
-                gvMarks.DataBind();
-                lblSuccess.Text = "";
-                lblError.Text = "";
+                ddlSubject.DataSource = examList;
+                ddlSubject.DataBind();
+                ddlSubject.Items.Insert(0, new ListItem("--Select Subject--", "-1"));
             }
             else
             {
@@ -68,6 +67,33 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
         {
 
             lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
+
+
+    }
+
+    public void fillGrid()
+    {
+        try
+        {
+            lblError.Text = "";
+            Result reModel = new Result();
+            reModel.classid = Convert.ToInt64(ddlClasses.SelectedValue);
+            reModel.unitid = Convert.ToInt64(ddlType.SelectedValue);
+            reModel.subjectid = Convert.ToInt64(ddlSubject.SelectedValue);
+
+            List<Result> ds = Rdal.getSomeResults(reModel);
+
+            gvMarks.DataSource = ds;
+            gvMarks.DataBind();
+          
+
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = "No Data Found";
             lblError.Visible = true;
             lblSuccess.Visible = false;
         }
@@ -229,14 +255,71 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
 
     protected void ddlType_SelectedIndexChanged(object sender, EventArgs e)
     {
-        fillGrid();
-
+        fillDDLsubject();
     }
 
     protected void ddlClasses_SelectedIndexChanged(object sender, EventArgs e)
     {
         fillDDLtype();
+        
     }
 
-    
+
+
+    protected void ddlSubject_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        fillGrid();
+        txtMaxMarks.Focus();
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        addMinMaxMarks();
+    }
+
+    public void addMinMaxMarks()
+    {
+        Result reModel = new Result();
+        reModel.classid = Convert.ToInt64(ddlClasses.SelectedValue);
+        reModel.unitid = Convert.ToInt64(ddlType.SelectedValue);
+        reModel.minMarks =Convert.ToInt64(txtMinMarks.Text);
+        reModel.maxMarks = Convert.ToInt64(txtMaxMarks.Text);
+
+        string message = Rdal.addMarks(reModel);
+        if (message.Contains("Sucessfully"))
+        {
+            lblSuccess.Text = message;
+            lblError.Visible = false;
+            lblSuccess.Visible = true;
+            txtMaxMarks.Text = "";
+            txtMinMarks.Focus();
+        }
+        else
+        {
+            lblError.Text = message;
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+        }
+
+    }
+
+    protected void btnReset_Click(object sender, EventArgs e)
+    {
+        resetControls();
+    }
+    public void resetControls()
+    {
+        ddlClasses.SelectedIndex = -1;
+        ddlSubject.SelectedIndex = -1;
+        //ddlSubject.Enabled = false;
+        ddlType.SelectedIndex = -1;
+        //ddlType.Enabled = false;
+        txtMinMarks.Text = "";
+        txtMaxMarks.Text = "";
+        lblError.Text = "";
+        lblSuccess.Text = "";
+        gvMarks.DataSource = null;
+        Response.Redirect(Request.Url.ToString());
+
+    }
 }

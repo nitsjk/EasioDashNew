@@ -126,9 +126,13 @@ public partial class Subject_addSubject : System.Web.UI.Page
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {
+       
+    }
+    //Reset Controls
+    public void reset()
+    {
         try
         {
-            reset();
             ddlClasses.SelectedIndex = -1;
             txtSubject.Text = "";
             lblError.Text = "";
@@ -139,27 +143,6 @@ public partial class Subject_addSubject : System.Web.UI.Page
             lblError.Text = ex.ToString();
             lblError.Visible = true;
             lblSuccess.Visible = false;
-        }
-    }
-    //Reset Controls
-    public void reset()
-    {
-        try
-        {
-            ddlClasses.ClearSelection();
-            txtSubject.Text = "";
-            lblSuccess.Text = "";
-            btnUpdate.Visible = false;
-            btnSubmit.Visible = true;
-            txtSubject.Focus();
-
-        }
-        catch (Exception ex)
-        {
-            lblError.Text = ex.ToString();
-            lblError.Visible = true;
-            lblSuccess.Visible = false;
-
         }
     }
 

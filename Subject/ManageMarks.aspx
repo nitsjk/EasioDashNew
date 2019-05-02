@@ -714,9 +714,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
 
-     <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
-        <h3> <Span style="color:#9d0e0a">Manage</Span> Subjects </h3>
-        <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; margin-top:-6px; width:25%" />
+     <div class="col-md-12 center-block text-center" style="margin-top: 70px;">
+        <h3> <Span style="color:#9d0e0a">Manage</Span> Marks </h3>
+        <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; margin-top:6px; width:25%" />
     </div>
     <div  style="margin-top:10px;">
          <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
@@ -725,7 +725,7 @@
 
     <div class="row" >
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <fieldset>
+        <fieldset style="height:35%">
             <legend>Manage Marks</legend>
 
             <div class="review-content-section">
@@ -745,15 +745,39 @@
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlType" runat="server" ValidationGroup="val" InitialValue="-1" />
                     
                 </div>
+                
+                <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
+                    <asp:DropDownList ID="ddlSubject" DataTextField="subjectName" DataValueField="subjectID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">                       
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
+                </div>
+
+                 <div class="input-group mg-b-pro-edt">
+                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                    <asp:TextBox ID="txtMaxMarks" runat="server" CssClass="form-control" ForeColor="Black" Width="290px" placeholder="Max Marks"></asp:TextBox>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" Font-Size="Larger" ControlToValidate="txtMaxMarks" runat="server" ValidationGroup="val" ForeColor="Red"></asp:RequiredFieldValidator>
+                    
+                </div>
+                 <div class="input-group mg-b-pro-edt">
+                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                    <asp:TextBox ID="txtMinMarks" runat="server" CssClass="form-control" ForeColor="Black" Width="290px" placeholder="Min Marks"></asp:TextBox>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" Font-Size="Larger" ControlToValidate="txtMinMarks" runat="server" ValidationGroup="val" ForeColor="Red"></asp:RequiredFieldValidator>
+                    
+                </div>
+
 
             </div>
 
             <br />
 
             <div class="form-group review-pro-edt" style="margin-left: 52px">
-                <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success"  ValidationGroup="val" Visible="false"  />
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success"  ValidationGroup="val" />--%>
-                <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary"   />
+                <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success"  ValidationGroup="val" Visible="false"  />
+                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success"  ValidationGroup="val" OnClick="btnSubmit_Click" />
+                <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click" />
             </div>
         </fieldset>
             </div>
@@ -761,7 +785,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
                       
-            <asp:GridView runat="server" ID="gvMarks" AutoGenerateColumns="False" CssClass="table table-striped" OnRowCommand="gvMarks_RowCommand" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" EmptyDataText="No Data Found"  >       
+            <asp:GridView runat="server" ID="gvMarks" AutoGenerateColumns="False" CssClass="table table-striped" OnRowCommand="gvMarks_RowCommand" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" EmptyDataText="No Data Found">       
 
                 <Columns>
                     <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
@@ -771,12 +795,7 @@
                         <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# Eval("subjectName") %>' runat="server" />
-                            
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                   
 
                      <asp:TemplateField HeaderText="Max Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>

@@ -180,6 +180,17 @@ namespace Nits.BLL
         return model;
     }
 
+        // Get Some Result
+        public List<Result> getSomeResults(Result reModel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("maxmarks/" + reModel.classid + "/" + reModel.unitid).Result;
+
+            List<Result> model = response.Content.ReadAsAsync<IEnumerable<Result>>().Result.ToList();
+             model = model.Where(x => x.subjectid == reModel.subjectid).ToList();
+            return model;
+        }
+
         //For DropDown
         public List<Unit> getUnits()
         {
@@ -218,6 +229,22 @@ namespace Nits.BLL
             //UdpateModel.maxMarks = reModel.maxMarks;
 
             var ReturnMessage = http.PutAsJsonAsync("maxmarks/" + reModel.classid + "/" + reModel.subjectid, reModel).Result;
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+        }
+
+        //Add Marks
+        public string addMarks(Result Emodel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            var ReturnMessage = http.PostAsJsonAsync("maxmarks/" + Emodel.classid+ "/"+Emodel.unitid , Emodel).Result;
+
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
