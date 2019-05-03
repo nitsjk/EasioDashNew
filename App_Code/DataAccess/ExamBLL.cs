@@ -170,8 +170,30 @@ namespace Nits.BLL
 
     //Data Access Class For Results
     public class ResultBLL
-    { 
+    {
         //For Grid
+
+        //public List<String> getAllSubjects()
+        //{
+        //    HttpClient http = NitsAPI.apiConnection1();
+        //    HttpResponseMessage response = http.GetAsync("maxmarks/200").Result;
+
+        //    List<Result> Listmodel = response.Content.ReadAsAsync<List<Result>>().Result.ToList();
+
+        //    List<int> li = new List<int>();
+        //    foreach (Result re in Listmodel
+        //        {
+
+        //        li.Add(re.classid);
+
+
+
+        //    }
+
+            
+            
+        //}
+
     public List<Result> getAllResults(Result reModel)
     {
         HttpClient http = NitsAPI.apiConnection1();
@@ -180,6 +202,18 @@ namespace Nits.BLL
         return model;
     }
 
+        //Get All Max Min Marks
+
+        public List<Result> getAllMarks(long classId)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("maxmarks/" + "/"+classId).Result;
+            List<Result> model = response.Content.ReadAsAsync<IEnumerable<Result>>().Result.ToList();
+            model = model.Where(x => x.classid == classId ).ToList();
+            return model;
+        }
+
+
         // Get Some Result
         public List<Result> getSomeResults(Result reModel)
         {
@@ -187,7 +221,7 @@ namespace Nits.BLL
             HttpResponseMessage response = http.GetAsync("maxmarks/" + reModel.classid + "/" + reModel.unitid).Result;
 
             List<Result> model = response.Content.ReadAsAsync<IEnumerable<Result>>().Result.ToList();
-             model = model.Where(x => x.subjectid == reModel.subjectid).ToList();
+             model = model.Where(x => x.unitid == reModel.unitid).ToList();
             return model;
         }
 
@@ -226,7 +260,7 @@ namespace Nits.BLL
             //Result UdpateModel = EList.FirstOrDefault(x => x.subjectid == reModel.subjectid);
 
             //UdpateModel.minMarks = reModel.minMarks;
-            //UdpateModel.maxMarks = reModel.maxMarks;
+            //UdpateModel.maxMarks = delreMo.maxMarks;
 
             var ReturnMessage = http.PutAsJsonAsync("maxmarks/" + reModel.classid + "/" + reModel.subjectid, reModel).Result;
             if (ReturnMessage.IsSuccessStatusCode)
@@ -256,9 +290,7 @@ namespace Nits.BLL
         }
 
     }
-
-
-
+    
 }
     
     
