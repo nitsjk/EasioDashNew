@@ -218,7 +218,7 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
                 lbtnDelete.Visible = true;
                 lblError.Text = "";
                 lblSuccess.Text = "";
-                deleteMarks(Convert.ToInt64(e.CommandArgument));
+                //deleteMarks(Convert.ToInt64(e.CommandArgument));
             }
             else if (e.CommandName == "CancelCommand")
             {
@@ -277,31 +277,6 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
     public void editMarks(long id)
     {
 
-
-    }
-
-    public void deleteMarks(long id)
-    {
-        try
-        {
-            Result reModel = new Result();
-            reModel.classid = Convert.ToInt64(ddlClasses.SelectedValue);
-            reModel.unitid = Convert.ToInt64(ddlType.SelectedValue);
-            reModel.subjectid = id;
-            string message=Rdal.deleteMarks(reModel);
-            lblError.Visible = true;
-            lblSuccess.Visible = false;
-            lblError.Text = message;
-            ddlType.SelectedIndex = -1;
-            ddlClasses.SelectedIndex = -1;
-
-        }
-        catch (Exception ex)
-        {
-            lblError.Visible = true;
-            lblSuccess.Visible = false;
-            lblError.Text = ex.ToString();
-        }
 
     }
 
@@ -377,10 +352,10 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
 
     }
 
-    protected void gvSubject_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-         deleteMarks(Convert.ToInt64(e.CommandArgument));
-    }
+    //protected void gvSubject_RowCommand(object sender, GridViewCommandEventArgs e)
+    //{
+    //     deleteMarks(Convert.ToInt64(e.CommandArgument));
+    //}
 
     protected void btnReset_Click(object sender, EventArgs e)
     {
@@ -405,5 +380,11 @@ public partial class Subject_ManageMarks : System.Web.UI.Page
                 box1.Text = "";
             }
         }
+    }
+
+    protected void gvSubject_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        gvSubject.DeleteRow(e.RowIndex);
+        gvSubject.DataBind();
     }
 }

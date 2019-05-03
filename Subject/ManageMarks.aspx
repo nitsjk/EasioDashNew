@@ -733,40 +733,18 @@
                     <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId" OnSelectedIndexChanged="ddlClasses_SelectedIndexChanged" >
                     </asp:DropDownList>
                     
-                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlClasses" runat="server" ValidationGroup="val" InitialValue="-1" />                 
+                     
                 </div>
 
                  <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
                     <asp:DropDownList ID="ddlType" DataTextField="unitName" DataValueField="unitid" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">
                        
                     </asp:DropDownList>
-                    
-                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlType" runat="server" ValidationGroup="val" InitialValue="-1" />
+                   
                     
                 </div>
                 
-                <%--<div class="input-group mg-b-pro-edt" style="margin-top: -10px">
-                    <asp:DropDownList ID="ddlSubject" DataTextField="subjectName" DataValueField="subjectID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">                       
-                    </asp:DropDownList>
-                    
-                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject" runat="server" ValidationGroup="val" InitialValue="-1" />
-                    
-                </div>--%>
-
-                 <%--<div class="input-group mg-b-pro-edt">
-                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                    <asp:TextBox ID="txtMaxMarks" runat="server" CssClass="form-control" ForeColor="Black" Width="290px" placeholder="Max Marks"></asp:TextBox>
-                    
-                    <asp:RequiredFieldValidator ErrorMessage="*" Font-Size="Larger" ControlToValidate="txtMaxMarks" runat="server" ValidationGroup="val" ForeColor="Red"></asp:RequiredFieldValidator>
-                    
-                </div>
-                 <div class="input-group mg-b-pro-edt">
-                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                    <asp:TextBox ID="txtMinMarks" runat="server" CssClass="form-control" ForeColor="Black" Width="290px" placeholder="Min Marks"></asp:TextBox>
-                    
-                    <asp:RequiredFieldValidator ErrorMessage="*" Font-Size="Larger" ControlToValidate="txtMinMarks" runat="server" ValidationGroup="val" ForeColor="Red"></asp:RequiredFieldValidator>
-                    
-                </div>--%>
+                
 
 
             </div>
@@ -774,9 +752,8 @@
             <br />
 
             <div class="form-group review-pro-edt" style="margin-left: 52px">
-               <%-- <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success"  ValidationGroup="val" Visible="false"  />--%>
-                <%--<asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-success"  ValidationGroup="val" />--%>
-                <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClick="btnReset_Click"  />
+               
+                
             </div>
         </fieldset>
             </div>
@@ -814,18 +791,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <%--<asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <div class="form-inline">
-                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("subjectid") %>'></asp:LinkButton>
-                              
-                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("subjectid") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure You Want To Delete')" />
-                                
-                                <asp:LinkButton  runat="server" Visible="false" ID="lbtnUpdate" CssClass="fa fa-refresh" ForeColor="Green" CommandName="UpdateCommand" CommandArgument='<%# Eval("subjectid") %>'></asp:LinkButton>
-                                <asp:LinkButton  runat="server" Visible="false" ID="lbtnCancel" CssClass="fa fa-times" ForeColor="Red" CommandName="CancelCommand" CommandArgument='<%# Eval("subjectid") %>' ToolTip="Cancel"></asp:LinkButton>
-                            </div>
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
+                    
 
                 </Columns>
 
@@ -846,7 +812,7 @@
             
         <div class="col-lg-6 col-md-6 col-sm-8 " style="margin-top: 25px;margin-left:20px;">
                       
-            <asp:GridView runat="server" ID="gvSubject" AutoGenerateColumns="False" CssClass="table table-striped"  CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None"  CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" OnRowCommand="gvSubject_RowCommand">       
+            <asp:GridView runat="server" ID="gvSubject" AutoGenerateColumns="False" CssClass="table table-striped"  CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None"  CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" OnRowDeleting="gvSubject_RowDeleting" >       
 
                 <Columns>
                     <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
@@ -868,17 +834,24 @@
                     <asp:TemplateField HeaderText="Min Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             
-                            <asp:TextBox ID="txtMinMarks" Visible="true" Text="" placeholder="Min Marks" class="form-control" runat="server" Width="130px" TextMode="Number"></asp:TextBox>
-                            <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="txtMinMarks" runat="server" SetFocusOnError="true" ValidationGroup="val" />
+                            <asp:TextBox ID="txtMinMarks" Visible="true" Text="" placeholder="Min Marks" class="form-control" runat="server" Width="130px" ValidationGroup="val"></asp:TextBox>   
+                            <asp:RequiredFieldValidator ErrorMessage="Value Missing" ControlToValidate="txtMinMarks" runat="server"  ForeColor="Red" SetFocusOnError="true" ValidationGroup="val" Display="Dynamic"/>
+                             <asp:RegularExpressionValidator ID="Regex2" runat="server" Display="Dynamic" ValidationExpression="((\d+)((\.\d{1,2})?))$"
+ErrorMessage="Enter Number"
+ControlToValidate="txtMinMarks" ValidationGroup="val" ForeColor="Red" />
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Max Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                            
-                            <asp:TextBox ID="txtMaxMarks" Visible="true" Text="" placeholder="Max Marks" runat="server" CssClass="form-control" Width="130px" TextMode="Number"></asp:TextBox>
+                            <asp:TextBox ID="txtMaxMarks" Visible="true" Text="" placeholder="Max Marks" runat="server" CssClass="form-control" ValidationGroup="val" Width="130px"></asp:TextBox>
 
-                            <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtMaxMarks" runat="server"  ForeColor="Red" SetFocusOnError="true" ValidationGroup="val"/>
+                            <asp:RequiredFieldValidator ErrorMessage="Value Missing" ControlToValidate="txtMaxMarks" runat="server"  ForeColor="Red" SetFocusOnError="true" ValidationGroup="val" Display="Dynamic"/>
+                             <asp:RegularExpressionValidator ID="Regex1" runat="server" Display="Dynamic" ValidationExpression="((\d+)((\.\d{1,2})?))$"
+ErrorMessage="Enter Number"
+ControlToValidate="txtMaxMarks" ValidationGroup="val" ForeColor="Red" />
+                            
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -914,5 +887,8 @@
         
 
     </div>
+
+
+
 </asp:Content>
 
