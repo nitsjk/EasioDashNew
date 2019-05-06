@@ -168,43 +168,11 @@ namespace Nits.BLL
 
     }
 
-    //Data Access Class For Results
+    //Data Access Class For Manage Marks
     public class ResultBLL
     {
-        //For Grid
-
-        //public List<String> getAllSubjects()
-        //{
-        //    HttpClient http = NitsAPI.apiConnection1();
-        //    HttpResponseMessage response = http.GetAsync("maxmarks/200").Result;
-
-        //    List<Result> Listmodel = response.Content.ReadAsAsync<List<Result>>().Result.ToList();
-
-        //    List<int> li = new List<int>();
-        //    foreach (Result re in Listmodel
-        //        {
-
-        //        li.Add(re.classid);
-
-
-
-        //    }
-
-            
-            
-        //}
-
-    public List<Result> getAllResults(Result reModel)
-    {
-        HttpClient http = NitsAPI.apiConnection1();
-        HttpResponseMessage response = http.GetAsync("maxmarks/" + reModel.classid+ "/"+ reModel.unitid).Result;
-        List<Result> model = response.Content.ReadAsAsync<List<Result>>().Result.ToList();
-        return model;
-    }
-
-        //Get All Max Min Marks
-
-        public List<Result> getAllMarks(long classId)
+        //Fill Grid Subjects
+        public List<Result> getAllSubjects(long classId)
         {
             HttpClient http = NitsAPI.apiConnection1();
             HttpResponseMessage response = http.GetAsync("maxmarks/" + "/"+classId).Result;
@@ -213,9 +181,8 @@ namespace Nits.BLL
             return model;
         }
 
-
-        // Get Some Result
-        public List<Result> getSomeResults(Result reModel)
+        // Fill Grid Units
+        public List<Result> getAllMinMaxResults(Result reModel)
         {
             HttpClient http = NitsAPI.apiConnection1();
             HttpResponseMessage response = http.GetAsync("maxmarks/" + reModel.classid + "/" + reModel.unitid).Result;
@@ -225,7 +192,7 @@ namespace Nits.BLL
             return model;
         }
 
-        //For DropDown
+        //For DropDown Units
         public List<Unit> getUnits()
         {
             HttpClient http = NitsAPI.apiConnection1();
@@ -234,11 +201,11 @@ namespace Nits.BLL
             return model;
         }
 
-        //For Delete
-        public string deleteMarks(Result reModel)
+        //Add Max Min Marks In gvSubjects
+        public string addMarks(List<Result> Emodel, long Clasid,long UnitID)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.DeleteAsync("maxmarks/"+reModel.classid + "/"+ reModel.unitid+"/"+ reModel.subjectid).Result;
+            var ReturnMessage = http.PostAsJsonAsync("maxmarks/", Emodel).Result;
 
             if (ReturnMessage.IsSuccessStatusCode)
             {
@@ -250,35 +217,12 @@ namespace Nits.BLL
             }
         }
 
-        //For Update
-        public string updateMarks(Result reModel)
+        //Update Min Max Marks
+        public string UpdateMinMaxMarks(List<Result> Emodel)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            //HttpResponseMessage response = http.GetAsync("maxmarks/" + reModel.classid + "/" + reModel.unitid).Result;
-
-            //List<Result> EList = response.Content.ReadAsAsync<IEnumerable<Result>>().Result.ToList();
-            //Result UdpateModel = EList.FirstOrDefault(x => x.subjectid == reModel.subjectid);
-
-            //UdpateModel.minMarks = reModel.minMarks;
-            //UdpateModel.maxMarks = delreMo.maxMarks;
-
-            var ReturnMessage = http.PutAsJsonAsync("maxmarks/" + reModel.classid + "/" + reModel.subjectid, reModel).Result;
-            if (ReturnMessage.IsSuccessStatusCode)
-            {
-                return ReturnMessage.Content.ReadAsAsync<string>().Result;
-            }
-            else
-            {
-                return ReturnMessage.Content.ReadAsAsync<string>().Result;
-            }
-        }
-
-        //Add Marks
-        public string addMarks(Result Emodel)
-        {
-            HttpClient http = NitsAPI.apiConnection1();
-            var ReturnMessage = http.PostAsJsonAsync("maxmarks/" + Emodel.classid+ "/"+Emodel.unitid , Emodel).Result;
-
+            HttpResponseMessage response = http.GetAsync("maxmarks/").Result;
+            var ReturnMessage = http.PutAsJsonAsync("maxmarks/", Emodel).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
@@ -290,7 +234,54 @@ namespace Nits.BLL
         }
 
     }
-    
+
+    //Data Access Class For Award Roll
+
+    public class MarksBLL
+    {
+        public List<Marks> getAwardRoll(Marks mModel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("marks/" + mModel.classID + "/" + mModel.sectionID+"/"+mModel.unitID+"/"+mModel.subjectID).Result;
+
+            List<Marks> model = response.Content.ReadAsAsync<IEnumerable<Marks>>().Result.ToList();
+           // model = model.Where(x => x.subjectID == mModel.subjectID).ToList();
+            return model;
+        }
+
+
+        public string addMarks(List<Marks> lModel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            var ReturnMessage = http.PostAsJsonAsync("marks/", lModel).Result;
+
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+
+        }
+
+        public string updateAwardRoll(List<Result> Emodel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("marks/").Result;
+            var ReturnMessage = http.PutAsJsonAsync("marks/", Emodel).Result;
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+        }
+    }
+
 }
     
     

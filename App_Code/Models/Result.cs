@@ -10,8 +10,8 @@ namespace Nits.Model {
     public class  Result
     {
         public long maxID { get; set; }
-        public long maxMarks { get; set; }
-        public long minMarks { get; set; }
+        public decimal maxMarks { get; set; }
+        public decimal minMarks { get; set; }
         public long classid { get; set; }
         public long subjectid { get; set; }
         public string subDepartmentid { get; set; }

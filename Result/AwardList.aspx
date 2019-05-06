@@ -1,48 +1,161 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Result.aspx.cs" Inherits="Subjects" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="AwardList.aspx.cs" Inherits="Subject_AwardList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
+     <link href="../css/TestStyle.css" rel="stylesheet" />
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="../css/GoogleFonts.css" rel="stylesheet" />
 
-    <div class="sidebar-header">
-                    <a href="Default.aspx">         
-                            
-                        <div><img  src="img/easio-logo2.png" height="110px" width="130px" class="logo-img"/></div>
-
-                        </a>           
-                                 
-
-                </div>
- 
-    <link href="css/TestStyle.css" rel="stylesheet" />
-  
+    <!-- Bootstrap CSS
+		=========================
         
+        =================== -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link rel="stylesheet" href="../css/owl.theme.css">
+    <link rel="stylesheet" href="../css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="../css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="../css/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+
+
+    <!-- jquery
+		============================================ -->
+    <script src="../js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="../js/wow.min.js"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="../js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="../js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="../js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="../js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="../js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="../js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="../js/metisMenu/metisMenu.min.js"></script>
+    <script src="../js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src="../js/morrisjs/raphael-min.js"></script>
+    <script src="../js/morrisjs/morris.js"></script>
+    <script src="../js/morrisjs/morris-active.js"></script>
+    <!-- morrisjs JS
+
+
+		============================================ -->
+    <script src="../js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../js/sparkline/jquery.charts-sparkline.js"></script>
+    <!-- calendar JS
+		============================================ -->
+    <script src="../js/calendar/moment.min.js"></script>
+    <script src="../js/calendar/fullcalendar.min.js"></script>
+    <script src="../js/calendar/fullcalendar-active.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="../js/plugins.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="../js/main.js"></script>
+
+    <link href="../css/TestStyle.css" rel="stylesheet" />
+    
+
+   
+
+    <div class="left-custom-menu-adp-wrap comment-scrollbar">
+
+
+        <div>
+            <a href="../Default.aspx">
+                <img src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left: 25px" />
+            </a>
+        </div>
+
+
 
         <nav class="sidebar-nav left-sidebar-menu-pro">
             <ul class="metismenu" id="menu1">
 
                 <li class="b-inner">
-                    <a href="Result.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
+                    <a href="../Result.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
                 </li>
 
-                <li class="a-inner" style="display: table-row"><a href="Result/ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Subjects </span></a></li>
-
-                <li class="a-inner" style="display: table-row"><a href="Result/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Optional Subjects </span></a></li>
 
 
-                <li class="a-inner" style="display: table-row"><a href="Result/ManageMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Max Marks </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Subjects </span></a></li>
 
-                 <li class="a-inner" style="display: table-row"><a href="Result/EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Edit Max Marks </span></a></li>
-                
-                 <li class="a-inner" style="display: table-row"><a href="Result/AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Award Roll </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Optional Subjects </span></a></li>
+
+                 <li class="a-inner" style="display: table-row"><a href="ManageMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Max Marks </span></a></li>
+
+                <li class="a-inner" style="display: table-row"><a href="EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Edit Max Marks </span></a></li>
+
+                <li class="a-inner" style="display: table-row"><a href="AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Add Award Roll </span></a></li>
+
             </ul>
         </nav>
- 
+    </div>
 
 </asp:Content>
-
-<asp:Content ID="contenthead" runat="server" ContentPlaceHolderID="contentbody">
-    <div class="header-advance-area">
-                <div class="header-top-area">
+<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
+    <div class="header-top-area">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -600,630 +713,199 @@
                         </div>
                     </div>
                 </div>
-                <!-- Mobile Menu start -->
-                <div class="mobile-menu-area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="mobile-menu">
-                                    <nav id="dropdown">
-                                        <ul class="mobile-menu-nav">
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="Default.aspx">Dashboard <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <%--<ul class="collapse dropdown-header-top">
-                                                    <li><a href="#">Dashboard v.1</a></li>
-                                                    <li><a href="#">Dashboard v.2</a></li>
-                                                    <li><a href="#">Dashboard v.3</a></li>
-                                                    <li><a href="#">Product List</a></li>
-                                                    <li><a href="#">Product Edit</a></li>
-                                                    <li><a href="#">Product Detail</a></li>
-                                                    <li><a href="#">Product Cart</a></li>
-                                                    <li><a href="#">Product Payment</a></li>
-                                                    <li><a href="#">Analytics</a></li>
-                                                    <li><a href="#">Widgets</a></li>
-                                                </ul>--%>
-                                            </li>
-                                            <li><a data-toggle="collapse" data-target="#demo" href="StudentDashboard.aspx">Students <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="demo" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Student</a>
-                                                    </li>
-                                                    <li><a href="#">View Student</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Student</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a data-toggle="collapse" data-target="#others" href="Class.aspx">Class <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="others" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Class</a></li>
-                                                    <li><a href="#">View Class</a></li>
-                                                    <li><a href="#">Delete Class</a></li>
-                                                </ul>
-                                            </li>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
 
+     <div class="col-md-12 center-block text-center" style="margin-top: 70px;">
+        <h3> <Span style="color:#9d0e0a">Award</Span> Roll </h3>
+        <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; margin-top:6px; width:25%" />
+    </div>
+    <div  style="margin-top:10px;">
+         <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+        <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
+    </div>
 
-                                            <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="Subjects.aspx">Subjects<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Subject</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Subject</a>
-                                                    </li>
-                                                    <li><a href="#">View Subject</a>
-                                                    </li>
-                                                  </ul>
-                                            </li>
-                                            
+    <div class="row" >
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <fieldset style="height:35%; margin-left:20px">
+            <legend>Add Awards</legend>
 
-                                            <li><a data-toggle="collapse" data-target="#Tablesmob" href="Result.aspx">Results <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Tablesmob" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Result</a>
-                                                    </li>
-                                                    <li><a href="#">View Result</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
+            <div class="review-content-section">
 
-                                            <li><a data-toggle="collapse" data-target="#formsmob" href="Attendence.aspx">Attendence <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="formsmob" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Attedence</a>
-                                                    </li>
-                                                    <li><a href="#">View Attedence</a>
-                                                    </li>
- 
-                                                </ul>
-                                            </li>
-
-                                            <li><a data-toggle="collapse" data-target="#Appviewsmob" href="Transport.aspx">Transport <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Appviewsmob" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Transport</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Transport</a>
-                                                    </li>
-                                                    <li><a href="#">Total Transport</a>
-                                                    </li>
-                                                </ul>
-                                             
-                                        </li>
-
-                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Fee.aspx">Fee <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Pagemob" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Fee</a>
-                                                    </li>
-                                                    <li><a href="#">View Fee</a>
-                                                    </li>
-                                                    <li><a href="#">Pending Fee</a>
-                                                    </li>
-                                                    <li><a href="#">Late Fee</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-
-                                            
-                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Employee.aspx">Employee <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Employee" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Employee</a>
-                                                    </li>
-                                                    <li><a href="#">View Employee</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Employee</a>
-                                                    </li>
-                                                </ul>
-
-
-                                                </li>
-
-                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Payroll.aspx">Pay Roll <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-
-
-                                                 <ul id="PayRoll" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Employee</a>
-                                                    </li>
-                                                    <li><a href="#">View Employee</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Employee</a>
-                                                    </li>
-                                                </ul>
-
-                                                </li>
-
-                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Library.aspx">Library <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-
-
-                                                 <ul id="Library" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Book</a>
-                                                    </li>
-                                                    <li><a href="#">View Details</a>
-                                                    </li>
-                                                    <li><a href="#">Book Issued</a>
-                                                    </li>
-                                                </ul>
-                                                </li>
-
-                                               <li><a data-toggle="collapse" data-target="#Pagemob" href="Teacher-Log.aspx">Teacher Log <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                    <ul id="TeacherLog" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Employee</a>
-                                                    </li>
-                                                    <li><a href="#">View Employee</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Employee</a>
-                                                    </li>
-                                                </ul>
-                                                </li>
-
-                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="AdminLog.aspx">Admin <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-
-                                                 <ul id="Admin" class="collapse dropdown-header-top">
-                                                    <li><a href="#">Add Employee</a>
-                                                    </li>
-                                                    <li><a href="#">View Employee</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Employee</a>
-                                                        <li><a href="#">Add Student</a>
-                                                    </li>
-                                                    <li><a href="#">View Student</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Student</a>
-                                                    </li>
-                                                </ul>
-                                                </li>
-
-                                             <li><a data-toggle="collapse" data-target="#Pagemob" href="Health.aspx">Health<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                 <ul id="Health" class="collapse dropdown-header-top">
-                                                 <li><a href="#">View Details</a>
-                                                    </li>
-                                                     </ul>
-                                                    
-
-                                            <li><a data-toggle="collapse" data-target="#Pagemob" href="Pro.aspx">PRO <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
-                                                <ul id="Pro" class="collapse dropdown-header-top">
-                                                <li><a href="#">Add Employee</a>
-                                                    </li>
-                                                    <li><a href="#">View Employee</a>
-                                                    </li>
-                                                    <li><a href="#">Delete Employee</a>
-                                                </li>
-                                                    </ul>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Mobile Menu end -->
-                <div class="breadcome-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="breadcome-list">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
+                    <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId" OnSelectedIndexChanged="ddlClasses_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlClasses" runat="server" ValidationGroup="val" InitialValue="-1" />                 
                 </div>
 
-                <div class="section-admin container-fluid">
-                    <div class="row admin text-center" style="margin-top:45px">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                        <h4 class="text-left text-uppercase"><b>Student-Roll </b></h4>
-                                        <div class="row vertical-center-box vertical-center-box-tablet">
-                                            <div class="col-xs-3 mar-bot-15 text-left">
-                                                <img src="img/iconsfordashboard/student-roll-new.png" />
+                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
+                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
+                       
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSection" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
+                </div>
+                
+                
 
-                                            </div>
-                                            <div class="col-xs-9 cus-gh-hd-pro">
-                                                <h2 class="text-right no-margin">
-                                                    <asp:Label ID="lblstudentroll" runat="server" Text="" style="font-size:10pt"></asp:Label></h2>
 
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-mini">
-                                            <div style="width: 78%;" class="progress-bar bg-green"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-bottom: 1px;">
-                                    <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Student-Attendence</b></h4>
-                                        <div class="row vertical-center-box vertical-center-box-tablet">
-                                            <div class="text-left col-xs-3 mar-bot-15">
-                                                <img src="img/iconsfordashboard/student-attendance.png" />
-                                            </div>
-                                            <div class="col-xs-9 cus-gh-hd-pro">
-                                                <h2 class="text-right no-margin">
-                                                    <asp:Label ID="stndlbl" runat="server" Text="Label" style="font-size:10pt"></asp:Label></h2>
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-mini">
-                                            <div style="width: 38%;" class="progress-bar progress-bar-danger bg-red"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Staff-Roll</b></h4>
-                                        <div class="row vertical-center-box vertical-center-box-tablet">
-                                            <div class="text-left col-xs-3 mar-bot-15">
-                                                <img src="img/iconsfordashboard/staff-roll.png" />
-                                            </div>
-                                            <div class="col-xs-9 cus-gh-hd-pro">
-                                                <h2 class="text-right no-margin">
-                                                    <asp:Label ID="lblstaffroll" runat="server" Text="Label" style="font-size:10pt"></asp:Label></h2>
+                <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
+                    <asp:DropDownList ID="ddlType" DataTextField="unitName" DataValueField="unitid" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">                       
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlType" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
+                </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-mini">
-                                            <div style="width: 60%;" class="progress-bar bg-blue"></div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                        <h4 class="text-left text-uppercase"><b>Staff-Attendence</b></h4>
-                                        <div class="row vertical-center-box vertical-center-box-tablet">
-                                            <div class="text-left col-xs-3 mar-bot-15">
-                                                <img src="img/iconsfordashboard/staff-attendance.png" />
-                                            </div>
-                                            <div class="col-xs-9 cus-gh-hd-pro">
-                                                <h2 class="text-right no-margin">
-                                                    <asp:Label ID="lblstaffatt" runat="server" Text="Label" style="font-size:10pt"></asp:Label></h2>
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-mini">
-                                            <div style="width: 60%;" class="progress-bar bg-purple"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
+                    <asp:DropDownList ID="ddlSubject" DataTextField="subjectName" DataValueField="subjectID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">                       
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
+                </div>
+
+                
+              
+                    
+                  
+                    
                 </div>
 
 
 
+            <br />
 
-
-                <%--<div class="product-new-list-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/5.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/6.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/7.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="single-new-trend mg-t-30">
-                            <a href="#"><img src="img/new-product/5.jpg" alt=""></a>
-                            <div class="overlay-content">
-                                <a href="#">
-                                    <h2>$280</h2>
-                                </a>
-                                <a href="#" class="btn-small">Now</a>
-                                <div class="product-action">
-                                    <ul>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Shopping" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tooltip" title="Quick view" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <h4>Princes Diamond</h4>
-                                </a>
-                                <div class="pro-rating">
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star color"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
+        </fieldset>
             </div>
-        </div>--%>
-                <div class="product-sales-area mg-tb-30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                <div class="product-sales-chart">
-                                    <div class="portlet-title">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-9 col-sm-9 col-xs-12">
-                                                <div class="caption pro-sl-hd">
-                                                    <span class="caption-subject text-uppercase"><b>Class Wise Roll</b></span>
+        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
+                      
+            <asp:GridView runat="server" ID="gvAddAward" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center">       
 
+                <Columns>
+                    <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <%# Container.DataItemIndex+1%>
+                        </ItemTemplate>
+                        <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
+                    </asp:TemplateField>
 
-
-                                                    <div class="overflowX">
-                                                        <asp:MultiView ID="MultiView1" ActiveViewIndex="0" runat="server"> 
-                                                            <asp:view ID="view1"  runat="server">
-                                          <asp:GridView ID="grdView" AutoGenerateColumns="false" BorderWidth="0" runat="server"  OnRowCommand="grdView_RowCommand"    PageSize="15" OnPageIndexChanging="grdView_PageIndexChanging" CssClass="table" AllowPaging="true"  >
-                                                            <PagerStyle HorizontalAlign="Center" CssClass="pagination-ys" />
-                                                              
-                                                            <RowStyle Height="2px" />
-                                                            <AlternatingRowStyle Height="10px" />
-                                                          
-
-
-                                                            <Columns>
-
-                                                                <asp:BoundField HeaderText="ID" DataField="ID" />
-                                                                <asp:BoundField HeaderText="Name" DataField="Name" />
-                                                                <asp:BoundField HeaderText="Address" DataField="Address" />
-                                                                <asp:BoundField HeaderText="Phone" DataField="Phone" />
-                                                                <asp:TemplateField HeaderText="Edit">
-
-                                                                    <ItemTemplate>
-                                                                        <asp:Button ID="BtnEdit" runat="server" CommandArgument='<%#Eval("ID")%>' CommandName="EditItem" CssClass="btn btn-info" Text="edit" />
-                                                                    </ItemTemplate>
-                                                                    </asp:TemplateField>
-
-
-                                                                    <asp:TemplateField HeaderText="Delte">
-                                                                        <ItemTemplate>
-                                                                        <asp:Button ID="BtnDel" runat="server" CommandArgument='<%#Eval("ID")%>' CommandName="Delteitem" CssClass="btn btn-danger" Text="Delete" />
-                                                                    </ItemTemplate>
-                                                                </asp:TemplateField>
-                                                            </Columns>
- 
-                                                        </asp:GridView>
-                                                            </asp:view>
-                                                            <asp:view ID="view2"  runat="server">
-                                                               
-                                                                <asp:TextBox ID="TextBox1" runat="server">Address</asp:TextBox>
-                                                                <asp:TextBox ID="TextBox2" runat="server">Name</asp:TextBox>
-                                                                 <asp:TextBox ID="TextBox3" runat="server">Phone</asp:TextBox>
-                                                                <asp:LinkButton ID="LinkButton1" runat="server">Update</asp:LinkButton>?
-                                                                    
-                                                            </asp:view> 
-
-                                                        </asp:MultiView>
                    
-                                                        
-                                                    </div>
 
-                                                </div>
-                                            </div>
-                                            <%--                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="actions graph-rp">
-                                                <a href="#" class="btn btn-dark-blue btn-circle active tip-top" data-toggle="tooltip" title="Upload">
-                                                    <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-dark btn-circle active tip-top" data-toggle="tooltip" title="Refresh">
-                                                    <i class="fa fa-reply" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-blue-grey btn-circle active tip-top" data-toggle="tooltip" title="Delete">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>--%>
-                                        </div>
-                                    </div>
-                                    <%--<ul class="list-inline cus-product-sl-rp">
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #24caa1;"></i>Bags</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #888;"></i>Shoes</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle" style="color: #ff7f5a;"></i>Jewelery</h5>
-                                    </li>
-                                </ul>--%>
-                                    <div id="extra-area-chart"></div>
-                                </div>
-                            </div>
+                     <asp:TemplateField HeaderText="Roll No" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRollNo" Text='<%# Eval("rollno") %>' runat="server" />
+                           
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
+                    <asp:TemplateField HeaderText="Student Name" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label ID="lblStudentName" Text='<%# Eval("sName") %>' runat="server" />
+                           
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
+                    <asp:TemplateField HeaderText="Student ID" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label ID="lblStudentId" Text='<%# Eval("studentID") %>' runat="server" />
+                        
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                <div class="analytics-rounded mg-b-10 res-mg-t-30">
-                                    <div class="analytics-rounded-content">
-                                        <h5>Percentage distribution</h5>
-                                        <h2><span class="counter">60</span>/20</h2>
-                                        <div class="text-center">
-                                            <div id="sparkline51"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="analytics-rounded">
-                                    <div class="analytics-rounded-content">
-                                        <h5>Percentage division</h5>
-                                        <h2><span class="counter">150</span>/<span class="counter">54</span></h2>
-                                        <div class="text-center">
-                                            <div id="sparkline52"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="traffic-analysis-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="white-box tranffic-als-inner">
-                                    <h3 class="box-title"><small class="pull-right m-t-10 text-success"><i class="fa fa-sort-asc"></i>18% last month</small> INSURANCE</h3>
-                                    <div class="stats-row">
-                                        <div class="stat-item">
-                                            <h6>Overall Growth</h6>
-                                            <b>80.40%</b>
-                                        </div>
-                                        <div class="stat-item">
-                                            <h6>Montly</h6>
-                                            <b>15.40%</b>
-                                        </div>
-                                        <div class="stat-item">
-                                            <h6>Day</h6>
-                                            <b>5.50%</b>
-                                        </div>
-                                    </div>
-                                    <div id="sparkline8"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="white-box tranffic-als-inner res-mg-t-30">
-                                    <h3 class="box-title"><small class="pull-right m-t-10 text-danger"><i class="fa fa-sort-desc"></i>18% last month</small>TOKEN</h3>
-                                    <div class="stats-row">
-                                        <div class="stat-item">
-                                            <h6>Overall Growth</h6>
-                                            <b>80.40%</b>
-                                        </div>
-                                        <div class="stat-item">
-                                            <h6>Montly</h6>
-                                            <b>15.40%</b>
-                                        </div>
-                                        <div class="stat-item">
-                                            <h6>Day</h6>
-                                            <b>5.50%</b>
-                                        </div>
-                                    </div>
-                                    <div id="sparkline9"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="white-box tranffic-als-inner res-mg-t-30">
-                                    <h3 class="box-title"><small class="pull-right m-t-10 text-success"><i class="fa fa-sort-asc"></i>18% last month</small>POLLUTION</h3>
-                                    <div class="stats-row">
-                                        <div class="stat-item">
-                                            <h6>Overall Growth</h6>
-                                            <b>80.40%</b>
-                                        </div>
-                                        <div class="stat-item">
-                                            <h6>Montly</h6>
-                                            <b>15.40%</b>
-                                        </div>
-                                        <div class="stat-item">
-                                            <h6>Day</h6>
-                                            <b>5.50%</b>
-                                        </div>
-                                    </div>
-                                    <div id="sparkline10"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                     <asp:TemplateField HeaderText="Enter Marks" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:TextBox ID="txtMarks" runat="server" Text="" CssClass="form-control" Width="60%" placeholder="Enter Marks"></asp:TextBox>
+                            <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtMarks" runat="server"  ForeColor="Red" SetFocusOnError="true" ValidationGroup="val" Display="Dynamic"/>
+                             <asp:RegularExpressionValidator ID="Regex2" runat="server" Display="Dynamic" ValidationExpression="((\d+)((\.\d{1,2})?))$"
+                    ErrorMessage="Enter Number"
+                    ControlToValidate="txtMarks" ValidationGroup="val" ForeColor="Red" />
+                        
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
+                </Columns>
 
+                <FooterStyle BackColor="#990000"  Font-Bold="True" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
+            </asp:GridView>
+            <asp:Button Text="Submit" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" CssClass="btn btn-primary" ValidationGroup="val" Visible="false" />
+        </div>
 
-                <div class="calender-area mg-tb-30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="calender-inner">
-                                    <div id='calendar'></div>
-                                </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
+                      
+            <asp:GridView runat="server" ID="gvAward" AutoGenerateColumns="False" CssClass="table table-striped" OnRowCommand="gvAward_RowCommand" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >       
+
+                <Columns>
+                    <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <%# Container.DataItemIndex+1%>
+                        </ItemTemplate>
+                        <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
+                    </asp:TemplateField>
+
+                   
+
+                     <asp:TemplateField HeaderText="Subject ID" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label ID="lblSubject" Text='<%# Eval("subjectID") %>' runat="server" />
+                           
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Student ID" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMarks" Text='<%# Eval("studentID") %>' runat="server" />
+                        
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                     <asp:TemplateField HeaderText="Marks Obtained" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMarks" Text='<%# Eval("marks") %>' runat="server" />
+                        
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <%--<asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <div class="form-inline">
+                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("subjectid") %>'></asp:LinkButton>
+                              
+                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("subjectid") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure You Want To Delete')" />
+                                
+                                <asp:LinkButton  runat="server" Visible="false" ID="lbtnUpdate" CssClass="fa fa-refresh" ForeColor="Green" CommandName="UpdateCommand" CommandArgument='<%# Eval("subjectid") %>'></asp:LinkButton>
+                                <asp:LinkButton  runat="server" Visible="false" ID="lbtnCancel" CssClass="fa fa-times" ForeColor="Red" CommandName="CancelCommand" CommandArgument='<%# Eval("subjectid") %>' ToolTip="Cancel"></asp:LinkButton>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="footer-copy-right">
-                                    <p>Copyright &copy; 2019 <a href="#">National</a>ITSolutions.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>--%>
+
+                </Columns>
+
+                <FooterStyle BackColor="#990000"  Font-Bold="True" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
+            </asp:GridView>
+        </div>
+
+        
+        
+        </div>
 </asp:Content>
 
