@@ -764,11 +764,11 @@
         <%--GridView gvMarks Control--%>
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
                       
-            <asp:GridView runat="server" ID="gvMarks" AutoGenerateColumns="False" CssClass="table table-striped"  CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center">      
+            <asp:GridView runat="server" ID="gvMarks" AutoGenerateColumns="False" CssClass="table table-striped"  CellPadding="4" Width="90%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center">      
                 <Columns>
 
                     <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
+                        <ItemTemplate> &nbsp
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
                         <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
@@ -776,21 +776,22 @@
 
                     <asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblSubjects" Text='<%# Eval("subjectid") %>' runat="server" />                     
+                            <asp:Label CssClass="GridHeader" ID="lblSubjects" Text='<%# Eval("subjectid") %>' runat="server" />                     
                         </ItemTemplate>
                     </asp:TemplateField>
 
                      <asp:TemplateField HeaderText="Min Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblMaxID" Text='<%# Eval("maxID") %>' Visible="false" runat="server" />
-                            <asp:TextBox ID="txtMinMarks" Text='<%# Eval("minMarks") %>' runat="server"></asp:TextBox>
+                            <asp:Label CssClass="GridHeader" ID="lblMaxID" Text='<%# Eval("maxID") %>' Visible="false" runat="server" />
+
+                            <asp:TextBox CssClass="GridHeader form-control" Width="120px"  ID="txtMinMarks" Text='<%# Eval("minMarks") %>' runat="server"></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Max Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                             <%--<asp:Label ID="lblMaxMarks" Text='<%# Eval("minMarks") %>' runat="server" />--%>
-                            <asp:TextBox ID="txtMaxMarks" Text='<%# Eval("maxMarks") %>' runat="server"></asp:TextBox>
+                            <asp:TextBox CssClass="GridHeader form-control" Width="120px"  ID="txtMaxMarks" Text='<%# Eval("maxMarks") %>' runat="server"></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>  
                     
@@ -800,7 +801,7 @@
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
                 <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Left"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />

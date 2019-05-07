@@ -76,11 +76,12 @@
 
         .hdr {
             color: white !important;
-            padding-left:5px
+            /*padding-left:5px*/
         }
 
         .GridHeader {
-            text-align: center !important;
+            /*text-align: center !important;*/
+            padding-left:5px
         }
 
         .th {

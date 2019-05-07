@@ -625,27 +625,26 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
                       
-            <asp:GridView runat="server" ID="gvSubjects" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvSubjects_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >
-
-               
+            <asp:GridView runat="server" ID="gvSubjects" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="80%" RowStyle-Wrap="false" ForeColor="White" OnRowCommand="gvSubjects_RowCommand" GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center">
 
                 <Columns>
 
                     <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
+                        <ItemTemplate > &nbsp
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
                         <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
+                    
+                    <asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader" >
+                        <ItemTemplate>&nbsp 
                             <asp:Label Text='<%# Eval("subjectName") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
+                    <asp:TemplateField HeaderText="Action"  HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate >
                             <div class="form-inline">
                                 <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("subjectID") %>'></asp:LinkButton>
                                &nbsp | &nbsp
@@ -660,7 +659,7 @@
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
                 <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Left"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />

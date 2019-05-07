@@ -763,32 +763,32 @@
         <%--GridView gvMarks Control--%>
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
                       
-            <asp:GridView runat="server" ID="gvMarks" AutoGenerateColumns="False" CssClass="table table-striped"  CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center">      
+            <asp:GridView runat="server" ID="gvMarks" AutoGenerateColumns="False" CssClass="table table-striped"  CellPadding="4" Width="90%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Left">      
                 <Columns>
 
                     <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
+                        <ItemTemplate>&nbsp
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
+                        <HeaderStyle HorizontalAlign="Left" Width="40px"  ForeColor="White"/>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblSubjects" Text='<%# Eval("subjectid") %>' runat="server" />                     
+                            <asp:Label CssClass="GridHeader" ID="lblSubjects" Text='<%# Eval("subjectid") %>' runat="server" />                     
                         </ItemTemplate>
                     </asp:TemplateField>
 
                      <asp:TemplateField HeaderText="Max Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblMinMarks" Text='<%# Eval("maxMarks") %>' runat="server" />
+                            <asp:Label ID="lblMinMarks" CssClass="GridHeader" Text='<%# Eval("maxMarks") %>' runat="server" />
                             <asp:TextBox ID="txtMinMarks" Visible="false" Text='<%# Eval("maxMarks") %>' runat="server"></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Min Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblMaxMarks" Text='<%# Eval("minMarks") %>' runat="server" />
+                            <asp:Label ID="lblMaxMarks" CssClass="GridHeader" Text='<%# Eval("minMarks") %>' runat="server" />
                             <asp:TextBox ID="txtMaxMarks" Visible="false" Text='<%# Eval("minMarks") %>' runat="server"></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>  
@@ -797,9 +797,9 @@
                 </Columns>
 
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
-                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Left"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Left"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />
@@ -817,7 +817,7 @@
                 <Columns>
 
                     <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
+                        <ItemTemplate> &nbsp
                             <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
                         <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
@@ -825,13 +825,13 @@
 
                    <asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblSubjects" ToolTip='<%# Eval("subjectid") %>' Text='<%# Eval("subjectName") %>' runat="server" />     
+                            <asp:Label CssClass="GridHeader" ID="lblSubjects" ToolTip='<%# Eval("subjectid") %>' Text='<%# Eval("subjectName") %>' runat="server" />     
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Min Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:TextBox ID="txtMinMarks" Visible="true" Text="" placeholder="Min Marks" class="form-control" runat="server" Width="130px" ValidationGroup="val"></asp:TextBox>   
+                            <asp:TextBox ID="txtMinMarks" Visible="true" Text="" placeholder="Min Marks" class="form-control GridHeader" runat="server" Width="130px" ValidationGroup="val"></asp:TextBox>   
                             <asp:RequiredFieldValidator ErrorMessage="Value Missing" ControlToValidate="txtMinMarks" runat="server"  ForeColor="Red" SetFocusOnError="true" ValidationGroup="val" Display="Dynamic"/>
                              <asp:RegularExpressionValidator ID="Regex2" runat="server" Display="Dynamic" ValidationExpression="((\d+)((\.\d{1,2})?))$"
                     ErrorMessage="Enter Number"
@@ -842,7 +842,7 @@
                     <asp:TemplateField HeaderText="Max Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
                            
-                            <asp:TextBox ID="txtMaxMarks" Visible="true" Text="" placeholder="Max Marks" runat="server" CssClass="form-control" ValidationGroup="val" Width="130px"></asp:TextBox>
+                            <asp:TextBox ID="txtMaxMarks" Visible="true" Text="" placeholder="Max Marks" runat="server" CssClass="form-control GridHeader" ValidationGroup="val" Width="130px"></asp:TextBox>
 
                             <asp:RequiredFieldValidator ErrorMessage="Value Missing" ControlToValidate="txtMaxMarks" runat="server"  ForeColor="Red" SetFocusOnError="true" ValidationGroup="val" Display="Dynamic"/>
                              <asp:RegularExpressionValidator ID="Regex1" runat="server" Display="Dynamic" ValidationExpression="((\d+)((\.\d{1,2})?))$"
@@ -856,7 +856,7 @@
                         <ItemTemplate>
 
                             <div class="form-inline">
-                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="Delete" ID="lbtnDelete" CommandArgument='<%# Eval("subjectid") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure You Want To Delete')" />
+                                <asp:LinkButton  CssClass="fa fa-trash GridHeader" runat="server" CommandName="Delete" ID="lbtnDelete" CommandArgument='<%# Eval("subjectid") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure You Want To Delete')" />
                                                               
                             </div>
                         </ItemTemplate>
@@ -867,7 +867,7 @@
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
                 <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Left"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />

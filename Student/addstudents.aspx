@@ -623,7 +623,7 @@
         width: 90%;
         margin-top: 10px;
         margin-left: 20px;
-        height:200px;
+        height:525px;
     }
 
     #button {
@@ -873,15 +873,15 @@
                  </div>
                   
                 </div>
-                   
-
-        </fieldset>
-             
-             <div class="col-md-12">
+                   <div class="col-md-12">
      <div class="col-md-6 form-group"  style="margin-left:100px;margin-top:10px">
                <a data-target="#parentdetail" data-toggle="tab" class="btn btn-info">Next</a>
     </div>
           </div>
+
+        </fieldset>
+             
+             
              </div>
              
          <div id="parentdetail" class="tab-pane fade" >

@@ -36,25 +36,20 @@ public partial class Subject_AwardList : System.Web.UI.Page
 
     public void fillDDLclass()
     {
-        if(ddlClasses.SelectedValue=="-1")
+        try
         {
-            ddlType.SelectedValue = "-1";
-            ddlSection.SelectedValue = "-1";
-            gvAddAward.DataSource = null;
-            gvAddAward.DataBind();
+            string str = Session["Current_Session"].ToString();
+            List<ClassModel> classList = Cdal.getAllClasses(str);
+            ddlClasses.DataSource = classList;
+            ddlClasses.DataBind();
+            ddlClasses.Items.Insert(0, new ListItem("--Select Classes--", "-1"));
+
         }
-        else
-        
-        lblError.Text = "";
-        string str = Session["Current_Session"].ToString();
-        List<ClassModel> classList = Cdal.getAllClasses(str);
-        ddlClasses.DataSource = classList;
-        ddlClasses.DataBind();
-        ddlClasses.Items.Insert(0, new ListItem("--Select Classes--", "-1"));
-        ddlType.SelectedValue = "-1";
-        ddlSubject.SelectedValue = "-1";
-        gvAddAward.DataSource = null;
-        gvAward.DataBind();
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+        }
     }
 
     public void fillDDLSections()
@@ -62,24 +57,13 @@ public partial class Subject_AwardList : System.Web.UI.Page
 
         try
         {
-            if (ddlSection.SelectedValue != "-1")
-            {
                 lblError.Text = "";
                 long Classid = Convert.ToInt64(ddlClasses.SelectedValue);
                 List<Section> classList = Sdal.GetSections(Classid);
                 ddlSection.DataSource = classList;
-                ddlSection.DataBind();
+                ddlSection.DataBind(); 
                 ddlSection.Items.Insert(0, new ListItem("--Select Section--", "-1"));
-                gvAward.DataSource = null;
-                gvAward.DataBind();
-            }
-            else {
-                ddlSubject.SelectedValue = "-1";
-                ddlType.SelectedValue = "-1";
-                gvAddAward.DataSource = null;
-                gvAddAward.DataBind();
-            }
-
+            
         }
         catch (Exception ex)
         {
@@ -95,6 +79,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
     {
         try
         {
+            lblSuccess.Visible = false;
             lblError.Text = "";
             long Classid = Convert.ToInt64(ddlClasses.SelectedValue);
 
@@ -119,7 +104,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
 
             lblError.Text = ex.ToString();
             lblError.Visible = true;
-            lblSuccess.Visible = false;
+            
         }
 
 
@@ -130,6 +115,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
 
         try
         {
+            lblSuccess.Visible = false;
             lblError.Text = "";
             List<Nits.Model.Unit> UList = Rdal.getUnits();
             ddlType.DataSource = UList;
@@ -141,6 +127,8 @@ public partial class Subject_AwardList : System.Web.UI.Page
         {
 
             lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            
         }
 
     }
@@ -150,31 +138,16 @@ public partial class Subject_AwardList : System.Web.UI.Page
     {
         try
         {
-            if (ddlClasses.SelectedValue != "-1")
-            {
-                lblError.Text = "";
+            
                 fillDDLtype();
+                gvAddAward.DataSource = null;
+                gvAddAward.DataBind();
+                lblError.Text = "";                
                 ddlType.SelectedValue = "-1";
                 ddlSubject.SelectedValue = "-1";
-                gvAddAward.DataSource = null;
-                gvAward.DataBind();
-            }
-            else
-            {
-                if (!IsPostBack)
-                {
-                }
-                else
-                {
-                    ddlSection.SelectedValue = "-1";
-                    ddlType.SelectedValue = "-1";
-                    ddlSubject.SelectedValue = "-1";
-                    gvAddAward.DataSource = null;
-                    gvAddAward.DataBind();
-                    lblError.Text = "";
-                    btnSubmit.Visible = false;
-                }
-            }
+                btnSubmit.Visible = false;
+            
+            
         }
         catch (Exception ex)
         {
@@ -188,32 +161,14 @@ public partial class Subject_AwardList : System.Web.UI.Page
     {
         try
         {
-            if (ddlClasses.SelectedValue != "-1")
-            {
                 fillDDLSections();
-            }
-            else {
-
-                if (!IsPostBack)
-                {
-                  
-                }
-                else
-                {
-                    ddlSection.SelectedValue = "-1";
-                    ddlSubject.SelectedValue = "-1";
-                    ddlType.SelectedValue = "-1";
-                    gvAddAward.DataSource = null;
-                    gvAddAward.DataBind();
-                    lblError.Text = "";
-                    btnSubmit.Visible = false;
-                }
-                    
-
-
-              
-
-            }
+                ddlType.SelectedValue = "-1";
+                ddlSection.SelectedValue = "-1";
+                ddlSubject.SelectedValue = "-1";
+                gvAddAward.DataSource = null;
+                gvAddAward.DataBind();
+                btnSubmit.Visible = false;
+                lblError.Text = "";      
         }
         catch (Exception ex)
         {
@@ -225,18 +180,22 @@ public partial class Subject_AwardList : System.Web.UI.Page
     {
         try
         {
+            lblSuccess.Visible = false;
+            gvAddAward.DataSource = null;
+            gvAddAward.DataBind();
+            btnSubmit.Visible = false;
             if (ddlSubject.SelectedValue != "-1")
             {
                 FillgvAward();
             }
-            else {
+            else
+            {
                 if (!IsPostBack)
-                { }
+                {
+                }
                 else
                 {
-                    gvAddAward.DataSource = null;
-                    gvAddAward.DataBind();
-                    btnSubmit.Visible = false;
+                    
                 }
             }
         }
@@ -285,6 +244,9 @@ public partial class Subject_AwardList : System.Web.UI.Page
     {
         try
         {
+            gvAddAward.DataSource = null;
+            gvAddAward.DataBind();
+            btnSubmit.Visible = false;
             if (ddlType.SelectedValue != "-1")
             {
 
@@ -297,11 +259,9 @@ public partial class Subject_AwardList : System.Web.UI.Page
                 }
                 else
                 {
-                    gvAddAward.DataSource = null;
-                    gvAddAward.DataBind();
+                   
                     ddlSubject.SelectedValue = "-1";
-                    //ddlType.SelectedValue="-1";
-                    btnSubmit.Visible = false;
+                    
                 }
             }
         }
@@ -340,7 +300,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
 
             Label lblRollNo = (Label)dr.FindControl("lblRollNo");
             Label lblStudentName = (Label)dr.FindControl("lblStudentName");
-            Label lblStudentId = (Label)dr.FindControl("lblStudentId");
+            //Label lblStudentId = (Label)dr.FindControl("lblStudentId");
             TextBox txtMarks = (TextBox)dr.FindControl("txtMarks");
             Marks marksModel = new Marks();
             marksModel.classID = Convert.ToInt64(ddlClasses.SelectedValue);
@@ -348,7 +308,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
             marksModel.unitID = Convert.ToInt64(ddlType.SelectedValue);
             marksModel.subjectID = Convert.ToInt64(ddlSubject.SelectedValue);
             marksModel.rollno = Convert.ToInt64(lblRollNo.Text);
-            marksModel.studentID = Convert.ToInt64(lblStudentId.Text);
+            //marksModel.studentID = Convert.ToInt64(lblStudentId.Text);
             marksModel.marks = Convert.ToInt64(txtMarks.Text);
             marksModel.sName = lblStudentName.Text;
             eModel.Add(marksModel);

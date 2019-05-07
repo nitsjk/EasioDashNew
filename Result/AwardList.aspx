@@ -783,42 +783,30 @@
             </div>
         <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
                       
-            <asp:GridView runat="server" ID="gvAddAward" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center">       
+            <asp:GridView runat="server" ID="gvAddAward" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="2" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2" HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center">       
 
                 <Columns>
-                    <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <%# Container.DataItemIndex+1%>
-                        </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
-                    </asp:TemplateField>
-
+                  
                    
-
-                     <asp:TemplateField HeaderText="Roll No" HeaderStyle-CssClass="GridHeader">
+                     <asp:TemplateField HeaderText="Roll No" HeaderStyle-CssClass="GridHeader" >
                         <ItemTemplate>
-                            <asp:Label ID="lblRollNo" Text='<%# Eval("rollno") %>' runat="server" />
+                            <asp:Label CssClass="GridHeader" ID="lblRollNo" Text= '<%# Eval("rollno") %>' runat="server" />
                            
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Student Name" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblStudentName" Text='<%# Eval("sName") %>' runat="server" />
+                            <asp:Label ID="lblStudentName" Text='<%# Eval("sName") %>' runat="server" CssClass="GridHeader" />
                            
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Student ID" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label ID="lblStudentId" Text='<%# Eval("studentID") %>' runat="server" />
-                        
-                        </ItemTemplate>
-                    </asp:TemplateField>
+          
 
                      <asp:TemplateField HeaderText="Enter Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:TextBox ID="txtMarks" runat="server" Text="" CssClass="form-control" Width="60%" placeholder="Enter Marks"></asp:TextBox>
+                            <asp:TextBox ID="txtMarks" runat="server" Text="" CssClass="form-control GridHeader" Width="60%"  placeholder="Enter Marks"></asp:TextBox>
                             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtMarks" runat="server"  ForeColor="Red" SetFocusOnError="true" ValidationGroup="val" Display="Dynamic"/>
                              <asp:RegularExpressionValidator ID="Regex2" runat="server" Display="Dynamic" ValidationExpression="((\d+)((\.\d{1,2})?))$"
                     ErrorMessage="Enter Number"
@@ -832,7 +820,7 @@
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
                 <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Left"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />
