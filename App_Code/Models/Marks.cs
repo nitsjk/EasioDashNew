@@ -20,7 +20,7 @@ namespace Nits.Model
         public string current_Session { get; set; }
         public long sessionID { get; set; }
         public long status { get; set; }
-        public long marks { get; set; }
+        public decimal marks { get; set; }
         public string date { get; set; }
 
     }

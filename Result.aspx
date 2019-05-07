@@ -34,6 +34,8 @@
                  <li class="a-inner" style="display: table-row"><a href="Result/EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Edit Max Marks </span></a></li>
                 
                  <li class="a-inner" style="display: table-row"><a href="Result/AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Award Roll </span></a></li>
+
+                    <li class="a-inner" style="display: table-row"><a href="Result/EditMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Edit Result </span></a></li>
             </ul>
         </nav>
  
