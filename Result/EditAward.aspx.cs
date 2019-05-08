@@ -8,9 +8,9 @@ using Nits.BLL;
 using Nits.Common;
 using Nits.Model;
 
-
-public partial class Subject_AwardList : System.Web.UI.Page
+public partial class Result_EditAward : System.Web.UI.Page
 {
+
     ClassBLL Cdal = new ClassBLL();
     SectionBLL Sdal = new SectionBLL();
     ExamBLL Edal = new ExamBLL();
@@ -33,6 +33,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
             lblError.Text = ex.ToString();
 
         }
+
 
     }
 
@@ -61,13 +62,13 @@ public partial class Subject_AwardList : System.Web.UI.Page
 
         try
         {
-                lblError.Text = "";
-                long Classid = Convert.ToInt64(ddlClasses.SelectedValue);
-                List<Section> classList = Sdal.GetSections(Classid);
-                ddlSection.DataSource = classList;
-                ddlSection.DataBind(); 
-                ddlSection.Items.Insert(0, new ListItem("--Select Section--", "-1"));
-            
+            lblError.Text = "";
+            long Classid = Convert.ToInt64(ddlClasses.SelectedValue);
+            List<Section> classList = Sdal.GetSections(Classid);
+            ddlSection.DataSource = classList;
+            ddlSection.DataBind();
+            ddlSection.Items.Insert(0, new ListItem("--Select Section--", "-1"));
+
         }
         catch (Exception ex)
         {
@@ -98,48 +99,97 @@ public partial class Subject_AwardList : System.Web.UI.Page
 
             lblError.Text = ex.ToString();
             lblError.Visible = true;
-            
+
         }
 
     }
 
 
-    protected void ddlSection_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        try
-        {
-            btnSubmit.Visible = false;
-            FillgvAward();
-            lblSuccess.Text = "";
-            lblError.Text = "";           
-            
-        }
-        catch (Exception ex)
-        {
-
-            lblError.Text = ex.ToString();
-        } 
-
-    }
 
     protected void ddlClasses_SelectedIndexChanged(object sender, EventArgs e)
     {
         try
         {
-                fillDDLtype();
-                ddlType.SelectedValue = "-1";
-                ddlSection.SelectedValue = "-1";
-                ddlSubject.SelectedValue = "-1";
-                gvAddAward.DataSource = null;
-                gvAddAward.DataBind();
-                btnSubmit.Visible = false;
-                lblError.Text = "";
-                lblSuccess.Text = "";      
+            fillDDLtype();
+            ddlType.SelectedValue = "-1";
+            ddlSection.SelectedValue = "-1";
+            ddlSubject.SelectedValue = "-1";
+            gvAddAward.DataSource = null;
+            gvAddAward.DataBind();
+            btnUpdate.Visible = false;
+            lblError.Text = "";
+            lblSuccess.Text = "";
         }
         catch (Exception ex)
         {
             lblError.Text = e.ToString();
         }
+    }
+
+    protected void ddlType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            gvAddAward.DataSource = null;
+            gvAddAward.DataBind();
+            btnUpdate.Visible = false;
+            ddlSubject.SelectedValue = "-1";
+            ddlSection.SelectedValue = "-1";
+            lblError.Text = "";
+            lblSuccess.Text = "";
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+        }
+
+
+    }
+
+    protected void rbtnSubject_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+
+            fillDDLSUbject();
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+        }
+    
+}
+    //Fill Subject
+    public void fillDDLSUbject()
+    {
+        try
+        {
+            long classid = Convert.ToInt64(ddlClasses.SelectedValue);
+            if (rbtnSubject.SelectedValue == "1")
+            {
+                List<Exam> exModel = Edal.getAllSubjects(classid);
+                ddlSubject.DataSource = exModel;
+                ddlSubject.DataBind();
+                ddlSubject.Items.Insert(0, new ListItem("--Select Subject--", "-1"));
+            }
+            else
+            {
+                List<OptionalSubjects> opModel = ODal.getAllOptionalSubjects(classid);
+                ddlSubject.DataSource = opModel;
+                ddlSubject.DataBind();
+                ddlSubject.Items.Insert(0, new ListItem("--Select Subject--", "-1"));
+
+            }
+
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+        }
+
     }
 
     public void getCheckRecord()
@@ -170,6 +220,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
             lblError.Visible = true;
         }
     }
+
     protected void ddlSubject_SelectedIndexChanged(object sender, EventArgs e)
     {
         try
@@ -180,7 +231,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
             gvAddAward.DataSource = null;
             gvAddAward.DataBind();
             getCheckRecord();
-            btnSubmit.Visible = false;
+            btnUpdate.Visible = false;
         }
         catch (Exception ex)
         {
@@ -188,8 +239,29 @@ public partial class Subject_AwardList : System.Web.UI.Page
             lblError.Visible = Visible;
         }
 
+
     }
 
+    protected void ddlSection_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            btnUpdate.Visible = false;
+            FillgvAward();
+            lblSuccess.Text = "";
+            lblError.Text = "";
+
+        }
+        catch (Exception ex)
+        {
+
+            lblError.Text = ex.ToString();
+        }
+
+
+    }
+
+   
     public void FillgvAward()
     {
 
@@ -218,7 +290,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
                 }
                 gvAddAward.DataSource = aModel;
                 gvAddAward.DataBind();
-                btnSubmit.Visible = true;
+                btnUpdate.Visible = true;
 
             }
             else
@@ -237,45 +309,20 @@ public partial class Subject_AwardList : System.Web.UI.Page
         }
 
     }
-    protected void ddlType_SelectedIndexChanged(object sender, EventArgs e)
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
     {
         try
         {
-            gvAddAward.DataSource = null;
-            gvAddAward.DataBind();
-            btnSubmit.Visible = false;
-            ddlSubject.SelectedValue = "-1";
-            ddlSection.SelectedValue = "-1";
-            lblError.Text = "";
-            lblSuccess.Text = "";
+            update();
         }
         catch (Exception ex)
         {
             lblError.Text = ex.ToString();
             lblError.Visible = true;
         }
-
     }
-
-    protected void gvAward_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-
-    }
-
-    protected void btnSubmit_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            addMarks();
-            
-
-        }
-        catch (Exception ex)
-        {
-            lblError.Text = ex.ToString();
-        }
-    }
-    public void addMarks()
+    public void update()
     {
         MarksBLL mDal = new MarksBLL();
 
@@ -307,54 +354,9 @@ public partial class Subject_AwardList : System.Web.UI.Page
             eModel.Add(marksModel);
 
         }
-        string message = mDal.addMarks(eModel);
+        string message = mDal.updateAward(eModel);
         lblSuccess.Visible = true;
         lblSuccess.Text = message;
 
     }
-
-    //Fill Subject
-    public void fillDDLSUbject()
-    {
-        try
-        {
-            long classid = Convert.ToInt64(ddlClasses.SelectedValue);
-            if (rbtnSubject.SelectedValue == "1")
-            {
-                List<Exam> exModel = Edal.getAllSubjects(classid);
-                ddlSubject.DataSource = exModel;
-                ddlSubject.DataBind();
-                ddlSubject.Items.Insert(0, new ListItem("--Select Subject--", "-1"));
-            }
-            else
-            {
-                List<OptionalSubjects> opModel = ODal.getAllOptionalSubjects(classid);
-                ddlSubject.DataSource = opModel;
-                ddlSubject.DataBind();
-                ddlSubject.Items.Insert(0, new ListItem("--Select Subject--", "-1"));
-
-            }
-
-        }
-        catch (Exception ex)
-        {
-            lblError.Text = ex.ToString();
-            lblError.Visible = true;
-        }
-
-    }
-    protected void rbtnSubject_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        try
-        {
-
-            fillDDLSUbject();
-        }
-        catch (Exception ex)
-        {
-            lblError.Text = ex.ToString();
-            lblError.Visible = true;
-        }
-    }
-
 }

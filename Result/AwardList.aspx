@@ -739,18 +739,6 @@
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlClasses" runat="server" ValidationGroup="val" InitialValue="-1" />                 
                 </div>
 
-                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
-                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
-                       
-                    </asp:DropDownList>
-                    
-                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSection" runat="server" ValidationGroup="val" InitialValue="-1" />
-                    
-                </div>
-                
-                
-
-
                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
                     <asp:DropDownList ID="ddlType" DataTextField="unitName" DataValueField="unitid" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">                       
                     </asp:DropDownList>
@@ -758,6 +746,15 @@
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlType" runat="server" ValidationGroup="val" InitialValue="-1" />
                     
                 </div>
+
+                <div class="input-group mg-b-pro-edt">
+                    <asp:RadioButtonList ID="rbtnSubject" RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rbtnSubject_SelectedIndexChanged" AutoPostBack="true">
+                        <asp:ListItem Text="Main"  Value="1" /> 
+                        
+                        <asp:ListItem Text="Optional" Selected="True" Value="2" />
+                    </asp:RadioButtonList>
+                </div>
+                
 
                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
                     <asp:DropDownList ID="ddlSubject" DataTextField="subjectName" DataValueField="subjectID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">                       
@@ -767,7 +764,14 @@
                     
                 </div>
 
-                
+                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
+                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
+                       
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSection" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
+                </div>
               
                     
                   
@@ -797,7 +801,8 @@
 
                     <asp:TemplateField HeaderText="Student Name" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblStudentName" Text='<%# Eval("sName") %>' runat="server" CssClass="GridHeader" />
+                            <asp:Label ID="lblStudentName" Text='<%# Eval("studentName") %>' runat="server" CssClass="GridHeader" />
+                            <asp:Label ID="lblStudentId" Text='<%# Eval("studentID") %>' runat="server" Visible="false"></asp:Label>
                            
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -806,7 +811,7 @@
 
                      <asp:TemplateField HeaderText="Enter Marks" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:TextBox ID="txtMarks" runat="server" Text="" CssClass="form-control GridHeader" Width="60%"  placeholder="Enter Marks"></asp:TextBox>
+                            <asp:TextBox ID="txtMarks" runat="server" Text='<%#Eval("marks") %>' CssClass="form-control GridHeader" Width="60%"  placeholder="Enter Marks"></asp:TextBox>
                             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtMarks" runat="server"  ForeColor="Red" SetFocusOnError="true" ValidationGroup="val" Display="Dynamic"/>
                              <asp:RegularExpressionValidator ID="Regex2" runat="server" Display="Dynamic" ValidationExpression="((\d+)((\.\d{1,2})?))$"
                     ErrorMessage="Enter Number"
@@ -814,6 +819,14 @@
                         
                         </ItemTemplate>
                     </asp:TemplateField>
+
+
+                     <asp:TemplateField HeaderText="Absent" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:CheckBox  Text="" CssClass="GridHeader" runat="server" ID="chkBoxAbsent" />      <asp:Label ID="lblStatus" Visible="false" Text='<%#Eval("status") %>' runat="server"></asp:Label>                 
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
 
                 </Columns>
 
@@ -830,67 +843,7 @@
             <asp:Button Text="Submit" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" CssClass="btn btn-primary" ValidationGroup="val" Visible="false" />
         </div>
 
-        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
-                      
-            <asp:GridView runat="server" ID="gvAward" AutoGenerateColumns="False" CssClass="table table-striped" OnRowCommand="gvAward_RowCommand" CellPadding="4" Width="100%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center" >       
-
-                <Columns>
-                    <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <%# Container.DataItemIndex+1%>
-                        </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
-                    </asp:TemplateField>
-
-                   
-
-                     <asp:TemplateField HeaderText="Subject ID" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label ID="lblSubject" Text='<%# Eval("subjectID") %>' runat="server" />
-                           
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Student ID" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label ID="lblMarks" Text='<%# Eval("studentID") %>' runat="server" />
-                        
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                     <asp:TemplateField HeaderText="Marks Obtained" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Label ID="lblMarks" Text='<%# Eval("marks") %>' runat="server" />
-                        
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                    <%--<asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <div class="form-inline">
-                                <asp:LinkButton  runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("subjectid") %>'></asp:LinkButton>
-                              
-                                <asp:LinkButton  CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("subjectid") %>'  ForeColor="Red" OnClientClick="return confirm('Are You Sure You Want To Delete')" />
-                                
-                                <asp:LinkButton  runat="server" Visible="false" ID="lbtnUpdate" CssClass="fa fa-refresh" ForeColor="Green" CommandName="UpdateCommand" CommandArgument='<%# Eval("subjectid") %>'></asp:LinkButton>
-                                <asp:LinkButton  runat="server" Visible="false" ID="lbtnCancel" CssClass="fa fa-times" ForeColor="Red" CommandName="CancelCommand" CommandArgument='<%# Eval("subjectid") %>' ToolTip="Cancel"></asp:LinkButton>
-                            </div>
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
-
-                </Columns>
-
-                <FooterStyle BackColor="#990000"  Font-Bold="True" />
-                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
-                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                <SortedDescendingHeaderStyle BackColor="#820000" />
-            </asp:GridView>
-        </div>
+      
 
         
         

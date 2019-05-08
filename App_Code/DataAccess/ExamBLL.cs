@@ -239,16 +239,43 @@ namespace Nits.BLL
 
     public class MarksBLL
     {
-        public List<Marks> getAwardRoll(Marks mModel)
+        
+        public List<Award> getAwardRoll(long classID, long SectionId, long UnitId, long SubjectId, long type)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            HttpResponseMessage response = http.GetAsync("marks/" + mModel.classID + "/" + mModel.sectionID+"/"+mModel.unitID+"/"+mModel.subjectID).Result;
+            HttpResponseMessage response = http.GetAsync("award/"+classID+"/"+SectionId+"/"+UnitId+"/"+SubjectId+"/"+type).Result;
 
-            List<Marks> model = response.Content.ReadAsAsync<IEnumerable<Marks>>().Result.ToList();
-           // model = model.Where(x => x.subjectID == mModel.subjectID).ToList();
+            List<Award> model = response.Content.ReadAsAsync<IEnumerable<Award>>().Result.ToList();
             return model;
         }
 
+        public Result getRecord(Result reModel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("maxmarks/" + "/"+reModel.classid+ "/"+reModel.unitid+"/"+reModel.subjectid ).Result;
+
+            Result model = response.Content.ReadAsAsync<Result>().Result;
+            
+            return model;
+
+
+        }
+        public string updateMarks(List<Marks> Emodel, long ClassId, long SectionId, long UnitId, long subjectid)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            // HttpResponseMessage response = http.GetAsync("marks/").Result;
+
+            var ReturnMessage = http.PutAsJsonAsync("marks/", Emodel).Result;
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                //return ReturnMessage.Content.ReadAsAsync<string>().Result;
+                return "Error";
+            }
+        }
 
         public string addMarks(List<Marks> lModel)
         {
@@ -266,22 +293,22 @@ namespace Nits.BLL
 
         }
 
-        public string updateMarks(List<Marks> Emodel ,long ClassId, long SectionId,long UnitId,long subjectid)
+        public string updateAward(List<Marks> marksModel)
         {
             HttpClient http = NitsAPI.apiConnection1();
-           // HttpResponseMessage response = http.GetAsync("marks/").Result;
-
-            var ReturnMessage = http.PutAsJsonAsync("marks/", Emodel).Result;
+            
+            var ReturnMessage = http.PutAsJsonAsync("marks/", marksModel).Result;
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
             else
             {
-                //return ReturnMessage.Content.ReadAsAsync<string>().Result;
-                return "Error";
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
+
+
     }
 
 }
