@@ -204,7 +204,7 @@ public partial class Result_EditAward : System.Web.UI.Page
             Result checkRecord = Mdal.getRecord(re);
             if (checkRecord.classid.ToString() == null)
             {
-                lblError.Text = "No Record Found";
+                lblError.Text = "Max Marks Not Found";
                 lblError.Visible = true;
             }
             else
@@ -272,7 +272,7 @@ public partial class Result_EditAward : System.Web.UI.Page
             long UnitId = Convert.ToInt64(ddlType.SelectedValue);
             long Subjectid = Convert.ToInt64(ddlSubject.SelectedValue);
             long type = Convert.ToInt64(rbtnSubject.SelectedValue);
-            List<Award> aModel = Mdal.getAwardRoll(classId, SectionId, UnitId, Subjectid, type);
+            List<Marks> aModel = Mdal.getAwardRoll(classId, SectionId, UnitId, Subjectid, type);
 
             if (aModel.Count > 0)
             {
@@ -297,10 +297,10 @@ public partial class Result_EditAward : System.Web.UI.Page
             {
                 lblError.Visible = true;
                 lblError.Text = "No Data";
+                    gvAddAward.DataSource = aModel;
+                    gvAddAward.DataBind();
 
-                gvAddAward.DataBind();
-
-            }
+        }
         }
         catch (Exception ex)
         {
@@ -335,6 +335,7 @@ public partial class Result_EditAward : System.Web.UI.Page
             Label lblStudentName = (Label)dr.FindControl("lblStudentName");
             TextBox txtMarks = (TextBox)dr.FindControl("txtMarks");
             CheckBox chkBoxAbsent = (CheckBox)dr.FindControl("chkBoxAbsent");
+            Label lblMarksId = (Label)dr.FindControl("lblMarksId");
             Marks marksModel = new Marks();
 
             marksModel.classID = Convert.ToInt64(ddlClasses.SelectedValue);
@@ -345,6 +346,7 @@ public partial class Result_EditAward : System.Web.UI.Page
             marksModel.marks = Convert.ToDecimal(txtMarks.Text);
             marksModel.current_Session = Session["Current_Session"].ToString();
             marksModel.studentID = Convert.ToInt64(lblStudentId.Text);
+            marksModel.marksID = Convert.ToInt64(lblMarksId.Text);
             if (chkBoxAbsent.Checked)
             {
                 marksModel.status = 0;

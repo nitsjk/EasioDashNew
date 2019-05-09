@@ -239,13 +239,33 @@ namespace Nits.BLL
 
     public class MarksBLL
     {
-        
-        public List<Award> getAwardRoll(long classID, long SectionId, long UnitId, long SubjectId, long type)
+        //For  Edit Marks
+        public List<Marks> getAwardRoll(Marks mModel)
         {
             HttpClient http = NitsAPI.apiConnection1();
-            HttpResponseMessage response = http.GetAsync("award/"+classID+"/"+SectionId+"/"+UnitId+"/"+SubjectId+"/"+type).Result;
+            HttpResponseMessage response = http.GetAsync("marks/"+mModel.classID +"/"+mModel.sectionID+"/"+mModel.unitID+"/"+mModel.subjectID).Result;
+
+            List<Marks> model = response.Content.ReadAsAsync<IEnumerable<Marks>>().Result.ToList();
+            return model;
+        }
+
+
+        public List<Award> getAwardRollForAwardList(long classID, long SectionId, long UnitId, long SubjectId, long type)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("award/" + classID + "/" + SectionId + "/" + UnitId + "/" + SubjectId+"/"+type).Result;
 
             List<Award> model = response.Content.ReadAsAsync<IEnumerable<Award>>().Result.ToList();
+            return model;
+        }
+
+
+        public List<Marks> getAwardRoll(long classID, long SectionId, long UnitId, long SubjectId, long type)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("marks/"+classID+"/"+SectionId+"/"+UnitId+"/"+SubjectId).Result;
+
+            List<Marks> model = response.Content.ReadAsAsync<IEnumerable<Marks>>().Result.ToList();
             return model;
         }
 

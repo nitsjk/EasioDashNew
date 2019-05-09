@@ -3,14 +3,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
 
-    <div class="sidebar-header">
-                    <a href="Default.aspx">         
+   
+    <div class="sidebar-header" style="margin-left:-40px ">
+        <h3> <Span style="color:#9d0e0a;">EASIO ERP</Span>  </h3>
+
+       <%--<h2> <span style="padding-top:20px;font-size:large;color:red">EASIO</span></h2>--%>
+                   <%-- <a href="Default.aspx">         
                             
                         <div><img  src="img/easio-logo2.png" height="110px" width="130px" class="logo-img"/></div>
 
-                        </a>           
-                                 
-
+                        </a>   --%>  
+        
+                                          
                 </div>
  
     <link href="css/TestStyle.css" rel="stylesheet" />
@@ -18,26 +22,28 @@
         
 
         <nav class="sidebar-nav left-sidebar-menu-pro">
-            <ul class="metismenu" id="menu1">
+            <ul class="metismenu2" id="menu1">
 
                 <li class="b-inner">
-                    <a href="Result.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
+                    <a href="Result.aspx" aria-expanded="false"><i class="fa fa-university"></i><span   class="mini-click-non">&nbsp;&nbsp; Result</span></a>
                 </li>
 
-                <li class="a-inner" style="display: table-row"><a href="Result/ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row">
+                    <a href="Result/ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;">
+                        <span class="inner-span"> <i class="fa fa-caret-square-o-right" style="font-size: 9px"></i> Manage Subjects </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="Result/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Optional Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="Result/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Optional Subjects </span></a></li>
 
 
-                <li class="a-inner" style="display: table-row"><a href="Result/ManageMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Max Marks </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="Result/ManageMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Manage Max Marks </span></a></li>
 
-                 <li class="a-inner" style="display: table-row"><a href="Result/EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Edit Max Marks </span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="Result/EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Max Marks </span></a></li>
                 
-                 <li class="a-inner" style="display: table-row"><a href="Result/AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Award Roll </span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="Result/AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Award Roll </span></a></li>
 
-                    <li class="a-inner" style="display: table-row"><a href="Result/EditMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Edit Result </span></a></li>
+                    <li class="a-inner" style="display: table-row"><a href="Result/EditMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Result </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="Result/EditAward.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Edit Award </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="Result/EditAward.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Award </span></a></li>
             </ul>
         </nav>
  

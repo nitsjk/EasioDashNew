@@ -200,7 +200,7 @@ public partial class Subject_AwardList : System.Web.UI.Page
             long UnitId = Convert.ToInt64(ddlType.SelectedValue);
             long Subjectid = Convert.ToInt64(ddlSubject.SelectedValue);
             long type = Convert.ToInt64(rbtnSubject.SelectedValue);
-            List<Award> aModel = Mdal.getAwardRoll(classId, SectionId, UnitId, Subjectid, type);
+            List<Award> aModel = Mdal.getAwardRollForAwardList(classId, SectionId, UnitId, Subjectid, type);
 
             if (aModel.Count > 0)
             {
