@@ -120,7 +120,7 @@
     <script src="../js/main.js"></script>
 
     <link href="../css/TestStyle.css" rel="stylesheet" />
-
+    
    
 
     <script type = "text/javascript">
@@ -154,7 +154,7 @@
 
 
         <nav class="sidebar-nav left-sidebar-menu-pro">
-            <ul class="metismenu" id="menu1">
+            <ul class="metismenu2" id="menu1">
 
                 <li class="b-inner">
                     <a href="../Class.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>
@@ -162,9 +162,9 @@
 
 
 
-                <li class="a-inner" style="display: table-row"><a href="ManageClasses.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Classes </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="ManageClasses.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"> <i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Manage Classes </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="ManageSections.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Manage Sections </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="ManageSections.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"> <i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Manage Sections </span></a></li>
 
 
 
@@ -197,7 +197,7 @@
                             <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
                                 <div class="header-top-menu tabl-d-n">
                                     <ul class="nav navbar-nav mai-top-nav">
-                                        <li class="nav-item"><a href="#" class="nav-link">Homey</a>
+                                        <li class="nav-item"><a href="#" class="nav-link">Home</a>
                                         </li>
                                         <li class="nav-item"><a href="#" class="nav-link">About</a>
                                         </li>

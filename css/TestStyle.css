@@ -8,18 +8,19 @@
 
     .a-inner{
         padding-left:20px;
-        font-size:8pt;
+        font-size:7.5pt;
         color:springgreen;
-        height:30px;
+        height:5px;
         vertical-align:middle;
         display:table-row;
+        margin-top:-3px;margin-bottom:-3px
     
     }
     .b-inner{
         padding-left:0px;
         font-size:16pt;
         color:springgreen;
-        height:30px;   
+        /*height:20px;*/   
         display:table-row;
 
     }
@@ -29,10 +30,6 @@
         vertical-align:middle;
     }
 
-    /*ul li a:hover{
-        background: #e12503;
-        width:100%;
-    }*/
 
     
 
@@ -44,6 +41,8 @@
     /*display:table-cell;*/
    /*vertical-align:middle;*/
    width:100%;    
+   padding:2px 14px !important;
+   
     /*line-height:3px;*/
     /*margin-bottom:10px;*/   
     
@@ -76,9 +75,7 @@
             height: 270px;
         }
 
-.logo-img {
-    /*margin-top:3px;*/
-}
+
 
 
         .hdr {
@@ -131,9 +128,9 @@
 
 
 .sidebar-nav .metismenu2 > li {
-/*    -webkit-box-flex: 1;
+    -webkit-box-flex: 1;
     -ms-flex: 1 1 0%;
-    flex: 1 1 0%;*/
+    flex: 1 1 0%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -146,7 +143,7 @@
 .sidebar-nav .metismenu2 a {
     position: relative;
     display: block;
-    padding: 13px 15px;
+    padding: 2px 14px;
     color: #444;
     outline-width: 0;
     transition: all .3s ease-out;
@@ -154,11 +151,13 @@
 }
 
 .sidebar-nav .metismenu2 ul a {
-    padding: 10px 15px 10px 20px;
+    padding: 1px 15px 10px 20px;
+    /*padding: 5px 5px 5px 5px;*/
 }
 
 .sidebar-nav .metismenu2 ul li a {
-    padding: 5px 5px 5px 5px;
+    /*padding: 5px 5px 5px 5px;*/
+    padding: 0px 0px 0px 0px;
 }
 
 .sidebar-nav .metismenu2 a:hover,

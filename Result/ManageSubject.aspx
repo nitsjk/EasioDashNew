@@ -134,7 +134,7 @@
 
 
         <nav class="sidebar-nav left-sidebar-menu-pro">
-            <ul class="metismenu" id="menu1">
+            <ul class="metismenu2" id="menu1">
 
                 <li class="b-inner">
                     <a href="../Result.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
@@ -142,19 +142,20 @@
 
 
 
-                <li class="a-inner" style="display: table-row"><a href="ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size:9px"></i><span class="inner-span"> Manage Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size:9px"></i><span class="inner-span">&nbsp
+                     Manage Subjects </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Optional Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Optional Subjects </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="ManageMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Manage Max Marks </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="ManageMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Manage Max Marks </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Max Marks </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Max Marks </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Add Award Roll </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Add Award Roll </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="EditMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Result </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="EditMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Result </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="EditAward.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Award </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="EditAward.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Award </span></a></li>
             </ul>
         </nav>
     </div>

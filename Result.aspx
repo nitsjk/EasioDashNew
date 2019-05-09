@@ -30,20 +30,20 @@
 
                 <li class="a-inner" style="display: table-row">
                     <a href="Result/ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;">
-                        <span class="inner-span"> <i class="fa fa-caret-square-o-right" style="font-size: 9px"></i> Manage Subjects </span></a></li>
+                        <span class="inner-span"> <i class="fa fa-circle-o" style="font-size: 9px"></i>&nbsp Manage Subjects </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="Result/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Optional Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="Result/OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Optional Subjects </span></a></li>
 
 
-                <li class="a-inner" style="display: table-row"><a href="Result/ManageMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Manage Max Marks </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="Result/ManageMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Manage Max Marks </span></a></li>
 
-                 <li class="a-inner" style="display: table-row"><a href="Result/EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Max Marks </span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="Result/EditMinMaxMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Max Marks </span></a></li>
                 
-                 <li class="a-inner" style="display: table-row"><a href="Result/AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Award Roll </span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="Result/AwardList.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Award Roll </span></a></li>
 
-                    <li class="a-inner" style="display: table-row"><a href="Result/EditMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Result </span></a></li>
+                    <li class="a-inner" style="display: table-row"><a href="Result/EditMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Result </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="Result/EditAward.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 9px"></i><span class="inner-span"> Edit Award </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="Result/EditAward.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Award </span></a></li>
             </ul>
         </nav>
  
@@ -69,7 +69,7 @@
                                         <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
                                             <div class="header-top-menu tabl-d-n">
                                                 <ul class="nav navbar-nav mai-top-nav">
-                                                    <li class="nav-item"><a href="#" class="nav-link">Home</a>
+                                                    <li class="nav-item"><a href="Default.aspx" class="nav-link">Home</a>
                                                     </li>
                                                     <li class="nav-item"><a href="#" class="nav-link">About</a>
                                                     </li>
@@ -1105,13 +1105,13 @@
                                     </div>
                                     <%--<ul class="list-inline cus-product-sl-rp">
                                     <li>
-                                        <h5><i class="fa fa-circle" style="color: #24caa1;"></i>Bags</h5>
+                                        <h5><i class="fa fa-circle-o" style="color: #24caa1;"></i>Bags</h5>
                                     </li>
                                     <li>
-                                        <h5><i class="fa fa-circle" style="color: #888;"></i>Shoes</h5>
+                                        <h5><i class="fa fa-circle-o" style="color: #888;"></i>Shoes</h5>
                                     </li>
                                     <li>
-                                        <h5><i class="fa fa-circle" style="color: #ff7f5a;"></i>Jewelery</h5>
+                                        <h5><i class="fa fa-circle-o" style="color: #ff7f5a;"></i>Jewelery</h5>
                                     </li>
                                 </ul>--%>
                                     <div id="extra-area-chart"></div>

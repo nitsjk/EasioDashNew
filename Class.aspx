@@ -12,7 +12,7 @@
                         
 
                     <nav class="sidebar-nav left-sidebar-menu-pro">
-                        <ul class="metismenu" id="menu1">
+                        <ul class="metismenu2" id="menu1">
                             
                            <li class="b-inner">
                                 <a href="Class.aspx" aria-expanded="false" ><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Class</span></a>                               
@@ -21,10 +21,10 @@
                             
                             
                                    <li class="a-inner" style="display:table-row"> <a href="Class/ManageClasses.aspx" class="a-inner-middle" style="display:table-cell;
-   vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Classes </span></a> </li>
+   vertical-align:middle;">  <span class="inner-span"><i class="fa fa-circle-o" style="font-size:14px"></i>&nbsp Manage Classes </span></a> </li>
 
                                           <li class="a-inner" style="display:table-row"> <a href="Class/ManageSections.aspx" class="a-inner-middle" style="display:table-cell;
-   vertical-align:middle;"> <i class="fa fa-caret-square-o-right" style="font-size:14px"></i> <span class="inner-span"> Manage Sections </span></a> </li>
+   vertical-align:middle;"> <span class="inner-span"><i class="fa fa-circle-o" style="font-size:14px"></i>&nbsp Manage Sections </span></a> </li>
 
                                    
                                    
