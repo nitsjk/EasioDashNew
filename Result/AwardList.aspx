@@ -154,6 +154,8 @@
                 <li class="a-inner" style="display: table-row"><a href="EditMarks.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Result </span></a></li>
 
                 <li class="a-inner" style="display: table-row"><a href="EditAward.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Award </span></a></li>
+
+                 <li class="a-inner" style="display: table-row"><a href="PrintAwardRoll.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Print Award Roll </span></a></li>
             </ul>
         </nav>
     </div>

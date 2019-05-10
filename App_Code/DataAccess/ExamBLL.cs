@@ -192,6 +192,17 @@ namespace Nits.BLL
             return model;
         }
 
+        // Get Min Max Marks On Basis Of ClassID, UnitId,SectionID
+        public Result fillLabels(Result reModel)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("maxmarks/" + reModel.classid + "/" + reModel.unitid+"/"+reModel.subjectid).Result;
+
+            Result model = response.Content.ReadAsAsync<Result>().Result;
+            //model = model.Where(x => x.unitid == reModel.unitid).ToList();
+            return model;
+        }
+
         //For DropDown Units
         public List<Unit> getUnits()
         {

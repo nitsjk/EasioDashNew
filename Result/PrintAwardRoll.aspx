@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="EditMinMaxMarks.aspx.cs" Inherits="Subject_EditMinMaxMarks" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="PrintAwardRoll.aspx.cs" Inherits="Result_PrintAwardRoll" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-
     <link href="../css/TestStyle.css" rel="stylesheet" />
     <!-- favicon
 		============================================ -->
@@ -123,26 +122,26 @@
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
 
 
-     <%--   <div>
+        <%--<div>
             <a href="../Default.aspx">
                 <img src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left: 25px" />
             </a>
         </div>--%>
-
         <div class="sidebar-header" style="margin-left:-40px ">
         <h3> <Span style="color:#9d0e0a;">EASIO ERP</Span>  </h3>
             </div>
 
+
+
         <nav class="sidebar-nav left-sidebar-menu-pro">
             <ul class="metismenu2" id="menu1">
-
-                <li class="b-inner">
+ <li class="b-inner">
                     <a href="../Result.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Result</span></a>
                 </li>
 
 
 
-                <li class="a-inner" style="display: table-row"><a href="ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span"> &nbsp Manage Subjects </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="ManageSubject.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Manage Subjects </span></a></li>
 
                 <li class="a-inner" style="display: table-row"><a href="OptionalSubjects.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size:9px"></i><span class="inner-span">&nbsp Optional Subjects </span></a></li>
 
@@ -157,14 +156,14 @@
                 <li class="a-inner" style="display: table-row"><a href="EditAward.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Award </span></a></li>
 
                 <li class="a-inner" style="display: table-row"><a href="PrintAwardRoll.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Print Award Roll </span></a></li>
-
             </ul>
         </nav>
     </div>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
 
-     <div class="header-top-area">
+    <div class="header-top-area">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -722,11 +721,13 @@
                         </div>
                     </div>
                 </div>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
 
-    <div class="col-md-12 center-block text-center" style="margin-top: 70px;">
-        <h3> <Span style="color:#9d0e0a">Edit</Span> Max  Marks </h3>
+    
+     <div class="col-md-12 center-block text-center" style="margin-top: 70px;">
+        <h3> <Span style="color:#9d0e0a">Print</Span> Award Roll </h3>
         <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; margin-top:6px; width:25%" />
     </div>
     <div  style="margin-top:10px;">
@@ -735,77 +736,136 @@
     </div>
 
     <div class="row" >
-        <%--Drop Down Controls--%>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <fieldset style="height:35%; width:80%" >
-            <legend>Edit Max Marks</legend>
+        <fieldset style="height:35%; margin-left:20px">
+            <legend>Print Awards Roll</legend>
 
             <div class="review-content-section">
 
                 <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
-                    <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId" OnSelectedIndexChanged="ddlClasses_SelectedIndexChanged"     >
+                    <asp:DropDownList ID="ddlClasses" runat="server" AutoPostBack="true"  class="form-control" Width="330px" DataTextField="ClassName" DataValueField="ClassId" OnSelectedIndexChanged="ddlClasses_SelectedIndexChanged">
                     </asp:DropDownList>
                     
-                     
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlClasses" runat="server" ValidationGroup="val" InitialValue="-1" />                 
+                </div>
+
+                <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
+                    <asp:DropDownList ID="ddlType" DataTextField="unitName" DataValueField="unitid" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">                       
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlType" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
+                </div>
+
+                <div class="input-group mg-b-pro-edt">
+                    <asp:RadioButtonList ID="rbtnSubject" RepeatDirection="Horizontal" runat="server" OnSelectedIndexChanged="rbtnSubject_SelectedIndexChanged" AutoPostBack="true">
+                        <asp:ListItem Text="Main"  Value="1" /> 
+                        
+                        <asp:ListItem Text="Optional" Selected="True" Value="2" />
+                    </asp:RadioButtonList>
+                </div>
+                
+
+                <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
+                    <asp:DropDownList ID="ddlSubject" DataTextField="subjectName" DataValueField="subjectID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">                       
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSubject" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
                 </div>
 
                  <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
-                    <asp:DropDownList ID="ddlType" DataTextField="unitName" DataValueField="unitid" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" AutoPostBack="true"  class="form-control" Width="330px" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
                        
-                  </asp:DropDownList>
-                   
+                    </asp:DropDownList>
+                    
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSection" runat="server" ValidationGroup="val" InitialValue="-1" />
+                    
+                </div>
+              
+                    
+                  
                     
                 </div>
 
-            </div>
+
 
             <br />
 
-            <div class="form-group review-pro-edt" style="margin-left: 52px">                     
-            </div>
-
+            
         </fieldset>
-       </div>
-        <br /> <br />
-        <%--GridView gvMarks Control--%>
-        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
+            </div>
+        <br />
+        <div class="col-lg-4 col-md-6 col-sm-6 " style=" margin-top: 25px;">
+           
+            <asp:Panel runat="server" ID="pnlAward">  
+                <div>    
+                <h5>Class : 
+                <asp:Label ID="lblClass" runat="server"></asp:Label> 
+                  &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                Section :
+                <asp:Label id="lblSection" runat="server" />
+                  
+               &nbsp &nbsp &nbsp &nbsp 
+                Unit :
+                <asp:Label Text="" ID="lblUnit" runat="server" />
+                    &nbsp &nbsp
+                   
+                Subject :
+                <asp:Label Text="" ID="lblSubject" runat="server" />
+                     &nbsp &nbsp
+                   
+                Max Marks :
+                <asp:Label Text="" ID="lblMinMarks" runat="server" />
+                     &nbsp 
+                   
+                Min Marks :
+                <asp:Label Text="" ID="lblMaxMarks" runat="server" />
+                    </h5>
+        </div>
+                
+            <asp:GridView runat="server" ID="gvAddAward" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="2" Width="90%" RowStyle-Wrap="false" ForeColor="White"  GridLines="Both" CellSpacing="2" HeaderStyle-CssClass="GridHeader"  HeaderStyle-HorizontalAlign="Center"> 
                       
-            <asp:GridView runat="server" ID="gvMarks" AutoGenerateColumns="False" CssClass="table table-striped"  CellPadding="4" Width="90%" RowStyle-Wrap="false" ForeColor="White"  GridLines="None" CellSpacing="2 " HeaderStyle-CssClass="GridHeader" HeaderStyle-HorizontalAlign="Center">      
+
                 <Columns>
-
-                    <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate> &nbsp
-                            <%# Container.DataItemIndex+1%>
-                        </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Subjects" HeaderStyle-CssClass="GridHeader">
+                  
+                   
+                     <asp:TemplateField HeaderText="Roll No" HeaderStyle-CssClass="GridHeader" >
                         <ItemTemplate>
-                            <asp:Label CssClass="GridHeader" ID="lblSubjects" Text='<%# Eval("subjectid") %>' runat="server" />                     
+                            <asp:Label CssClass="GridHeader" ID="lblRollNo" Text= '<%# Eval("rollno") %>' runat="server" />
+                           
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                     <asp:TemplateField HeaderText="Min Marks" HeaderStyle-CssClass="GridHeader">
+                    <asp:TemplateField ItemStyle-Width="30px" HeaderText="Student Name" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label CssClass="GridHeader" ID="lblMaxID" Text='<%# Eval("maxID") %>' Visible="false" runat="server" />
-
-                            <asp:TextBox CssClass="GridHeader form-control" Width="120px"  ID="txtMinMarks" Text='<%# Eval("minMarks") %>' runat="server"></asp:TextBox>
+                            <asp:Label ID="lblStudentName" Text='<%# Eval("studentName") %>' runat="server" CssClass="GridHeader" />
+                        
+                           
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Max Marks" HeaderStyle-CssClass="GridHeader">
+          
+
+                     <asp:TemplateField HeaderText="Marks">
                         <ItemTemplate>
-                            <%--<asp:Label ID="lblMaxMarks" Text='<%# Eval("minMarks") %>' runat="server" />--%>
-                            <asp:TextBox CssClass="GridHeader form-control" Width="120px"  ID="txtMaxMarks" Text='<%# Eval("maxMarks") %>' runat="server"></asp:TextBox>
+                            
+                        
                         </ItemTemplate>
-                    </asp:TemplateField>  
-                    
-                    
+                    </asp:TemplateField>
+
+
+                     <asp:TemplateField HeaderText="Absent" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                                             
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+
                 </Columns>
 
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
-                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="Black"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                 <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Left"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
@@ -814,10 +874,16 @@
                 <SortedDescendingCellStyle BackColor="#FCF6C0" />
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
-             <asp:Button Text="Update" CssClass="btn btn-primary" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" ValidationGroup="val"  Visible="false" Style="margin-left:35px"/>
+                
+                Date:___________ &nbsp &nbsp  Sign:___________ 
+                <br />
+            <a href="../Print.aspx">Print</a> 
+                </asp:Panel>
+                 
+        
+        </div> 
+        
         </div>
         
-
-    </div>
 </asp:Content>
 
