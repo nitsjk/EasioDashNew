@@ -781,26 +781,22 @@
                     
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlSection" runat="server" ValidationGroup="val" InitialValue="-1" />
                     
-                </div>
-              
-                    
-                  
+                </div>                 
                     
                 </div>
-
-
 
             <br />
 
             
         </fieldset>
             </div>
-        <br />
-        <div class="col-lg-4 col-md-6 col-sm-6 " style=" margin-top: 25px;">
-           
-            <asp:Panel runat="server" ID="pnlAward">  
-                <div>    
-                <h5>Class : 
+        
+        <div class="col-lg-4 col-md-6 col-sm-6 " style=" margin-top: 25px; width:350px;text-align:center">           
+            <asp:Panel runat="server"  style="width:350px;" ID="pnlAward">  
+                
+                <div style="border:solid; border-width:0.5px; width:360px;text-align:center;">  
+                     <span style="text-align:center"> <h4 style="margin-top: 1px;">Award List</h4></span>  
+                <h5 style="margin: -6px 0 0px !important; "> <b>Class : 
                 <asp:Label ID="lblClass" runat="server"></asp:Label> 
                   &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
                 Section :
@@ -810,7 +806,7 @@
                 Unit :
                 <asp:Label Text="" ID="lblUnit" runat="server" />
                     &nbsp &nbsp
-                   
+                   <br />
                 Subject :
                 <asp:Label Text="" ID="lblSubject" runat="server" />
                      &nbsp &nbsp
@@ -821,10 +817,10 @@
                    
                 Min Marks :
                 <asp:Label Text="" ID="lblMaxMarks" runat="server" />
-                    </h5>
+                    </b></h5>
         </div>
                 
-            <asp:GridView runat="server" ID="gvAddAward" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="2" Width="90%" RowStyle-Wrap="false" ForeColor="White"  GridLines="Both" CellSpacing="2" HeaderStyle-CssClass="GridHeader"  HeaderStyle-HorizontalAlign="Center"> 
+            <asp:GridView runat="server" ID="gvAddAward" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="2" style="width:350px;padding-top:-10px" RowStyle-Wrap="false" ForeColor="White"  GridLines="Both" CellSpacing="2" HeaderStyle-CssClass="GridHeader"  HeaderStyle-HorizontalAlign="Center"> 
                       
 
                 <Columns>
@@ -867,18 +863,20 @@
                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
                 <HeaderStyle BackColor="#ba1806" ForeColor="Black"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
                 <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Left"/>
+                <RowStyle BackColor="#FFFBD6" ForeColor="Black"  HorizontalAlign="Left"/>
                 <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
                 <SortedAscendingCellStyle BackColor="#FDF5AC" />
                 <SortedAscendingHeaderStyle BackColor="#4D0000" />
                 <SortedDescendingCellStyle BackColor="#FCF6C0" />
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
-                
+                <br />
                 Date:___________ &nbsp &nbsp  Sign:___________ 
                 <br />
-            <a href="../Print.aspx">Print</a> 
+           
                 </asp:Panel>
+<%--             <a  id="print" style="visibility:hidden" runat="server" href="../Print.aspx">Print</a> --%>
+            <asp:Button Text="Print" Visible="false" OnClick="btnPrint_Click1" runat="server" id="btnPrint"/>
                  
         
         </div> 

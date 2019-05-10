@@ -284,6 +284,7 @@ public partial class Result_PrintAwardRoll : System.Web.UI.Page
             long Subjectid = Convert.ToInt64(ddlSubject.SelectedValue);
             long type = Convert.ToInt64(rbtnSubject.SelectedValue);
             List<Award> aModel = Mdal.getAwardRollForAwardList(classId, SectionId, UnitId, Subjectid, type);
+            btnPrint.Visible = true;
 
             if (aModel.Count > 0)
             {
@@ -308,5 +309,10 @@ public partial class Result_PrintAwardRoll : System.Web.UI.Page
             pnlAward.Visible = false;
         }
 
+    }
+
+    protected void btnPrint_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("../Print.aspx");
     }
 }

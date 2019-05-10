@@ -270,6 +270,17 @@ namespace Nits.BLL
             return model;
         }
 
+        public List<Award> getStudentsSubjects(long sectionId, long unitId, long studentId, long type)
+
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("award/" +  sectionId + "/" + unitId + "/" + studentId + "/" + type).Result;
+
+            List<Award> model = response.Content.ReadAsAsync<IEnumerable<Award>>().Result.ToList();
+            return model;
+
+
+        }
 
         public List<Marks> getAwardRoll(long classID, long SectionId, long UnitId, long SubjectId, long type)
         {
