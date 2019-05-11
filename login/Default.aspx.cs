@@ -31,9 +31,10 @@ public partial class login_Default : System.Web.UI.Page
             Login model = new Login();
             model.UserName = txtUserName.Text;
             model.UserPassword = txtUserPassword.Text;
-            User Detail = Ldal.login(model);
             liveSessionBLL LSdal = new liveSessionBLL();
             Session["Current_Session"] = LSdal.Session();
+            User Detail = Ldal.login(model);
+          
 
             //Session["CompanyName"]=Detail.
             if (string.IsNullOrEmpty(Detail.UserName))

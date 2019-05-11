@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="AddCategory.aspx.cs" Inherits="Inventory_AddCategory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
+   
     <link href="../css/TestStyle.css" rel="stylesheet" />
     <!-- favicon
 		============================================ -->
@@ -157,6 +158,10 @@
                             </ul>
                      </nav>
     </div>
+
+    <script>
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
 
@@ -720,5 +725,98 @@
                 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+
+
+
+    <div class="col-md-12 center-block text-center" style="padding-top: 5%;">
+        <h3><span style="color: #9d0e0a">Manage</span> Classes </h3>
+        <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
+    </div>
+    <div style="margin-top: 10px;">
+        <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+        <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
+    </div>
+    <div class="col-md-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
+            
+            <fieldset >
+                <legend style="font-size:20px;"  >Add Catogery</legend>
+                <div class="review-content-section">
+                    <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:TextBox ID="txtCategory" required runat="server" CssClass="form-control" ForeColor="Black" Width="80%" placeholder="Enter Category"></asp:TextBox>
+                        <asp:Label id="txtLable" ForeColor="Red" runat="server" />
+                       
+                    </div>
+                </div>
+                <br />
+               
+                <div class="form-group review-pro-edt center-block text-center">
+                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" Visible="false"  />
+                    <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" OnClientClick="return  Check();" runat="server" Text="Submit" CssClass="btn btn-success"   />
+
+                    <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary"  />
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
+
+            <asp:GridView runat="server" ID="gvCategory" AutoGenerateColumns="False" CssClass="table table-striped" CellPadding="4" ForeColor="#333333" GridLines="None" >
+
+                <AlternatingRowStyle BackColor="White" />
+
+                <Columns>
+                    <asp:TemplateField HeaderText="S.No"  HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <%# Container.DataItemIndex+1%>
+                        </ItemTemplate>
+                        <HeaderStyle HorizontalAlign="Left" Width="40px" ForeColor="White" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Category" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# Eval("CatName") %>' runat="server" />
+                        </ItemTemplate>
+
+<HeaderStyle CssClass="GridHeader"></HeaderStyle>
+                    </asp:TemplateField>
+                   
+                    <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate>
+                            <div class="form-inline">
+                                <asp:LinkButton runat="server" ID="lbtnEdit" CssClass="fa fa-edit" CommandName="EditCommand" CommandArgument='<%# Eval("CatId") %>'></asp:LinkButton>
+                                &nbsp | &nbsp
+                                <asp:LinkButton CssClass="fa fa-trash" runat="server" CommandName="DeleteCommand" ID="lbtnDelete" CommandArgument='<%# Eval("CatId") %>' ForeColor="Red" OnClientClick="return confirm('Are You Sure')" />
+                            </div>
+                        </ItemTemplate>
+
+<HeaderStyle CssClass="GridHeader"></HeaderStyle>
+                    </asp:TemplateField>
+                </Columns>
+
+                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
+
+            </asp:GridView>
+        </div>
+    </div>
+     <script lang="javascript" type="text/javascript">
+         function Check() {
+             var Name = document.getElementById("txtCategory").Value.length;
+             if (Name == 0) {
+                 alert("Name Feild can not be blank");
+                 document.getElementById("txtCategory").focus();
+                 return false;
+             }
+             return (true);
+         }
+    </script>
+   
 </asp:Content>
 

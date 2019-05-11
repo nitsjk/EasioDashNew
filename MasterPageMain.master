@@ -4,6 +4,7 @@
 <html class="no-js" lang="en">
 
 <head>
+     
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Easio Dashboard</title>
@@ -70,7 +71,7 @@
 
 <body style="margin-top:0px; background-color:#f8eeee">
     
-    <form runat="server">
+    <form id="myform" runat="server">
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 
