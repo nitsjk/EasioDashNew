@@ -112,7 +112,7 @@ public partial class Result_EditMarksOfIndividualStudent : System.Web.UI.Page
             ddlType.SelectedValue = "-1";
             ddlSection.SelectedValue = "-1";
             ddlSubject.SelectedValue = "-1";
-                        
+
             //btnSubmit.Visible = false;
             lblError.Text = "";
             lblSuccess.Text = "";
@@ -125,6 +125,15 @@ public partial class Result_EditMarksOfIndividualStudent : System.Web.UI.Page
 
     protected void ddlSection_SelectedIndexChanged(object sender, EventArgs e)
     {
+        try
+        {
+            fillDDLStudents();
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+        }
 
     }
 
@@ -202,6 +211,20 @@ public partial class Result_EditMarksOfIndividualStudent : System.Web.UI.Page
         }
     }
 
+
+    //Fill Students
+    public void fillDDLStudents()
+    {
+        long classID = Convert.ToInt64(ddlClasses.SelectedValue);
+        long sectionID = Convert.ToInt64(ddlSection.SelectedValue);
+        List<Student> model = Mdal.getStudents(classID, sectionID);
+        if (model.Count > 0)
+        {
+            ddlStudent.DataSource = model;
+            ddlStudent.DataBind();
+            ddlStudent.Items.Insert(0, new ListItem("--Select Student--", "-1"));
+        }
+    }
     protected void ddlStudent_SelectedIndexChanged(object sender, EventArgs e)
     {
 
@@ -212,19 +235,77 @@ public partial class Result_EditMarksOfIndividualStudent : System.Web.UI.Page
     {
         long sectionId = Convert.ToInt64(ddlSection.SelectedValue);
         long unitId = Convert.ToInt64(ddlType.SelectedValue);
-        long subjectId = Convert.ToInt64(ddlSubject.SelectedValue);
+        //long subjectId = Convert.ToInt64(ddlSubject.SelectedValue);
         long type = Convert.ToInt64(ddlType.SelectedValue);
-        List<Award> model = Mdal.getStudentsSubjects(sectionId, unitId, subjectId, type);
+        long studentID = Convert.ToInt64(ddlStudent.SelectedValue);
+        List<Award> model = Mdal.getStudentsSubjects(sectionId, unitId, studentID, type);
         if (model.Count > 0)
         {
             gvEditMarks.DataSource = model;
             gvEditMarks.DataBind();
+            btnUpdate.Visible = true;
 
         }
-        else {
+        else
+        {
             lblError.Text = "No Data";
             lblError.Visible = true;
         }
 
+    }
+
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            updateMarks();
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblError.Text = ex.ToString();
+        }
+
+    }
+
+    public void updateMarks()
+    {
+
+        MarksBLL mDal = new MarksBLL();
+
+        List<Marks> eModel = new List<Marks>();
+        foreach (GridViewRow dr in gvEditMarks.Rows)
+        {
+
+
+
+            Label subjectid = (Label)dr.FindControl("subjectid");
+            TextBox txtMarks = (TextBox)dr.FindControl("txtMarks");
+            //CheckBox chkBoxAbsent = (CheckBox)dr.FindControl("chkBoxAbsent");
+
+            Marks marksModel = new Marks();
+
+            marksModel.classID = Convert.ToInt64(ddlClasses.SelectedValue);
+            marksModel.sectionID = Convert.ToInt64(ddlSection.SelectedValue);
+            marksModel.unitID = Convert.ToInt64(ddlType.SelectedValue);
+            marksModel.subjectID = Convert.ToInt64(subjectid);
+            marksModel.marks = Convert.ToDecimal(txtMarks.Text);
+            marksModel.current_Session = Session["Current_Session"].ToString();
+            marksModel.studentID = Convert.ToInt64(ddlStudent.SelectedValue);
+            //marksModel.marksID = Convert.ToInt64(lblMarksId.Text);
+            //    if (chkBoxAbsent.Checked)
+            //    {
+            //        marksModel.status = 0;
+            //    }
+            //    else
+            //        marksModel.status = 1;
+               eModel.Add(marksModel);
+
+        }
+        string message = mDal.updateAward(eModel);
+            lblSuccess.Visible = true;
+            lblSuccess.Text = message;
+
+        
     }
 }

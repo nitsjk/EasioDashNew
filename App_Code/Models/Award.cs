@@ -12,6 +12,8 @@ namespace Nits.Model
         public string StudentName { get; set; }
         public string Marks { get; set; }
         public string status { get; set; }
+        public string subjectName { get; set; }
+        public long subjectid { get; set; }
 
     }
 

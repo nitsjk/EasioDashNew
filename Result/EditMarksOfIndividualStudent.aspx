@@ -158,7 +158,7 @@
 
                  <li class="a-inner" style="display: table-row"><a href="PrintAwardRoll.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Print Award Roll </span></a></li>
 
-                <li class="a-inner" style="display: table-row"><a href="EditMarksOfIndividualStudent.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Marks(Individual Student) </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="EditMarksOfIndividualStudent.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-circle-o" style="font-size: 9px"></i><span class="inner-span">&nbsp Edit Marks </span></a></li>
             </ul>
         </nav>
     </div>
@@ -727,7 +727,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
 
     <div class="col-md-12 center-block text-center" style="margin-top: 70px;">
-        <h3> <Span style="color:#9d0e0a">Award</Span> Roll </h3>
+        <h3> <Span style="color:#9d0e0a">Edit</Span> Marks </h3>
         <hr class="center-block text-center" style="border:1px solid #808080; text-align:center; background-color:#000000; margin-top:6px; width:25%" />
     </div>
     <div  style="margin-top:10px;">
@@ -738,7 +738,7 @@
     <div class="row" >
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <fieldset style="height:35%; margin-left:20px">
-            <legend>Add Awards</legend>
+            <legend>Edit Marks</legend>
 
             <div class="review-content-section">
 
@@ -759,7 +759,7 @@
                 </div>
               
                  <div class="input-group mg-b-pro-edt" style="margin-top: -10px">
-                    <asp:DropDownList ID="ddlStudent" DataTextField="" DataValueField="" runat="server" AutoPostBack="true"  OnSelectedIndexChanged="ddlStudent_SelectedIndexChanged" class="form-control" Width="330px" >                       
+                    <asp:DropDownList ID="ddlStudent" DataTextField="studentName" DataValueField="studentID" runat="server" AutoPostBack="true"  OnSelectedIndexChanged="ddlStudent_SelectedIndexChanged" class="form-control" Width="330px" >                       
                     </asp:DropDownList>
                     
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlStudent" runat="server" ValidationGroup="val" InitialValue="-1" />
@@ -815,17 +815,18 @@
                 <Columns>
                   
                    
-                     <asp:TemplateField HeaderText="Roll No" HeaderStyle-CssClass="GridHeader" >
-                        <ItemTemplate>
-                            <asp:Label CssClass="GridHeader" ID="lblRollNo" Text= '<%# Eval("rollno") %>' runat="server" />
-                           
+                     <asp:TemplateField HeaderText="S.No" HeaderStyle-CssClass="GridHeader">
+                        <ItemTemplate > &nbsp
+                            <%# Container.DataItemIndex+1%>
                         </ItemTemplate>
+                        <HeaderStyle HorizontalAlign="Center" Width="40px"  ForeColor="White"/>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Subject Name" HeaderStyle-CssClass="GridHeader">
                         <ItemTemplate>
-                            <asp:Label ID="lblStudentName" Text='<%# Eval("subjectName") %>' runat="server" CssClass="GridHeader" />
-                            <asp:Label ID="lblStudentId" Text='<%# Eval("studentID") %>' runat="server" Visible="false"></asp:Label>
+                            <asp:Label ID="lblSubjectName" Text='<%# Eval("subjectName") %>' runat="server" CssClass="GridHeader" />
+                            <asp:Label ID="lblSubjectId" Text='<%# Eval("subjectid") %>' runat="server" Visible="false"></asp:Label>
+                            
                            
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -859,7 +860,7 @@
                 <SortedDescendingCellStyle BackColor="#FCF6C0" />
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
-            <%--<asp:Button Text="Submit" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" CssClass="btn btn-primary" ValidationGroup="val" Visible="false" />--%>
+            <asp:Button Text="Update" runat="server" ID="btnUpdate" OnClick="btnUpdate_Click" CssClass="btn btn-primary" ValidationGroup="val" Visible="false" />
         </div>
 
 

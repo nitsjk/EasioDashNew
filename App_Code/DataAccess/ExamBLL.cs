@@ -246,7 +246,7 @@ namespace Nits.BLL
 
     }
 
-    //Data Access Class For Award Roll
+    //Data Access Class For Award Roll/Marks
 
     public class MarksBLL
     {
@@ -339,7 +339,35 @@ namespace Nits.BLL
         {
             HttpClient http = NitsAPI.apiConnection1();
             
-            var ReturnMessage = http.PutAsJsonAsync("marks/", marksModel).Result;
+            var ReturnMessage = http.PostAsJsonAsync("marks/", marksModel).Result;
+            if (ReturnMessage.IsSuccessStatusCode)
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+            else
+            {
+                return ReturnMessage.Content.ReadAsAsync<string>().Result;
+            }
+        }
+
+        public List<Student> getStudents(long classID, long sectionID)
+        {
+
+
+            HttpClient http = NitsAPI.apiConnection1();
+            HttpResponseMessage response = http.GetAsync("student/" + classID + "/" + sectionID).Result;
+
+            List<Student> model = response.Content.ReadAsAsync<IEnumerable<Student>>().Result.ToList();
+            return model;
+
+
+        }
+
+        public string updateIndividualStudentMarks(List<Marks> Emodel, long ClassId, long SectionId, long UnitId, long StudentId)
+        {
+            HttpClient http = NitsAPI.apiConnection1();
+            var ReturnMessage = http.PostAsJsonAsync("marks/", Emodel).Result;
+
             if (ReturnMessage.IsSuccessStatusCode)
             {
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
