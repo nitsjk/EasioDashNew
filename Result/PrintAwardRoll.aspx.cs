@@ -59,7 +59,6 @@ public partial class Result_PrintAwardRoll : System.Web.UI.Page
     //Fill DropDown Section
     public void fillDDLSections()
     {
-
         try
         {
             lblError.Text = "";
@@ -84,7 +83,6 @@ public partial class Result_PrintAwardRoll : System.Web.UI.Page
     //Fill DropDown Type
     public void fillDDLtype()
     {
-
         try
         {
             lblSuccess.Visible = false;
@@ -212,7 +210,7 @@ public partial class Result_PrintAwardRoll : System.Web.UI.Page
         }
 
     }
-    gvAddAward.DataSource = null;
+            gvAddAward.DataSource = null;
             gvAddAward.DataBind();
 
             
@@ -268,10 +266,8 @@ public partial class Result_PrintAwardRoll : System.Web.UI.Page
     }
     public void FillgvAward()
     {
-
         try
-        {
-           
+        {      
             pnlAward.Visible = true;
             getDataForLabels();
             lblClass.Text = ddlClasses.SelectedItem.Text;
@@ -291,9 +287,7 @@ public partial class Result_PrintAwardRoll : System.Web.UI.Page
                 lblError.Text = "";
                 gvAddAward.DataSource = aModel;
                 gvAddAward.DataBind();
-                Session["Ctrl"] = pnlAward;
-              
-
+                Session["Ctrl"] = pnlAward;   
             }
             else
             {
