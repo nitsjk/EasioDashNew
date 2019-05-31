@@ -38,9 +38,17 @@
                             <li class="a-inner" > <a href="Fee/FeeHeads.aspx"><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" > Add Fee</span></a> </li>
                             
                                    <li class="a-inner" > <a href="Fee/FeeStructure.aspx"><i class="fa fa-caret-square-o-right text-right i-class"></i>
-                                       <span class="inner-span">Fee Structure</span> </a> </li>
+                                       <span class="inner-span"> Fee Structure</span> </a> </li>
 
-                                   <li class="a-inner" > <a href="Fee/FeeDue.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >Fee Due </span></a> </li>
+                                   <li class="a-inner" > <a href="Fee/FeeDue.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Fee Due </span></a> </li>
+                              <li class="a-inner" > <a href="Fee/PayFee.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Pay Fee</span></a> </li>
+
+                              <li class="a-inner" > <a href="Fee/Ledger.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Ledger </span></a> </li>
+
+                             <li class="a-inner" > <a href="Fee/EditFee.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Edit Fee </span></a> </li>
+
+                             <li class="a-inner" > <a href="Fee/Ledger.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Edit Receipt </span></a> </li>
+                              <li class="a-inner" > <a href="Fee/FeeAdvance.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Edit Receipt </span></a> </li>
 
                         </ul>
                     </nav>
