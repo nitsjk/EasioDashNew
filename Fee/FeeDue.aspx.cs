@@ -149,6 +149,7 @@ public partial class FeeDue : System.Web.UI.Page
                     DataSet ds = dal.searchStudent(SS);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                       
                         DataRow dr = ds.Tables[0].Rows[0];
                         gvSearchResult.DataSource = ds;
                         gvSearchResult.DataBind();
@@ -493,7 +494,7 @@ public partial class FeeDue : System.Web.UI.Page
             if (BSID > 0)
             {
                 string returnValue = Fddal.rateByStopId(BSID);
-                if (returnValue=="-1")
+                if (returnValue == "-1")
                 {
                     lblError.Visible = true;
                     lblSuccess.Visible = false;
@@ -545,7 +546,7 @@ public partial class FeeDue : System.Web.UI.Page
                 FDdal.CID = Convert.ToInt64(ddlCLasses.SelectedValue);
                 rdr = dal.getFSAmountByCID(FDdal);
             }
-           
+
             else
             {
                 Feedue FDdal = new Feedue();
@@ -642,7 +643,75 @@ public partial class FeeDue : System.Web.UI.Page
                     getFSAmount();
                 }
             }
-        } 
+        }
+    }
+    public void CheckFeeHeadIsPaid()
+    {
+        try
+        {
+            Feedue fee = new Feedue();
+            fee.StudentID = Convert.ToInt64(Session["SCode"]);
+            fee.CSession = Session["Current_Session"].ToString();
+            fee.FHID = Convert.ToInt64(ddlFeeHeads.SelectedValue);
+            DataSet ds = dal.isFHIDPaid(fee);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = ds.Tables[0].Rows[0];
+
+                if (Convert.ToInt64(dr["FHType"]) == getFHType())
+                {
+                    if (CheckFHTypeinMonths() > 0)
+                    {
+                        lblError.Visible = true;
+                        lblSuccess.Visible = false;
+                        lblError.Text = "Fee Already Paid in " + dr["FeeMonth"].ToString() + ". This is Onetime Payable !. ";
+                        chklMonths.ClearSelection();
+                        chklMonths.Enabled = false;
+                    }
+                }
+                else
+                if (Convert.ToInt64(dr["FHType"]) == getFHType())
+                {
+                    if (CheckFHTypeinMonths() > 1)
+                    {
+                        lblError.Visible = true;
+
+                        lblSuccess.Visible = false;
+                        lblError.Text = "Fee Already Paid in " + dr["FeeMonth"].ToString() + ". This is Annually Payable !. ";
+                        chklMonths.ClearSelection();
+                        chklMonths.Enabled = false;
+                    }
+                }
+            }
+            else
+            {
+                int count = 0;
+                if (getFHType() == 3)
+                {
+                    if (CheckFHTypeinMonths() > 1)
+                    {
+                        lblError.Visible = true;
+                        lblSuccess.Visible = false;
+                        lblError.Text = ddlFeeHeads.SelectedItem.Text + " is Onetime payable";
+                    }
+                }
+                else if (getFHType() == 2)
+                {
+                    if (CheckFHTypeinMonths() > 1)
+                    {
+                        lblError.Visible = true;
+                        lblSuccess.Visible = false;
+                        lblError.Text = ddlFeeHeads.SelectedItem.Text + " is Annually payable, select only one month.";
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
+        }
     }
     public int CheckFHTypeinMonths()
     {
@@ -667,25 +736,15 @@ public partial class FeeDue : System.Web.UI.Page
     }
     protected void chklMonths_SelectedIndexChanged(object sender, EventArgs e)
     {
-        int count = 0;
-        if (getFHType() == 3)
+        try
         {
-            if (CheckFHTypeinMonths() > 1)
-            {
-                lblError.Visible = true;
-                lblSuccess.Visible = false;
-                lblError.Text = ddlFeeHeads.SelectedItem.Text + " is Onetime payable";
-            }
-
+            CheckFeeHeadIsPaid();
         }
-        else if (getFHType() == 2)
+        catch (Exception ex)
         {
-            if (CheckFHTypeinMonths() > 1)
-            {
-                lblError.Visible = true;
-                lblSuccess.Visible = false;
-                lblError.Text = ddlFeeHeads.SelectedItem.Text + " is Annually payable, select only one month.";
-            }
+            lblError.Visible = true;
+            lblSuccess.Visible = false;
+            lblError.Text = ex.ToString();
         }
     }
     protected void ddlBussFee_SelectedIndexChanged(object sender, EventArgs e)
@@ -847,14 +906,14 @@ public partial class FeeDue : System.Web.UI.Page
                             lblSuccess.Visible = true;
                             lblSuccess.Text = "Fee assigned for " + count + " Months";
                             loadDues(Convert.ToInt64(Session["SCode"]));
-                            
+
                             //  txtAmount.Text = "";
                         }
                         else
                         {
                             lblError.Visible = true;
                             lblSuccess.Visible = false;
-                            lblSuccess.Text = "Transaction Failed or Alredy assigned !.";
+                            lblError.Text = "Transaction Failed or Alredy assigned !.";
                             loadDues(Convert.ToInt64(Session["SCode"]));
                         }
                     }
@@ -874,7 +933,7 @@ public partial class FeeDue : System.Web.UI.Page
     {
         //try
         //{
-      
+
         Feedue bo = new Feedue();
         int cc = 0;
         int count = 0;
@@ -1170,6 +1229,6 @@ public partial class FeeDue : System.Web.UI.Page
         chklMonths.ClearSelection();
         CHECKALL.Enabled = false;
         chklMonths.Enabled = false;
-        
+
     }
 }

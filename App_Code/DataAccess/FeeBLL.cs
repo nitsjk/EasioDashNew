@@ -50,7 +50,18 @@ namespace Nits.BLL
             DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select SFHLID,StudentIDFK,FeeMonth, FeeHeadName,FHIDFK,FHType, AdmissionNo from StudentFeeHeadList inner join Students on Students.StudentID = StudentFeeHeadList.StudentIDFK where StudentIDFK = @StudentID and Current_Session = @CSession and IsPaid=0", sp);
             return ds;
         }
-       
+        public DataSet isFHIDPaid(Feedue feed)
+        {
+            SqlParameter[] sp =
+            {
+                new SqlParameter("@StudentID",feed.StudentID),
+                new SqlParameter("@CSession",feed.CSession),
+                new SqlParameter("@FHID",feed.FHID)
+            };
+            DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select SFHLID,StudentIDFK,FeeMonth, FeeHeadName,FHIDFK,FHType, AdmissionNo from StudentFeeHeadList inner join Students on Students.StudentID = StudentFeeHeadList.StudentIDFK where StudentIDFK = @StudentID and FHIDFK=@FHID and Current_Session = @CSession and IsPaid=0", sp);
+            return ds;
+        }
+
         public DataSet CheckFHTypeByFHID(long FHID)
         {
             SqlParameter[] sp =
