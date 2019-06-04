@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="FeeAdvance.aspx.cs" Inherits="FeeAdvance" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="NewCashCollection.aspx.cs" Inherits="NewCashCollection" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-      <link href="../css/StyleSheet.css" rel="stylesheet" />
+     <link href="../css/StyleSheet.css" rel="stylesheet" />
     <link href="../css/AdminLTE.css" rel="stylesheet" />
     <link href="../css/AdminLTE.min.css" rel="stylesheet" />
     <link href="../css/TestStyle.css" rel="stylesheet" />
@@ -166,14 +166,18 @@
                 <li class="a-inner" style="display: table-row"><a href="FeeStructure.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Structure </span></a></li>
 
                 <li class="a-inner" style="display: table-row"><a href="FeeDue.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Due </span></a></li>
-
-                 <li class="a-inner" style="display: table-row"><a href="PayFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Pay Fee </span></a></li>
+                
+                <li class="a-inner" style="display: table-row"><a href="PayFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Pay Fee </span></a></li>
                 
                 <li class="a-inner" style="display: table-row"><a href="Ledger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
+                 
+
+
+
 
 
 
@@ -181,10 +185,9 @@
             </ul>
         </nav>
     </div>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
-    <div class="header-top-area">
+     <div class="header-top-area">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -604,5 +607,86 @@
     <br />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+     <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
+        <h3><span style="color: #9d0e0a">Cash</span> Collection </h3>
+        <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
+    </div>
+    <div style="padding: 15px;">
+        <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+       <asp:Label ID="lblmsg" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+        <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
+    </div>
+      <asp:MultiView ID="multiview1" ActiveViewIndex="0" runat="server">
+        <asp:View ID="view1" runat="server">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <fieldset>
+                            <legend style="font-size: 20px;">Cash Collection</legend>
+                            <div class="review-content-section">
+                                <div class="input-group review-pro-edt">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:DropDownList ID="ddlcashcollection" AutoPostBack="true"  runat="server" class="form-control" Width="80%">
+                                       <asp:ListItem Text="Select Department" Value="-1" />
+                                      <asp:ListItem Text="Easy Steps" Value="1" />
+                                      <asp:ListItem Text="Walkin School" Value="2" />
+                                    </asp:DropDownList>
+                                   <%-- <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStType" runat="server" ValidationGroup="var" />--%>
+
+                                </div>
+                                <br />
+                                <div class="input-group review-pro-edt" runat="server" id="textboxdiv">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:TextBox ID="txtdatefrom" runat="server" CssClass="form-control" ForeColor="Black" Width="80%" TextMode="Date"></asp:TextBox>
+                                   <%-- <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
+                                </div>
+                                <br />
+                                <div class="input-group review-pro-edt" runat="server" id="Div1">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:TextBox ID="txtdateto" runat="server" CssClass="form-control" ForeColor="Black" Width="80%" TextMode="Date" ></asp:TextBox>
+                                    <%--<asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
+                                </div>
+                                </div>
+                            <br />
+                            <div class="form-group review-pro-edt center-block text-center">
+                                <asp:Button ID="btnget"  ValidationGroup="Get" runat="server" Text="Get" CssClass="btn btn-success" OnClick="btnget_Click"  />
+                                <a href="../Print.aspx" runat="server" class="btn btn-danger">Print</a>
+                               <%-- <asp:Button ID="btnprint"  runat="server" Text="Print" CssClass="btn btn-danger" OnClick="btnprint_Click" />--%>
+                                <asp:Button ID="btnexporttoexcel"  runat="server" Text="Export To Excel" CssClass="btn btn-info" OnClick="btnexporttoexcel_Click" />
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <asp:Panel ID="panelreport" runat="server">
+                          <asp:GridView runat="server" ShowFooter="True"  ID="gvFeeCollection" GridLines="None" Style="margin-top: 25px; width: 80%"  OnRowDataBound ="gvFeeCollection_RowDataBound" RowStyle-Wrap="false"  CellPadding="4" EnableModelValidation="True" ForeColor="#333333"  CssClass="table table-hover table-responsive" >
+                                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                            <SortedDescendingHeaderStyle BackColor="#820000" />
+                                      <Columns>
+                                           <asp:TemplateField HeaderText="S_No.">
+                                              <ItemTemplate>
+                                                 <%# Container.DataItemIndex +1 %>
+                                              </ItemTemplate>
+                                          </asp:TemplateField>
+                                         
+                                      </Columns>
+                                    </asp:GridView>
+                        </asp:Panel>
+                    </div>
+                </div>
+            </div>
+        </asp:View>
+       <asp:View ID="view2" runat="server">
+     
+         
+
+        </asp:View>
+    </asp:MultiView>
 </asp:Content>
 
