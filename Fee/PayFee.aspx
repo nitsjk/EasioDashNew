@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="PayFee.aspx.cs" Inherits="PayFee" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-     <link href="../css/StyleSheet.css" rel="stylesheet" />
+<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" runat="Server">
+    <link href="../css/StyleSheet.css" rel="stylesheet" />
     <link href="../css/AdminLTE.css" rel="stylesheet" />
     <link href="../css/AdminLTE.min.css" rel="stylesheet" />
     <link href="../css/TestStyle.css" rel="stylesheet" />
@@ -166,13 +166,13 @@
                 <li class="a-inner" style="display: table-row"><a href="FeeStructure.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Structure </span></a></li>
 
                 <li class="a-inner" style="display: table-row"><a href="FeeDue.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Due </span></a></li>
-                
+
                 <li class="a-inner" style="display: table-row"><a href="PayFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Pay Fee </span></a></li>
-                
+
                 <li class="a-inner" style="display: table-row"><a href="Ledger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
 
 
 
@@ -184,7 +184,7 @@
         </nav>
     </div>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" runat="Server">
     <div class="header-top-area">
         <div class="container-fluid">
             <div class="row">
@@ -604,6 +604,119 @@
     <br />
     <br />
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" runat="Server">
+
+    <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
+        <h3><span style="color: #9d0e0a">Pay</span> Counter</h3>
+        <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
+    </div>
+    <div style="padding: 15px;">
+        <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+        <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
+    </div>
+    <asp:MultiView ID="multiview1" ActiveViewIndex="0" runat="server">
+        <asp:View ID="view1" runat="server">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <fieldset>
+                            <legend style="font-size: 20px;">Search Student</legend>
+                            <div class="review-content-section">
+                                <div class="input-group review-pro-edt">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:DropDownList ID="ddlStType" AutoPostBack="true" OnSelectedIndexChanged="ddlStType_SelectedIndexChanged" runat="server" class="form-control" Width="80%">
+                                        <asp:ListItem Text="--Select Type--" Value="-1" />
+                                        <asp:ListItem Text="Student Code" Value="4" />
+                                        <asp:ListItem Text="Admission No" Value="2" />
+                                        <asp:ListItem Text="U I D" Value="1" Selected="True" />
+                                        <asp:ListItem Text="Student Name" Value="3" />
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStType" runat="server" ValidationGroup="var" />
+
+                                </div>
+                                <br />
+                                <div class="input-group review-pro-edt" runat="server" id="textboxdiv">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:TextBox ID="txtSS" runat="server" CssClass="form-control" ForeColor="Black" Width="80%"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />
+                                </div>
+
+                            </div>
+                            <br />
+                            <div class="form-group review-pro-edt center-block text-center">
+                                <asp:Button ID="btnSS" OnClick="btnSS_Click" runat="server" Text="Search" CssClass="btn btn-success" />
+                                <asp:Button ID="btnReset" OnClick="btnReset_Click" runat="server" Text="Reset" CssClass="btn btn-primary" />
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                        <asp:GridView ID="gvSearchResult" AutoGenerateColumns="False" runat="server" Style="margin-top: 30px; width: 80%" OnRowCommand="gvSearchResult_RowCommand" CssClass="table table-hover table-responsive" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                                <asp:TemplateField HeaderText="S_No">
+                                    <ItemTemplate>
+                                        <%#Container.DataItemIndex+1%>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText=" Code">
+                                    <ItemTemplate>
+                                        <asp:Label Text='<%#Eval("StudentCode") %>' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Name">
+                                    <ItemTemplate>
+                                        <asp:Label Text='<%#Eval("StudentName") %>' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Roll No">
+                                    <ItemTemplate>
+                                        <asp:Label Text='<%#Eval("RollNo") %>' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Class">
+                                    <ItemTemplate>
+                                        <asp:Label Text='<%#Eval("ClassName") %>' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Section">
+                                    <ItemTemplate>
+                                        <asp:Label Text='<%#Eval("SectionName") %>' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="">
+                                    <ItemTemplate>
+                                        <asp:LinkButton Text="Pay Now" CommandArgument='<%# Eval("StudentID")+","+Eval("classId") +","+Eval("busstopid") %>' CommandName="PayFee" runat="server" />
+
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                            <SortedDescendingHeaderStyle BackColor="#820000" />
+                        </asp:GridView>
+
+                    </div>
+                </div>
+            </div>
+        </asp:View>
+        <asp:View ID="view2" runat="server">
+            <div class="col-md-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 row">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                </div>
+            </div>
+        </asp:View>
+    </asp:MultiView>
+
+
 </asp:Content>
 

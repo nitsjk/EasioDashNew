@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net.Http.Formatting;
@@ -25,7 +24,8 @@ public partial class MasterPageMain : System.Web.UI.MasterPage
             ////FillJurisdictionGrid(Jurisdiction, IssueDate);\
 
             //MultiView1.ActiveViewIndex = 0;
-
+            Session["FYear"] = "2018-19";
+            Session["UserName"] = "Javeed";
             //LoadDataToGrid();
 
             //profilePic();

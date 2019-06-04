@@ -370,6 +370,7 @@ namespace Nits.BLL
     {
         public DataSet studentInfobyID(Feedue fD)
         {
+            DataSet dsStudents = null;
             SqlParameter[] sp =
             {
                 new SqlParameter("@CSession",fD.CSession),
@@ -378,12 +379,21 @@ namespace Nits.BLL
                 new SqlParameter("@check",fD.Check)
             };
 
-            DataSet dsStudents = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.StoredProcedure, "getSStudentByDetails", sp);
+            if (fD.Check == 1)
+            {
+                dsStudents = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select *, Classes.ClassId,Classes.ClassName,Classes.SubDepartmentID,Sections.SectionID,Sections.SectionName,FeeStructure.FSID, StudentInfo.BusStopID from Students inner join  StudentInfo on Students.StudentID = StudentInfo.StudentId inner join Classes on Classes.ClassId =StudentInfo.ClassID inner join  Sections on Sections.SectionID = StudentInfo.SectionID  inner join  FeeStructure on FeeStructure.CIDFK=StudentInfo.ClassID where StudentInfo.Current_Session=@CSession and  Students.Discharged = 0 and StudentInfo.StudentID = @StudentID and FeeStructure.FHIDFK =@FHID", sp);
+            }
+            else if (fD.Check == 2)
+            {
+                dsStudents = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select *, Classes.ClassId,Classes.ClassName,Classes.SubDepartmentID,Sections.SectionID,Sections.SectionName, StudentInfo.BusStopID,BusStops.BusRate from Students inner join  StudentInfo on Students.StudentID = StudentInfo.StudentId inner join Classes on Classes.ClassId =StudentInfo.ClassID inner join  Sections on Sections.SectionID = StudentInfo.SectionID  inner join BusStops on BusStops.BusStopID = StudentInfo.BusStopID where StudentInfo.Current_Session=@CSession and  Students.Discharged = 0 and StudentInfo.StudentID = @StudentID ", sp);
+            }
+           
             return dsStudents;
 
         }
         public DataSet studentInfobyCID(Feedue fD)
         {
+            DataSet dsStudents = null;
             SqlParameter[] sp =
             {
                 new SqlParameter("@CSession",fD.CSession),
@@ -391,10 +401,16 @@ namespace Nits.BLL
                 new SqlParameter("@SecID",fD.SecID),
                 new SqlParameter("@FHID",fD.FHID),
                 new SqlParameter("@check",fD.Check)
-
             };
-
-            DataSet dsStudents = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.StoredProcedure, "getSStudentByClass", sp);
+            if (fD.Check == 1)
+            {
+                dsStudents = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select *, Classes.ClassId,Classes.ClassName,Classes.SubDepartmentID,Sections.SectionID,Sections.SectionName,FeeStructure.FSID, StudentInfo.BusStopID from Students inner join  StudentInfo on Students.StudentID = StudentInfo.StudentId inner join Classes on Classes.ClassId =StudentInfo.ClassID inner join  Sections on Sections.SectionID = StudentInfo.SectionID  inner join  FeeStructure on FeeStructure.CIDFK=Classes.ClassID  where Students.Discharged = 0 and StudentInfo.Current_Session = @CSession and StudentInfo.ClassID =@CID and StudentInfo.SectionID=@SecID and FeeStructure.FHIDFK=@FHID", sp);
+            }
+            else if (fD.Check == 2)
+            {
+                dsStudents = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select *, Classes.ClassId,Classes.ClassName,Classes.SubDepartmentID,Sections.SectionID,Sections.SectionName,FeeStructure.FSID, StudentInfo.BusStopID,BusStops.BusRate,StudentInfo.BusStopID from Students inner join  StudentInfo on Students.StudentID = StudentInfo.StudentId inner join Classes on Classes.ClassId =StudentInfo.ClassID inner join  Sections on Sections.SectionID = StudentInfo.SectionID  inner join  FeeStructure on FeeStructure.CIDFK=Classes.ClassID inner join BusStops on BusStops.BusStopID = StudentInfo.BusStopID where Students.Discharged = 0 and StudentInfo.Current_Session = @CSession and StudentInfo.ClassID =@CID and StudentInfo.SectionID=@SecID ", sp);
+            }
+            
             return dsStudents;
 
         }

@@ -664,7 +664,7 @@ public partial class FeeDue : System.Web.UI.Page
                     {
                         lblError.Visible = true;
                         lblSuccess.Visible = false;
-                        lblError.Text = "Fee Already Paid in " + dr["FeeMonth"].ToString() + ". This is Onetime Payable !. ";
+                        lblError.Text = "Fee Already Billed in " + dr["FeeMonth"].ToString() + ". This is Onetime Payable !. ";
                         chklMonths.ClearSelection();
                         chklMonths.Enabled = false;
                     }
@@ -677,7 +677,7 @@ public partial class FeeDue : System.Web.UI.Page
                         lblError.Visible = true;
 
                         lblSuccess.Visible = false;
-                        lblError.Text = "Fee Already Paid in " + dr["FeeMonth"].ToString() + ". This is Annually Payable !. ";
+                        lblError.Text = "Fee Already Billed in " + dr["FeeMonth"].ToString() + ". This is Annually Payable !. ";
                         chklMonths.ClearSelection();
                         chklMonths.Enabled = false;
                     }
@@ -992,7 +992,7 @@ public partial class FeeDue : System.Web.UI.Page
 
                                         fdModel.FeeMonth = li.Text;
 
-                                        fdModel.FYear = Session["FYear"].ToString();
+                                        fdModel.FYear =Session["FYear"].ToString();
                                         fdModel.SystemMonth = DateTime.Now.ToString("MMMM");
                                         fdModel.SystemYear = DateTime.Now.ToString("yyyy");
                                         fdModel.FeeRate = Convert.ToDecimal(dr["BusRate"]);
