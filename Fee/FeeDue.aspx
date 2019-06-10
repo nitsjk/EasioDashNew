@@ -838,7 +838,7 @@
                                         <asp:Label runat="server" Text='<%#Eval("StudentIDFK") %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText=" FeeH Head">
+                                <asp:TemplateField HeaderText=" Fee Head">
                                     <ItemTemplate>
                                         <asp:Label runat="server" Text='<%#Eval("FeeHeadName") %>' />
                                     </ItemTemplate>

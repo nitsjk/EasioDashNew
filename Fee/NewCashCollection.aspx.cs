@@ -24,16 +24,12 @@ public partial class NewCashCollection : System.Web.UI.Page
 
             txtdatefrom.Text = "2/10/2018";
             txtdateto.Text = System.DateTime.Now.Date.ToString();
-
         }
     }
     public void DayBookby(int check)
     {
         try
         {
-
-
-
             DataTable dt = new DataTable();
             dt.Columns.Add("UID", typeof(long));
             dt.Columns.Add("StudentName", typeof(string));
@@ -45,9 +41,7 @@ public partial class NewCashCollection : System.Web.UI.Page
             DataSet dsFeeHead = CCDal.getFeeHeads();
             foreach (DataRow drProduct in dsFeeHead.Tables[0].Rows)
             {
-
                 dt.Columns.Add(drProduct["FHName"].ToString(), typeof(decimal));
-
             }
             dt.Columns.Add("Advance", typeof(decimal));
             dt.Columns.Add("Total", typeof(decimal));
@@ -63,7 +57,6 @@ public partial class NewCashCollection : System.Web.UI.Page
 
             if (dsFeeReceipt.Tables[0].Rows.Count > 0)
             {
-
                 int count = 0;
                 foreach (DataRow drFeeReceipt in dsFeeReceipt.Tables[0].Rows)
                 {
@@ -81,19 +74,13 @@ public partial class NewCashCollection : System.Web.UI.Page
 
                     if (dsFeeHeads.Tables[0].Rows.Count > 0)
                     {
-
-
-
-
                         foreach (DataRow drFeeHeads in dsFeeHeads.Tables[0].Rows)
                         {
-
                             SqlParameter[] var2 =
                             {
                                     new SqlParameter ("@FHID",drFeeHeads ["FHID"]),
                                     new SqlParameter ("@FeeReceiptID",drFeeReceipt ["RecptNo"]),
                                     new SqlParameter ("@DIDFK",Convert.ToInt64(drFeeReceipt ["DIDFK"]))
-
                             };
 
 
@@ -103,65 +90,48 @@ public partial class NewCashCollection : System.Web.UI.Page
 
 
                             FeeRow[drFeeHeads["FHName"].ToString()] = drFee["CashIn"];
-
-
                             foreach (DataRow drr in dsFee.Tables[0].Rows)
                             {
                                 SqlParameter[] var3 =
-                           {
+                                {
                                     new SqlParameter ("@RecNo",drFeeReceipt ["RecptNo"]),
                                     new SqlParameter ("@ID",drFeeReceipt["StudentID"]),
 
-                            };
+                                };
                                 DataSet dsSFHL = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select FAAmount from FeeAdvance where RecIDFK=@RecNo and SIDFK=@ID and IsDeleted=0 ", var3);
 
                                 if (dsSFHL.Tables[0].Rows.Count > 0)
-
                                 {
                                     DataRow row = dsSFHL.Tables[0].Rows[0];
-
                                     FeeRow["Advance"] = row["FAAmount"];
-
                                 }
                                 else
                                 {
                                     FeeRow["Advance"] = "0";
                                 }
-
                             }
-
                         }
-
                     }
 
                     foreach (DataRow drProduct in dsFeeHead.Tables[0].Rows)
                     {
-
                         if (FeeRow[drProduct["FHName"].ToString()].ToString() == "")
                         {
                             FeeRow[drProduct["FHName"].ToString()] = "0";
                         }
-
                     }
                     dt.Rows.Add(FeeRow);
                 }
                 gvFeeCollection.DataSource = dt;
                 gvFeeCollection.DataBind();
-               // PanelReport.Visible = true;
-               // lblmsg.Text = "";
-
-
+                // PanelReport.Visible = true;
+                // lblmsg.Text = "";
                 //  lblSchoolName.Text = Session["CompanyName"].ToString();
-                //spFrom.InnerText = DateFrom.SelectedDate.ToString("dd/MM/yyyy");
-                //spTo.InnerText = DateTo.SelectedDate.ToString("dd/MM/yyyy");
-                //gvFeeCollection.FooterRow.Cells[3].Text = "Total";
+                //spFrom.InnerText = DateTime.Now.ToString("dd/MM/yyyy");
+                //spTo.InnerText = DateTime.Now.ToString("dd/MM/yyyy");
+                gvFeeCollection.FooterRow.Cells[3].Text = "Total";
                 //casher.InnerText = Session["UserName"].ToString();
-
-
-
                 int i = 8;
-
-
                 foreach (DataRow drProduct in dsFeeHead.Tables[0].Rows)
                 {
                     decimal FeeHead = 0;
@@ -203,8 +173,6 @@ public partial class NewCashCollection : System.Web.UI.Page
         //e.Row.Cells[6].Visible = false;
         //e.Row.Cells[4].Visible = false;
     }
-
-
     protected void btnget_Click(object sender, EventArgs e)
     {
         try
@@ -217,8 +185,6 @@ public partial class NewCashCollection : System.Web.UI.Page
             throw;
         }
     }
-   
-
     private void ExportGridToExcel()
     {
         HtmlForm form = new HtmlForm();
@@ -245,12 +211,6 @@ public partial class NewCashCollection : System.Web.UI.Page
         Response.End();
 
     }
-    
-
-
-
-
-
     protected void btnexporttoexcel_Click(object sender, EventArgs e)
     {
         try
@@ -263,7 +223,6 @@ public partial class NewCashCollection : System.Web.UI.Page
             lblmsg.ForeColor = System.Drawing.Color.Green;
         }
     }
-
     protected void btnprint_Click(object sender, EventArgs e)
     {
         Session["ctrl"] = panelreport;
