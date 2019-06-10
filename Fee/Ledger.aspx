@@ -607,7 +607,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
 
      <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
-        <h3><span style="color: #9d0e0a">Pay</span> Counter</h3>
+        <h3><span style="color: #9d0e0a">Student</span> Ledger</h3>
         <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
     </div>
     <div style="padding: 15px;">
@@ -630,6 +630,7 @@
                                         <asp:ListItem Text="Admission No" Value="2" />
                                         <asp:ListItem Text="U I D" Value="1" Selected="True" />
                                         <asp:ListItem Text="Student Name" Value="3" />
+                                        <asp:ListItem Text="Student By Class" Value="5" />
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStType" runat="server" ValidationGroup="var" />
 
@@ -640,10 +641,26 @@
                                     <asp:TextBox ID="txtSS" runat="server" CssClass="form-control" ForeColor="Black" Width="80%"></asp:TextBox>
                                     <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />
                                 </div>
+                                <div class="input-group review-pro-edt" runat="server" id="Classesdiv" visible="false">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:DropDownList ID="ddlCLasses" OnSelectedIndexChanged="ddlCLasses_SelectedIndexChanged" AutoPostBack="true" DataTextField="ClassName" DataValueField="ClassId" runat="server" class="form-control" Width="80%">
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlCLasses" runat="server" />
 
+                                </div>
+                                <br />
+                                <div class="input-group review-pro-edt" runat="server" id="SectionsDiv" visible="false">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" class="form-control" Width="80%">
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlSection" runat="server" />
+
+                                </div>
                             </div>
                             <br />
                             <div class="form-group review-pro-edt center-block text-center">
+                                <asp:Button ID="btnByClass" OnClick="btnByClass_Click" ValidationGroup="ByClass" runat="server" Text="Next" CssClass="btn btn-success" Visible="false" />
+
                                 <asp:Button ID="btnSS" OnClick="btnSS_Click" runat="server" Text="Search" CssClass="btn btn-success" />
                                 <asp:Button ID="btnReset" OnClick="btnReset_Click" runat="server" Text="Reset" CssClass="btn btn-primary" />
                             </div>
@@ -687,7 +704,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="">
                                     <ItemTemplate>
-                                        <asp:LinkButton Text="Pay Now" CommandArgument='<%# Eval("StudentID")+","+Eval("classId") +","+Eval("busstopid") %>' CommandName="PayFee" runat="server" />
+                                        <asp:LinkButton Text="View Ledger" CommandArgument='<%# Eval("StudentID")+","+Eval("classId") +","+Eval("busstopid") %>' CommandName="DueFee" runat="server" />
 
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -707,14 +724,9 @@
                 </div>
             </div>
         </asp:View>
-        <asp:View ID="view2" runat="server">
-            <div class="col-md-12">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 row">
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                </div>
-            </div>
-        </asp:View>
+        <asp:view id="view2" runat="server">   
+            <h1> you have to work here</h1>
+        </asp:view>
     </asp:MultiView>
 
 
