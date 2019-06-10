@@ -651,16 +651,22 @@
                                 <br />
                                 <div class="input-group review-pro-edt" runat="server" id="SectionsDiv" visible="false">
                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" class="form-control" Width="80%">
+                                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged" AutoPostBack="true" class="form-control" Width="80%">
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlSection" runat="server" />
+
+                                </div>
+                                 <br />
+                                <div class="input-group review-pro-edt" runat="server" id="NameDiv" visible="false">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:DropDownList ID="ddlStudent" DataTextField="StudentName" DataValueField="StudentID" runat="server" class="form-control" Width="80%">
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStudent" runat="server" />
 
                                 </div>
                             </div>
                             <br />
                             <div class="form-group review-pro-edt center-block text-center">
-                                <asp:Button ID="btnByClass" OnClick="btnByClass_Click" ValidationGroup="ByClass" runat="server" Text="Next" CssClass="btn btn-success" Visible="false" />
-
                                 <asp:Button ID="btnSS" OnClick="btnSS_Click" runat="server" Text="Search" CssClass="btn btn-success" />
                                 <asp:Button ID="btnReset" OnClick="btnReset_Click" runat="server" Text="Reset" CssClass="btn btn-primary" />
                             </div>

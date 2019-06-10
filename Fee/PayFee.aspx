@@ -630,6 +630,7 @@
                                         <asp:ListItem Text="Admission No" Value="2" />
                                         <asp:ListItem Text="U I D" Value="1" Selected="True" />
                                         <asp:ListItem Text="Student Name" Value="3" />
+                                      <asp:ListItem Text="Student By Class" Value="3" />
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStType" runat="server" ValidationGroup="var" />
 
