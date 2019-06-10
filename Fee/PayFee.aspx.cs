@@ -7,7 +7,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 public partial class PayFee : System.Web.UI.Page
 {
     FeeBLL dal = new FeeBLL();
@@ -27,30 +26,96 @@ public partial class PayFee : System.Web.UI.Page
     {
         if (ddlStType.SelectedValue == "-1")
         {
-            
-            btnSS.Visible = true;
+            Classesdiv.Visible = false;
+            SectionsDiv.Visible = false;
+            NameDiv.Visible = false;
             textboxdiv.Visible = true;
-            txtSS.Text = ""; 
+            txtSS.Text = ""; ;
+            ddlCLasses.SelectedValue = "-1";
+            ddlSection.SelectedValue = "-1";
             gvSearchResult.DataSource = null;
             gvSearchResult.DataBind();
         }
         else if (ddlStType.SelectedValue == "5")
         {
+            Classes();
+            Classesdiv.Visible = true;
+            SectionsDiv.Visible = true;
+            NameDiv.Visible = true;
+            NameDiv.Visible = true;
             textboxdiv.Visible = false;
             txtSS.Text = "";
-            btnSS.Visible = false;
             gvSearchResult.DataSource = null;
             gvSearchResult.DataBind();
         }
         else
         {
+            Classesdiv.Visible = false;
+            SectionsDiv.Visible = false;
+            NameDiv.Visible = false;
             textboxdiv.Visible = true;
             txtSS.Text = "";
-            btnSS.Visible = true;
+            ddlCLasses.SelectedValue = "-1";
+            ddlSection.SelectedValue = "-1";
             gvSearchResult.DataSource = null;
             gvSearchResult.DataBind();
         }
-        txtSS.Focus();
+    }
+    public void Classes()
+    {
+        try
+        {
+            Feedue cfd = new Feedue();
+            cfd.CSession = Session["Current_Session"].ToString();
+            DataSet ds = Fddal.classes(cfd);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                ddlCLasses.DataSource = ds;
+                ddlCLasses.DataBind();
+                ddlCLasses.Items.Insert(0, new ListItem("Select Section", "-1"));
+                Session["ClassID"] = ddlCLasses.SelectedValue;
+                ddlCLasses.Focus();
+            }
+            else
+            {
+                ddlCLasses.DataSource = null;
+                ddlCLasses.DataBind();
+                ddlCLasses.Items.Insert(0, new ListItem("No Section Found", "-1"));
+            }
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblError.Text = ex.ToString();
+        }
+    }
+    protected void ddlCLasses_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            Session["ClassiD"] = ddlCLasses.SelectedValue;
+            Feedue sfd = new Feedue();
+            sfd.CID = Convert.ToInt64(ddlCLasses.SelectedValue);
+            DataSet ds = Fddal.Sections(sfd);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                ddlSection.DataSource = ds;
+                ddlSection.DataBind();
+                ddlSection.Items.Insert(0, new ListItem("Select Section", "-1"));
+                ddlSection.Focus();
+            }
+            else
+            {
+                ddlSection.DataSource = null;
+                ddlSection.DataBind();
+                ddlSection.Items.Insert(0, new ListItem("No Section Found", "-1"));
+            }
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblError.Text = ex.ToString();
+        }
     }
     public void SearchStudent()
     {
@@ -172,6 +237,42 @@ public partial class PayFee : System.Web.UI.Page
                     }
                 }
             }
+            else if (ddlStType.SelectedValue == "5")
+            {
+                if (ddlStType.SelectedValue == "-1")
+                {
+                    lblError.Visible = true;
+                    lblSuccess.Visible = false;
+                    lblError.Text = "Enter Student Name";
+                }
+                else
+                {
+                    gvSearchResult.DataSource = null;
+                    gvSearchResult.DataBind();
+
+                    SS.sCode = Convert.ToInt64(ddlStudent.SelectedValue);
+                    SS.Current_Session = Session["Current_Session"].ToString();
+                    SS.Check = 4;
+                    DataSet ds = dal.searchStudent(SS);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        DataRow dr = ds.Tables[0].Rows[0];
+                        gvSearchResult.DataSource = ds;
+                        gvSearchResult.DataBind();
+                        txtSS.Text = "";
+                        lblError.Visible = false;
+                        lblSuccess.Visible = false;
+                    }
+                    else
+                    {
+                        gvSearchResult.DataSource = null;
+                        gvSearchResult.DataBind();
+                        lblError.Visible = true;
+                        lblSuccess.Visible = false;
+                        lblError.Text = "No Record Found";
+                    }
+                }
+            }
         }
         catch (Exception ex)
         {
@@ -181,40 +282,44 @@ public partial class PayFee : System.Web.UI.Page
     }
     protected void btnSS_Click(object sender, EventArgs e)
     {
-        try
-        {
-            SearchStudent();
-            gvSearchResult.Focus();
-        }
-        catch (Exception ex )
-        {
-            lblError.Visible = true;
-            lblSuccess.Visible = false;
-            lblError.Text = ex.ToString();
-        }
+        SearchStudent();
     }
     protected void btnReset_Click(object sender, EventArgs e)
     {
         ddlStType.SelectedValue = "-1";
         txtSS.Text = "";
         btnSS.Visible = true;
+        ddlStudent.SelectedValue = "-1";
+        ddlCLasses.SelectedValue = "-1";
+        ddlSection.SelectedValue = "-1";
         gvSearchResult.DataSource = null;
         gvSearchResult.DataBind();
         if (ddlStType.SelectedValue == "-1")
         {
             btnSS.Visible = true;
+            Classesdiv.Visible = false;
+            NameDiv.Visible = false;
+            SectionsDiv.Visible = false;
             textboxdiv.Visible = true;
             txtSS.Text = ""; ;
 
         }
         else if (ddlStType.SelectedValue == "5")
         {
+            Classes();
+            Classesdiv.Visible = true;
+            SectionsDiv.Visible = true;
+            NameDiv.Visible = true;
             textboxdiv.Visible = false;
             txtSS.Text = "";
             btnSS.Visible = false;
+
         }
         else
         {
+            Classesdiv.Visible = false;
+            SectionsDiv.Visible = false;
+            NameDiv.Visible = false;
             textboxdiv.Visible = true;
             txtSS.Text = "";
             btnSS.Visible = true;
@@ -224,7 +329,7 @@ public partial class PayFee : System.Web.UI.Page
     {
         try
         {
-            if (e.CommandName == "PayFee")
+            if (e.CommandName == "DueFee")
             {
                 string[] ids = e.CommandArgument.ToString().Split(',');
 
@@ -247,5 +352,25 @@ public partial class PayFee : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
+    protected void ddlSection_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Session["Sectionid"] = ddlSection.SelectedValue;
 
+        Feedue sfd = new Feedue();
+        sfd.CID = Convert.ToInt64(ddlCLasses.SelectedValue);
+        sfd.SecID = Convert.ToInt64(ddlSection.SelectedValue);
+        DataSet ds = Fddal.gStudent(sfd);
+        if (ds.Tables[0].Rows.Count > 0)
+        {
+            ddlStudent.DataSource = ds;
+            ddlStudent.DataBind();
+            ddlStudent.Items.Insert(0, new ListItem("Select Student", "-1"));
+        }
+        else
+        {
+            ddlStudent.DataSource = null;
+            ddlStudent.DataBind();
+            ddlStudent.Items.Insert(0, new ListItem("No Student Found", "-1"));
+        }
+    }
 }

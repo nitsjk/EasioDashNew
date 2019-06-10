@@ -7,11 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
-
 public partial class Ledger : System.Web.UI.Page
 {
-
     FeeBLL dal = new FeeBLL();
     SFeeDue Fddal = new SFeeDue();
     protected void Page_Load(object sender, EventArgs e)
