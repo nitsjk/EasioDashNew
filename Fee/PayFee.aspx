@@ -220,11 +220,11 @@
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                         <li class="nav-item">
-                                            <span style="color: white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
+                                            <span style="color: white" class="h4">[<asp:label id="lblSession" runat="server" text="Session"></asp:label>]</span>
                                         </li>
 
                                         <li class="nav-item">
-                                            <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
+                                            <span style="color: white" class="h4">[<asp:label id="lblfinancialyear" runat="server" text="Financial Year"></asp:label>]</span>
                                         </li>
 
                                         <li class="nav-item dropdown">
@@ -613,10 +613,10 @@
         <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
     </div>
     <div style="padding: 15px;">
-        <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
-        <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
+        <asp:label id="lblSuccess" visible="false" runat="server" cssclass="col-md-12 center-block text-center alert-success" />
+        <asp:label id="lblError" visible="false" runat="server" cssclass="col-md-12 center-block text-center alert-danger" />
     </div>
-    <asp:MultiView ID="multiview1" ActiveViewIndex="0" runat="server">
+    <asp:Multiview id="multiview1" activeviewindex="0" runat="server">
     <asp:View ID="view1" runat="server">
             <div class="container-fluid">
                 <div class="col-md-12">
@@ -733,14 +733,100 @@
             </div>
         </asp:View>
         <asp:View ID="view2" runat="server">
-            <div class="col-md-12">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 row">
+
+              
+              <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 center-block text-center">
+                        <fieldset  style="margin-left:0px !important;">
+                       
+                            <legend style="font-size: 20px;">Student Details</legend>
+                         <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                          
+                                          <table class="table table-Stripped">
+                                    <tr>
+                                     
+                                        <td colspan="3">
+                                          <img src="../img/easio-logo2.png" /> 
+                                        </td>
+                                    </tr>
+                                               <tr style="margin-top:10px">
+                                                   <td>
+                                                       UID
+                                                   </td>
+                                        <td>
+                                            <asp:TextBox runat="server"  CssClass="form-control" ReadOnly="true" Height="24px" Width="162px"></asp:TextBox>
+
+                                        </td>
+                                       
+                                  
+                                    </tr>
+                                              </table>
+                                      
+                                  </div>
+
+                                   <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+                                <table class="table table-Stripped">
+                                    
+                                      <tr>
+                                        <td>Name</td>
+                                        <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <td>Parentage</td>
+                                        <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                        
+                                    </tr>
+                                      <tr>
+                                        <td>Roll No.</td>
+                                         <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                              
+                                        
+                                    </tr>
+                                      <tr>
+                                        <td>Class</td>
+                                         <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                            
+                                        
+                                    </tr>
+                                      <tr>
+                                        <td>Section</td>
+                                      <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                             
+                                        
+                                    </tr>
+                                </table>
+                                      
+                                  </div>
+                                        
+                            </fieldset>
+                            </div>
+                            <br />
+                        
+                    </div>
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <fieldset>
+                                        <legend style="border: 1px solid #cbcbcb;">Months
+                                            <asp:CheckBox Text="Select All" Style="font-size: 13px" AutoPostBack="true" ID="CHECKALL" runat="server" />
+                                        </legend>
+                                        <div class="col-md-12" style="">
+
+
+                                            <asp:CheckBoxList ID="chklMonths" DataTextField="MonthName" DataValueField="Smid" RepeatDirection="Horizontal" RepeatColumns="3" runat="server">
+                                            </asp:CheckBoxList>
+
+                                        </div>
+                                    </fieldset>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                </div>
-            </div>
+          
         </asp:View>
-    </asp:MultiView>
+   
+    </asp:Multiview>
 
 
 </asp:Content>

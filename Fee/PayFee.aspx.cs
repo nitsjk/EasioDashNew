@@ -343,6 +343,7 @@ public partial class PayFee : System.Web.UI.Page
                 {
                     Session["BussStopId"] = Convert.ToInt64(ids[2]);
                 }
+                GetSessionMonths();
                 multiview1.SetActiveView(view2);
             }
         }
@@ -373,4 +374,24 @@ public partial class PayFee : System.Web.UI.Page
             ddlStudent.Items.Insert(0, new ListItem("No Student Found", "-1"));
         }
     }
+    public void GetSessionMonths()
+    {
+        try
+        {
+            DataSet ds = dal.getSessionMonths();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                chklMonths.DataSource = ds;
+                chklMonths.DataBind();
+                chklMonths.Enabled = false;
+                CHECKALL.Enabled = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            lblError.Text = ex.ToString();
+        }
+    }
+
 }

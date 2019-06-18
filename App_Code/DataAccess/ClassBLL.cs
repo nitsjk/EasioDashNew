@@ -42,6 +42,7 @@ namespace Nits.BLL
                 return ReturnMessage.Content.ReadAsAsync<string>().Result;
             }
         }
+
         public string DeleteClass(long ClassId)
         {
             HttpClient http = NitsAPI.apiConnection1();
