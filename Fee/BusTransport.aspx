@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="EditFee.aspx.cs" Inherits="EditFee" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="BusTransport.aspx.cs" Inherits="Fee_BusTransport" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
      <link href="../css/StyleSheet.css" rel="stylesheet" />
@@ -155,7 +155,7 @@
         <nav class="sidebar-nav left-sidebar-menu-pro">
             <ul class="metismenu2" id="menu1">
 
-                <li class="b-inner">
+                   <li class="b-inner">
                     <a href="../Fee.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
                 </li>
 
@@ -173,8 +173,8 @@
                  <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li
-
+                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
+                 
 
 
 
@@ -186,7 +186,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
-    <div class="header-top-area">
+     <div class="header-top-area">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -733,6 +733,137 @@
                     </div>
                 </div>
             </div>
+        </asp:View>
+    
+        <asp:View ID="View2" runat="server">
+           
+            <div class="container-fluid">
+                
+                <div class="col-md-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                               <fieldset style="height:350px">
+                <legend style="font-size: 20px;">Update Bus Route</legend>
+                <div class="review-content-section">
+               <div class="input-group review-pro-edt" runat="server" id="Div1" visible="true">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:DropDownList ID="ddlBuss" OnSelectedIndexChanged="ddlBuss_SelectedIndexChanged" Width="80%" AutoPostBack="true" runat="server" DataValueField="RouteID" DataTextField="RouteName" CssClass="form-control">
+                                     </asp:DropDownList>
+                                   
+                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlSection" runat="server" />
+
+                                </div>
+                              <br />
+                              <div class="input-group review-pro-edt" runat="server" id="Div2" visible="true">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                   <asp:DropDownList ID="ddlBussStop" AutoPostBack="true" OnSelectedIndexChanged="ddlBussStop_SelectedIndexChanged" Width="80%"  runat="server" DataValueField="BusStopID" DataTextField="BusStop" CssClass="form-control">
+                                     </asp:DropDownList>
+                                  
+                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlSection" runat="server" />
+
+                                </div>
+                             <br />
+                             <div class="input-group review-pro-edt" runat="server" id="Div3" visible="true">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                   <asp:TextBox runat="server"  ReadOnly="true" Width="80%" ID="txtRate" CssClass="form-control" />
+                                   <%-- <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlSection" runat="server" />--%>
+
+                                </div>
+                              <br />
+                              <div class="input-group review-pro-edt" runat="server" id="Div4" visible="true">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                   <asp:DropDownList ID="ddlcurrentsession" AutoPostBack="true" OnSelectedIndexChanged="ddlcurrentsession_SelectedIndexChanged" Width="80%"  runat="server" DataValueField="BusStopID" DataTextField="BusStop" CssClass="form-control">
+                                        <asp:ListItem Text="Select Session" Value="-1" />
+                                        <asp:ListItem Text="Whole Session" Value="1" />
+                                        <asp:ListItem Text="Current Session" Value="2" />
+                                     </asp:DropDownList>
+                                  </div>
+              </div>
+                                <br />
+                            <div class="center-block text-center">
+
+                              <asp:Button Text="Update" ID="btnUpdate" OnClick="btnUpdate_Click" CssClass="btn btn-success" runat="server"  />
+                                 <asp:Button Text="Back" ID="btnback" OnClick="btnback_Click" CssClass="btn btn-primary" runat="server"  />
+                                <asp:Button Text="Reset" ID="btnrst" CssClass="btn btn-info" runat="server" OnClick="btnrst_Click"  />
+                            </div>
+                             
+            </fieldset>
+                        </div>
+                
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                         <asp:GridView id="gvTF" OnRowCommand="gvTF_RowCommand" AutoGenerateColumns="false"  runat="server" style="margin-top:23px" cssclass="table  table-responsive table-hover" GridLines="None"> 
+                              <AlternatingRowStyle BackColor="White" />
+                               <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                            <SortedDescendingHeaderStyle BackColor="#820000" />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="S.NO">
+                                        <ItemTemplate>
+                                            <%#Container.DataItemIndex+1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                     <asp:TemplateField HeaderText="Fee Head">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("feeheadname") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Months">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("FeeMonth") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                     <asp:TemplateField HeaderText="Rate">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("feerate") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Session">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("Current_Session") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Applicable">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%# Convert.ToBoolean(Eval("IsApplicable")) ? "Inactive" : "Active"  %>'  runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                      <asp:TemplateField HeaderText="Status">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%# Convert.ToInt32(Eval("IsPaid"))==1 ? "paid" : Convert.ToInt32(Eval("IsPaid"))==2?"Half-Paid":"Unpaid"    %>'  runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Options">
+                                        <ItemTemplate>
+                                             <asp:LinkButton Text="Active" ID="lblActive"  CommandName="ActiveCommand" CommandArgument='<%# Eval("SFHLID") %>' runat="server" />&nbsp;&nbsp;|&nbsp;&nbsp;
+                               <asp:LinkButton Text="Block" ID="lblBlock"  CommandName="BlockCommaned" CommandArgument='<%# Eval("SFHLID") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                   <asp:TemplateField >
+                                       <HeaderTemplate>
+                                           <asp:CheckBox id="chkAll" Text="Select All" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged"  runat="server" />
+                                       </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:CheckBox id="ItemCHeck" Checked='<%# Convert.ToBoolean(Eval("IsApplicable")) ? false : true  %>' runat="server" />
+                                            <asp:Label Text='<%# Eval("SFHLID") %>' id="lbl" Visible="false" runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+
+                            </asp:GridView>
+                         <asp:Button Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" Style="float:right;" CssClass="btn btn-info" runat="server" />
+                         </div>
+                    </div>
+                     
+                </div>
+
+
+
+
         </asp:View>
         </asp:MultiView>
 </asp:Content>

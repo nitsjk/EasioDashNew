@@ -1,5 +1,6 @@
 ﻿using Nits.BLL;
 using Nits.Model;
+using Nits.NumberToWords;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,16 +9,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class HalfTransportFee : System.Web.UI.Page
+public partial class Fee_IncomeCertificate : System.Web.UI.Page
 {
-    HalfAssignBusRate dal = new HalfAssignBusRate();
-   // FeeBLL dal = new FeeBLL();
+    FeeBLL dal = new FeeBLL();
     SFeeDue Fddal = new SFeeDue();
     protected void Page_Load(object sender, EventArgs e)
     {
+        Session["Current_Session"] = "2018-19";
         if (!IsPostBack)
         {
-          
+            Session["Current_Session"] = "2018-19";
+            multiview1.SetActiveView(view1);
+            txtSS.Focus();
+            //btnSS.ValidationGroup = "var";
+
         }
     }
     protected void ddlStType_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,8 +36,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
             txtSS.Text = ""; ;
             ddlCLasses.SelectedValue = "-1";
             ddlSection.SelectedValue = "-1";
-            GridView1.DataSource = null;
-            GridView1.DataBind();
+            gvSearchResult.DataSource = null;
+            gvSearchResult.DataBind();
         }
         else if (ddlStType.SelectedValue == "5")
         {
@@ -43,8 +48,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
             NameDiv.Visible = true;
             textboxdiv.Visible = false;
             txtSS.Text = "";
-            GridView1.DataSource = null;
-            GridView1.DataBind();
+            gvSearchResult.DataSource = null;
+            gvSearchResult.DataBind();
         }
         else
         {
@@ -55,8 +60,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
             txtSS.Text = "";
             ddlCLasses.SelectedValue = "-1";
             ddlSection.SelectedValue = "-1";
-            GridView1.DataSource = null;
-            GridView1.DataBind();
+            gvSearchResult.DataSource = null;
+            gvSearchResult.DataBind();
         }
     }
     public void Classes()
@@ -70,7 +75,7 @@ public partial class HalfTransportFee : System.Web.UI.Page
             {
                 ddlCLasses.DataSource = ds;
                 ddlCLasses.DataBind();
-                ddlCLasses.Items.Insert(0, new ListItem("Select Section", "-1"));
+                ddlCLasses.Items.Insert(0, new ListItem("Select Class", "-1"));
                 Session["ClassID"] = ddlCLasses.SelectedValue;
                 ddlCLasses.Focus();
             }
@@ -115,6 +120,56 @@ public partial class HalfTransportFee : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
+    //public void StudentInfoByUID()
+    //{
+    //    try
+    //    {
+
+    //        FeeBLL dal = new FeeBLL();
+    //        SearchStudent SS = new SearchStudent();
+    //        if (rdbsearch.SelectedValue == "1")
+    //        {
+    //            if (string.IsNullOrEmpty(txtUID.Text))
+    //            {
+    //                lblError.Visible = true;
+    //                lblMessage.Visible = false;
+    //                lblError.Text = "Enter the UID ";
+    //            }
+    //            else
+    //            {
+    //                SS.sCode = Convert.ToInt64(txtUID.Text);
+    //                SS.Current_Session = Session["Current_Session"].ToString();
+    //                SS.Check = 4;
+    //                DataSet ds = dal.searchStudent(SS);
+    //                if (ds.Tables[0].Rows.Count > 0)
+
+    //                {
+    //                    ViewState["StudentDetail"] = ds;
+    //                    lblError.Visible = false;
+    //                    lblMessage.Visible = false;
+    //                    gvSearchResult.DataSource = ds;
+    //                    gvSearchResult.DataBind();
+    //                }
+    //                else
+    //                {
+    //                    gvSearchResult.DataSource = null;
+    //                    gvSearchResult.DataBind();
+    //                    lblError.Visible = true;
+    //                    lblMessage.Visible = false;
+    //                    lblError.Text = "No student Found !.";
+    //                }
+    //            }
+    //        }
+          
+    //    }
+    //    catch (Exception ex)
+    //    {
+
+    //        lblError.Visible = true;
+    //        lblError.Text = ex.ToString();
+    //    }
+
+    //}
     public void SearchStudent()
     {
         try
@@ -131,8 +186,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
                 }
                 else
                 {
-                    GridView1.DataSource = null;
-                    GridView1.DataBind();
+                    gvSearchResult.DataSource = null;
+                    gvSearchResult.DataBind();
 
 
                     SS.sCode = Convert.ToInt64(txtSS.Text);
@@ -141,7 +196,7 @@ public partial class HalfTransportFee : System.Web.UI.Page
                     DataSet ds = dal.searchStudent(SS);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-
+                        ViewState["StudentDetail"] = ds;
                         DataRow dr = ds.Tables[0].Rows[0];
                         gvSearchResult.DataSource = ds;
                         gvSearchResult.DataBind();
@@ -153,8 +208,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
                     else
                     {
 
-                        GridView1.DataSource = null;
-                        GridView1.DataBind();
+                        gvSearchResult.DataSource = null;
+                        gvSearchResult.DataBind();
                         lblError.Visible = true;
                         lblSuccess.Visible = false;
                         lblError.Text = "No Record Found";
@@ -171,8 +226,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
                 }
                 else
                 {
-                    GridView1.DataSource = null;
-                    GridView1.DataBind();
+                    gvSearchResult.DataSource = null;
+                    gvSearchResult.DataBind();
 
                     SS.AdminNo = Convert.ToInt64(txtSS.Text);
                     SS.Current_Session = Session["Current_Session"].ToString();
@@ -180,17 +235,18 @@ public partial class HalfTransportFee : System.Web.UI.Page
                     DataSet ds = dal.searchStudent(SS);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        ViewState["StudentDetail"] = ds;
                         DataRow dr = ds.Tables[0].Rows[0];
-                        GridView1.DataSource = ds;
-                        GridView1.DataBind();
+                        gvSearchResult.DataSource = ds;
+                        gvSearchResult.DataBind();
                         txtSS.Text = "";
                         lblError.Visible = false;
                         lblSuccess.Visible = false;
                     }
                     else
                     {
-                        GridView1.DataSource = null;
-                        GridView1.DataBind();
+                        gvSearchResult.DataSource = null;
+                        gvSearchResult.DataBind();
                         lblError.Visible = true;
                         lblSuccess.Visible = false;
                         lblError.Text = "No Record Found";
@@ -207,8 +263,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
                 }
                 else
                 {
-                    GridView1.DataSource = null;
-                    GridView1.DataBind();
+                    gvSearchResult.DataSource = null;
+                    gvSearchResult.DataBind();
 
                     SS.SName = txtSS.Text;
                     SS.Current_Session = Session["Current_Session"].ToString();
@@ -216,9 +272,10 @@ public partial class HalfTransportFee : System.Web.UI.Page
                     DataSet ds = dal.searchStudent(SS);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        ViewState["StudentDetail"] = ds;
                         DataRow dr = ds.Tables[0].Rows[0];
-                        GridView1.DataSource = ds;
-                        GridView1.DataBind();
+                        gvSearchResult.DataSource = ds;
+                        gvSearchResult.DataBind();
                         txtSS.Text = "";
                         lblError.Visible = false;
                         lblSuccess.Visible = false;
@@ -227,8 +284,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
                     else
                     {
 
-                        GridView1.DataSource = null;
-                        GridView1.DataBind();
+                        gvSearchResult.DataSource = null;
+                        gvSearchResult.DataBind();
                         lblError.Visible = true;
                         lblSuccess.Visible = false;
                         lblError.Text = "No Record Found";
@@ -245,8 +302,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
                 }
                 else
                 {
-                    GridView1.DataSource = null;
-                    GridView1.DataBind();
+                    gvSearchResult.DataSource = null;
+                    gvSearchResult.DataBind();
 
                     SS.sCode = Convert.ToInt64(ddlStudent.SelectedValue);
                     SS.Current_Session = Session["Current_Session"].ToString();
@@ -254,17 +311,18 @@ public partial class HalfTransportFee : System.Web.UI.Page
                     DataSet ds = dal.searchStudent(SS);
                     if (ds.Tables[0].Rows.Count > 0)
                     {
+                        ViewState["StudentDetail"] = ds;
                         DataRow dr = ds.Tables[0].Rows[0];
-                        GridView1.DataSource = ds;
-                        GridView1.DataBind();
+                        gvSearchResult.DataSource = ds;
+                        gvSearchResult.DataBind();
                         txtSS.Text = "";
                         lblError.Visible = false;
                         lblSuccess.Visible = false;
                     }
                     else
                     {
-                        GridView1.DataSource = null;
-                        GridView1.DataBind();
+                        gvSearchResult.DataSource = null;
+                        gvSearchResult.DataBind();
                         lblError.Visible = true;
                         lblSuccess.Visible = false;
                         lblError.Text = "No Record Found";
@@ -276,27 +334,6 @@ public partial class HalfTransportFee : System.Web.UI.Page
         {
             lblError.Visible = true;
             lblError.Text = ex.ToString();
-        }
-    }
-    protected void ddlSection_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        Session["Sectionid"] = ddlSection.SelectedValue;
-
-        Feedue sfd = new Feedue();
-        sfd.CID = Convert.ToInt64(ddlCLasses.SelectedValue);
-        sfd.SecID = Convert.ToInt64(ddlSection.SelectedValue);
-        DataSet ds = Fddal.gStudent(sfd);
-        if (ds.Tables[0].Rows.Count > 0)
-        {
-            ddlStudent.DataSource = ds;
-            ddlStudent.DataBind();
-            ddlStudent.Items.Insert(0, new ListItem("Select Student", "-1"));
-        }
-        else
-        {
-            ddlStudent.DataSource = null;
-            ddlStudent.DataBind();
-            ddlStudent.Items.Insert(0, new ListItem("No Student Found", "-1"));
         }
     }
     protected void btnSS_Click(object sender, EventArgs e)
@@ -311,8 +348,8 @@ public partial class HalfTransportFee : System.Web.UI.Page
         ddlStudent.SelectedValue = "-1";
         ddlCLasses.SelectedValue = "-1";
         ddlSection.SelectedValue = "-1";
-        GridView1.DataSource = null;
-        GridView1.DataBind();
+        gvSearchResult.DataSource = null;
+        gvSearchResult.DataBind();
         if (ddlStType.SelectedValue == "-1")
         {
             btnSS.Visible = true;
@@ -344,89 +381,137 @@ public partial class HalfTransportFee : System.Web.UI.Page
             btnSS.Visible = true;
         }
     }
-    protected void BindGrid(int chk)
+    protected void ddlSection_SelectedIndexChanged(object sender, EventArgs e)
     {
-        try
+        Session["Sectionid"] = ddlSection.SelectedValue;
+
+        Feedue sfd = new Feedue();
+        sfd.CID = Convert.ToInt64(ddlCLasses.SelectedValue);
+        sfd.SecID = Convert.ToInt64(ddlSection.SelectedValue);
+        DataSet ds = Fddal.gStudent(sfd);
+        if (ds.Tables[0].Rows.Count > 0)
         {
-            if (rdbSearch.SelectedValue == "1")
-            {
-                HalfAssignBusRateModel model = new HalfAssignBusRateModel();
-                model.ClassID = Convert.ToInt64(ddlCLasses.SelectedValue);
-                model.CSession = Session["Current_Session"].ToString();
-                model.FHIDFK = Convert.ToInt64(ddlFeeHeads.SelectedValue);
-                model.Month = ddlmonth.SelectedItem.Text;
-                model.SId = Convert.ToInt64(txtSCode.Text);
-                model.Check = chk;
-                DataSet ds = dal.BindGrid(model);
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    GridView1.DataSource = ds;
-                    GridView1.DataBind();
-                }
-                else
-                {
-                    GridView1.DataSource = null;
-                    GridView1.DataBind();
-                    lblmsg.Text = "No Records Found";
-                    lblmsg.ForeColor = System.Drawing.Color.Red;
-                }
-            }
-            else
-            {
-                HalfAssignBusRateModel model = new HalfAssignBusRateModel();
-                model.ClassID = Convert.ToInt64(ddlCLasses.SelectedValue);
-                model.CSession = Session["Current_Session"].ToString();
-                model.FHIDFK = Convert.ToInt64(ddlFeeHeads.SelectedValue);
-                model.Month = ddlmonth.SelectedItem.Text;
-                model.Section = Convert.ToInt64(ddlSection.SelectedValue);
-                model.Check = chk;
-                DataSet ds = dal.BindGrid(model);
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    GridView1.DataSource = ds;
-                    GridView1.DataBind();
-                }
-                else
-                {
-                    GridView1.DataSource = null;
-                    GridView1.DataBind();
-                    lblmsg.Text = "No Records Found";
-                    lblmsg.ForeColor = System.Drawing.Color.Red;
-                }
-            }
+            ddlStudent.DataSource = ds;
+            ddlStudent.DataBind();
+            ddlStudent.Items.Insert(0, new ListItem("Select Student", "-1"));
         }
-        catch (Exception ex)
+        else
         {
-            lblmsg.Text = ex.ToString();
-            lblmsg.ForeColor = System.Drawing.Color.Red;
-        }
-    }
-    protected void ddlFeeHeads_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        try
-        {
-            if (ddlFeeHeads.SelectedValue != "0")
-            {
-                if (rdbSearch.SelectedValue == "1")
-                {
-                    BindGrid(1);
-                }
-                else if (rdbSearch.SelectedValue == "2")
-                {
-                    BindGrid(2);
-                }
-            }
-            else
-            {
-                lblmsg.Text = "";
-            }
-        }
-        catch (Exception ex)
-        {
-            lblmsg.Text = ex.ToString();
-            lblmsg.ForeColor = System.Drawing.Color.Red;
+            ddlStudent.DataSource = null;
+            ddlStudent.DataBind();
+            ddlStudent.Items.Insert(0, new ListItem("No Student Found", "-1"));
         }
     }
 
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            ConvertNumberToWords CNTW = new ConvertNumberToWords();
+            lbltotalPaid.Text = txtSetAmount.Text;
+            string inwords = CNTW.ConvertNumbertoWords(Convert.ToInt64(lbltotalPaid.Text));
+            lblwords.Text = inwords;
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.ToString();
+            lblError.Visible = true;
+            //lblMessage.Visible = false;
+
+        }
+    }
+    protected void Unnamed_Click(object sender, EventArgs e)
+    {
+        multiview1.SetActiveView(view1);
+    }
+    protected void gvSearchResult_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "ViewLedger")
+        {
+            try
+            {
+                long UID;
+                Session["UID"] = UID = Convert.ToInt64(e.CommandArgument);
+                Session["UID"] = UID;
+
+               multiview1.SetActiveView(view2);
+            }
+            catch (Exception ex)
+            {
+
+                lblError.Visible = true;
+                lblError.Text = ex.ToString();
+            }
+
+        }
+    }
+    public void getCertificateData()
+    {
+        try
+        {
+            ConvertNumberToWords CNTW = new ConvertNumberToWords();
+            IncomeCertificate ICdal = new IncomeCertificate();
+            IncomeCertificateModel ICModel = new IncomeCertificateModel();
+            ICModel.UID = Convert.ToInt64(Session["UID"]);
+            ICModel.DateFrom = Convert.ToDateTime(txtdatefrom.Text);
+            ICModel.DateTo = Convert.ToDateTime(txtdateto.Text);
+            DataSet ds = ICdal.getICD(ICModel);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+
+                Label1.Text = DateTime.Now.ToShortDateString();
+                DataSet sdDS = (DataSet)(ViewState["StudentDetail"]);
+                DataRow sddr = sdDS.Tables[0].Rows[0];
+                DataRow dr = ds.Tables[0].Rows[0];
+                if (string.IsNullOrEmpty(dr["total"].ToString()))
+                {
+                    lblError.Visible = true;
+                    // lblMessage.Visible = false;
+                    lblError.Text = "No Fee paid from " + txtdatefrom.Text + " To " + txtdateto.Text;
+                    //lblError.Text = "No Fee paid from " + DateFrom.SelectedDate.ToShortDateString() + " To " + DateTo.SelectedDate.ToShortDateString();
+                }
+                else
+                {
+
+
+                    Label3.Text = sddr["StudentName"].ToString();//students Name
+                    Label2.Text = sddr["FathersName"].ToString();//Fathers Name
+                    Label4.Text = sddr["PresentAddress"].ToString();//R/o
+                    Label5.Text = sddr["ClassName"].ToString(); ;//Class name 
+                    Label6.Text = sddr["SectionName"].ToString(); ;//Class name 
+                                                                   // lblFeeHeads.Text = "tution";//fee Head
+
+
+
+
+                    lbltotalPaid.Text = dr["total"].ToString();
+                    string inwords = CNTW.ConvertNumbertoWords(Convert.ToInt64(dr["total"]));
+                    lblwords.Text = inwords;// Amount in words
+                    lblDateFrom.Text = txtdatefrom.Text; /*DateFrom.SelectedDate.ToShortDateString();*///from date
+                    lblDateTo.Text = txtdateto.Text; /*DateTo.SelectedDate.ToShortDateString();*///to date
+
+                }
+            }
+            else
+            {
+                lblError.Visible = true;
+                //   lblMessage.Visible = false;
+                //lblError.Text = "No Fee paid from " + DateFrom.SelectedDate.ToShortDateString() + " To " + DateTo.SelectedDate.ToShortDateString();
+                lblError.Text = "No Fee paid from " + txtdatefrom.Text + " To " + txtdateto.Text;
+            }
+        }
+        catch (Exception ex)
+        {
+            lblError.Visible = true;
+            //lblMessage.Visible = false;
+            lblError.Text = ex.ToString();
+        }
+
+    }
+    protected void btnGet_Click(object sender, EventArgs e)
+    {
+        getCertificateData();
+        Session["ctrl"] = Panel1;
+    }
 
 }

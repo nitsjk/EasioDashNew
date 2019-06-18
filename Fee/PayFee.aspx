@@ -153,9 +153,9 @@
 
 
         <nav class="sidebar-nav left-sidebar-menu-pro">
-            <ul class="metismenu2" id="menu1">
+             <ul class="metismenu2" id="menu1">
 
-                <li class="b-inner">
+                      <li class="b-inner">
                     <a href="../Fee.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
                 </li>
 
@@ -166,13 +166,15 @@
                 <li class="a-inner" style="display: table-row"><a href="FeeStructure.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Structure </span></a></li>
 
                 <li class="a-inner" style="display: table-row"><a href="FeeDue.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Due </span></a></li>
-
+                
                 <li class="a-inner" style="display: table-row"><a href="PayFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Pay Fee </span></a></li>
-
-                <li class="a-inner" style="display: table-row"><a href="Ledger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
-                <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
-                <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
-                <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
+                
+                <li class="a-inner" style="display: table-row"><a href="StudentLedger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
+                 
 
 
 

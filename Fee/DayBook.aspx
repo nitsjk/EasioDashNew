@@ -169,11 +169,12 @@
                 
                 <li class="a-inner" style="display: table-row"><a href="PayFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Pay Fee </span></a></li>
                 
-                <li class="a-inner" style="display: table-row"><a href="Ledger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="StudentLedger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li
+                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
+                 <li class="a-inner" style="display: table-row"><a href="DayBook.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Day Book</span></a></li>
 
 
 
@@ -618,16 +619,15 @@
         <asp:View ID="view1" runat="server">
             <div class="container-fluid">
                 <div class="col-md-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <fieldset>
                             <legend style="font-size: 20px;">Day Book</legend>
                             <div class="review-content-section">
                                  <div class="input-group review-pro-edt">
                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddluser" AutoPostBack="true"  runat="server" class="form-control" Width="80%">
-                                       <asp:ListItem Text="Select User" Value="-1" />
-                                      <asp:ListItem Text="Umar" Value="1" />
-                                      <asp:ListItem Text="gul" Value="2" />
+                                    <asp:DropDownList ID="ddluser" AutoPostBack="true"  runat="server" class="form-control" Width="80%" DataTextField="username" DataValueField="username">
+                                       
+                                      
                                     </asp:DropDownList>
                                    <%-- <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStType" runat="server" ValidationGroup="var" />--%>
 
@@ -635,7 +635,7 @@
                                 <br />
                                 <div class="input-group review-pro-edt">
                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddldaybook" AutoPostBack="true"  runat="server" class="form-control" Width="80%">
+                                    <asp:DropDownList ID="ddlDepartment" AutoPostBack="true"  runat="server" class="form-control" Width="80%">
                                        <asp:ListItem Text="Select Department" Value="-1" />
                                       <asp:ListItem Text="Easy Steps" Value="1" />
                                       <asp:ListItem Text="Walkin School" Value="2" />
@@ -658,17 +658,37 @@
                                 </div>
                             <br />
                             <div class="form-group review-pro-edt center-block text-center">
-                                <asp:Button ID="btnget"  ValidationGroup="Get" runat="server" Text="Get" CssClass="btn btn-success"  />
-
-                                <asp:Button ID="btnprint"  runat="server" Text="Print" CssClass="btn btn-danger" />
-                                <asp:Button ID="btnexporttoexcel"  runat="server" Text="Export To Excel" CssClass="btn btn-info" />
+                                <asp:Button ID="btnget"  ValidationGroup="Get" runat="server" Text="Get" CssClass="btn btn-success" OnClick="btnget_Click" />
+                                  <a href="../Print.aspx" runat="server" class="btn btn-danger">Print</a>
+                               <%-- <asp:Button ID="btnprint"  runat="server" Text="Print" CssClass="btn btn-danger" />--%>
+                                <asp:Button ID="btnexporttoexcel"  runat="server" Text="Export To Excel" CssClass="btn btn-info" OnClick="btnexporttoexcel_Click"
+                                     />
                             </div>
                                 
                         </fieldset>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-                       <%-- gridview--%>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <asp:Panel ID="PanelReport" runat="server">
+                      <asp:GridView runat="server" ShowFooter="True"  ID="gvdaybook" GridLines="None"  OnRowDataBound ="gvFeeCollection_RowDataBound"  CellPadding="4" EnableModelValidation="True" ForeColor="black" CssClass="table table-hover" style="margin-top:23px" >
+                                          <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                            <SortedDescendingHeaderStyle BackColor="#820000" />
+                                      <Columns>
+                                           <asp:TemplateField HeaderText="S_No.">
+                                              <ItemTemplate>
+                                                 <%# Container.DataItemIndex +1 %>
+                                              </ItemTemplate>
+                                          </asp:TemplateField>
+                                          
+                                      </Columns>
+                                    </asp:GridView>
+                            </asp:Panel>
 
                     </div>
                 </div>

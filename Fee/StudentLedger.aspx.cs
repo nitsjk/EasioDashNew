@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-public partial class Ledger : System.Web.UI.Page
+public partial class StudentLedger : System.Web.UI.Page
 {
     FeeBLL dal = new FeeBLL();
     SFeeDue Fddal = new SFeeDue();
@@ -329,25 +329,18 @@ public partial class Ledger : System.Web.UI.Page
     {
         try
         {
-            if (e.CommandName == "DueFee")
+            if (e.CommandName == "ViewLedger")
             {
-                string[] ids = e.CommandArgument.ToString().Split(',');
-
-                Session["SCode"] = Convert.ToInt64(ids[0]); //Student ID
-                Session["ClassID"] = Convert.ToInt64(ids[1]); // Class ID
-                if (string.IsNullOrEmpty(ids[2]))
-                {
-                    Session["BussStopId"] = 0;
-                }
-                else
-                {
-                    Session["BussStopId"] = Convert.ToInt64(ids[2]);
-                }
+                long UID = Convert.ToInt64(e.CommandArgument);
+                Session["UID"] = UID;
+              
                 multiview1.SetActiveView(view2);
+
             }
         }
         catch (Exception ex)
         {
+
             lblError.Visible = true;
             lblError.Text = ex.ToString();
         }
@@ -371,6 +364,69 @@ public partial class Ledger : System.Web.UI.Page
             ddlStudent.DataSource = null;
             ddlStudent.DataBind();
             ddlStudent.Items.Insert(0, new ListItem("No Student Found", "-1"));
+        }
+    }
+    public void StudentAccountDetails()
+    {
+
+        try
+        {
+            Ledger Ldal = new Ledger();
+
+            StudentLaderModel stdLadger = new StudentLaderModel();
+
+            DateTime FromDate = Convert.ToDateTime(txtdatefrom.Text);
+            string DateForm = FromDate.Date.ToString("yyyy-MM-dd");
+            stdLadger.FromDate = Convert.ToDateTime(DateForm);
+
+            DateTime ToDate = Convert.ToDateTime(txtdateto.Text);
+            string DateTo = ToDate.Date.ToString("yyyy-MM-dd");
+            stdLadger.ToDate = Convert.ToDateTime(DateTo);
+            stdLadger.UID = Convert.ToInt64(Session["UID"].ToString());
+            DataSet ds = Ldal.studentLedger(stdLadger);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                gvLadger.DataSource = ds.Tables[0];
+                gvLadger.DataBind();
+            }
+        }
+        catch (Exception ex)
+        {
+
+            lblError.Visible = true;
+            lblError.Text = ex.ToString();
+        }
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            StudentAccountDetails();
+        }
+        catch (Exception ex)
+        {
+
+            lblError.Visible = true;
+            lblError.Text = ex.ToString();
+        }
+    }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            multiview1.SetActiveView(view1);
+            gvSearchResult.DataSource = null;
+            gvSearchResult.DataBind();
+            //txtName.Text = "";
+            //txtUID.Text = "";
+        }
+        catch (Exception ex)
+        {
+
+            lblError.Visible = true;
+            lblError.Text = ex.ToString();
         }
     }
 }

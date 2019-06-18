@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Ledger.aspx.cs" Inherits="Ledger" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="StudentLedger.aspx.cs" Inherits="StudentLedger" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
      <link href="../css/StyleSheet.css" rel="stylesheet" />
@@ -155,7 +155,7 @@
         <nav class="sidebar-nav left-sidebar-menu-pro">
             <ul class="metismenu2" id="menu1">
 
-                <li class="b-inner">
+                   <li class="b-inner">
                     <a href="../Fee.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
                 </li>
 
@@ -169,11 +169,12 @@
                 
                 <li class="a-inner" style="display: table-row"><a href="PayFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Pay Fee </span></a></li>
                 
-                <li class="a-inner" style="display: table-row"><a href="Ledger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="StudentLedger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
-
+                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
+                 
 
 
 
@@ -708,9 +709,10 @@
                                         <asp:Label Text='<%#Eval("SectionName") %>' runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="">
+                                <asp:TemplateField HeaderText="View Ledger">
                                     <ItemTemplate>
-                                        <asp:LinkButton Text="View Ledger" CommandArgument='<%# Eval("StudentID")+","+Eval("classId") +","+Eval("busstopid") %>' CommandName="DueFee" runat="server" />
+                                        <%--<asp:LinkButton Text="View Ledger" CommandArgument='<%# Eval("StudentID")+","+Eval("classId") +","+Eval("busstopid") %>' CommandName="DueFee" runat="server" />--%>
+                                        <asp:LinkButton Text="View Ledger" CommandArgument='<%# Eval("StudentID")%>' CommandName="ViewLedger" runat="server" />
 
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -731,7 +733,96 @@
             </div>
         </asp:View>
         <asp:view id="view2" runat="server">   
-            <h1> you have to work here</h1>
+              <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <fieldset>
+                            <legend style="font-size: 20px;">Search Student</legend>
+                            <div class="review-content-section">
+                                <div class="input-group review-pro-edt">
+                                   <div class="input-group review-pro-edt" runat="server" id="Div1">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:TextBox ID="txtdatefrom" runat="server" CssClass="form-control" ForeColor="Black" Width="18pc" TextMode="Date"></asp:TextBox>
+                                   <%-- <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
+                                </div>
+                                <br />
+                                <div class="input-group review-pro-edt" runat="server" id="Div2">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:TextBox ID="txtdateto" runat="server" CssClass="form-control" ForeColor="Black" Width="18pc" TextMode="Date" ></asp:TextBox>
+                                    <%--<asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
+                                </div>
+                                </div> 
+                            </div>
+                            <br />
+                            <div class="form-group review-pro-edt center-block text-center">
+                                <asp:Button Text="Submit" OnClick="btnSubmit_Click" ID="btnSubmit" runat="server" CssClass="btn btn-info" />
+                                <asp:Button Text="Cancel" ID="btnBack" OnClick="btnBack_Click" runat="server" CssClass=" btn btn-danger" />
+                             
+                            </div>
+                             
+                        </fieldset>
+                         </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                          <asp:GridView ID="gvLadger" AutoGenerateColumns="False" CssClass="table table-hover table-responsive" runat="server" CellPadding="4" EnableModelValidation="True" ForeColor="#333333" GridLines="None" style="margin-top:23px">
+                                <AlternatingRowStyle BackColor="White" />
+                                <RowStyle Font-Size="12px" Height="10" />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="S_No.">
+                                        <ItemTemplate>
+                                            <%#Container.DataItemIndex+1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Date ">
+                                        <ItemTemplate>
+                                            <asp:Label runat="server" Text='<%#Eval("Date", "{0:dd, MMM yyyy}") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Particulars">
+                                        <ItemTemplate>
+                                            <asp:Label runat="server" Text='<%#Eval("Paticulars") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Vouchar No.">
+                                        <ItemTemplate>
+                                            <asp:Label runat="server" Text='<%#Eval("VoucharNO") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Credit">
+                                        <ItemTemplate>
+                                            <asp:Label runat="server" Text='<%#Eval("Credit") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Debit">
+                                        <ItemTemplate>
+                                            <asp:Label runat="server" Text='<%#Eval("Debit") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Balance">
+                                        <ItemTemplate>
+                                            <asp:Label runat="server" Text='<%#Eval("Balance") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Advance">
+                                        <ItemTemplate>
+                                            <asp:Label runat="server" Text='<%#Eval("Advance") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                            <SortedDescendingHeaderStyle BackColor="#820000" />
+
+                            </asp:GridView>
+                            </div>
+                  
+                    </div>
+                  </div>
         </asp:view>
     </asp:MultiView>
 

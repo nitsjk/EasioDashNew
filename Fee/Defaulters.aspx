@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="EditFee.aspx.cs" Inherits="EditFee" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="Defaulters.aspx.cs" Inherits="Fee_Defaulters" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-     <link href="../css/StyleSheet.css" rel="stylesheet" />
+      <link href="../css/StyleSheet.css" rel="stylesheet" />
     <link href="../css/AdminLTE.css" rel="stylesheet" />
     <link href="../css/AdminLTE.min.css" rel="stylesheet" />
     <link href="../css/TestStyle.css" rel="stylesheet" />
@@ -173,7 +173,8 @@
                  <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li
+                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
+                 
 
 
 
@@ -607,120 +608,97 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
      <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
-        <h3><span style="color: #9d0e0a">Bus</span> Transport</h3>
+        <h3><span style="color: #9d0e0a">Defaulters</span>  </h3>
         <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
     </div>
     <div style="padding: 15px;">
         <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+       <asp:Label ID="lblmsg" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
         <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
     </div>
-    <asp:MultiView ID="multiview1" ActiveViewIndex="0" runat="server">
+      <asp:MultiView ID="multiview1" ActiveViewIndex="0" runat="server">
         <asp:View ID="view1" runat="server">
-            <div class="container-fluid">
+             <div class="container-fluid">
                 <div class="col-md-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <fieldset>
-                            <legend style="font-size: 20px;">Bus Transport</legend>
-                            <div class="review-content-section">
-                                <div class="input-group review-pro-edt">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlStType" AutoPostBack="true" OnSelectedIndexChanged="ddlStType_SelectedIndexChanged" runat="server" class="form-control" Width="80%">
-                                        <asp:ListItem Text="--Select Type--" Value="-1" />
-                                        <asp:ListItem Text="Student Code" Value="4" />
-                                        <asp:ListItem Text="Admission No" Value="2" />
-                                        <asp:ListItem Text="U I D" Value="1" Selected="True" />
-                                        <asp:ListItem Text="Student Name" Value="3" />
-                                        <asp:ListItem Text="Student By Class" Value="5" />
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStType" runat="server" ValidationGroup="var" />
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 row">
+                        <div class="form-inline">
+                          
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 row">
+                                <div class="col-md-12 row">
+                                    <fieldset style="width:100%;margin-right:-30px">
+                                        <legend style="border: 1px solid #cbcbcb;">Months
+                                            <asp:CheckBox Text="Select All" Style="font-size: 13px" AutoPostBack="true" ID="SelectAllMonths" runat="server" OnCheckedChanged="CHECKALL_CheckedChanged" />
+                                        </legend>
+                                        <div class="col-md-12" style="">
+
+
+                                            <asp:CheckBoxList ID="chklMonths" DataTextField="MonthName" DataValueField="Smid" RepeatDirection="Horizontal" RepeatColumns="2" runat="server">
+                                                <asp:ListItem></asp:ListItem>
+                                            </asp:CheckBoxList>
+
+                                        </div>
+                                    </fieldset>
 
                                 </div>
+                            </div>
+                            
+                            <div class="col-md-6">
                                 <br />
-                                <div class="input-group review-pro-edt" runat="server" id="textboxdiv">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:TextBox ID="txtSS" runat="server" CssClass="form-control" ForeColor="Black" Width="80%"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />
-                                </div>
-                                <div class="input-group review-pro-edt" runat="server" id="Classesdiv" visible="false">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlCLasses" OnSelectedIndexChanged="ddlCLasses_SelectedIndexChanged" AutoPostBack="true" DataTextField="ClassName" DataValueField="ClassId" runat="server" class="form-control" Width="80%">
+                                <div class="form-group">
+                                    <asp:DropDownList ID="ddlclasses"   AutoPostBack="true" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlclasses_SelectedIndexChanged">
+                                 
+                                       
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlCLasses" runat="server" />
-
+                                    
+                                    
                                 </div>
-                                <br />
-                                <div class="input-group review-pro-edt" runat="server" id="SectionsDiv" visible="false">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged" AutoPostBack="true" class="form-control" Width="80%">
+                                <div class="form-group">
+                                    
+                                     <asp:DropDownList ID="ddlsection"   AutoPostBack="true" runat="server" CssClass="form-control" >
+                                        
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlSection" runat="server" />
-
+                                   
                                 </div>
+                                
+                                <div class="form-group  center-block text-center">
+
+                                   
+                                    <asp:Button Text="Submit" ID="btnAdd" Enabled="true" ValidationGroup="Due" CssClass="btn btn-success" runat="server" OnClick="btnAdd_Click" />
+
+                                   <a href="../Print.aspx" runat="server" class="btn btn-danger">Print</a>
+                               <%-- <asp:Button ID="btnprint"  runat="server" Text="Print" CssClass="btn btn-danger" OnClick="btnprint_Click" />--%>
+                                <asp:Button ID="btnexporttoexcel"  runat="server" Text="Export To Excel" CssClass="btn btn-info" OnClick="btnexporttoexcel_Click" style="margin-top:10px" />
+                                   
+                                </div>
+
+                               
+                               </div>
+                        </div>
+                        <div id="msg" runat="server">
+                        <div class="row" style="margin-top:30px;">
+                            <div class="col-md-8">
+                                <asp:TextBox ID="TxtMessage" runat="server" TextMode="MultiLine"  style="height:100px;" Width="100%"></asp:TextBox>
                                  <br />
-                                <div class="input-group review-pro-edt" runat="server" id="NameDiv" visible="false">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlStudent" DataTextField="StudentName" DataValueField="StudentID" runat="server" class="form-control" Width="80%">
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStudent" runat="server" />
+                    You have <b><span id="myCounter">160</span></b> characters remaining for your description...
+                                       
+                                
+                                  <asp:Button ID="sndmsg" runat="server" Font-Bold="True"
+                                       Text="Send SMS" CssClass="btn btn-default" OnClick="sndmsg_Click" />
+                            </div>
+                            </div>
+                        </div>
 
-                                </div>
-                            </div>
-                            <br />
-                            <div class="form-group review-pro-edt center-block text-center">
-                              <asp:Button ID="btnSS" OnClick="btnSS_Click" runat="server" Text="Search" CssClass="btn btn-success" />
-                                <asp:Button ID="btnReset" OnClick="btnReset_Click" runat="server" Text="Reset" CssClass="btn btn-primary" />
-                            </div>
-                        </fieldset>
+
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                   
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-                       
-                          <asp:GridView ID="gvSearchResult" AutoGenerateColumns="False" runat="server" OnRowCommand="gvSearchResult_RowCommand" Style="margin-top: 30px; width: 80%"  CellPadding="4" EnableModelValidation="True" ForeColor="#333333" GridLines="None" cssclass="table  table-responsive table-hover">
-                                <AlternatingRowStyle BackColor="White" />
-                              <Columns>
-                                 <asp:TemplateField HeaderText="S_No">
-                                            <ItemTemplate>
-                                                <%#Container.DataItemIndex+1%>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Admission No">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("AdmissionNo") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Student Code">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("StudentCode") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Student Name">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("StudentName") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Roll No">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("RollNo") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Class">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("ClassName") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Section">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("SectionName") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Options">
-                                            <ItemTemplate>
-                                                <asp:LinkButton Text="Manage" CommandArgument='<%# Eval("StudentID") +","+ Eval("RouteID")  +","+ Eval("busstopid")%>' CommandName="ViewFee" runat="server" />
-
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                              <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                  <asp:Panel ID="Panel1" runat="server">
+                                 <asp:GridView ID="GridView1" CssClass="table table-responsive table-condensed" ShowFooter="True" runat="server" HeaderStyle-Width="5%" CellPadding="4" EnableModelValidation="true" ForeColor="#333333" GridLines="None" style="margin-top:23px">
+                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                             <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
                             <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
@@ -729,11 +707,38 @@
                             <SortedAscendingHeaderStyle BackColor="#4D0000" />
                             <SortedDescendingCellStyle BackColor="#FCF6C0" />
                             <SortedDescendingHeaderStyle BackColor="#820000" />
-</asp:GridView>
-                    </div>
-                </div>
-            </div>
+
+                        <AlternatingRowStyle BackColor="White" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="S.No">
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex+1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderStyle-HorizontalAlign="Left">
+                                <HeaderTemplate>
+                                    <asp:CheckBox ID="chkAll" runat="server" AutoPostBack="true" Checked="false"  Text="Select"  OnCheckedChanged="chkAll_CheckedChanged1"/>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="cchk" runat="server" Checked="false" />
+                                </ItemTemplate>
+                                <HeaderStyle HorizontalAlign="Left" />
+                            </asp:TemplateField>
+
+                        </Columns>
+
+                    </asp:GridView>
+                  </asp:Panel>
+                            </div>
+                     </div>
+                 </div>
         </asp:View>
-        </asp:MultiView>
+       <asp:View ID="view2" runat="server">
+     
+         
+
+        </asp:View>
+    </asp:MultiView>
+
 </asp:Content>
 

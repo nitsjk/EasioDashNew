@@ -1263,7 +1263,7 @@ namespace Nits.BLL
                 new SqlParameter ("@CurrentSession",model.CSession),
                 new SqlParameter ("@DIDFK",model.DIDFK),
                 new SqlParameter ("@UserName",model.UserName),
-                new SqlParameter ("@Check",model.Check)
+                new SqlParameter ("@Check",2)
             };
 
             DataSet dsFeeReceipt = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.StoredProcedure, "dayBook", var);
@@ -1412,6 +1412,34 @@ namespace Nits.BLL
             return SMID;
         }
         //------------------------------for Transport UPDATE MONTHS WHICH ARE UNPAID CURRENT MONTH PLUS NEXT UNPAID--------------------------------
+        public DataSet getFDueDetailsFromCurrentMonth(long UID, string CSession, int SMID)
+        {
+
+            SqlParameter[] var =
+            {
+                    new SqlParameter("@StudentID", UID),
+                    new SqlParameter("@Current_Session",CSession),
+                    new SqlParameter("@SMID", SMID),
+             };
+
+
+            DataSet dsFeeMonths = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "Select SFHLID from StudentFeeHeadList inner join SessionMonths on StudentFeeHeadList.FeeMonth=SessionMonths.MonthName where StudentFeeHeadList.FHIDFK=2 and StudentFeeHeadList.IsPaid=0 and StudentFeeHeadList.StudentIDFK=@StudentID and StudentFeeHeadList.current_session=@Current_Session and SessionMonths.SMID >= @SMID", var);
+            return dsFeeMonths;
+        }
+        public DataSet getFDueDetailsOfAllSession(long UID, string CSession, int SMID)
+        {
+
+            SqlParameter[] var =
+            {
+                    new SqlParameter("@StudentID", UID),
+                    new SqlParameter("@Current_Session",CSession),
+                    new SqlParameter("@SMID", SMID),
+             };
+
+
+            DataSet dsFeeMonths = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "Select SFHLID from StudentFeeHeadList inner join SessionMonths on StudentFeeHeadList.FeeMonth=SessionMonths.MonthName where StudentFeeHeadList.FHIDFK=2 and StudentFeeHeadList.IsPaid=0 and StudentFeeHeadList.StudentIDFK=@StudentID and StudentFeeHeadList.current_session=@Current_Session ", var);
+            return dsFeeMonths;
+        }
         public DataSet getFDueDetails(long UID, string CSession, int SMID)
         {
 
@@ -1568,6 +1596,17 @@ namespace Nits.BLL
             DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select Smid,MonthName,MonthNo,ShortName  from SessionMonths");
 
             return ds;
+        }
+        public DataSet getUnpaidMonths(long StudentIDFK, string CSesion, string Mon, long Fhid)
+        {
+            SqlParameter[] var =
+            {
+                new SqlParameter("@SID",StudentIDFK),
+                new SqlParameter("@CSesion",CSesion),
+                new SqlParameter("@Fhid",Fhid)
+            };
+            DataSet dsStudetns = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select FeeMonth from StudentFeeHeadList where StudentIDFK=@Sid  and IsPaid in (0,2) and FHIDFK=@Fhid and(current_Session = @CSesion and FeeMonth in (" + Mon + ") or Current_Session < @CSesion)", var);
+            return dsStudetns;
         }
     }
 }

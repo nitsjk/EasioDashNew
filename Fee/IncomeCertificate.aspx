@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="EditFee.aspx.cs" Inherits="EditFee" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="IncomeCertificate.aspx.cs" Inherits="Fee_IncomeCertificate" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
-     <link href="../css/StyleSheet.css" rel="stylesheet" />
+      <link href="../css/StyleSheet.css" rel="stylesheet" />
     <link href="../css/AdminLTE.css" rel="stylesheet" />
     <link href="../css/AdminLTE.min.css" rel="stylesheet" />
     <link href="../css/TestStyle.css" rel="stylesheet" />
@@ -155,7 +155,7 @@
         <nav class="sidebar-nav left-sidebar-menu-pro">
             <ul class="metismenu2" id="menu1">
 
-                <li class="b-inner">
+                   <li class="b-inner">
                     <a href="../Fee.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
                 </li>
 
@@ -173,8 +173,8 @@
                  <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
                  <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li
-
+                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
+                 
 
 
 
@@ -186,7 +186,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
-    <div class="header-top-area">
+       <div class="header-top-area">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -606,8 +606,8 @@
     <br />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
-     <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
-        <h3><span style="color: #9d0e0a">Bus</span> Transport</h3>
+      <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
+        <h3><span style="color: #9d0e0a">Income</span> Certificate</h3>
         <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
     </div>
     <div style="padding: 15px;">
@@ -620,7 +620,7 @@
                 <div class="col-md-12">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <fieldset>
-                            <legend style="font-size: 20px;">Bus Transport</legend>
+                            <legend style="font-size: 20px;">Income Certificate</legend>
                             <div class="review-content-section">
                                 <div class="input-group review-pro-edt">
                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
@@ -675,51 +675,51 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
                        
-                          <asp:GridView ID="gvSearchResult" AutoGenerateColumns="False" runat="server" OnRowCommand="gvSearchResult_RowCommand" Style="margin-top: 30px; width: 80%"  CellPadding="4" EnableModelValidation="True" ForeColor="#333333" GridLines="None" cssclass="table  table-responsive table-hover">
+                          <asp:GridView ID="gvSearchResult" AutoGenerateColumns="False" runat="server" OnRowCommand="gvSearchResult_RowCommand" Style="margin-top: 30px; width: 80%" CssClass="table table-hover " CellPadding="4" EnableModelValidation="True" ForeColor="#333333" GridLines="None">
                                 <AlternatingRowStyle BackColor="White" />
-                              <Columns>
-                                 <asp:TemplateField HeaderText="S_No">
-                                            <ItemTemplate>
-                                                <%#Container.DataItemIndex+1%>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Admission No">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("AdmissionNo") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Student Code">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("StudentCode") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Student Name">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("StudentName") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Roll No">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("RollNo") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Class">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("ClassName") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Section">
-                                            <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("SectionName") %>' runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Options">
-                                            <ItemTemplate>
-                                                <asp:LinkButton Text="Manage" CommandArgument='<%# Eval("StudentID") +","+ Eval("RouteID")  +","+ Eval("busstopid")%>' CommandName="ViewFee" runat="server" />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="S_No">
+                                        <ItemTemplate>
+                                            <%#Container.DataItemIndex+1%>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Admission No">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("AdmissionNo") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Student Code">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("StudentCode") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Student Name">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("StudentName") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Roll No">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("RollNo") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Class">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("ClassName") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Section">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("SectionName") %>' runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Options">
+                                        <ItemTemplate>
+                                            <asp:LinkButton Text="Generate" CommandArgument='<%# Eval("StudentID")%>' CommandName="ViewLedger" runat="server" />
 
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
                               <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                             <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
@@ -734,6 +734,182 @@
                 </div>
             </div>
         </asp:View>
+
+
+          <asp:view id="view2" runat="server">   
+              <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <fieldset>
+                            <legend style="font-size: 20px;">Income Certificate</legend>
+                            <div class="review-content-section">
+                                <div class="input-group review-pro-edt">
+                                   <div class="input-group review-pro-edt" runat="server" id="Div1">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:TextBox ID="txtdatefrom" runat="server" CssClass="form-control" ForeColor="Black" Width="18pc" TextMode="Date"></asp:TextBox>
+                                   <%-- <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
+                                </div>
+                                <br />
+                                <div class="input-group review-pro-edt" runat="server" id="Div2">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:TextBox ID="txtdateto" runat="server" CssClass="form-control" ForeColor="Black" Width="18pc" TextMode="Date" ></asp:TextBox>
+                                    <%--<asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
+                                </div>
+                                </div> 
+                            </div>
+                            <br />
+                            <div class="form-group review-pro-edt center-block text-center">
+                               <asp:Button ID="btnGet" CssClass="btn btn-info" Width="30%" Text="Generate" OnClick="btnGet_Click"  runat="server" />
+                             
+                            </div>
+
+                             </fieldset>
+                       
+                         </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                         <fieldset>
+                            <legend style="font-size: 20px;">Add Customized Amount</legend>
+                           <div class="review-content-section">
+                                <div class="input-group review-pro-edt">
+                                   <div class="input-group review-pro-edt" runat="server" id="Div3">
+                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                                    <asp:TextBox ID="txtSetAmount" runat="server" CssClass="form-control" ForeColor="Black" Width="18pc" ></asp:TextBox>
+                                   <%-- <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
+                                </div>
+                              
+                                
+                                </div> 
+                            </div>
+                             <br />
+                             <div class="form-group review-pro-edt center-block text-center">
+                                <asp:Button Text="Add" runat="server" style="margin-top:0px" Width="30%"  Font-Size="13px" Height="28px"  CssClass="btn btn-info" ID="btnUpdate" OnClick="btnUpdate_Click" />
+                             
+                            </div>
+                             </fieldset>
+                            </div>
+
+
+                           <div class="col-md-12">
+
+                            <hr style="border:1px solid #0094ff; color:#0094ff; background-color:#0094ff" />
+                        </div>
+          &nbsp;&nbsp;&nbsp;
+                   <%-- <h3>Add Customized Amount</h3>--%>
+            <table class="table table-responsive" >
+                
+                            <tr>
+                              
+                                <%-- <td style="color:deepskyblue">
+                                       Enter Amount :
+                                    <asp:TextBox runat="server" ID="txtSetAmount" CssClass="form-control" Width="20%" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <asp:Button Text="Add" runat="server" style="margin-top:10px"  Font-Size="13px" Height="28px"  CssClass="btn btn-info" ID="btnUpdate" OnClick="btnUpdate_Click" />
+                                </td>--%>
+                                  <td>
+                                    <a href="../Print.aspx" style="text-decoration:none; "target="_blank" class="btn btn-primary">Print</a>
+                                <asp:Button Text="Back" OnClick="Unnamed_Click" class="btn btn-danger" runat="server" />
+                    
+                                </td>
+                               
+                            </tr>
+                        </table>
+
+                             
+                       
+                        
+                     <div class="col-md-12">
+                            <asp:Panel ID="Panel1" runat="server">
+                                <table cellpadding="0" cellspacing="0" style="width: 19cm;">
+                                    <tr>
+                                        <td colspan="3">
+                                            <img alt="" src="../Header/wwelkin.png" style="width: 20cm; height: 253px" /></td>
+                                    </tr>
+                                    <tr style="height: 1cm;">
+                                        <td></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;&nbsp;&nbsp; Ref No:_________________</td>
+                                        <td></td>
+                                        <td style="text-align:right">Date:         
+                                            <asp:Label ID="Label1" runat="server"
+                                                Style="text-decoration: underline"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 1cm;">
+                                        <td>
+                                            <asp:Label ID="Label9" runat="server"></asp:Label>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" align="center" style="font-size: 29px;" class="style1"><u>To Whom It May Concern</u></td>
+                                    </tr>
+                                    <tr style="height: 1cm;">
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-size: 19px; text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to certify that
+     Mr/Ms. <asp:Label ID="Label3" runat="server"
+         Style="font-weight: 700; text-decoration: underline"></asp:Label>
+                                            S/O,D/O
+                                            <asp:Label ID="Label2" runat="server"
+                                                Style="font-weight: 700; text-decoration: underline"></asp:Label>
+                                            &nbsp;R/O&nbsp;<asp:Label ID="Label4" runat="server"
+                                                Style="font-weight: 700; text-decoration: underline"></asp:Label>&nbsp; has paid Rs.
+                                            <asp:Label ID="lbltotalPaid" Text="" runat="server" Style="font-weight: 700; text-decoration: underline" />
+                                            (in figures)
+                                            <asp:Label ID="lblwords" Style="font-weight: 700; text-decoration: underline" Text="" runat="server" />
+                                            (in words) <asp:Label ID="lblFeeHeads" Visible="false" Style="font-weight: 700; text-decoration: underline" Text="" runat="server" /> as monthly fee, of his ward studying in class
+     <asp:Label ID="Label5" runat="server"
+         Style="font-weight: 700; text-decoration: underline"></asp:Label> Section <asp:Label ID="Label6" runat="server"
+         Style="font-weight: 700; text-decoration: underline"></asp:Label>
+                                            in this school, from
+                                            <asp:Label ID="lblDateFrom" Style="font-weight: 700; text-decoration: underline" Text="From" runat="server" />
+                                            to
+                                            <asp:Label ID="lblDateTo" Style="font-weight: 700; text-decoration: underline" Text="To" runat="server" />.
+
+                                            <br /><br />
+                                            <asp:Label ID="lbltemp" Text="" runat="server" />
+                                            <asp:PlaceHolder ID="PlaceHolderTemp" runat="server" />  
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-size: 19px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-size: 19px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                    </tr>
+                                    <tr style="height: 0.5cm;">
+                                        <td></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                       <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td style="text-align:center; font-size: 18px;">SD /-</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td style="text-align:center; font-size: 18px;"> Principal</td>
+                                        
+                                    </tr>
+                                    
+                                </table>
+                            </asp:Panel>
+                        </div>
+                     <asp:Label ID="lblGender" Visible="false" Text="" runat="server" />
+                  
+                    </div>
+                  </div>
+        </asp:view>
         </asp:MultiView>
 </asp:Content>
 

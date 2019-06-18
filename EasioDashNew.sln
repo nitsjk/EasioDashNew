@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EasioDashNew(1)", ".", "{2566D0E6-864E-42C0-97C0-8B063840A33D}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EasioDashNew", ".", "{2566D0E6-864E-42C0-97C0-8B063840A33D}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_57888"

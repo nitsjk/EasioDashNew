@@ -721,5 +721,200 @@
                 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+      <div class="col-md-12 center-block text-center" style="padding-top: 5%;">
+        
+        <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
+    </div>
+    <div style="margin-top: 10px;">
+        <asp:Label ID="lblSuccess" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-success" />
+        <asp:Label ID="lblError" Visible="false" runat="server" CssClass="col-md-12 center-block text-center alert-danger" />
+    </div>
+    <div class="col-md-12">
+        <div class="col-lg-6 col-md-8  col-sm-6  col-xs-12" >
+            
+            <fieldset style="min-height:400px;">
+                <legend style="font-size:20px;"  >Add Item</legend>
+               
+
+                <div class=" review-content-section">
+                    <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:TextBox ID="txtItemName" required runat="server" CssClass="form-control" ForeColor="Black" Width="80%" placeholder="Item Name"></asp:TextBox>
+                        <asp:Label id="Label1" ForeColor="Red" runat="server" />
+                       
+                    </div>
+                </div>
+                 <div class="review-content-section">
+                    <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:TextBox ID="txtCategory" required runat="server" CssClass="form-control" ForeColor="Black" Width="80%" placeholder="Item Code"></asp:TextBox>
+                        <asp:Label id="txtLable" ForeColor="Red" runat="server" />
+                       
+                    </div>
+                </div>
+                <div class="review-content-section">
+                 <div class="form-group review-pro-edt">
+                 <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:dropdownlist id="ddlFHT" runat="server" class="form-control" width="80%">
+                             <asp:ListItem Text="--Select Category--" Value="-1" />
+                        <asp:ListItem Text="Computer" Value="1" />
+                        <asp:ListItem Text="Phone" Value="2" />
+                        <asp:ListItem Text="abc" Value="3" />
+                        </asp:dropdownlist>
+                        <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlFHT" runat="server" ValidationGroup="var" />
+
+                    </div>
+                </div>
+
+                </div>
+                 <div class="review-content-section">
+                 <div class="form-group review-pro-edt">
+                 <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:dropdownlist id="Dropdownlist1" runat="server" class="form-control" width="80%">
+                             <asp:ListItem Text="--Select Brand--" Value="-1" />
+                        <asp:ListItem Text="SAMSUNG" Value="1" />
+                        <asp:ListItem Text="LG" Value="2" />
+                        <asp:ListItem Text="" Value="3" />
+                        </asp:dropdownlist>
+                        <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlFHT" runat="server" ValidationGroup="var" />
+
+                    </div>
+                </div>
+
+                </div>
+
+                 <div class="review-content-section">
+                 <div class="form-group review-pro-edt">
+                 <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:dropdownlist id="Dropdownlist2" runat="server" class="form-control" width="80%">
+                             <asp:ListItem Text="--Primary Unit--" Value="-1" />
+                        <asp:ListItem Text="KG" Value="1" />
+                        <asp:ListItem Text="GM" Value="2" />
+                        <asp:ListItem Text="MM" Value="3" />
+                        </asp:dropdownlist>
+                        <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlFHT" runat="server" ValidationGroup="var" />
+
+                    </div>
+                </div>
+
+                </div>
+
+                 <div class="review-content-section">
+                 <div class="form-group review-pro-edt">
+                 <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:dropdownlist id="Dropdownlist3" runat="server" class="form-control" width="80%">
+                             <asp:ListItem Text="--Secondary Unit--" Value="-1" />
+                        <asp:ListItem Text="GM" Value="1" />
+                        <asp:ListItem Text="MM" Value="2" />
+                       
+                        </asp:dropdownlist>
+                        <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlFHT" runat="server" ValidationGroup="var" />
+                    </div>
+                </div>
+
+                </div>
+                <%--<div class="review-content-section">
+                    <div class="form-group review-pro-edt">
+                        <div class="input-group review-pro-edt">
+                            <div class="">
+                                <asp:Label runat="server" CssClass="control-label">Is Expired:</asp:Label>
+                           <asp:RadioButton ID="RadioButton5"  CssClass="form-control" GroupName="isexp" Text="yes"  runat="server" />
+                               <asp:RadioButton ID="RadioButton6" CssClass="form-control" GroupName="isexp" Text="No" runat="server" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>--%>
+                  <div class="review-content-section"> 
+                      
+                          <asp:Label  CssClass="control-label" runat="server">IsExpiry:</asp:Label>
+                       <asp:RadioButtonList width="80%" CellSpacing="10"  CssClass="form-control" RepeatDirection="Horizontal" runat="server">
+                         <asp:ListItem     Text ="Yes" />
+                         <asp:ListItem Text="No" />
+                     </asp:RadioButtonList>   
+                    
+                </div>
+
+                 <div class="review-content-section"> 
+                      
+                          <asp:Label  CssClass="control-label" runat="server">IsUnique:</asp:Label>
+                       <asp:RadioButtonList width="80%"   CssClass="form-control" RepeatDirection="Horizontal" runat="server">
+                         <asp:ListItem  Text ="Yes" />
+                         <asp:ListItem Text="No" />
+                     </asp:RadioButtonList>   
+                     
+                </div>
+                      
+                 <div class="review-content-section">
+                    
+                </div>
+
+            
+                     <div class="review-content-section">
+                    <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:TextBox ID="TextBox1" required runat="server" CssClass="form-control" ForeColor="Black" Width="80%" placeholder="Re-Order Level"></asp:TextBox>
+                        <asp:Label id="Label2" ForeColor="Red" runat="server" />
+                       
+                    </div>
+                </div>
+
+                 <div class="review-content-section">
+                    <div class="input-group review-pro-edt">
+                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
+                        <asp:TextBox ID="TextBox2" required runat="server" CssClass="form-control" ForeColor="Black" Width="80%" placeholder="wrack No"></asp:TextBox>
+                        <asp:Label id="Label3" ForeColor="Red" runat="server" />
+                       
+                    </div>
+                </div>
+             <br />
+                <div class=" form-group review-pro-edt center-block text-center">
+                    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" Visible="false"  />
+                    <asp:Button ID="btnSubmit"  OnClientClick="return  Check();" runat="server" Text="Submit" CssClass="btn btn-success"   />
+
+                    <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary"  />
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6">
+             <asp:gridview id="item"  runat="server" autogeneratecolumns="false"  style="text-align:center" cssclass="table  table-responsive table-hover">
+                <HeaderStyle HorizontalAlign="left" />
+                 
+                                <Columns>
+                                    <asp:TemplateField HeaderText="S_No." ItemStyle-HorizontalAlign="Left">
+                                        <ItemTemplate>
+                                          <asp:Label runat="server">hdghg</asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Fee Heads" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Left">
+                                        <ItemTemplate>
+                                            <asp:Label Text='<%#Eval("FHName") %>' ID="lblFHName" runat="server" />
+                                        </ItemTemplate>
+
+<HeaderStyle ForeColor="White"></HeaderStyle>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Options" ItemStyle-HorizontalAlign        ="Left">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ToolTip="Edit" CommandName="EditCommand" ID="lnkEdit" CommandArgument='<%#Eval("FHID") %>' runat="server" style="color:#15679d; font-size:22px" CssClass="fa fa-edit" />
+                                            <asp:LinkButton ToolTip="Delete" CssClass="fa fa-trash" OnClientClick="return confirm('Are you sure you want to Delete !');" CommandName="DeleteCommand" ID="lnkDelete" CommandArgument='<%#Eval("FHID") %>' style="color:#9a0c0c; font-size:22px" runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                 <FooterStyle BackColor="#990000"  Font-Bold="True" />
+                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                <SortedDescendingHeaderStyle BackColor="#820000" />
+              </asp:gridview>
+        </div>
+
 </asp:Content>
 
