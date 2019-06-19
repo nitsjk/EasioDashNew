@@ -671,7 +671,7 @@
                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
                         <asp:textbox id="txtRemarks" runat="server" cssclass="form-control" forecolor="Black" width="80%" placeholder="Remarks"></asp:textbox>
                     
-                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="txtRemarks" runat="server" ValidationGroup="val"  />
+                <%--    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="txtRemarks" runat="server" ValidationGroup="val"  />--%>
                 </div>                 
                     
                 </div>
