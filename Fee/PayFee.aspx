@@ -153,9 +153,9 @@
 
 
         <nav class="sidebar-nav left-sidebar-menu-pro">
-             <ul class="metismenu2" id="menu1">
+            <ul class="metismenu2" id="menu1">
 
-                      <li class="b-inner">
+                <li class="b-inner">
                     <a href="../Fee.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
                 </li>
 
@@ -166,15 +166,15 @@
                 <li class="a-inner" style="display: table-row"><a href="FeeStructure.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Structure </span></a></li>
 
                 <li class="a-inner" style="display: table-row"><a href="FeeDue.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Due </span></a></li>
-                
+
                 <li class="a-inner" style="display: table-row"><a href="PayFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Pay Fee </span></a></li>
-                
+
                 <li class="a-inner" style="display: table-row"><a href="StudentLedger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
-                 <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
-                 
+                <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
+                <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
+
 
 
 
@@ -616,7 +616,7 @@
         <asp:label id="lblSuccess" visible="false" runat="server" cssclass="col-md-12 center-block text-center alert-success" />
         <asp:label id="lblError" visible="false" runat="server" cssclass="col-md-12 center-block text-center alert-danger" />
     </div>
-    <asp:Multiview id="multiview1" activeviewindex="0" runat="server">
+    <asp:multiview id="multiview1" activeviewindex="0" runat="server">
     <asp:View ID="view1" runat="server">
             <div class="container-fluid">
                 <div class="col-md-12">
@@ -717,6 +717,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
+                           
                             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                             <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
@@ -726,6 +727,7 @@
                             <SortedAscendingHeaderStyle BackColor="#4D0000" />
                             <SortedDescendingCellStyle BackColor="#FCF6C0" />
                             <SortedDescendingHeaderStyle BackColor="#820000" />
+                           
                         </asp:GridView>
 
                     </div>
@@ -737,7 +739,7 @@
               
               <div class="container-fluid">
                 <div class="col-md-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 center-block text-center">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 center-block text-center" style=" box-shadow:0px,0px,30px grey">
                         <fieldset  style="margin-left:0px !important;">
                        
                             <legend style="font-size: 20px;">Student Details</legend>
@@ -755,7 +757,7 @@
                                                        UID
                                                    </td>
                                         <td>
-                                            <asp:TextBox runat="server"  CssClass="form-control" ReadOnly="true" Height="24px" Width="162px"></asp:TextBox>
+                                            <asp:TextBox runat="server" id="txtUID"  CssClass="form-control" ReadOnly="true" Height="24px" Width="162px"></asp:TextBox>
 
                                         </td>
                                        
@@ -770,29 +772,29 @@
                                     
                                       <tr>
                                         <td>Name</td>
-                                        <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                        <td>   <asp:TextBox id="txtname" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
                                        
                                     </tr>
                                     <tr>
                                         <td>Parentage</td>
-                                        <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                        <td>   <asp:TextBox id="txtParentage" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
                                         
                                     </tr>
                                       <tr>
                                         <td>Roll No.</td>
-                                         <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                         <td>   <asp:TextBox id="txtRollNo" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
                                               
                                         
                                     </tr>
                                       <tr>
                                         <td>Class</td>
-                                         <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                         <td>   <asp:TextBox id="txtClass" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
                                             
                                         
                                     </tr>
                                       <tr>
                                         <td>Section</td>
-                                      <td>   <asp:TextBox runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
+                                      <td>   <asp:TextBox id="txtSection" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
                                              
                                         
                                     </tr>
@@ -802,31 +804,207 @@
                                         
                             </fieldset>
                             </div>
-                            <br />
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
+                                 <div style =" min-height:290px">
+
+                                 </div>
+                                <div style=" margin-top:-100px;border:1px solid black; !important ; width:100%">
+                            
+                                <h3> Payable Months </h3>
+                               <asp:CheckBoxList ID="chklMonths" OnSelectedIndexChanged="chkMonths_SelectedIndexChanged" DataTextField="MonthName" DataValueField="Smid" RepeatDirection="Horizontal"   RepeatColumns="6"  runat="server">
+                                            </asp:CheckBoxList>
+                        
+
+                                </div>
+
+                             </div>
+                  
                         
                     </div>
-                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <fieldset>
-                                        <legend style="border: 1px solid #cbcbcb;">Months
-                                            <asp:CheckBox Text="Select All" Style="font-size: 13px" AutoPostBack="true" ID="CHECKALL" runat="server" />
-                                        </legend>
-                                        <div class="col-md-12" style="">
+                  
 
+                    <div class="col-md-12" style="margin-left: -20px; margin-top: 30px">
+                                    <asp:GridView ID="gvFeeDetails" AutoGenerateColumns="False"  OnRowDeleting="gvFeeDetails_RowDeleting" CssClass="table table-responsive table-condensed" ShowFooter="True" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                        <AlternatingRowStyle BackColor="White" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="S_No.">
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex+1 %>
+                                                     <asp:Label runat="server" Visible="false" ID="lblSFHLID" Text='<%# Eval("SFHLID") %>' />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Fee Head ">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("FeeHeadName") %>' />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Month">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("MonthName") %>' />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label runat="server" Text="Total" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Session">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("Current_Session") %>' />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Rate">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("FeeRate") %>' />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label runat="server" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Rebate">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("Rebate") %>' />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label runat="server" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Advance">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("FeeAdvance") %>' />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label runat="server" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Discount">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("FeeDiscount") %>' />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label runat="server" Style="color: #ffffff !important" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Previous">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("Previous") %>' />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label runat="server" CssClass="askVst" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                             <asp:TemplateField HeaderText="Late Fee">
+                                                <ItemTemplate>
+                                                    <asp:Label Text='<%# Eval("LateFee") %>' ID="lblLateFee" runat="server" />
+                                                    <asp:TextBox runat="server"  id="txtLfee"  Text="0.0"  />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label CssClass="askVst" runat="server" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Payable">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("Payable") %>' />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label CssClass="askVst" runat="server" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Paid">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" Text='<%# Eval("Paid") %>' />
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    <asp:Label CssClass="askVst" runat="server" />
+                                                </FooterTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Optons">
+                                                <ItemTemplate>
+                                                    <asp:LinkButton CommandName="Delete" ToolTip="Delete" OnClientClick="return confirm('Are you sure you want to delete!');" CssClass="fa fa-trash-o" Style="color: #671414; font-size: 26px; font-weight: 900" runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            
+                                        </Columns>
 
-                                            <asp:CheckBoxList ID="chklMonths" DataTextField="MonthName" DataValueField="Smid" RepeatDirection="Horizontal" RepeatColumns="3" runat="server">
-                                            </asp:CheckBoxList>
+                                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                                        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                                        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                                        <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                                        <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                                        <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                                        <SortedDescendingHeaderStyle BackColor="#820000" />
 
+                                    </asp:GridView>
+                                </div>
+
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="float:right" runat="server" id="Paydiv">
+                                    <div class="col-md-12 col-md-push-1">
+                                        <div class="col-md-6 col-md-push-5">
+                                            <table class="table table-responsive">
+                                                <tr>
+                                                    <td style="color:black">Balance</td>
+                                                    <td style="color:black">
+                                                        <asp:TextBox runat="server" ReadOnly="true" ID="txtBalance" CssClass="form-control" /></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="color:black" >Advance</td>
+                                                    <td style="color:black">
+                                                        <asp:TextBox runat="server" ReadOnly="true" ID="txtAdvance" CssClass="form-control" /></td>
+                                                </tr>
+                                            </table>
                                         </div>
-                                    </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        Payment Mode
+                                <asp:RadioButtonList ID="rdbPayMode" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rdbPayMode_SelectedIndexChanged" runat="server">
+                                    <asp:ListItem Text="Cash" Value="1" Enabled="True" Selected="True" />
+                                    <asp:ListItem Text="Card" Value="2" />
+                                    <asp:ListItem Text="Cheque" Value="3" />
+                                    <asp:ListItem Text="Bank" Value="4" />
+                                </asp:RadioButtonList>
+                                    </div>
 
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    </div>
+                                    <div class="col-md-6">
+                                        Amount
+                                <asp:TextBox ID="txtTotal"  AutoPostBack="true"  OnTextChanged="txtTotal_TextChanged" placeholder="Amount" runat="server" CssClass="form-control" />
+
+                                    </div>
+
+                                    <div class="col-md-4" runat="server" id="carddiv" visible="false">
+                                        Card No.
+                                <asp:TextBox ID="txtcardno" placeholder="16 digit Card No." runat="server" CssClass="form-control" />
+                                    </div>
+
+                                    <div class="col-md-4" runat="server" id="chequenodiv" visible="false">
+                                        Cheque No.
+                                <asp:TextBox ID="txtchequeno" placeholder="Cheque No." runat="server" CssClass="form-control" />
+                                    </div>
+                                    <div class="col-md-4" runat="server" id="chequedatediv" visible="false">
+                                        cheque date
+                            <asp:TextBox ID="rdDateFrom" TextMode="Date" runat="server" CssClass="form-control" />  
+                                    </div>
+                                    <div class="col-md-4" runat="server" id="BankNamediv" visible="false">
+                                        Bank Name
+                                <asp:TextBox ID="txtBankName" placeholder="Bank Name" runat="server" CssClass="form-control" />
+                                    </div>
+                                    <div class="col-md-4" runat="server" id="refnodiv" visible="false">
+                                        Referrence No.
+                                <asp:TextBox ID="txtrefno" placeholder="Referrence No." runat="server" CssClass="form-control" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        Remarks
+                                <asp:TextBox ID="txtRemarks" TextMode="MultiLine" Rows="3" placeholder="Remarks" runat="server" CssClass="form-control" />
+                                    </div>
+
+                                </div>
+                               
+
                 </div>
           
         </asp:View>
    
-    </asp:Multiview>
+    </asp:multiview>
 
 
 </asp:Content>

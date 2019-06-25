@@ -698,6 +698,16 @@ namespace Nits.BLL
     // Pay Fee Data Access
     public class PayFeeBLL
     {
+        public DataSet AnnualMonthByUID(long UID)
+        {
+            SqlParameter[] sp =
+            {
+              new SqlParameter("@Uid",UID)
+            };
+            DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.Connect, CommandType.Text, "select distinct StudentFeeHeadList.FeeMonth  from StudentFeeHeadList  where StudentFeeHeadList.StudentIDFK = @Uid and StudentFeeHeadList.IsPaid in (0, 2)  and StudentFeeHeadList.FeeMonth='Annual Fee'", sp);
+            return ds;
+        }
+
         public DataSet monthListStatusByUID(long UID)
         {
             SqlParameter[] sp =

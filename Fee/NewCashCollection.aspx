@@ -626,7 +626,7 @@
                             <div class="review-content-section">
                                 <div class="input-group review-pro-edt">
                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlcashcollection" AutoPostBack="true"  runat="server" class="form-control" Width="80%">
+                                    <asp:DropDownList ID="ddlDepartment"  runat="server" class="form-control" Width="80%">
                                        <asp:ListItem Text="Select Department" Value="-1" />
                                       <asp:ListItem Text="Easy Steps" Value="1" />
                                       <asp:ListItem Text="Walkin School" Value="2" />
@@ -650,9 +650,9 @@
                             <br />
                             <div class="form-group review-pro-edt center-block text-center">
                                 <asp:Button ID="btnget"  ValidationGroup="Get" runat="server" Text="Get" CssClass="btn btn-success" OnClick="btnget_Click"  />
-                                <a href="../Print.aspx" runat="server" class="btn btn-danger">Print</a>
+                                <a href="../Print.aspx"  runat="server" class="btn btn-danger">Print</a>
                                <%-- <asp:Button ID="btnprint"  runat="server" Text="Print" CssClass="btn btn-danger" OnClick="btnprint_Click" />--%>
-                                <asp:Button ID="btnexporttoexcel"  runat="server" Text="Export To Excel" CssClass="btn btn-info" OnClick="btnexporttoexcel_Click" />
+                                <asp:Button ID="btnexporttoexcel" UseSubmitBehavior="False" runat="server" Text="Export To Excel" CssClass="btn btn-info" OnClick="btnexporttoexcel_Click" />
                             </div>
                         </fieldset>
                     </div>

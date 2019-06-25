@@ -19,11 +19,10 @@ public partial class NewCashCollection : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            ddlDepartment.Focus();
             Session["Current_Session"] = "2018-19";
             multiview1.SetActiveView(view1);
-
-            txtdatefrom.Text = "2/10/2018";
-            txtdateto.Text = System.DateTime.Now.Date.ToString();
+            txtdateto.Text = DateTime.Now.ToString();
         }
     }
     public void DayBookby(int check)
@@ -49,7 +48,7 @@ public partial class NewCashCollection : System.Web.UI.Page
             Cmodel.DateFrom = /*DateFrom.SelectedDate;*/ Convert.ToDateTime(txtdatefrom.Text);
             Cmodel.DateTo = /*DateTo.SelectedDate;*/ Convert.ToDateTime(txtdateto.Text);
             Cmodel.CSession = Session["Current_Session"].ToString();
-            Cmodel.DIDFK = Convert.ToInt64(ddlcashcollection.SelectedValue);
+            Cmodel.DIDFK = Convert.ToInt64(ddlDepartment.SelectedValue);
            Cmodel.UserName = "admin";
             Cmodel.Check = check;
 
