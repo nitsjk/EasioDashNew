@@ -1,19 +1,24 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="FeeHeads.aspx.cs" Inherits="FeeHeads" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="AddStudent1.aspx.cs" Inherits="Student_AddStudent1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" runat="Server">
-
-    <link href="../css/StyleSheet.css" rel="stylesheet" />
-    <link href="../css/AdminLTE.css" rel="stylesheet" />
-    <link href="../css/AdminLTE.min.css" rel="stylesheet" />
-    <link href="../css/TestStyle.css" rel="stylesheet" />
-
+<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
+     <%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+    
+    <title>Easio Dashboard</title>
+    <link href="../css/TestStyle.css" rel="stylesheet" />esheet" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
     <link href="../css/GoogleFonts.css" rel="stylesheet" />
-
+    
     <!-- Bootstrap CSS
 		=========================
         
@@ -119,83 +124,32 @@
 		============================================ -->
     <script src="../js/main.js"></script>
 
-    <link href="../css/TestStyle.css" rel="stylesheet" />
-
-
-
-    <script type="text/javascript">
-   <!--
-    // Form validation code will come here.
-    function validate() {
-
-        if (document.myForm.ddlDepartments.value == "") {
-            alert("Please provide your name!");
-            document.myForm.Name.focus();
-            return false;
-        }
-        if (document.myForm.txtName.value == "") {
-            alert("Please provide your Email!");
-            document.myForm.EMail.focus();
-            return false;
-        }
-        return (true);
-    }
-   //-->
-    </script>
+    
+    
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
 
+         <div>
+                           <a href="../Default.aspx">  <img  src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left:25px" /> </a>
+                        </div>
 
-        <div>
-            <a href="../Default.aspx">
-                <img src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left: 25px" />
-            </a>
-        </div>
-
-
-
-        <nav class="sidebar-nav left-sidebar-menu-pro">
-            <ul class="metismenu2" id="menu1">
-
-                <li class="b-inner">
-                    <a href="../Fee.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
-                </li>
+                    <nav class="sidebar-nav left-sidebar-menu-pro">
+                        <ul class="metismenu" id="menu1">
 
 
-
-                         <li class="a-inner" > <a href="Fee/FeeHeads.aspx"><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" >  Add Fee</span></a> </li>
+                            <li class="b-inner">
+                                <a href="../StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              
+                            </li>
+                                
                             
-                                   <li class="a-inner" > <a href="Fee/FeeStructure.aspx"><i class="fa fa-caret-square-o-right text-right i-class"></i>
-                                       <span class="inner-span">  Fee Structure</span> </a> </li>
-
-                                   <li class="a-inner" > <a href="Fee/FeeDue.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Fee Due </span></a> </li>
-                              <li class="a-inner" > <a href="Fee/PayFee.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Pay Fee</span></a> </li>
-
-                              <li class="a-inner" > <a href="Fee/StudentLedger.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Student Ledger </span></a> </li>
-
-                               <li class="a-inner" > <a href="Fee/FeeAdvance.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Fee Advance </span></a> </li>
-                             <li class="a-inner" > <a href="Fee/Editreceipt.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Edit Receipt </span></a> </li>
-                             <li class="a-inner" > <a href="Fee/EditFee.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Edit Fee </span></a> </li>
-                             <li class="a-inner" > <a href="Fee/HalfTransportFee"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Update Transport Fee </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/NewCashCollection.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Cash Collection </span></a> </li>
-                              <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Fee Rebate </span></a> </li>
-                              <li class="a-inner" > <a href="Fee/DayBook.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Day Book </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Cancel Receipt </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Manage Transport </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/IncomeCertificate"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Income Certificate </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/Defaulters.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Defaulters </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Bus Defaulters </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Discount Report </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Delete Receipt </span></a> </li>
-
-
-
-
-            </ul>
-        </nav>
-    </div>
-
+                <li class="a-inner" style="display: table-row"><a href="Student/addstudents.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Add Student </span></a></li>
+                        
+                           
+                            </ul>                              
+                        
+                    </nav>
+                </div>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
     <div class="header-top-area">
         <div class="container-fluid">
             <div class="row">
@@ -229,11 +183,11 @@
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                         <li class="nav-item">
-                                            <span style="color: white" class="h4">[<asp:label id="lblSession" runat="server" text="Session"></asp:label>]</span>
+                                            <span style="color: white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
                                         </li>
 
                                         <li class="nav-item">
-                                            <span style="color: white" class="h4">[<asp:label id="lblfinancialyear" runat="server" text="Financial Year"></asp:label>]</span>
+                                            <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
                                         </li>
 
                                         <li class="nav-item dropdown">
@@ -589,7 +543,8 @@
                                                                                 <div class="onoffswitch">
                                                                                     <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
                                                                                     <label class="onoffswitch-label" for="example5">
-                                                                                        <span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span>
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
                                                                                     </label>
                                                                                 </div>
                                                                             </div>
@@ -614,86 +569,181 @@
     </div>
     <br />
     <br />
-
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" runat="Server">
-
-    <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
-        <h3><span style="color: #9d0e0a">Fee</span> Heads </h3>
+<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+     <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
+        <h3><span style="color: #9d0e0a">Pay</span> Counter</h3>
         <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
     </div>
-    <div style="margin-top: 10px;">
+    <div style="padding: 15px;">
         <asp:label id="lblSuccess" visible="false" runat="server" cssclass="col-md-12 center-block text-center alert-success" />
         <asp:label id="lblError" visible="false" runat="server" cssclass="col-md-12 center-block text-center alert-danger" />
     </div>
-    <div class="col-md-12">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <fieldset>
-                <legend style="font-size: 20px;">Fee Head</legend>
-                <div class="review-content-section">
-                    <div class="input-group review-pro-edt">
-                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                        <asp:dropdownlist id="ddlFHT" runat="server" class="form-control" width="80%">
-                             <asp:ListItem Text="--Select Type--" Value="-1" />
-                        <asp:ListItem Text="Monthly" Value="1" />
-                        <asp:ListItem Text="Annually" Value="2" />
-                        <asp:ListItem Text="One Time" Value="3" />
-                        </asp:dropdownlist>
-                        <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlFHT" runat="server" ValidationGroup="var" />
-
-                    </div>
-                    <br />
-                    <div class="input-group review-pro-edt">
-                        <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                        <asp:textbox id="txtFHN" runat="server" cssclass="form-control" forecolor="Black" width="80%" placeholder="Fee Head"></asp:textbox>
-                          <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var"  SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtFHN" runat="server" />
-                    </div>
+     <asp:Multiview id="multiview1" activeviewindex="0" runat="server">
+    <asp:View ID="view1" runat="server">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+     <div id="addstudent" class="tab-pane active">
+              
+        <fieldset>
+             
+            <legend>Student Detail</legend>
+            <div class="col-md-12">
+                <div class="col-md-4 form-group">
+                    ID No:
+                  
+          <asp:TextBox runat="server" ID="txtidno" CssClass="form-control" ValidationGroup="add" Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtidno" runat="server"  />
+                   
                 </div>
-                <br />
-                <div class="form-group review-pro-edt center-block text-center">
-                    <asp:button id="btnUpdate" runat="server" onclick="btnUpdate_Click" text="Update" cssclass="btn btn-success" visible="false" />
-                    <asp:button id="btnAddFH" runat="server" onclick="btnAddFH_Click" text="Submit" cssclass="btn btn-success" />
-                    <asp:button id="btnReset" OnClick="btnReset_Click" runat="server" text="Reset" cssclass="btn btn-primary" />
+                 <div class="col-md-4 form-group">
+                    Name:
+                  
+          <asp:TextBox runat="server" ID="txtname" CssClass="form-control" ValidationGroup="add"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtname" runat="server" />
+                    
                 </div>
-            </fieldset>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 " style="margin-top: 25px;">
 
-            <asp:gridview id="gvFeeHeads" autogeneratecolumns="False" runat="server" onrowcommand="gvFeeHeads_RowCommand" style="text-align:center" cssclass="table  table-responsive table-hover">
-             <HeaderStyle HorizontalAlign="left" />
-                
-                                <Columns>
-                                    <asp:TemplateField HeaderText="S_No." ItemStyle-HorizontalAlign="Left">
-                                        <ItemTemplate>
-                                            <%#Container.DataItemIndex+1 %>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Fee Heads" HeaderStyle-ForeColor="White" ItemStyle-HorizontalAlign="Left">
-                                        <ItemTemplate>
-                                            <asp:Label Text='<%#Eval("FHName") %>' ID="lblFHName" runat="server" />
-                                        </ItemTemplate>
+                 <div class="col-md-4 form-group">
+                    Admit To Class<span style="color: red;"></span>:
+        <asp:DropDownList ID="DropDownList1" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">Class?</asp:ListItem>
+            <asp:ListItem Value="1">Nursery </asp:ListItem>
+            <asp:ListItem Value="2">LKG</asp:ListItem>
+             <asp:ListItem Value="1">UKG </asp:ListItem>
+            <asp:ListItem Value="2">First</asp:ListItem>
+        </asp:DropDownList>
 
-<HeaderStyle ForeColor="White"></HeaderStyle>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Options" ItemStyle-HorizontalAlign        ="Left">
-                                        <ItemTemplate>
-                                            <asp:LinkButton ToolTip="Edit" CommandName="EditCommand" ID="lnkEdit" CommandArgument='<%#Eval("FHID") %>' runat="server" style="color:#15679d; font-size:22px" CssClass="fa fa-edit" />
-                                            <asp:LinkButton ToolTip="Delete" CssClass="fa fa-trash" OnClientClick="return confirm('Are you sure you want to Delete !');" CommandName="DeleteCommand" ID="lnkDelete" CommandArgument='<%#Eval("FHID") %>' style="color:#9a0c0c; font-size:22px" runat="server" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-               <FooterStyle BackColor="#990000"  Font-Bold="True" />
-                <HeaderStyle BackColor="#ba1806" ForeColor="White"  Font-Bold="True"   Height="23px"  HorizontalAlign="Center"   CssClass="hdr" />
-                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333"  HorizontalAlign="Center"/>
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                <SortedDescendingHeaderStyle BackColor="#820000" />
-                            </asp:gridview>
+                  
+                </div>
+            </div>
 
-        </div>
+             <div class="col-md-12">
+
+                 <div class="col-md-4 form-group">
+                    Select Section<span style="color: red;"></span>:
+        <asp:DropDownList ID="DropDownList2" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">Section?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+             <asp:ListItem Value="1">C </asp:ListItem>
+            <asp:ListItem Value="2">D</asp:ListItem>
+        </asp:DropDownList>
+
+                  
+                </div>
+
+                  <div class="col-md-4 form-group">
+                    Addmission No:
+                  
+          <asp:TextBox runat="server" ID="txtadmission" CssClass="form-control" ValidationGroup="add"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtadmission" runat="server" />
+                    
+                </div>
+                 <div class="col-md-4 form-group">
+                    Roll No:
+                  
+          <asp:TextBox runat="server" ID="txtrollno" CssClass="form-control" ValidationGroup="add"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtrollno" runat="server" />
+                    
+                </div>
+                 
+            </div>
+            
+             <div class="col-md-12">
+                 <div class="col-md-4 form-group">
+                    Board Registration No:
+                  
+          <asp:TextBox runat="server" ID="txtboardregistno" CssClass="form-control" ValidationGroup="add"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtboardregistno" runat="server" />
+                   
+                </div>
+                  <div class="col-md-4 form-group">
+                    Stream<span style="color: red;"></span>:
+        <asp:DropDownList ID="ddlstream" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">General?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+             <asp:ListItem Value="1">C </asp:ListItem>
+            <asp:ListItem Value="2">D</asp:ListItem>
+        </asp:DropDownList>
+                 </div>
+                 <div class="col-md-4 form-group">
+                    Optional If Applicable<span style="color: red;"></span>:
+        <asp:DropDownList ID="ddloptionalifapplicable" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">Select?</asp:ListItem>
+            <asp:ListItem Value="1">Yes </asp:ListItem>
+            <asp:ListItem Value="2">NO</asp:ListItem>
+             
+        </asp:DropDownList>
+                 </div>
+                 </div>
+              <div class="col-md-12">
+                  <div class="col-md-4 form-group">
+                    Optional<span style="color: red;"></span>:
+        <asp:DropDownList ID="ddlgeneral" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">Select?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+            
+        </asp:DropDownList>
+                 </div>
+                  <div class="col-md-4 form-group">
+                    Date Of Birth:
+                  
+          <asp:TextBox runat="server" ID="txtdob" CssClass="form-control" ValidationGroup="add" TextMode="Date"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtdob" runat="server" />
+                    
+                </div>
+                  <div class="col-md-4 form-group">
+                    Date Of Addmission:
+                  
+          <asp:TextBox runat="server" ID="txtdoadmission" CssClass="form-control" ValidationGroup="add" TextMode="Date"  Height="35px"/>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtdoadmission" runat="server" />
+                    
+                </div>
+                  </div>
+            <div class="col-md-12">
+                  <div class="col-md-4 form-group">
+                    Gender<span style="color: red;"></span>:
+        <asp:DropDownList ID="ddlgenders" CssClass="form-control " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <%--<asp:ListItem Value="0" Selected="True"></asp:ListItem>--%>
+            <asp:ListItem Value="1">Male </asp:ListItem>
+            <asp:ListItem Value="2">Female</asp:ListItem>
+            
+        </asp:DropDownList>
+                 </div>
+                  
+                </div>
+                   <div class="col-md-12">
+     <div class="col-md-6 form-group"  style="margin-left:100px;margin-top:10px">
+               <a data-target="#parentdetail" data-toggle="tab" class="btn btn-info">Next</a>
     </div>
+          </div>
+
+        </fieldset>
+             
+             
+             </div>
+                        </div>
+                    </div>
+                </div>
+        
+                        </asp:View>
+         </asp:Multiview>
 </asp:Content>
 
