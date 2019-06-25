@@ -1,18 +1,24 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="PayFee.aspx.cs" Inherits="PayFee" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageMain.master" AutoEventWireup="true" CodeFile="AddStudent1.aspx.cs" Inherits="Student_AddStudent1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" runat="Server">
-    <link href="../css/StyleSheet.css" rel="stylesheet" />
-    <link href="../css/AdminLTE.css" rel="stylesheet" />
-    <link href="../css/AdminLTE.min.css" rel="stylesheet" />
-    <link href="../css/TestStyle.css" rel="stylesheet" />
-
+<asp:Content ID="Content1" ContentPlaceHolderID="contentSide" Runat="Server">
+     <%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+    
+    <title>Easio Dashboard</title>
+    <link href="../css/TestStyle.css" rel="stylesheet" />esheet" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
     <link href="../css/GoogleFonts.css" rel="stylesheet" />
-
+    
     <!-- Bootstrap CSS
 		=========================
         
@@ -118,75 +124,32 @@
 		============================================ -->
     <script src="../js/main.js"></script>
 
-    <link href="../css/TestStyle.css" rel="stylesheet" />
-
-
-
-    <script type="text/javascript">
-   <!--
-    // Form validation code will come here.
-    function validate() {
-
-        if (document.myForm.ddlDepartments.value == "") {
-            alert("Please provide your name!");
-            document.myForm.Name.focus();
-            return false;
-        }
-        if (document.myForm.txtName.value == "") {
-            alert("Please provide your Email!");
-            document.myForm.EMail.focus();
-            return false;
-        }
-        return (true);
-    }
-   //-->
-    </script>
+    
+    
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
 
+         <div>
+                           <a href="../Default.aspx">  <img  src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left:25px" /> </a>
+                        </div>
 
-        <div>
-            <a href="../Default.aspx">
-                <img src="../img/easio-logo2.png" height="110px" width="130px" style="margin-left: 25px" />
-            </a>
-        </div>
-
-
-
-        <nav class="sidebar-nav left-sidebar-menu-pro">
-            <ul class="metismenu2" id="menu1">
-
-                <li class="b-inner">
-                    <a href="../Fee.aspx" aria-expanded="false"><i class="fa fa-university"></i><span class="mini-click-non">&nbsp;&nbsp; Fee</span></a>
-                </li>
+                    <nav class="sidebar-nav left-sidebar-menu-pro">
+                        <ul class="metismenu" id="menu1">
 
 
-
-                <li class="a-inner" style="display: table-row"><a href="FeeHeads.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Heads </span></a></li>
-
-                <li class="a-inner" style="display: table-row"><a href="FeeStructure.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Structure </span></a></li>
-
-                <li class="a-inner" style="display: table-row"><a href="FeeDue.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Due </span></a></li>
-
-                <li class="a-inner" style="display: table-row"><a href="PayFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Pay Fee </span></a></li>
-
-                <li class="a-inner" style="display: table-row"><a href="StudentLedger.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Ledger </span></a></li>
-                <li class="a-inner" style="display: table-row"><a href="EditFee.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Fee</span></a></li>
-                <li class="a-inner" style="display: table-row"><a href="EditReceipt.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Edit Receipt </span></a></li>
-                <li class="a-inner" style="display: table-row"><a href="FeeAdvance.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp Fee Advance</span></a></li>
-                <li class="a-inner" style="display: table-row"><a href="NewCashCollection.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><span class="inner-span"><i class="fa fa-circle-o" style="font-size: 14px"></i>&nbsp New Cash Collection</span></a></li>
-
-
-
-
-
-
-
-
-            </ul>
-        </nav>
-    </div>
+                            <li class="b-inner">
+                                <a href="../StudentDashboard.aspx"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp; Students</a>                              
+                            </li>
+                                
+                            
+                <li class="a-inner" style="display: table-row"><a href="Student/addstudents.aspx" class="a-inner-middle" style="display: table-cell; vertical-align: middle;"><i class="fa fa-caret-square-o-right" style="font-size: 14px"></i><span class="inner-span"> Add Student </span></a></li>
+                        
+                           
+                            </ul>                              
+                        
+                    </nav>
+                </div>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="contentbody" Runat="Server">
     <div class="header-top-area">
         <div class="container-fluid">
             <div class="row">
@@ -220,11 +183,11 @@
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                         <li class="nav-item">
-                                            <span style="color: white" class="h4">[<asp:label id="lblSession" runat="server" text="Session"></asp:label>]</span>
+                                            <span style="color: white" class="h4">[<asp:Label ID="lblSession" runat="server" Text="Session"></asp:Label>]</span>
                                         </li>
 
                                         <li class="nav-item">
-                                            <span style="color: white" class="h4">[<asp:label id="lblfinancialyear" runat="server" text="Financial Year"></asp:label>]</span>
+                                            <span style="color: white" class="h4">[<asp:Label ID="lblfinancialyear" runat="server" Text="Financial Year"></asp:Label>]</span>
                                         </li>
 
                                         <li class="nav-item dropdown">
@@ -580,7 +543,8 @@
                                                                                 <div class="onoffswitch">
                                                                                     <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
                                                                                     <label class="onoffswitch-label" for="example5">
-                                                                                        <span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span>
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
                                                                                     </label>
                                                                                 </div>
                                                                             </div>
@@ -606,9 +570,8 @@
     <br />
     <br />
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" runat="Server">
-
-    <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
+<asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+     <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
         <h3><span style="color: #9d0e0a">Pay</span> Counter</h3>
         <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
     </div>
@@ -616,396 +579,171 @@
         <asp:label id="lblSuccess" visible="false" runat="server" cssclass="col-md-12 center-block text-center alert-success" />
         <asp:label id="lblError" visible="false" runat="server" cssclass="col-md-12 center-block text-center alert-danger" />
     </div>
-    <asp:multiview id="multiview1" activeviewindex="0" runat="server">
+     <asp:Multiview id="multiview1" activeviewindex="0" runat="server">
     <asp:View ID="view1" runat="server">
             <div class="container-fluid">
                 <div class="col-md-12">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <fieldset>
-                            <legend style="font-size: 20px;">Search Student</legend>
-                            <div class="review-content-section">
-                                <div class="input-group review-pro-edt">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlStType" AutoPostBack="true" OnSelectedIndexChanged="ddlStType_SelectedIndexChanged" runat="server" class="form-control" Width="80%">
-                                        <asp:ListItem Text="--Select Type--" Value="-1" />
-                                        <asp:ListItem Text="Student Code" Value="4" />
-                                        <asp:ListItem Text="Admission No" Value="2" />
-                                        <asp:ListItem Text="U I D" Value="1" Selected="True" />
-                                        <asp:ListItem Text="Student Name" Value="3" />
-                                        <asp:ListItem Text="Student By Class" Value="5" />
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStType" runat="server" ValidationGroup="var" />
+     <div id="addstudent" class="tab-pane active">
+              
+        <fieldset>
+             
+            <legend>Student Detail</legend>
+            <div class="col-md-12">
+                <div class="col-md-4 form-group">
+                    ID No:
+                  
+          <asp:TextBox runat="server" ID="txtidno" CssClass="form-control" ValidationGroup="add" Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtidno" runat="server"  />
+                   
+                </div>
+                 <div class="col-md-4 form-group">
+                    Name:
+                  
+          <asp:TextBox runat="server" ID="txtname" CssClass="form-control" ValidationGroup="add"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtname" runat="server" />
+                    
+                </div>
 
-                                </div>
-                                <br />
-                                <div class="input-group review-pro-edt" runat="server" id="textboxdiv">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:TextBox ID="txtSS" runat="server" CssClass="form-control" ForeColor="Black" Width="80%"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />
-                                </div>
-                                <div class="input-group review-pro-edt" runat="server" id="Classesdiv" visible="false">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlCLasses" OnSelectedIndexChanged="ddlCLasses_SelectedIndexChanged" AutoPostBack="true" DataTextField="ClassName" DataValueField="ClassId" runat="server" class="form-control" Width="80%">
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlCLasses" runat="server" />
+                 <div class="col-md-4 form-group">
+                    Admit To Class<span style="color: red;"></span>:
+        <asp:DropDownList ID="DropDownList1" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">Class?</asp:ListItem>
+            <asp:ListItem Value="1">Nursery </asp:ListItem>
+            <asp:ListItem Value="2">LKG</asp:ListItem>
+             <asp:ListItem Value="1">UKG </asp:ListItem>
+            <asp:ListItem Value="2">First</asp:ListItem>
+        </asp:DropDownList>
 
-                                </div>
-                                <br />
-                                <div class="input-group review-pro-edt" runat="server" id="SectionsDiv" visible="false">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlSection" DataTextField="SectionName" DataValueField="SectionID" runat="server" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged" AutoPostBack="true" class="form-control" Width="80%">
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlSection" runat="server" />
-
-                                </div>
-                                 <br />
-                                <div class="input-group review-pro-edt" runat="server" id="NameDiv" visible="false">
-                                    <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:DropDownList ID="ddlStudent" DataTextField="StudentName" DataValueField="StudentID" runat="server" class="form-control" Width="80%">
-                                    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="ByClass" InitialValue="-1" SetFocusOnError="true" ForeColor="Red" ControlToValidate="ddlStudent" runat="server" />
-
-                                </div>
-                            </div>
-                            <br />
-                            <div class="form-group review-pro-edt center-block text-center">
-                                <asp:Button ID="btnSS" OnClick="btnSS_Click" runat="server" Text="Search" CssClass="btn btn-success" />
-                                <asp:Button ID="btnReset" OnClick="btnReset_Click" runat="server" Text="Reset" CssClass="btn btn-primary" />
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-                        <asp:GridView ID="gvSearchResult" AutoGenerateColumns="False" runat="server" Style="margin-top: 30px; width: 80%" OnRowCommand="gvSearchResult_RowCommand" CssClass="table table-hover table-responsive" CellPadding="4" ForeColor="#333333" GridLines="None">
-                            <AlternatingRowStyle BackColor="White" />
-                            <Columns>
-                                <asp:TemplateField HeaderText="S_No">
-                                    <ItemTemplate>
-                                        <%#Container.DataItemIndex+1%>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderText=" Code">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("StudentCode") %>' runat="server" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Name">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("StudentName") %>' runat="server" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Roll No">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("RollNo") %>' runat="server" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Class">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("ClassName") %>' runat="server" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Section">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("SectionName") %>' runat="server" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="">
-                                    <ItemTemplate>
-                                        <asp:LinkButton Text="Pay Now" CommandArgument='<%# Eval("StudentID")+","+Eval("classId") +","+Eval("busstopid") %>' CommandName="DueFee" runat="server" />
-
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                           
-                            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                            <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                            <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                            <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                            <SortedDescendingHeaderStyle BackColor="#820000" />
-                           
-                        </asp:GridView>
-
-                    </div>
+                  
                 </div>
             </div>
-        </asp:View>
-        <asp:View ID="view2" runat="server">
 
-              
-              <div class="container-fluid">
-                <div class="col-md-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 center-block text-center" style=" box-shadow:0px,0px,30px grey">
-                        <fieldset  style="margin-left:0px !important;">
-                       
-                            <legend style="font-size: 20px;">Student Details</legend>
-                         <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
-                          
-                                          <table class="table table-Stripped">
-                                    <tr>
-                                     
-                                        <td colspan="3">
-                                          <img src="../img/easio-logo2.png" /> 
-                                        </td>
-                                    </tr>
-                                               <tr style="margin-top:10px">
-                                                   <td>
-                                                       UID
-                                                   </td>
-                                        <td>
-                                            <asp:TextBox runat="server" id="txtUID"  CssClass="form-control" ReadOnly="true" Height="24px" Width="162px"></asp:TextBox>
+             <div class="col-md-12">
 
-                                        </td>
-                                       
-                                  
-                                    </tr>
-                                              </table>
-                                      
-                                  </div>
+                 <div class="col-md-4 form-group">
+                    Select Section<span style="color: red;"></span>:
+        <asp:DropDownList ID="DropDownList2" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">Section?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+             <asp:ListItem Value="1">C </asp:ListItem>
+            <asp:ListItem Value="2">D</asp:ListItem>
+        </asp:DropDownList>
 
-                                   <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
-                                <table class="table table-Stripped">
-                                    
-                                      <tr>
-                                        <td>Name</td>
-                                        <td>   <asp:TextBox id="txtname" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
-                                       
-                                    </tr>
-                                    <tr>
-                                        <td>Parentage</td>
-                                        <td>   <asp:TextBox id="txtParentage" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
-                                        
-                                    </tr>
-                                      <tr>
-                                        <td>Roll No.</td>
-                                         <td>   <asp:TextBox id="txtRollNo" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
-                                              
-                                        
-                                    </tr>
-                                      <tr>
-                                        <td>Class</td>
-                                         <td>   <asp:TextBox id="txtClass" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
-                                            
-                                        
-                                    </tr>
-                                      <tr>
-                                        <td>Section</td>
-                                      <td>   <asp:TextBox id="txtSection" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>  </td>
-                                             
-                                        
-                                    </tr>
-                                </table>
-                                      
-                                  </div>
-                                        
-                            </fieldset>
-                            </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
-                                 <div style =" min-height:290px">
-
-                                 </div>
-                                <div style=" margin-top:-100px;border:1px solid black; !important ; width:100%">
-                            
-                                <h3> Payable Months </h3>
-                               <asp:CheckBoxList ID="chklMonths" OnSelectedIndexChanged="chkMonths_SelectedIndexChanged" DataTextField="MonthName" DataValueField="Smid" RepeatDirection="Horizontal"   RepeatColumns="6"  runat="server">
-                                            </asp:CheckBoxList>
-                        
-
-                                </div>
-
-                             </div>
                   
-                        
-                    </div>
-                  
-
-                    <div class="col-md-12" style="margin-left: -20px; margin-top: 30px">
-                                    <asp:GridView ID="gvFeeDetails" AutoGenerateColumns="False"  OnRowDeleting="gvFeeDetails_RowDeleting" CssClass="table table-responsive table-condensed" ShowFooter="True" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-                                        <AlternatingRowStyle BackColor="White" />
-                                        <Columns>
-                                            <asp:TemplateField HeaderText="S_No.">
-                                                <ItemTemplate>
-                                                    <%# Container.DataItemIndex+1 %>
-                                                     <asp:Label runat="server" Visible="false" ID="lblSFHLID" Text='<%# Eval("SFHLID") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Fee Head ">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("FeeHeadName") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Month">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("MonthName") %>' />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label runat="server" Text="Total" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Session">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("Current_Session") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Rate">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("FeeRate") %>' />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label runat="server" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Rebate">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("Rebate") %>' />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label runat="server" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Advance">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("FeeAdvance") %>' />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label runat="server" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Discount">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("FeeDiscount") %>' />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label runat="server" Style="color: #ffffff !important" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Previous">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("Previous") %>' />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label runat="server" CssClass="askVst" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                             <asp:TemplateField HeaderText="Late Fee">
-                                                <ItemTemplate>
-                                                    <asp:Label Text='<%# Eval("LateFee") %>' ID="lblLateFee" runat="server" />
-                                                    <asp:TextBox runat="server"  id="txtLfee"  Text="0.0"  />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label CssClass="askVst" runat="server" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Payable">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("Payable") %>' />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label CssClass="askVst" runat="server" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Paid">
-                                                <ItemTemplate>
-                                                    <asp:Label runat="server" Text='<%# Eval("Paid") %>' />
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    <asp:Label CssClass="askVst" runat="server" />
-                                                </FooterTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Optons">
-                                                <ItemTemplate>
-                                                    <asp:LinkButton CommandName="Delete" ToolTip="Delete" OnClientClick="return confirm('Are you sure you want to delete!');" CssClass="fa fa-trash-o" Style="color: #671414; font-size: 26px; font-weight: 900" runat="server" />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            
-                                        </Columns>
-
-                                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                                        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                                        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                                        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                                        <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                                        <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                                        <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                                        <SortedDescendingHeaderStyle BackColor="#820000" />
-
-                                    </asp:GridView>
-                                </div>
-
-                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="float:right" runat="server" id="Paydiv">
-                                    <div class="col-md-12 col-md-push-1">
-                                        <div class="col-md-6 col-md-push-5">
-                                            <table class="table table-responsive">
-                                                <tr>
-                                                    <td style="color:black">Balance</td>
-                                                    <td style="color:black">
-                                                        <asp:TextBox runat="server" ReadOnly="true" ID="txtBalance" CssClass="form-control" /></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td style="color:black" >Advance</td>
-                                                    <td style="color:black">
-                                                        <asp:TextBox runat="server" ReadOnly="true" ID="txtAdvance" CssClass="form-control" /></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        Payment Mode
-                                <asp:RadioButtonList ID="rdbPayMode" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rdbPayMode_SelectedIndexChanged" runat="server">
-                                    <asp:ListItem Text="Cash" Value="1" Enabled="True" Selected="True" />
-                                    <asp:ListItem Text="Card" Value="2" />
-                                    <asp:ListItem Text="Cheque" Value="3" />
-                                    <asp:ListItem Text="Bank" Value="4" />
-                                </asp:RadioButtonList>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        Amount
-                                <asp:TextBox ID="txtTotal"  AutoPostBack="true"  OnTextChanged="txtTotal_TextChanged" placeholder="Amount" runat="server" CssClass="form-control" />
-
-                                    </div>
-
-                                    <div class="col-md-4" runat="server" id="carddiv" visible="false">
-                                        Card No.
-                                <asp:TextBox ID="txtcardno" placeholder="16 digit Card No." runat="server" CssClass="form-control" />
-                                    </div>
-
-                                    <div class="col-md-4" runat="server" id="chequenodiv" visible="false">
-                                        Cheque No.
-                                <asp:TextBox ID="txtchequeno" placeholder="Cheque No." runat="server" CssClass="form-control" />
-                                    </div>
-                                    <div class="col-md-4" runat="server" id="chequedatediv" visible="false">
-                                        cheque date
-                            <asp:TextBox ID="rdDateFrom" TextMode="Date" runat="server" CssClass="form-control" />  
-                                    </div>
-                                    <div class="col-md-4" runat="server" id="BankNamediv" visible="false">
-                                        Bank Name
-                                <asp:TextBox ID="txtBankName" placeholder="Bank Name" runat="server" CssClass="form-control" />
-                                    </div>
-                                    <div class="col-md-4" runat="server" id="refnodiv" visible="false">
-                                        Referrence No.
-                                <asp:TextBox ID="txtrefno" placeholder="Referrence No." runat="server" CssClass="form-control" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        Remarks
-                                <asp:TextBox ID="txtRemarks" TextMode="MultiLine" Rows="3" placeholder="Remarks" runat="server" CssClass="form-control" />
-                                    </div>
-
-                                </div>
-                               
-
                 </div>
-          
-        </asp:View>
-   
-    </asp:multiview>
 
+                  <div class="col-md-4 form-group">
+                    Addmission No:
+                  
+          <asp:TextBox runat="server" ID="txtadmission" CssClass="form-control" ValidationGroup="add"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtadmission" runat="server" />
+                    
+                </div>
+                 <div class="col-md-4 form-group">
+                    Roll No:
+                  
+          <asp:TextBox runat="server" ID="txtrollno" CssClass="form-control" ValidationGroup="add"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtrollno" runat="server" />
+                    
+                </div>
+                 
+            </div>
+            
+             <div class="col-md-12">
+                 <div class="col-md-4 form-group">
+                    Board Registration No:
+                  
+          <asp:TextBox runat="server" ID="txtboardregistno" CssClass="form-control" ValidationGroup="add"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtboardregistno" runat="server" />
+                   
+                </div>
+                  <div class="col-md-4 form-group">
+                    Stream<span style="color: red;"></span>:
+        <asp:DropDownList ID="ddlstream" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">General?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+             <asp:ListItem Value="1">C </asp:ListItem>
+            <asp:ListItem Value="2">D</asp:ListItem>
+        </asp:DropDownList>
+                 </div>
+                 <div class="col-md-4 form-group">
+                    Optional If Applicable<span style="color: red;"></span>:
+        <asp:DropDownList ID="ddloptionalifapplicable" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">Select?</asp:ListItem>
+            <asp:ListItem Value="1">Yes </asp:ListItem>
+            <asp:ListItem Value="2">NO</asp:ListItem>
+             
+        </asp:DropDownList>
+                 </div>
+                 </div>
+              <div class="col-md-12">
+                  <div class="col-md-4 form-group">
+                    Optional<span style="color: red;"></span>:
+        <asp:DropDownList ID="ddlgeneral" CssClass="form-control  " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <asp:ListItem Value="0" Selected="True">Select?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+            
+        </asp:DropDownList>
+                 </div>
+                  <div class="col-md-4 form-group">
+                    Date Of Birth:
+                  
+          <asp:TextBox runat="server" ID="txtdob" CssClass="form-control" ValidationGroup="add" TextMode="Date"  Height="35px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtdob" runat="server" />
+                    
+                </div>
+                  <div class="col-md-4 form-group">
+                    Date Of Addmission:
+                  
+          <asp:TextBox runat="server" ID="txtdoadmission" CssClass="form-control" ValidationGroup="add" TextMode="Date"  Height="35px"/>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtdoadmission" runat="server" />
+                    
+                </div>
+                  </div>
+            <div class="col-md-12">
+                  <div class="col-md-4 form-group">
+                    Gender<span style="color: red;"></span>:
+        <asp:DropDownList ID="ddlgenders" CssClass="form-control " ValidationGroup="add"
+            runat="server"  Height="35px">
+            <%--<asp:ListItem Value="0" Selected="True"></asp:ListItem>--%>
+            <asp:ListItem Value="1">Male </asp:ListItem>
+            <asp:ListItem Value="2">Female</asp:ListItem>
+            
+        </asp:DropDownList>
+                 </div>
+                  
+                </div>
+                   <div class="col-md-12">
+     <div class="col-md-6 form-group"  style="margin-left:100px;margin-top:10px">
+               <a data-target="#parentdetail" data-toggle="tab" class="btn btn-info">Next</a>
+    </div>
+          </div>
 
+        </fieldset>
+             
+             
+             </div>
+                        </div>
+                    </div>
+                </div>
+        
+                        </asp:View>
+         </asp:Multiview>
 </asp:Content>
 
