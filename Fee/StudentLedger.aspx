@@ -745,19 +745,19 @@
               <div class="container-fluid">
                 <div class="col-md-12">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <fieldset>
-                            <legend style="font-size: 20px;">Search Student</legend>
+                        <fieldset >
+                            <legend style="font-size: 20px;">Ledger</legend>
                             <div class="review-content-section">
                                 <div class="input-group review-pro-edt">
                                    <div class="input-group review-pro-edt" runat="server" id="Div1">
                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:TextBox ID="txtdatefrom" runat="server" CssClass="form-control" ForeColor="Black" Width="18pc" TextMode="Date"></asp:TextBox>
+                                    <asp:TextBox ID="txtdateto" runat="server" CssClass="form-control" ForeColor="Black" Width="100%" TextMode="Date"></asp:TextBox>
                                    <%-- <asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
                                 </div>
                                 <br />
                                 <div class="input-group review-pro-edt" runat="server" id="Div2">
                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                    <asp:TextBox ID="txtdateto" runat="server" CssClass="form-control" ForeColor="Black" Width="18pc" TextMode="Date" ></asp:TextBox>
+                                    <asp:TextBox ID="txtdatefrom" runat="server" CssClass="form-control" ForeColor="Black" Width="100%" TextMode="Date" ></asp:TextBox>
                                     <%--<asp:RequiredFieldValidator ErrorMessage="?" ValidationGroup="var" SetFocusOnError="true" ForeColor="Red" ControlToValidate="txtSS" runat="server" />--%>
                                 </div>
                                 </div> 
@@ -765,7 +765,7 @@
                             <br />
                             <div class="form-group review-pro-edt center-block text-center">
                                 <asp:Button Text="Submit" OnClick="btnSubmit_Click" ID="btnSubmit" runat="server" CssClass="btn btn-info" />
-                                <asp:Button Text="Cancel" ID="btnBack" OnClick="btnBack_Click" runat="server" CssClass=" btn btn-danger" />
+                                <asp:Button Text="Cancel" UseSubmitBehavior="False" ID="btnBack" OnClick="btnBack_Click" runat="server" CssClass=" btn btn-danger" />
                              
                             </div>
                              

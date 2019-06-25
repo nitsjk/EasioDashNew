@@ -20,8 +20,6 @@ public partial class FeeHeads : System.Web.UI.Page
             btnAddFH.ValidationGroup = "var";
         }
     }
-
-
     protected void btnAddFH_Click(object sender, EventArgs e)
     {
         try
@@ -92,7 +90,6 @@ public partial class FeeHeads : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
     public void editFeehead(long FHID)
     {
         DataSet ds = dal.editFeehead(FHID);
@@ -178,6 +175,7 @@ public partial class FeeHeads : System.Web.UI.Page
                 btnAddFH.ValidationGroup = null;
                 btnUpdate.ValidationGroup = "var";
                 btnAddFH.Visible = false;
+                txtFHN.Focus();
             }
             else if (e.CommandName == "DeleteCommand")
             {
@@ -196,13 +194,10 @@ public partial class FeeHeads : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
-
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         UpdateFeeHeads();
     }
-
     protected void btnReset_Click(object sender, EventArgs e)
     {
         ddlFHT.SelectedValue = "-1";
@@ -211,7 +206,10 @@ public partial class FeeHeads : System.Web.UI.Page
         btnUpdate.Visible = false;
         lblError.Text = "";
         lblSuccess.Text = "";
+        lblSuccess.Visible = false;
+        lblError.Visible = false;
         btnAddFH.ValidationGroup = "var";
         btnUpdate.ValidationGroup = null;
+        ddlFHT.Focus();
     }
 }

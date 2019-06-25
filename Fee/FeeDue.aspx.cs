@@ -29,13 +29,13 @@ public partial class FeeDue : System.Web.UI.Page
     {
         if (ddlStType.SelectedValue == "-1")
         {
-
             btnByClass.Visible = false;
             btnSS.Visible = true;
             Classesdiv.Visible = false;
             SectionsDiv.Visible = false;
             textboxdiv.Visible = true;
-            txtSS.Text = ""; ;
+            txtSS.Text = "";
+            ddlStType.Focus();
             ddlCLasses.SelectedValue = "-1";
             ddlSection.SelectedValue = "-1";
             gvSearchResult.DataSource = null;
@@ -60,6 +60,7 @@ public partial class FeeDue : System.Web.UI.Page
             SectionsDiv.Visible = false;
             textboxdiv.Visible = true;
             txtSS.Text = "";
+            txtSS.Focus();
             btnSS.Visible = true;
             ddlCLasses.SelectedValue = "-1";
             ddlSection.SelectedValue = "-1";
@@ -264,6 +265,7 @@ public partial class FeeDue : System.Web.UI.Page
         ddlSection.SelectedValue = "-1";
         gvSearchResult.DataSource = null;
         gvSearchResult.DataBind();
+        ddlStType.Focus();
         if (ddlStType.SelectedValue == "-1")
         {
 
@@ -426,6 +428,10 @@ public partial class FeeDue : System.Web.UI.Page
         gvSearchResult.DataSource = null;
         gvSearchResult.DataBind();
         multiview1.SetActiveView(view1);
+        ddlStType.Focus();
+        Classesdiv.Visible = false;
+        SectionsDiv.Visible = false;
+        textboxdiv.Visible = true;
     }
     public int getFHType()
     {
@@ -445,6 +451,14 @@ public partial class FeeDue : System.Web.UI.Page
     }
     protected void CHECKALL_CheckedChanged(object sender, EventArgs e)
     {
+        if (ddlBussFee.Visible == false)
+        {
+            txtDueDate.Focus();
+        }
+        else
+        {
+            ddlBussFee.Focus();
+        }
         if (getFHType() == 3)
         {
             if (CHECKALL.Checked == true)
@@ -598,9 +612,12 @@ public partial class FeeDue : System.Web.UI.Page
         {
             chklMonths.Enabled = false;
             CHECKALL.Enabled = false;
+            ddlFeeHeads.Focus();
         }
         else
         {
+
+
             chklMonths.Enabled = true;
             CHECKALL.Enabled = true;
             if (getFHType() == 3) // annually 
@@ -608,6 +625,7 @@ public partial class FeeDue : System.Web.UI.Page
 
                 CHECKALL.Enabled = false;
                 chklMonths.AutoPostBack = true;
+                txtDueDate.Focus();
                 txtAmount.Text = "";
                 txtDueDate.Text = "";
                 txtRemarks.Text = "";
@@ -618,6 +636,7 @@ public partial class FeeDue : System.Web.UI.Page
             {
                 CHECKALL.Enabled = false;
                 chklMonths.AutoPostBack = true;
+                txtDueDate.Focus();
                 txtAmount.Text = "";
                 txtDueDate.Text = "";
                 txtRemarks.Text = "";
@@ -633,6 +652,7 @@ public partial class FeeDue : System.Web.UI.Page
                     txtDueDate.Text = "";
                     txtRemarks.Text = "";
                     ddlBussFee.Visible = true;
+                    ddlBussFee.Focus();
                 }
                 else
                 {
@@ -640,6 +660,7 @@ public partial class FeeDue : System.Web.UI.Page
                     txtDueDate.Text = "";
                     txtRemarks.Text = "";
                     ddlBussFee.Visible = false;
+                    txtDueDate.Focus();
                     getFSAmount();
                 }
             }
@@ -739,6 +760,14 @@ public partial class FeeDue : System.Web.UI.Page
         try
         {
             CheckFeeHeadIsPaid();
+            if (ddlBussFee.Visible == false)
+            {
+                txtDueDate.Focus();
+            }
+            else
+            {
+                ddlBussFee.Focus();
+            }
         }
         catch (Exception ex)
         {
@@ -758,6 +787,7 @@ public partial class FeeDue : System.Web.UI.Page
             txtAmount.Text = "";
             txtRemarks.Text = "";
             txtDueDate.Text = "";
+            txtDueDate.Focus();
             if (ddlBussFee.SelectedValue == "1")
             {
                 getFSAmount();
@@ -1229,6 +1259,6 @@ public partial class FeeDue : System.Web.UI.Page
         chklMonths.ClearSelection();
         CHECKALL.Enabled = false;
         chklMonths.Enabled = false;
-
+        ddlFeeHeads.Focus();
     }
 }

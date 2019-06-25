@@ -17,6 +17,7 @@ public partial class FeeStructure : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            ddlClass.Focus();
             try
             {
 
@@ -49,13 +50,6 @@ public partial class FeeStructure : System.Web.UI.Page
         }
 
     }
-
-
-
-
-
-
-
     public void GetFeeHeads()
     {
         try
@@ -83,8 +77,6 @@ public partial class FeeStructure : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
-
     public void GetAllClasses()
     {
         try
@@ -112,10 +104,6 @@ public partial class FeeStructure : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
-  
-
-
     protected void btnAddFeeStructure_Click(object sender, EventArgs e)
     {
         try
@@ -158,8 +146,6 @@ public partial class FeeStructure : System.Web.UI.Page
         }
 
     }
-
-
     public void GetAllFSBI()
     {
         try
@@ -188,8 +174,6 @@ public partial class FeeStructure : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
-
     protected void ddlClass_SelectedIndexChanged(object sender, EventArgs e)
     {
         try
@@ -200,11 +184,12 @@ public partial class FeeStructure : System.Web.UI.Page
                 txtAmount.Text = "";
                 txtTitle.Text = "";
                 txtRemarks.Text = "";
-               
+                ddlClass.Focus();
                 gvFeeStructure.Visible = false;
             }
             else
             {
+                ddlFeeheads.Focus();
                 gvFeeStructure.Visible = true;
                
                 GetAllFSBI();
@@ -217,7 +202,6 @@ public partial class FeeStructure : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
     public void editFeeStucture(long FSID)
     {
         DataSet ds =dal.getFeestructure(FSID);
@@ -237,7 +221,6 @@ public partial class FeeStructure : System.Web.UI.Page
             lblError.Text = "No Data Found";
         }
     }
-
     protected void gvFeeStructure_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         try
@@ -254,6 +237,7 @@ public partial class FeeStructure : System.Web.UI.Page
                 btnUpdate.ValidationGroup = "val";
                 btnAddFeeStructure.ValidationGroup = "null";
                 editFeeStucture(ID);
+                txtAmount.Focus();
             }
             else if (e.CommandName == "DeleteCommand")
             {
@@ -270,7 +254,6 @@ public partial class FeeStructure : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
     public void UpdateFeeStructure(long FSID)
     {
         try
@@ -306,7 +289,6 @@ public partial class FeeStructure : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
     public void DeleteFeeStructure(long ID)
     {
         try
@@ -323,17 +305,23 @@ public partial class FeeStructure : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
     protected void ddlFeeheads_SelectedIndexChanged(object sender, EventArgs e)
     {
-        txtTitle.Text = ddlFeeheads.SelectedItem.Text;
+        if (ddlFeeheads.SelectedValue == "-1")
+        {
+            txtTitle.Text ="";
+            ddlFeeheads.Focus();
+        }
+        else
+        {
+            txtAmount.Focus();
+            txtTitle.Text = ddlFeeheads.SelectedItem.Text;
+        }
     }
-
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         UpdateFeeStructure(Convert.ToInt64(ViewState["FSID"]));
     }
-
     protected void btnReset_Click(object sender, EventArgs e)
     {
         ddlClass.SelectedValue = "-1";
@@ -347,5 +335,6 @@ public partial class FeeStructure : System.Web.UI.Page
         lblSuccess.Text = "";
         btnUpdate.ValidationGroup = "null";
         btnAddFeeStructure.ValidationGroup = "val";
+        ddlClass.Focus();
     }
 }

@@ -20,6 +20,7 @@ public partial class StudentLedger : System.Web.UI.Page
             multiview1.SetActiveView(view1);
             txtSS.Focus();
             btnSS.ValidationGroup = "var";
+            txtdatefrom.Text = DateTime.Now.ToString();
         }
     }
     protected void ddlStType_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,6 +32,7 @@ public partial class StudentLedger : System.Web.UI.Page
             NameDiv.Visible = false;
             textboxdiv.Visible = true;
             txtSS.Text = ""; ;
+            ddlStType.Focus();
             ddlCLasses.SelectedValue = "-1";
             ddlSection.SelectedValue = "-1";
             gvSearchResult.DataSource = null;
@@ -54,6 +56,7 @@ public partial class StudentLedger : System.Web.UI.Page
             SectionsDiv.Visible = false;
             NameDiv.Visible = false;
             textboxdiv.Visible = true;
+            txtSS.Focus();
             txtSS.Text = "";
             ddlCLasses.SelectedValue = "-1";
             ddlSection.SelectedValue = "-1";
@@ -121,6 +124,7 @@ public partial class StudentLedger : System.Web.UI.Page
     {
         try
         {
+            btnSubmit.Focus();
             SearchStudent SS = new SearchStudent();
 
             if (ddlStType.SelectedValue == "1")
@@ -288,6 +292,7 @@ public partial class StudentLedger : System.Web.UI.Page
     {
         ddlStType.SelectedValue = "-1";
         txtSS.Text = "";
+        ddlStType.Focus();
         btnSS.Visible = true;
         ddlStudent.SelectedValue = "-1";
         ddlCLasses.SelectedValue = "-1";
@@ -335,7 +340,7 @@ public partial class StudentLedger : System.Web.UI.Page
                 Session["UID"] = UID;
               
                 multiview1.SetActiveView(view2);
-
+                txtdatefrom.Focus();
             }
         }
         catch (Exception ex)
@@ -358,12 +363,15 @@ public partial class StudentLedger : System.Web.UI.Page
             ddlStudent.DataSource = ds;
             ddlStudent.DataBind();
             ddlStudent.Items.Insert(0, new ListItem("Select Student", "-1"));
+            ddlStudent.Focus();
+           
         }
         else
         {
             ddlStudent.DataSource = null;
             ddlStudent.DataBind();
             ddlStudent.Items.Insert(0, new ListItem("No Student Found", "-1"));
+            ddlSection.Focus();
         }
     }
     public void StudentAccountDetails()
@@ -411,7 +419,6 @@ public partial class StudentLedger : System.Web.UI.Page
             lblError.Text = ex.ToString();
         }
     }
-
     protected void btnBack_Click(object sender, EventArgs e)
     {
         try
