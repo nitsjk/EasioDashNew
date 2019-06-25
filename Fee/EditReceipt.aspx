@@ -161,30 +161,33 @@
 
 
 
-              <li class="a-inner" > <a href="Fee/FeeHeads.aspx"><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" >  Add Fee</span></a> </li>
+             
+
+               <li class="a-inner" > <a href="FeeHeads.aspx"><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" >  Add Fee</span></a> </li>
                             
-                                   <li class="a-inner" > <a href="Fee/FeeStructure.aspx"><i class="fa fa-caret-square-o-right text-right i-class"></i>
+                                   <li class="a-inner" > <a href="FeeStructure.aspx"><i class="fa fa-caret-square-o-right text-right i-class"></i>
                                        <span class="inner-span">  Fee Structure</span> </a> </li>
 
-                                   <li class="a-inner" > <a href="Fee/FeeDue.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Fee Due </span></a> </li>
-                              <li class="a-inner" > <a href="Fee/PayFee.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Pay Fee</span></a> </li>
+                                   <li class="a-inner" > <a href="FeeDue.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Fee Due </span></a> </li>
+                              <li class="a-inner" > <a href="PayFee.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Pay Fee</span></a> </li>
 
-                              <li class="a-inner" > <a href="Fee/StudentLedger.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Student Ledger </span></a> </li>
+                              <li class="a-inner" > <a href="StudentLedger.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Student Ledger </span></a> </li>
 
-                               <li class="a-inner" > <a href="Fee/FeeAdvance.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Fee Advance </span></a> </li>
-                             <li class="a-inner" > <a href="Fee/Editreceipt.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Edit Receipt </span></a> </li>
-                             <li class="a-inner" > <a href="Fee/EditFee.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Edit Fee </span></a> </li>
-                             <li class="a-inner" > <a href="Fee/HalfTransportFee"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Update Transport Fee </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/NewCashCollection.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Cash Collection </span></a> </li>
-                              <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Fee Rebate </span></a> </li>
-                              <li class="a-inner" > <a href="Fee/DayBook.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Day Book </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Cancel Receipt </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Manage Transport </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/IncomeCertificate"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Income Certificate </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/Defaulters.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Defaulters </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Bus Defaulters </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Discount Report </span></a> </li>
-                            <li class="a-inner" > <a href="Fee/"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Delete Receipt </span></a> </li>
+                               <li class="a-inner" > <a href="FeeAdvance.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Fee Advance </span></a> </li>
+                             <li class="a-inner" > <a href="Editreceipt.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Edit Receipt </span></a> </li>
+                             <li class="a-inner" > <a href="EditFee.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" >  Edit Fee </span></a> </li>
+                             <li class="a-inner" > <a href="HalfTransportFee"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Update Transport Fee </span></a> </li>
+                            <li class="a-inner" > <a href="NewCashCollection.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Cash Collection </span></a> </li>
+                              <li class="a-inner" > <a href=""><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Fee Rebate </span></a> </li>
+                              <li class="a-inner" > <a href="DayBook.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Day Book </span></a> </li>
+                            <li class="a-inner" > <a href=""><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Cancel Receipt </span></a> </li>
+                            <li class="a-inner" > <a href=""><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Manage Transport </span></a> </li>
+                            <li class="a-inner" > <a href="IncomeCertificate.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Income Certificate </span></a> </li>
+                            <li class="a-inner" > <a href="Defaulters.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Defaulters </span></a> </li>
+                            <li class="a-inner" > <a href=""><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Bus Defaulters </span></a> </li>
+                            <li class="a-inner" > <a href=""><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Discount Report </span></a> </li>
+                            <li class="a-inner" > <a href=""><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Delete Receipt </span></a> </li>
+
 
 
             </ul>

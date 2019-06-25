@@ -571,8 +571,33 @@
     <br />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentDisplay" Runat="Server">
+    <style>
+  
+    legend {
+        /* display: block; */
+        width: auto;
+        padding: 0;
+        margin-bottom: 20px;
+        font-size: 15px;
+        line-height: inherit;
+        color: #000000;
+        border: 0;
+        /* border-bottom: 1px solid #e5e5e5; */
+        margin-left: 33px;
+        font-weight: bold;
+    }
+
+    fieldset {
+        border: 1px solid #cbcbcb;
+        width: 90%;
+        margin-top: 10px;
+        margin-left: 20px;
+       
+    }
+        </style>
+
      <div class="col-md-12 center-block text-center" style="margin-top: 20px;">
-        <h3><span style="color: #9d0e0a">Pay</span> Counter</h3>
+        <h3><span style="color: #9d0e0a">Add</span> Student </h3>
         <hr class="center-block text-center" style="border: 1px solid #808080; text-align: center; background-color: #000000; margin-top: -6px; width: 25%" />
     </div>
     <div style="padding: 15px;">
@@ -583,12 +608,12 @@
     <asp:View ID="view1" runat="server">
             <div class="container-fluid">
                 <div class="col-md-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-     <div id="addstudent" class="tab-pane active">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
               
-        <fieldset>
+        <fieldset style="height:500px">
              
-            <legend>Student Detail</legend>
+            <legend>Add Student</legend>
             <div class="col-md-12">
                 <div class="col-md-4 form-group">
                     ID No:
@@ -729,19 +754,243 @@
                  </div>
                   
                 </div>
-                   <div class="col-md-12">
-     <div class="col-md-6 form-group"  style="margin-left:100px;margin-top:10px">
-               <a data-target="#parentdetail" data-toggle="tab" class="btn btn-info">Next</a>
-    </div>
-          </div>
+                  
+         
 
         </fieldset>
              
              
              </div>
-                        </div>
+
+
+
+
+
+                        
                     </div>
                 </div>
+
+
+
+
+        <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+
+          <fieldset style="height:200px">
+            <legend>Parent Details</legend>
+             <div class="col-md-12">
+                <div class="col-md-4 form-group">
+                    Father's Name:
+                  
+          <asp:TextBox runat="server" ID="txtfathername" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtfathername" runat="server" />
+                   
+                </div>
+                
+                <div class="col-md-4 form-group">
+                    Father's Qualifaction:
+                  
+          <asp:TextBox runat="server" ID="txtfatherqualf" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtfatherqualf" runat="server" />
+                   
+                </div>
+                     <div class="col-md-4 form-group">
+                    Father's Occupation:
+                  
+          <asp:TextBox runat="server" ID="txtdfatheroccuption" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtdfatheroccuption" runat="server" />
+                   
+                </div>
+                 </div>
+            <div class="col-md-12">
+                <div class="col-md-4 form-group">
+                    Mother's Name:
+                  
+          <asp:TextBox runat="server" ID="txtmothername" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtmothername" runat="server" />
+                   
+                </div>
+                
+                <div class="col-md-4 form-group">
+                    Mother's Qualifaction:
+                  
+          <asp:TextBox runat="server" ID="txtmotherqualf" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtmotherqualf" runat="server" />
+                   
+                </div>
+                     <div class="col-md-4 form-group">
+                    Mother's Occupation:
+                  
+          <asp:TextBox runat="server" ID="txtmotheroccuption" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtmotheroccuption" runat="server" />
+                   
+                </div>
+                  
+                 </div>
+        </fieldset>
+
+
+</div>
+                    </div>
+            </div>
+
+         <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+
+          <fieldset style="height:200px">
+            <legend>Contact Details</legend>
+             <div class="col-md-12">
+                <div class="col-md-4 form-group">
+                    Present Address:
+                  
+          <asp:TextBox runat="server" ID="txtpresentaddrs" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtpresentaddrs" runat="server" />
+                   
+                </div>
+                 <div class="col-md-4 form-group">
+                    Permenant Address:
+                  
+          <asp:TextBox runat="server" ID="txtpremntaddres" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtpremntaddres" runat="server" />
+                   
+                </div>
+                 <div class="col-md-4 form-group">
+                    Landline No :
+                  
+          <asp:TextBox runat="server" ID="txtlandlineno" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtlandlineno" runat="server" />
+                   
+                </div>
+
+                 </div>
+               <div class="col-md-12">
+                   <div class="col-md-4 form-group">
+                    Mobile No:
+                  
+          <asp:TextBox runat="server" ID="txtmobileno" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtmobileno" runat="server" />
+                   
+                </div>
+                   <div class="col-md-4 form-group">
+                    Father's Cell No:
+                  
+          <asp:TextBox runat="server" ID="txtfthrcellno" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtfthrcellno" runat="server" />
+                   
+                </div>
+                   <div class="col-md-4 form-group">
+                     Mother's Cell No:
+                  
+          <asp:TextBox runat="server" ID="txtmothercelno" CssClass="form-control" ValidationGroup="add" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtmothercelno" runat="server" />
+                   
+                </div>
+                   
+                   </div>
+
+             </fieldset>
+</div>
+                    </div>
+            </div>
+
+
+
+         <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <fieldset style="height:250px">
+            <legend>Transport Detail</legend>
+                  <div class="col-md-12">
+               
+            <div class="col-md-4 form-group">
+                    Bus No:<span style="color: red;"></span>
+        <asp:DropDownList ID="ddlbusno" CssClass="form-control  " ValidationGroup="add"
+            runat="server">
+            <asp:ListItem Value="0" Selected="True">Select?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+             <asp:ListItem Value="1">C </asp:ListItem>
+            <asp:ListItem Value="2">D</asp:ListItem>
+        </asp:DropDownList>
+
+
+                   </div>
+                       <div class="col-md-4 form-group">
+                    Bus Stop:<span style="color: red;"></span>
+        <asp:DropDownList ID="ddlbusstop" CssClass="form-control " ValidationGroup="add"
+            runat="server">
+            <asp:ListItem Value="0" Selected="True">Select?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+             <asp:ListItem Value="1">C </asp:ListItem>
+            <asp:ListItem Value="2">D</asp:ListItem>
+        </asp:DropDownList>
+
+
+                   </div>
+                       <div class="col-md-4 form-group">
+                    Fee Catagory:<span style="color: red;"></span>
+        <asp:DropDownList ID="ddlfeecatagory" CssClass="form-control " ValidationGroup="add"
+            runat="server">
+            <asp:ListItem Value="0" Selected="True">Select?</asp:ListItem>
+            <asp:ListItem Value="1">A </asp:ListItem>
+            <asp:ListItem Value="2">B</asp:ListItem>
+             <asp:ListItem Value="1">C </asp:ListItem>
+            <asp:ListItem Value="2">D</asp:ListItem>
+        </asp:DropDownList>
+
+
+                   </div>
+
+
+
+                      </div>
+            <div class="col-md-12">
+             <div class="col-md-4 form-group">
+                     Photo:
+                  
+         <asp:FileUpload ID="photoupload" CssClass="form-control" runat="server" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtmothercelno" runat="server" />
+                   
+                </div>
+                 <div class="col-md-4 form-group">
+                     Remarks:
+                  
+          <asp:TextBox runat="server" ID="txtremark" CssClass="form-control" ValidationGroup="add" TextMode="MultiLine" Height="100px" />
+                    <asp:RequiredFieldValidator ErrorMessage="*" ValidationGroup="add" SetFocusOnError="true"
+                        ControlToValidate="txtremark" runat="server" />
+                   
+                </div>
+                
+            </div>
+
+        </fieldset>
+
+ <div class="col-md-12">
+                    <div class="col-md-4 form-group"  style="margin-left:40%;margin-top:10px">
+                        <asp:Button ID="btnsubmit" runat="server" Text="Submit" CssClass="btn btn-info" />
+              </div>
+
+        </div>
+                    </div>
+            </div>
         
                         </asp:View>
          </asp:Multiview>

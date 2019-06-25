@@ -37,7 +37,7 @@
 
                             <li class="a-inner" > <a href="Fee/FeeHeads.aspx"><i class="fa fa-caret-square-o-right i-class" ></i><span class="inner-span" >  Add Fee</span></a> </li>
                             
-                                   <li class="a-inner" > <a href="Fee/FeeStructure.aspx"><i class="fa fa-caret-square-o-right text-right i-class"></i>
+                                   <li class="a-inner" > <a href="Fee/AddFeeStructure.aspx"><i class="fa fa-caret-square-o-right text-right i-class"></i>
                                        <span class="inner-span">  Fee Structure</span> </a> </li>
 
                                    <li class="a-inner" > <a href="Fee/FeeDue.aspx"><i class="fa fa-caret-square-o-right i-class"></i><span class="inner-span" > Fee Due </span></a> </li>
